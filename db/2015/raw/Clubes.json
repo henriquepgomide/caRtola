@@ -1,0 +1,162 @@
+[
+  {
+    "nome": "joinville",
+    "escudo_pequeno": "http://s.glbimg.com/es/sde/f/organizacoes/2015/01/08/Joinville30.png",
+    "id": 317,
+    "mercado": 1,
+    "abreviacao": "jec",
+    "slug": "joinville"
+  },
+  {
+    "nome": "goiás",
+    "escudo_pequeno": "http://s.glbimg.com/es/sde/f/equipes/2013/12/16/goias_30x30.png",
+    "id": 290,
+    "mercado": 1,
+    "abreviacao": "goi",
+    "slug": "goias"
+  },
+  {
+    "nome": "coritiba",
+    "escudo_pequeno": "http://s.glbimg.com/es/sde/f/equipes/2013/12/16/coritiba_30x30.png",
+    "id": 294,
+    "mercado": 1,
+    "abreviacao": "cor",
+    "slug": "coritiba"
+  },
+  {
+    "nome": "sport",
+    "escudo_pequeno": "http://s.glbimg.com/es/sde/f/equipes/2014/09/15/sport_30x30.png",
+    "id": 292,
+    "mercado": 1,
+    "abreviacao": "spo",
+    "slug": "sport"
+  },
+  {
+    "nome": "atlético-pr",
+    "escudo_pequeno": "http://s.glbimg.com/es/sde/f/equipes/2013/12/16/atletico_pr_30x30.png",
+    "id": 293,
+    "mercado": 1,
+    "abreviacao": "atl",
+    "slug": "atletico-pr"
+  },
+  {
+    "nome": "flamengo",
+    "escudo_pequeno": "http://s.glbimg.com/es/sde/f/equipes/2013/12/16/flamengo_30x30.png",
+    "id": 262,
+    "mercado": 1,
+    "abreviacao": "fla",
+    "slug": "flamengo"
+  },
+  {
+    "nome": "corinthians",
+    "escudo_pequeno": "http://s.glbimg.com/es/sde/f/equipes/2013/12/16/corinthians_30x30.png",
+    "id": 264,
+    "mercado": 1,
+    "abreviacao": "cor",
+    "slug": "corinthians"
+  },
+  {
+    "nome": "avaí",
+    "escudo_pequeno": "http://s.glbimg.com/es/sde/f/equipes/2013/12/16/avai_30x30.png",
+    "id": 314,
+    "mercado": 1,
+    "abreviacao": "ava",
+    "slug": "avai"
+  },
+  {
+    "nome": "fluminense",
+    "escudo_pequeno": "http://s.glbimg.com/es/sde/f/equipes/2015/05/05/fluminense-escudo-30x30.png",
+    "id": 266,
+    "mercado": 1,
+    "abreviacao": "flu",
+    "slug": "fluminense"
+  },
+  {
+    "nome": "vasco",
+    "escudo_pequeno": "http://s.glbimg.com/es/sde/f/equipes/2013/12/16/vasco_30x30.png",
+    "id": 267,
+    "mercado": 1,
+    "abreviacao": "vas",
+    "slug": "vasco"
+  },
+  {
+    "nome": "ponte preta",
+    "escudo_pequeno": "http://s.glbimg.com/es/sde/f/equipes/2013/12/16/ponte_preta_30x30.png",
+    "id": 303,
+    "mercado": 1,
+    "abreviacao": "pon",
+    "slug": "ponte-preta"
+  },
+  {
+    "nome": "palmeiras",
+    "escudo_pequeno": "http://s.glbimg.com/es/sde/f/equipes/2013/12/16/palmeiras_30x30.png",
+    "id": 275,
+    "mercado": 1,
+    "abreviacao": "pal",
+    "slug": "palmeiras"
+  },
+  {
+    "nome": "são paulo",
+    "escudo_pequeno": "http://s.glbimg.com/es/sde/f/equipes/2013/12/16/sao_paulo_30x30.png",
+    "id": 276,
+    "mercado": 1,
+    "abreviacao": "sao",
+    "slug": "sao-paulo"
+  },
+  {
+    "nome": "santos",
+    "escudo_pequeno": "http://s.glbimg.com/es/sde/f/equipes/2013/12/16/santos_30x30.png",
+    "id": 277,
+    "mercado": 1,
+    "abreviacao": "san",
+    "slug": "santos"
+  },
+  {
+    "nome": "figueirense",
+    "escudo_pequeno": "http://s.glbimg.com/es/sde/f/equipes/2013/12/16/figueirense_30x30.png",
+    "id": 316,
+    "mercado": 1,
+    "abreviacao": "fig",
+    "slug": "figueirense"
+  },
+  {
+    "nome": "chapecoense",
+    "escudo_pequeno": "http://s.glbimg.com/es/sde/f/equipes/2015/05/06/chapecoense_30x30.png",
+    "id": 315,
+    "mercado": 1,
+    "abreviacao": "cha",
+    "slug": "chapecoense"
+  },
+  {
+    "nome": "atlético-mg",
+    "escudo_pequeno": "http://s.glbimg.com/es/sde/f/equipes/2013/12/16/atletico_mg_30x30.png",
+    "id": 282,
+    "mercado": 1,
+    "abreviacao": "atl",
+    "slug": "atletico-mg"
+  },
+  {
+    "nome": "cruzeiro",
+    "escudo_pequeno": "http://s.glbimg.com/es/sde/f/equipes/2015/04/29/cruzeiro_30.png",
+    "id": 283,
+    "mercado": 1,
+    "abreviacao": "cru",
+    "slug": "cruzeiro"
+  },
+  {
+    "nome": "grêmio",
+    "escudo_pequeno": "http://s.glbimg.com/es/sde/f/equipes/2013/12/16/gremio_30x30.png",
+    "id": 284,
+    "mercado": 1,
+    "abreviacao": "gre",
+    "slug": "gremio"
+  },
+  {
+    "nome": "internacional",
+    "escudo_pequeno": "http://s.glbimg.com/es/sde/f/equipes/2014/04/14/internacional_30x30.png",
+    "id": 285,
+    "mercado": 1,
+    "abreviacao": "int",
+    "slug": "internacional"
+  }
+]

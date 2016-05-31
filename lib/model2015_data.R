@@ -2,6 +2,7 @@
 library(reshape2)
 library(ggplot2)
 library(plyr)
+library(caret)
 
 # model2015_data.R
 setwd("db/2015/tidy/")
@@ -16,7 +17,6 @@ club_names <- club_names[, c(1,4)]
 # Get position codes
 position_codes <- read.csv("posicoes.csv", stringsAsFactors = FALSE)
 position_codes <- position_codes[, c(2,4)]
-
 
 # First apply read.csv, then rbind
 cartola_2015 <-  do.call(rbind, lapply(files, function(x) read.csv(x, stringsAsFactors = FALSE)))
@@ -41,18 +41,39 @@ cols.num <- c(2:5)
 cartola_2015_Long[cols.num] <- sapply(cartola_2015_Long[cols.num],as.numeric)
 sapply(cartola_2015_Long, class)
 
+## Write data
+write.csv(cartola_2015_Long, "../db/2015/cartola_2015_Long.csv")
+
 
 # --------------------------------
 # Melted data
 # --------------------------------
-# Remove players who acted less than 25 games
-cartola_2015 <- merge(cartola_2015, cartola_2015_Long, by.x = "Atleta", by.y = "Atleta")
-cartola_2015 <- subset(cartola_2015, cartola_2015$gamesPlayed >= 25)
 
+# Merge cartola 2015 Long  estimates into cartola
+cartola_2015 <- merge(cartola_2015, cartola_2015_Long, by.x = "Atleta", by.y = "Atleta")
+
+# Create unique id vars
+cartolaID <- unique(cartola_2015[,c("Atleta","Apelido","Clube","Posicao")])
+
+# Create wide format for variables per round
+cartolaTimeSeries <- cartola_2015[,c("Atleta","Rodada","Preco","Pontos","Mando")]
+cartolaTimeSeries <- cartolaTimeSeries[order(cartolaTimeSeries$Atleta, cartolaTimeSeries$Rodada),]
+cartolaTimeSeries <- reshape(cartolaTimeSeries, idvar = "Atleta", timevar = "Rodada", direction = "wide")
+
+# Merge data for shiny application
+cartolaDF <- merge(cartolaID, cartola_2015_Long, by = "Atleta")
+cartolaDF <- merge(cartolaDF, cartolaTimeSeries)
+
+saveRDS(cartola_2015, "../cartolaDF.rds")
+
+# cartolaDF <- cartolaDF[, order(names(cartolaDF))]
 
 #########################
 # Exploratory analysis #
 #########################
+
+# Remove players who acted less than 25 games
+cartola_2015 <- subset(cartola_2015, cartola_2015$gamesPlayed >= 25)
 
 # Points
 summary(cartola_2015_Long$points_pg)
@@ -76,6 +97,12 @@ by(cartola_2015$Pontos, cartola_2015$Clube, mean)
 sorted <- cartola_2015_Long[order(cartola_2015_Long$points_pg, decreasing = TRUE), ]
 listPlayers <- as.vector(sorted[1:15, 1])
 
+
+
+#########################
+# Charts #
+#########################
+
 # Plot players points during competition
 playerData <- cartola_2015
 playerData <- subset(playerData, cartola_2015$points_per_price >= .3)
@@ -84,9 +111,6 @@ playerData <- playerData[order(playerData$Atleta, playerData$Rodada), ]
 
 playerDataMelted <- melt(playerData, id.vars=c("Apelido", "Atleta","Rodada","Posicao","Clube"), measure.vars = "Pontos", value.name = "Pontos")  
 
-#########################
-# Charts #
-#########################
 
 # Forwards
 ggplot(data=subset(playerDataMelted, Posicao %in% "ata"), 
@@ -122,8 +146,6 @@ ggplot(data=subset(playerDataMelted, Posicao %in% "gol"),
 # Time Series
 #########################
 
-timeSeriesData <- cartola_2015[,c("Atleta","Rodada","Apelido","Clube","Posicao","Pontos","Preco","Mando")]
-tsMelted <- melt(timeSeriesData, id.vars=c("Atleta","Rodada","Apelido","Clube","Posicao","Mando"), measure.vars = c("Pontos","Preco"))  
-test <- dcast(tsMelted, Rodada ~ variable)
-
+# Remove players who acted less than 25 games
+cartolaDF_sub <- subset(cartolaDF, cartolaDF$gamesPlayed >= 25 & cartolaDF$points_pg != 0 & cartolaDF$price_pg != 0)
 

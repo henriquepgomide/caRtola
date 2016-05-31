@@ -38,7 +38,7 @@ df_1 <- cbind(df_1, athletes$atletas$scout)
 rm(df_2)
 
 # Store data frame
-write.csv(df_1, "db/2016/player_data.csv")
+write.csv(df_1, "db/2016/rodada-3.csv")
 
 
 

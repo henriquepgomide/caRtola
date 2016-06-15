@@ -146,6 +146,11 @@ ggplot(data=subset(playerDataMelted, Posicao %in% "gol"),
 # Time Series
 #########################
 
+library(dplyr)
+library(forecast)
+
 # Remove players who acted less than 25 games
-cartolaDF_sub <- subset(cartolaDF, cartolaDF$gamesPlayed >= 25 & cartolaDF$points_pg != 0 & cartolaDF$price_pg != 0)
+cartola_TS <- subset(cartola_2015, cartola_2015$gamesPlayed >= 25 & cartola_2015$points_per_price != 0)
+cartola_TS <- arrange(cartola_TS, Atleta, Rodada)
+
 

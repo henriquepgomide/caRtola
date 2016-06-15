@@ -4,12 +4,17 @@ library(rjson)
 library(jsonlite)
 library(plyr)
 
-# --------------------------------------------------
+# What? ----------------------------------------------
 # Retrieve data from Cartola and store in R format
-# --------------------------------------------------
+# Every round, you need to gather and store data into
+# db/2016 folder
+# ----------------------------------------------------
 
-# Fetch api
-json_athletes <- "https://api.cartolafc.globo.com/atletas/mercado" 
+###################
+# Fetch Player Data 
+###################
+
+json_athletes <- "https://api.cartolafc.globo.com/atletas/mercado"
 athletes <- fromJSON(paste(readLines(json_athletes), collapse="")) # Get data from Cartola API
 df_1 <- data.frame(athletes[1]) # Convert List format into DataFrame
 df_1 <- df_1[, 1:13] # Select useful vars
@@ -32,14 +37,21 @@ temp1$Cod <- as.integer(temp1$Cod)
 df_1$atletas.status_id <- mapvalues(df_1$atletas.status_id, from = as.vector(temp1$Cod), to = as.vector(temp1$status))
 rm(temp1)
 
+# Label team
+teams <- athletes[2]
+temp1 <- t(matrix(unlist(teams),7,20))
+temp1 <- data.frame(temp1, stringsAsFactors = FALSE)
+temp1 <- temp1[,1:4]
+colnames(temp1) <- c("Cod", "nome.completo","nome","pos")
+temp1$Cod <- as.integer(temp1$Cod)
+df_1$atletas.clube_id <- mapvalues(df_1$atletas.clube_id, from = as.vector(temp1$Cod), to = as.vector(temp1$nome))
+rm(teams);rm(temp1)
+
 # Merge detailed scouts into df_1
 df_2 <- athletes$atletas$scout
 df_1 <- cbind(df_1, athletes$atletas$scout)
-rm(df_2)
+rm(df_2,df_3, athletes, json_athletes)
 
 # Store data frame
-write.csv(df_1, "db/2016/rodada-3.csv")
-
-
-
+# write.csv(df_1, "db/2016/rodada-7.csv")
 

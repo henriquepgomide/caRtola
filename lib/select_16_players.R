@@ -1,4 +1,18 @@
-# library
+# What? ----------------------------------------------
+# This script is intended to run exploratory analysis
+# and run some models to predict player fantasy 
+# performance
+# ----------------------------------------------------
+
+# Objetivo--------------------------------------------
+# Este script tem como objetivo executar algumas
+# análises exploratórias e criar modelos para prever
+# os resultados dos jogadores do cartola
+# ----------------------------------------------------
+
+
+# Load libraries
+# Carregar pacotes
 library(ggplot2)
 library(reshape2)
 library(caret)
@@ -7,10 +21,16 @@ library(parallel)
 library(doParallel)
 library(forecast)
 
+# Run script to fetch latest data
+# Executar script para recuperar dados da API do cartola
+# source("lib/caRtola_fetch.R")
+
 # Set working directory
+# Configurar diretório de trabalho
 setwd("db/2016")
 
 # Get teams names, codes and position
+# Recuperar nome dos times, códigos e posições
 temp1 <- read.csv("teams_ids.csv", stringsAsFactors = FALSE)
 classification  <- read.csv("tabela-times.csv", stringsAsFactors = FALSE)
 teamData <- cbind(arrange(temp1, nome.completo), arrange(classification, Clube))
@@ -31,18 +51,15 @@ rm(temp1, classification, files)
 cartola_2016[,15:32] <- sapply(cartola_2016[,15:32], function(x) ifelse(is.na(x), 0,x)) 
 
 # Keep useful variables
-cartola_2016 <- cartola_2016[, -c(1,2,4,12,13,15:33)]
-
-# Merge with scores
-cartola_2016 <- cbind(cartola_2016, points)
+cartola_2016 <- cartola_2016[, -c(1,2,4,12,13)]
 
 # Subset players who mean score is diferent from 0
-b <- tapply(cartola_2016$atletas.pontos_num, cartola_2016$atletas.apelido, mean)
-c <- tapply(cartola_2016$atletas.jogos_num, cartola_2016$atletas.apelido, max)
-gamesPlayed <- data.frame(atletas.apelido = names(b), avg = b, played_games = c)
-cartola_2016 <- merge(cartola_2016, gamesPlayed, by = "atletas.apelido")
+b <- tapply(cartola_2016$atletas.pontos_num, cartola_2016$atletas.atleta_id, mean)
+c <- tapply(cartola_2016$atletas.jogos_num, cartola_2016$atletas.atleta_id, max)
+gamesPlayed <- data.frame(atletas.atleta_id = names(b), avg = b, played_games = c)
+cartola_2016 <- merge(cartola_2016, gamesPlayed, by = "atletas.atleta_id")
 
-cartola_2016 <- subset(cartola_2016, cartola_2016$avg != 0 & cartola_2016$played_games > 5)
+cartola_2016 <- subset(cartola_2016, cartola_2016$avg != 0 & cartola_2016$played_games > 6)
 rm(gamesPlayed,c,b)
 
 ##########################
@@ -54,7 +71,7 @@ ggplot(data = cartola_2016, aes(x = atletas.pontos_num, fill = atletas.posicao_i
   stat_density(alpha = .7) + scale_fill_brewer(palette = "Paired", type = "qual") + scale_colour_brewer(palette = "Paired", type = "qual") + theme(legend.position = "top")
 
 # Boxplot of points by position
-ggplot(data = cartola_2016, aes(atletas.posicao_id,atletas.pontos_num)) + geom_boxplot() + geom_jitter(width = .5, alpha = .3)
+ggplot(data = cartola_2016, aes(atletas.posicao_id,atletas.pontos_num)) + geom_boxplot() + geom_jitter(width = .5, alpha = .15)
 
 # Boxplot of point by team
 ggplot(data = cartola_2016, aes(x = reorder(atletas.posicao_id, atletas.pontos_num, FUN = median), y = atletas.pontos_num)) + geom_boxplot() + facet_wrap(~atletas.clube_id)
@@ -118,14 +135,14 @@ cor(select(cartola_Wide, contains("PPP.")), use = "complete.obs")  # Points per 
 
 # SPLIT DATA
 ## Bind data for modeling
-test <- subset(cartola_2016, cartola_2016$atletas.rodada_id == 6)
-train <- subset(cartola_2016, cartola_2016$atletas.rodada_id != 6)
+test <- subset(cartola_2016, cartola_2016$atletas.rodada_id == 8)
+train <- subset(cartola_2016, cartola_2016$atletas.rodada_id != 8)
 
-train <- train[, -c(2,3,4,6,8,9,28,29)]
-test <-  test[, -c(2,3,4,6,8,9,28,29)]
+train <- train[, -c(3,6,8,9,28,29)]
+test <-  test[,  -c(3,6,8,9,28,29)]
 
-colnames(train)[3] <- "outcome"
-colnames(test)[3] <- "outcome"
+colnames(train)[5] <- "outcome"
+colnames(test)[5] <- "outcome"
 
 ## CONTROLS
 ctrl <- trainControl(method = "repeatedcv", number = 10, repeats = 10, allowParallel = TRUE, verboseIter = TRUE) # Regression Models
@@ -140,12 +157,20 @@ highlyCorPred <- findCorrelation(predCor1, cutoff = 0.75)
 # MEAN MODEL - AVAILABLE AT GLOBO
 ###################################
 
-avgData <- train[,c("atletas.apelido","outcome")]
-avgDataTest <- test[,c("atletas.apelido","outcome")]
-meanModel <- merge(avgData, avgDataTest, by = "atletas.apelido", all = TRUE)
-cor(meanModel$outcome.x,meanModel$outcome.y, use = "complete.obs", method = "kendall")
-RMSE(meanModel$outcome.x,meanModel$outcome.y, na.rm = TRUE)
+avgData <- train[,c("atletas.atleta_id","outcome")]
+avgDataTest <- test[,c("atletas.atleta_id","outcome")]
 
+avgData <- tbl_df(avgData)
+avgDataTest <- tbl_df(avgDataTest)
+avgData <- avgData %>% group_by(atletas.atleta_id) %>% summarise(avg = mean(outcome))
+
+meanModel <- left_join(avgData, avgDataTest, by = "atletas.atleta_id")
+meanModel <- filter(meanModel, outcome != 0)
+
+cor(meanModel$avg, meanModel$outcome, use = "complete.obs", method = "kendall")
+RMSE(meanModel$avg, meanModel$outcome, na.rm = TRUE)
+
+ggplot(meanModel, aes(avg, outcome)) + geom_point()
 
 # Remove atletas.apelido variable
 train <- train[, -1]
@@ -237,6 +262,7 @@ plot(predictions_gbm, test$outcome)
 ## GROUP 2 - Time Series Analysis
 #####################################
 
+cartola_2016 <- tbl_df(cartola_2016)
 cartola_2016 <- arrange(cartola_2016, atletas.apelido, atletas.rodada_id)
 
 ids <- unique(cartola_2016$atletas.atleta_id)
@@ -250,27 +276,25 @@ for (i in 1: length(ids)){
   predictions$prediction[i] <- fcast$mean
   meanModel <- meanf(myTs, h = 1)
   predictions$avg[i] <- meanModel$mean
-  naiveModel <- naive(myTs, h= 1)
-  predictions$naive[i] <- naiveModel$mean
+  acnaiveModel <- naive(myTs, h = 1)
+  predictions$naive[i] <- acnaiveModel$mean
   driftModel <- rwf(myTs, drift = TRUE, h = 1)
   predictions$drift[i] <- driftModel$mean
   
   # RMSE
   predictions$acForecast[i] <- accuracy(fcast)[2]
   predictions$acMean[i] <- accuracy(meanModel)[2]
-  predictions$acnaiveModel[i] <- accuracy(naiveModel)[2]
+  predictions$acnaiveModel[i] <- accuracy(acnaiveModel)[2]
   predictions$acDriftModel[i] <- accuracy(driftModel)[2]
 }
 
-rm(driftModel, etsfit, fcast, i, ids, meanModel, myTs, naiveModel)
+rm(driftModel, etsfit, fcast, i, ids, meanModel, myTs, acnaiveModel)
 
 #####################################
 ## GROUP 3 - Wide Data
 #####################################
 
 cartola_2016 <- cartola_2016 %>% group_by(atletas.apelido) %>% mutate(l_outcome = lag(atletas.pontos_num))
-
-
 
 # --------------------------
 # INDIVIDUAL PLAYER ANALYSIS
@@ -327,9 +351,9 @@ ggplot(melt.scores, aes(x = value)) + geom_point() + facet_grid(.)
 ## SELECT PLAYERS ##
 ##########################
 
-playerPrediction <- read.csv("rodada-7.csv", stringsAsFactors = FALSE)
+playerPrediction <- read.csv("rodada-9.csv", stringsAsFactors = FALSE)
 playerPrediction <- playerPrediction[, -c(1,2,4,6,12,13)]
-playerPrediction <- subset(playerPrediction, playerPrediction$atletas.status_id == "Provável" & playerPrediction$atletas.jogos_num >= 5)
+playerPrediction <- subset(playerPrediction, playerPrediction$atletas.status_id == "Provável" & playerPrediction$atletas.jogos_num >= 6)
 
 playerPrediction <- merge(playerPrediction, predictions, by.x = "atletas.atleta_id", by.y = "id")
 
@@ -342,9 +366,52 @@ mid <- subset(lista1, atletas.posicao_id == "mei")
 strikers <- subset(lista1, atletas.posicao_id == "ata")
 coach <- subset(lista1, atletas.posicao_id == "tec")
 
-head(coach,20)
+# Print list of athletes
+head(arrange(GK, desc(acForecast)),10)
+head(arrange(defenders, desc(acForecast)),10)
+head(arrange(lateral, desc(acForecast)),10)
+head(arrange(mid, desc(acForecast)),20)
+head(arrange(strikers, desc(acForecast)),25)
 
-by(cartola_2016$atletas.pontos_num, cartola_2016$atletas.posicao_id, median)
+#-------------------
+## GA Selection ----
+#-------------------
+
+library(genalg)
+
+pontosCartola <- 90
+
+chromosome <-  as.vector(c(rep(1,12), rep(0, (nrow(lista1)-12))))
+
+lista1[chromosome == 1, ]
+
+cat(chromosome %*% lista1$acForecast)
+
+evalFunc <- function(x) {
+  current_solution_acForecast <- x %*% lista1$acForecast
+  current_solution_weight <- x %*% lista1$atletas.preco_num
+  
+  if (current_solution_weight > pontosCartola) 
+    return(0) else return(-current_solution_acForecast)
+}
+
+iter = 100
+GAmodel <- rbga.bin(size = 138, popSize = 200, iters = iter, mutationChance = 0.01, 
+                    elitism = T, evalFunc = evalFunc)
+
+cat(summary(GAmodel))
+
+
+solution = c(1, 1, 1, 1, 1, 0, 1)
+dataset[solution == 1, ]
+GAmodel$population
+
+# solution vs available
+cat(paste(solution %*% dataset$survivalpoints, "/", sum(dataset$survivalpoints)))
+
+
+
+
 
 ### BIN ####
 

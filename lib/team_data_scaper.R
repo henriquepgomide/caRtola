@@ -31,8 +31,8 @@ theurl <- htmlTreeParse("http://www.cbf.com.br/competicoes/brasileiro-serie-a/ta
 tables <- readHTMLTable(theurl)
 n.rows <- unlist(lapply(tables, function(t) dim(t)[1]))
 info <- tables[[which.max(n.rows)]]
-info <- info[,1:18]
+info <- info[,1:8]
 colnames(info) <- c("game","round","date", "home_team","score","away_team","arena","X")
 rm(n.rows,tables, theurl)
 # Write file as csv - Gravar resultados das partidas
-write.csv("db/2016/matches-brasileirao-2016.csv")
+write.csv(info, "db/2016/matches-brasileirao-2016.csv")

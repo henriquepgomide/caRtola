@@ -16,6 +16,7 @@
 library(ggplot2)
 library(reshape2)
 library(caret)
+library(plyr)
 library(dplyr)
 library(parallel)
 library(doParallel)
@@ -23,7 +24,8 @@ library(forecast)
 
 # Run script to fetch latest data
 # Executar script para recuperar dados da API do cartola
-# source("lib/caRtola_fetch.R")
+#source("lib/caRtola_fetch.R")
+#source("lib/team_data_scraper.R")
 
 # Set working directory
 # Configurar diretório de trabalho
@@ -281,7 +283,7 @@ for (i in 1: length(ids)){
   driftModel <- rwf(myTs, drift = TRUE, h = 1)
   predictions$drift[i] <- driftModel$mean
   
-  # RMSE
+  # Predictions values
   predictions$acForecast[i] <- accuracy(fcast)[2]
   predictions$acMean[i] <- accuracy(meanModel)[2]
   predictions$acnaiveModel[i] <- accuracy(acnaiveModel)[2]
@@ -294,7 +296,7 @@ rm(driftModel, etsfit, fcast, i, ids, meanModel, myTs, acnaiveModel)
 ## GROUP 3 - Wide Data
 #####################################
 
-cartola_2016 <- cartola_2016 %>% group_by(atletas.apelido) %>% mutate(l_outcome = lag(atletas.pontos_num))
+# cartola_2016 <- cartola_2016 %>% group_by(atletas.apelido) %>% mutate(l_outcome = lag(atletas.pontos_num))
 
 # --------------------------
 # INDIVIDUAL PLAYER ANALYSIS
@@ -351,9 +353,9 @@ ggplot(melt.scores, aes(x = value)) + geom_point() + facet_grid(.)
 ## SELECT PLAYERS ##
 ##########################
 
-playerPrediction <- read.csv("rodada-9.csv", stringsAsFactors = FALSE)
+playerPrediction <- read.csv("rodada-11.csv", stringsAsFactors = FALSE)
 playerPrediction <- playerPrediction[, -c(1,2,4,6,12,13)]
-playerPrediction <- subset(playerPrediction, playerPrediction$atletas.status_id == "Provável" & playerPrediction$atletas.jogos_num >= 6)
+playerPrediction <- subset(playerPrediction, playerPrediction$atletas.status_id == "Provável" & playerPrediction$atletas.jogos_num >= 7)
 
 playerPrediction <- merge(playerPrediction, predictions, by.x = "atletas.atleta_id", by.y = "id")
 
@@ -368,10 +370,12 @@ coach <- subset(lista1, atletas.posicao_id == "tec")
 
 # Print list of athletes
 head(arrange(GK, desc(acForecast)),10)
-head(arrange(defenders, desc(acForecast)),10)
-head(arrange(lateral, desc(acForecast)),10)
+head(arrange(defenders, desc(acForecast)),20)
+head(arrange(lateral, desc(acForecast)),15)
 head(arrange(mid, desc(acForecast)),20)
 head(arrange(strikers, desc(acForecast)),25)
+head(arrange(coach, desc(acForecast)),25)
+
 
 #-------------------
 ## GA Selection ----

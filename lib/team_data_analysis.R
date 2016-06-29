@@ -17,6 +17,10 @@ library(ggplot2)
 # Load data - carregar banco de dados
 load("db/worldTeamData/partiteAll")
 
+#####################
+# Previous years ----
+#####################
+
 # Convert variables into factors - Converter variaveis para fator
 partiteAll$country <- as.factor(partiteAll$country)
 partiteAll$continent <- as.factor(partiteAll$continent)
@@ -26,19 +30,26 @@ partiteAll$FIFAregion <- as.factor(partiteAll$FIFAregion)
 brasil_df <- filter(partiteAll, country == "Brazil")
 
 # Remove garbage variables - Remover variáveis inúteis
-brasil_df <- select(brasil_df, -FIFAregion, -region, -country, -continent)
+brasil_df <- select(brasil_df, -FIFAregion, -time, -region, -country, -teams, -score, -continent, -totalGoals, -deltaGoal, -year)
+brasil_df$homeTeam <- iconv(brasil_df$homeTeam,to="ASCII//TRANSLIT")
+brasil_df$visitingTeam <- iconv(brasil_df$visitingTeam,to="ASCII//TRANSLIT")
+
+#####################
+# 2016 ----
+#####################
 
 # Definir rodada do brasileiro
-roundNumber <- 10
+roundNumber <- 12
 
 # Data from 2016 - Dados de 2016
 matches_2016 <- read.csv("db/2016/matches-brasileirao-2016.csv", stringsAsFactors = FALSE)
-matches_2016 <- separate(matches_2016, score, c("home_goals","vs","away_goals"))
-matches_2016 <- matches_2016[, -c(6,9,10)]
+matches_2016 <- separate(matches_2016, score, c("homeScore","vs","visitingScore"))
+matches_2016 <- matches_2016[, -c(1,2,7,10,11)]
+colnames(matches_2016) <- c("round", "date", "homeTeam", "homeScore", "visitingScore", "visitingTeam")
 
 # Remove accents - Remover acentos das strings
-matches_2016$home_team <- iconv(matches_2016$home_team,to="ASCII//TRANSLIT")
-matches_2016$away_team <- iconv(matches_2016$away_team,to="ASCII//TRANSLIT")
+matches_2016$homeTeam <- iconv(matches_2016$homeTeam,to="ASCII//TRANSLIT")
+matches_2016$visitingTeam <- iconv(matches_2016$visitingTeam,to="ASCII//TRANSLIT")
 
 # Create data.frame to predict results based on our model
 matches_predict <- filter(matches_2016, round == roundNumber)
@@ -47,24 +58,24 @@ matches_predict <- filter(matches_2016, round == roundNumber)
 matches_2016 <- filter(matches_2016, round < roundNumber)
 
 # Convert into numeric
-matches_2016[,5:6] <- sapply(matches_2016[,5:6], function(x) as.numeric(x))
+matches_2016[,4:5] <- sapply(matches_2016[,4:5], function(x) as.numeric(x))
 
 #--------
 # EDA----
 #--------
 
 # Histogram of goals scored
-ggplot(matches_2016, aes(home_goals)) + geom_histogram()
-ggplot(matches_2016, aes(away_goals)) + geom_histogram()
+#ggplot(matches_2016, aes(home_goals)) + geom_histogram()
+#ggplot(matches_2016, aes(away_goals)) + geom_histogram()
 
 #-----------------------
 # Poision Regression----
 #-----------------------
 
 # Convert data to run regression
-brasileirao_2016 <- gather(matches_2016, "home_goals", "away_goals", 5:6)
-colnames(brasileirao_2016) <- c("game", "round","date", "team", "opponent", "home", "goals")
-brasileirao_2016$home <- ifelse(brasileirao_2016$home == "home_goals", 1, 0)
+brasileirao_2016 <- gather(matches_2016, "homeScore", "visitingScore", 4:5)
+colnames(brasileirao_2016) <- c("round","date", "team", "opponent", "home", "goals")
+brasileirao_2016$home <- ifelse(brasileirao_2016$home == "homeScore", 1, 0)
 
 # Create model
 model0 <- glm(goals ~ home + team + opponent, family=poisson(link=log), data=brasileirao_2016)
@@ -76,9 +87,9 @@ summary(model0)
 # Predict Goals-------
 #---------------------
 
-round_predictions <- gather(matches_predict, "home_goals", "away_goals", 5:6)
-colnames(round_predictions) <- c("game", "round","date", "team", "opponent", "home", "goals")
-round_predictions$home <- ifelse(round_predictions$home == "home_goals", 1, 0)
+round_predictions <- gather(matches_predict, "homeScore", "visitingScore", 4:5)
+colnames(round_predictions) <- c("round","date", "team", "opponent", "home", "goals")
+round_predictions$home <- ifelse(round_predictions$home == "homeScore", 1, 0)
 round_predictions$goals <- predict(model0, newdata = round_predictions, type="response")
 round_predictions <- spread(round_predictions, home, goals)
 
@@ -100,6 +111,18 @@ for (i in 1:length(round_predictions$round)){
   
 }
 
-colnames(round_predictions)[6] <- "awayGoals"
-colnames(round_predictions)[7] <- "homeGoals"
+colnames(round_predictions)[5] <- "awayGoals"
+colnames(round_predictions)[6] <- "homeGoals"
+round_predictions$goalsDiff <- round_predictions$homeGoals - round_predictions$awayGoals
 
+# Print round predictions
+# Goals diff
+arrange(round_predictions, desc(goalsDiff))
+# Most goals
+arrange(round_predictions, desc(homeGoals))
+# Less goals
+arrange(round_predictions, homeGoals)
+
+# Check model
+# arrange(round_predictions, team)
+# arrange(matches_predict, home_team)

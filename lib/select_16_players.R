@@ -24,8 +24,8 @@ library(forecast)
 
 # Run script to fetch latest data
 # Executar script para recuperar dados da API do cartola
-#source("lib/caRtola_fetch.R")
-#source("lib/team_data_scraper.R")
+source("lib/caRtola_fetch.R")
+source("lib/team_data_scraper.R")
 
 # Set working directory
 # Configurar diretório de trabalho
@@ -61,7 +61,7 @@ c <- tapply(cartola_2016$atletas.jogos_num, cartola_2016$atletas.atleta_id, max)
 gamesPlayed <- data.frame(atletas.atleta_id = names(b), avg = b, played_games = c)
 cartola_2016 <- merge(cartola_2016, gamesPlayed, by = "atletas.atleta_id")
 
-cartola_2016 <- subset(cartola_2016, cartola_2016$avg != 0 & cartola_2016$played_games > 6)
+cartola_2016 <- subset(cartola_2016, cartola_2016$avg != 0 & cartola_2016$played_games > 7)
 rm(gamesPlayed,c,b)
 
 ##########################
@@ -353,7 +353,7 @@ ggplot(melt.scores, aes(x = value)) + geom_point() + facet_grid(.)
 ## SELECT PLAYERS ##
 ##########################
 
-playerPrediction <- read.csv("rodada-11.csv", stringsAsFactors = FALSE)
+playerPrediction <- read.csv("rodada-12.csv", stringsAsFactors = FALSE)
 playerPrediction <- playerPrediction[, -c(1,2,4,6,12,13)]
 playerPrediction <- subset(playerPrediction, playerPrediction$atletas.status_id == "Provável" & playerPrediction$atletas.jogos_num >= 7)
 

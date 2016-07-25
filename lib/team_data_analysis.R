@@ -39,7 +39,7 @@ brasil_df$visitingTeam <- iconv(brasil_df$visitingTeam,to="ASCII//TRANSLIT")
 #####################
 
 # Definir rodada do brasileiro
-roundNumber <- 12
+roundNumber <- 13
 
 # Data from 2016 - Dados de 2016
 matches_2016 <- read.csv("db/2016/matches-brasileirao-2016.csv", stringsAsFactors = FALSE)

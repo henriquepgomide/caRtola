@@ -1,6 +1,4 @@
-[![Gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg)](https://gitter.im/caRtola-R/Lobby?utm_source=share-link&utm_medium=link&utm_campaign=share-link)
-
-You can read this information in [English](https//henriquepgomide/caRtola/README.en.md)
+[![Gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg)](https://gitter.im/caRtola-R/Lobby?utm_source=share-link&utm_medium=link&utm_campaign=share-link) | You can read this information in [English](https://github.com/henriquepgomide/caRtola/blob/master/README.en.md)
 
 # Introdução
 

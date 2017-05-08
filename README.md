@@ -1,3 +1,6 @@
+[![Gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg)](https://gitter.im/caRtola-R/Lobby?utm_source=share-link&utm_medium=link&utm_campaign=share-link)
+
+
 # Introdução
 
 Este repositório tem como objetivo oferecer para usuários do R e do Cartola FC uma forma fácil de recuperar e analisar os dados oferecidos da API.

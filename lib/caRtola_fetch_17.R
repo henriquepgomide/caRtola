@@ -1,7 +1,7 @@
 # What? ----------------------------------------------
 # Retrieve data from Cartola and store in R format
 # Every round, you need to gather and store data into
-# db/2016 folder
+# db/2017 folder
 # ----------------------------------------------------
 
 # Objetivo--------------------------------------------
@@ -16,10 +16,10 @@
 
 # Load Libraries
 # Carregar pacotes R
-require(httr)
-require(rjson)
-require(jsonlite)
-require(plyr)
+library(httr)
+library(rjson)
+library(jsonlite)
+library(plyr)
 
 ###################
 # Fetch Player Data 
@@ -66,5 +66,5 @@ rm(df_2,df_3, athletes, json_athletes)
 
 # Store data frame
 # Escrever arquivo com dados da rodada. Por favor, tirar comentário "#" da linha abaixo para executar o código.
-write.csv(df_1, paste0("db/2016/rodada-", df_1$atletas.rodada_id[1],".csv"))
+write.csv(df_1, paste0("db/2017/rodada-", df_1$atletas.rodada_id[1],".csv"))
 rm(df_1)

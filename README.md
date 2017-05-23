@@ -2,7 +2,11 @@
 
 # Introdução
 
-Este repositório tem como objetivo oferecer para usuários do R e do Cartola FC uma forma fácil de recuperar e analisar os dados oferecidos da API. Para executar os scripts contidos, você precisará instalar o [R](https://www.r-project.org/) e eu fortemente recomendo a instalação da [IDE RStudio](https://www.rstudio.com/products/rstudio/download/). 
+Este repositório tem como objetivo oferecer para usuários do R e do Cartola FC uma forma fácil de recuperar e analisar os dados oferecidos da API. 
+
+Para executar os scripts contidos, você precisará instalar o [R](https://www.r-project.org/) e eu fortemente recomendo a instalação da [IDE RStudio](https://www.rstudio.com/products/rstudio/download/). 
+
+Para acessar os dados, use qualquer programa. Está tudo disponível em arquivos separados por vírgulas. Até o Excel abre :)
 
 # O que está feito?
 

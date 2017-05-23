@@ -2,19 +2,19 @@
 
 # Introdução
 
-Este repositório tem como objetivo oferecer para usuários do R e do Cartola FC uma forma fácil de recuperar e analisar os dados oferecidos da API.
+Este repositório tem como objetivo oferecer para usuários do R e do Cartola FC uma forma fácil de recuperar e analisar os dados oferecidos da API. Para executar os scripts contidos, você precisará instalar o [R](https://www.r-project.org/) e eu fortemente recomendo a instalação da [IDE RStudio](https://www.rstudio.com/products/rstudio/download/). 
 
 # O que está feito?
 
 ## Dados
 
 1. Importação dos dados da API do cartola através do script - *lib/caRtola_fetch.R*
-2. Os dados de duas edições anteriores e das rodadas deste ano estão disponíveis na pasta *db*. Os dados dos anos anteriores foram retirados do repositório - (https://github.com/thevtm/CartolaFCDados).
+2. Os dados de três edições anteriores e das rodadas deste ano estão disponíveis na pasta *db* em formato 'CSV'. Os dados dos anos 2014 e 2015 foram retirados do repositório - (https://github.com/thevtm/CartolaFCDados). Os dados de 2016 estão _incompletos_ e cobrem até a 19 rodada.
 3. Importação dos dados de classificação do campeonato brasileiro ano de 2016 através do script *lib/team_data_scraper.R*.
 
-## Análises
+## Análise
 1. Análise exploratória dos dados de 2015, arquivo *lib/model2015_data.R*
-2. Análise explatório dos dados de 2016, aqruivo *select_16_players.R*
+2. Análise exploratória dos dados de 2016, arquivo *select_16_players.R*
 
 # O que ainda está por ser feito?
 
@@ -24,3 +24,4 @@ Este repositório tem como objetivo oferecer para usuários do R e do Cartola FC
 # Contato
 
 henriquepgomide@gmail.com
+@hpgomide - Siga meu twitter para atualizações.

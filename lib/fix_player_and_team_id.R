@@ -14,4 +14,4 @@ cartola <- cartola[, -33]
 colnames(cartola)[33] <- "atletas.clube.id.full.name"
 cartola <- cartola[, c(2,1,3:7, 33, 8:32)]
 
-#write.csv(subset(cartola, cartola$atletas.rodada_id == 1), "db/")
+write.csv(subset(cartola, cartola$atletas.rodada_id == 7), "db/2017/rodada-7.csv", row.names = FALSE)

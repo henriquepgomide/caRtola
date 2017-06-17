@@ -56,6 +56,7 @@ temp1 <- data.frame(temp1, stringsAsFactors = FALSE)
 temp1 <- temp1[,1:4]
 colnames(temp1) <- c("Cod", "nome.completo","nome","pos")
 temp1$Cod <- as.integer(temp1$Cod)
+df_1$atletas.clube.id.full.name <- mapvalues(df_1$atletas.clube_id, from = as.vector(temp1$Cod), to = as.vector(temp1$nome.completo))
 df_1$atletas.clube_id <- mapvalues(df_1$atletas.clube_id, from = as.vector(temp1$Cod), to = as.vector(temp1$nome))
 rm(teams);rm(temp1)
 

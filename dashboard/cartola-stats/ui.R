@@ -1,5 +1,7 @@
 library(shiny)
 library(shinydashboard)
+cartola <- read.csv("data/cartola.csv", stringsAsFactors = FALSE)
+
 
 ui <- dashboardPage( skin = "black",
                      

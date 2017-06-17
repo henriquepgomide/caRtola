@@ -4,7 +4,7 @@ library(DT)
 library(ggplot2)
 
 # Open data
-cartola <- load("db/rds/cartola.rds")
+cartola <- read.csv("data/cartola.csv", stringsAsFactors = FALSE)
 
 # Define shinyServer
 shinyServer(function(input, output, session) {

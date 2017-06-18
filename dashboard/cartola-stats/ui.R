@@ -1,9 +1,10 @@
 library(shiny)
 library(shinydashboard)
+library(plotly)
 cartola <- read.csv("data/cartola.csv", stringsAsFactors = FALSE)
 
 
-ui <- dashboardPage( skin = "black",
+ui <- dashboardPage(skin = "black",
                      
   # HEADER
   dashboardHeader(title = "CaRtola - STATS"),
@@ -11,9 +12,9 @@ ui <- dashboardPage( skin = "black",
   # SIDEBAR
   dashboardSidebar(
     sidebarMenu(
-      menuItem("Jogador", tabName = "player", icon = icon("dashboard")),
-      # menuItem("Time", tabName = "team", icon = icon("th")),
-      menuItem("Dados", tabName = "data", icon = icon("th"))
+      menuItem("Jogador", tabName = "player", icon = icon("user")),
+      menuItem("Time", tabName = "team", icon = icon("random")),
+      menuItem("Dados", tabName = "data", icon = icon("dashboard"))
     )
   ),
   
@@ -22,35 +23,58 @@ ui <- dashboardPage( skin = "black",
     tabItems(
     tabItem(tabName = "player",
       fluidRow(
+        h2("Jogadores - Comparar"),
+        box(title = "Comparar Jogadores", width = "50%", status = "danger", 
+        selectizeInput("nome",
+                              label = "Selecione seus jogadores",
+                              choices = sort(unique(cartola$atletas.apelido)),
+                              multiple = TRUE,
+                              options = list(maxItems = 5, placeholder = "Selecione seus jogadores"),
+                              selected = sort(unique(cartola$atletas.apelido))[1])
+        )
+      ),
+      fluidRow(
         column(6,
-         
          fluidRow(
-         box(title = "Pontuação e valorização por rodada", solidHeader = TRUE, status = "danger", 
+         box(title = "Pontuação por rodada", solidHeader = FALSE, status = "primary", 
              width = "100%",
-             selectizeInput("nome",
-                            label = "Selecione um jogador",
-                            choices = unique(cartola$atletas.apelido),
-                            multiple = FALSE,
-                            options = list(maxItems = 1, placeholder = "Selecione seu jogador"),
-                            selected = "Felipe Melo"),
            # Show a plot of the generated distribution
-           plotOutput("distPlot")
+           plotlyOutput("distPlot_1")
          )
          )
         ),
       
-      column(6
+      column(6,
+             fluidRow(
+               box(title = "Cartoletas por rodada", solidHeader = FALSE, status = "info", 
+                   width = "100%",
+                   # Show a plot of the generated distribution
+                   plotlyOutput("distPlot_2")
+               )
+             )
       )
     )
       
     ),
   
     tabItem(tabName = "team",
-        h2("Team")
+        h2("Time - Análise"),
+        selectInput("team_select", label="Selecione um time", choices=sort(unique(cartola$atletas.clube.id.full.name))),
+        fluidRow(
+        box(title = "Pontuação dos jogadores", solidHeader = FALSE, status = "danger", 
+              width = "100%",
+          column(6,
+                plotlyOutput("teamPlot1")
+          ),
+          column(6,
+                 plotlyOutput("teamPlot2")
+           )
+        )
+        )
     ),
     
     tabItem(tabName = "data",
-            h2("Dados da Planilha"),
+            h2("Dados dos Jogadores"),
             # Create a new Row in the UI for selectInputs
             fluidRow(
               column(4,

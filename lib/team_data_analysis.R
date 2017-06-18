@@ -47,7 +47,7 @@ matches_2016 <- separate(matches_2016, score, c("homeScore","vs","visitingScore"
 matches_2016 <- matches_2016[, -c(1,2,7,10,11)]
 colnames(matches_2016) <- c("round", "date", "homeTeam", "homeScore", "visitingScore", "visitingTeam")
 
-# Remove accents - Remover acentos das strings
+# Remove weird characters - Remover acentos das strings
 matches_2016$homeTeam <- iconv(matches_2016$homeTeam,to="ASCII//TRANSLIT")
 matches_2016$visitingTeam <- iconv(matches_2016$visitingTeam,to="ASCII//TRANSLIT")
 

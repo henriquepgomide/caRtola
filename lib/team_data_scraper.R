@@ -33,6 +33,6 @@ n.rows <- unlist(lapply(tables, function(t) dim(t)[1]))
 info <- tables[[which.max(n.rows)]]
 info <- info[,1:8]
 colnames(info) <- c("game","round","date", "home_team","score","away_team","arena","X")
-rm(n.rows,tables, theurl)
 # Write file as csv - Gravar resultados das partidas
 write.csv(info, "db/2017/matches-brasileirao-2017.csv")
+rm(n.rows,tables, theurl, info)

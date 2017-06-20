@@ -6,11 +6,15 @@
 
 Este repositório tem como objetivo oferecer para usuários do R e do Cartola FC uma forma fácil de recuperar e analisar os dados oferecidos da API.
 
-Para executar os scripts contidos, você precisará instalar o [R](https://www.r-project.org/) e eu fortemente recomendo a instalação da [IDE RStudio](https://www.rstudio.com/products/rstudio/download/). 
-
-Para acessar os dados, use qualquer programa. Está tudo disponível em arquivos separados por vírgulas. Até o Excel abre :)
+* Para executar os scripts contidos, você precisará instalar o [R](https://www.r-project.org/) e eu fortemente recomendo a instalação da [IDE RStudio](https://www.rstudio.com/products/rstudio/download/). 
+* Para acessar os dados, use qualquer programa. Está tudo disponível em arquivos separados por vírgulas. Até o Excel abre :)
 
 # O que está feito?
+
+## Dashboard
+
+* Aplicativo shiny para escolher seu jogador. Protótipo disponível no link (caRtola - STATS)[https://henriquepgomide.shinyapps.io/cartola-stats/]
+
 
 ## Dados
 
@@ -25,9 +29,8 @@ Para acessar os dados, use qualquer programa. Está tudo disponível em arquivos
 # O que ainda está por ser feito?
 
 1. Analisar dados e criar modelos para predizer pontuação de jogadores
-2. Criar um aplicativo shiny para criar visualizações uteis para jogadores do Cartola. Protótipo disponível no link (caRtola - STATS)[https://henriquepgomide.shinyapps.io/cartola-stats/]
 
 # Contato
 
-henriquepgomide@gmail.com
-@hpgomide - Siga meu twitter para atualizações.
+* henriquepgomide@gmail.com
+* [@hpgomide](https://twitter.com/hpgomide) - Siga meu twitter para atualizações.

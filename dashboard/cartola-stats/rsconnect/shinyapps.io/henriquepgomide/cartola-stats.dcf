@@ -3,9 +3,9 @@ title: cartola-stats
 account: henriquepgomide
 server: shinyapps.io
 appId: 190070
-bundleId: 872535
+bundleId: 875271
 url: https://henriquepgomide.shinyapps.io/cartola-stats/
-when: 1497823210.97252
+when: 1497969833.404
 asMultiple: FALSE
 asStatic: FALSE
 ignoredFiles: data/fetch_data.R

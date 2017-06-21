@@ -12,6 +12,7 @@
 # Carregar pacotes
 library(tidyr)
 library(dplyr)
+library(plyr)
 
 # Carregar banco de dados
 teamCodes <- read.csv("db/teamids-consolidated.csv")
@@ -44,7 +45,7 @@ matches <- gather(matches, casa, team, -home_score, -away_score, -round, -goals_
 matches$casa <- ifelse(matches$casa == "home_team", "Casa", "Fora")
 
 # Left join com cartola
-cartola <- left_join(cartola, matches, by = c("atletas.clube.id.full.name" = "team", "atletas.rodada_id" = "round"))
+cartola <- left_join(x = cartola, y = matches, by = c("atletas.clube.id.full.name" = "team", "atletas.rodada_id" = "round"))
 
 # Remover objetos desnecessários e sobrescrever cartola
 write.csv(cartola, "db/2017/cartola_2017.csv", row.names = FALSE)

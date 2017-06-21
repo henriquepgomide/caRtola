@@ -31,7 +31,7 @@ merge_cartola_data <- function(year){
 # Para usar a função, escolha o ano. No exemplo abaixo, escolhemos 2017.
 cartola <- merge_cartola_data(2017)
 setwd("../../")
-write.csv(cartola, "db/2017/cartola_2017.csv", row.names = FALSE)
+write.csv(cartola[, -33], "db/2017/cartola_2017.csv", row.names = FALSE)
 
 # Definir o diretório principal como working directory. Tirar comentário da linha com código abaixo.
 # Set working directory to main folder. Uncomment line below

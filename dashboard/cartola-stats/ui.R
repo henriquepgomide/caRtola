@@ -37,9 +37,9 @@ ui <- dashboardPage(skin = "black",
         column(6,
          fluidRow(
          box(title = "Pontuação por rodada", solidHeader = FALSE, status = "primary", 
-             width = "100%",
+             width = "100%", height = "auto",
            # Show a plot of the generated distribution
-           plotlyOutput("distPlot_1")
+           plotlyOutput("distPlot_1", height = "auto")
          )
          )
         ),
@@ -47,9 +47,9 @@ ui <- dashboardPage(skin = "black",
       column(6,
              fluidRow(
                box(title = "Cartoletas por rodada", solidHeader = FALSE, status = "info", 
-                   width = "100%",
+                   width = "100%",  height = "auto",
                    # Show a plot of the generated distribution
-                   plotlyOutput("distPlot_2")
+                   plotlyOutput("distPlot_2", height = "auto")
                )
              )
       )

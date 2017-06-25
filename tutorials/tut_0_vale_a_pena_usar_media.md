@@ -49,7 +49,7 @@ ggplot(data = cartola, aes(x = atletas.pontos_num)) +
   labs(title = "Histograma da distribuição de pontos", x = "Pontos", y = "Frequência")
 ```
 
-![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2-1.png)
+![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-1.png)
 
 #### Comentário
 A distribuição de dados nos mostra que temos muitos valores iguais a zero. Como não aplicamos nenhum filtro, os jogadores que não jogaram sequer uma partida podem bagunçar nossa análise. Vamos ver se com a variável _atletas.rodada_id_ podemos remover a maior quantidade destes zeros.
@@ -64,7 +64,7 @@ ggplot(data = cartola, aes(x = atletas.pontos_num)) +
   labs(title = "Histograma da distribuição de pontos por status", x = "Pontos", y = "Frequência") 
 ```
 
-![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-1.png)
+![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4-1.png)
 
 #### Comentário
 Aparentemente temos muitos destes zeros nos status "Contundido", "Nulo". Para simplificar nossa análise, concentremo-nos nos jogadores com status "Provável", ou seja, aqueles que possuem maior probabilidade de entrar em campo. Assim aplicamos segmentamos o banco de dados usando os critérios abaixo.
@@ -101,7 +101,7 @@ ggplot(data = by_player, aes(media)) +
   labs(title = "Histograma da média de pontos", x = "Pontos", y = "Frequência")
 ```
 
-![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6-1.png)
+![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7-1.png)
 
 #### Comentário
 Através do nosso histograma, podemos observar que a distribuição dos pontos é razoavelmente simétrica. No entanto, sabemos que o número de jogos pode influenciar a média de pontos. Talvez, jogadores que jogam menos e têm status de provável pontuam menos que aqueles que entram e possuem melhor pontuação. Lembre-se aqui, que a quantidade de pontos do cartola não necessariamente caracterizam bons jogadores (Cartola != Futebol real). Para verificarmos plotamos as médias em gráficos violino.
@@ -114,7 +114,7 @@ ggplot(data = by_player, aes(y = media, factor(jogos))) +
   labs(title = "Distribuição das médias por número de jogos", x = "Jogos", y = "Média")
 ```
 
-![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7-1.png)
+![plot of chunk unnamed-chunk-8](figure/unnamed-chunk-8-1.png)
 
 #### Comentário
 Pelas informações do gráfico acima, podemos perceber que a variabilidade da média permanece razoavelmente estável quando o jogador participa de mais de 2 partidas. 
@@ -146,7 +146,7 @@ ggplot(data = dados, aes(x = pontos, y = media)) + geom_point(alpha = .8, size =
     labs(title = "Dispersão da média e pontuação", x = "Pontos", y = "Média")
 ```
 
-![plot of chunk unnamed-chunk-9](figure/unnamed-chunk-9-1.png)
+![plot of chunk unnamed-chunk-10](figure/unnamed-chunk-10-1.png)
 
 ### RMSE e MAE
 
@@ -257,6 +257,7 @@ Iremos comparar a média contra outros modelos, tentando melhorar nossas previs�
 ##  Rcpp         0.12.11    2017-05-22 cran (@0.12.11)                
 ##  reshape2     1.4.2      2016-10-22 CRAN (R 3.4.0)                 
 ##  rlang        0.1.1      2017-05-18 cran (@0.1.1)                  
+##  rstudioapi   0.6        2016-06-27 CRAN (R 3.4.0)                 
 ##  scales       0.4.1      2016-11-09 CRAN (R 3.4.0)                 
 ##  splines      3.4.0      2017-04-21 local                          
 ##  stats      * 3.4.0      2017-04-21 local                          

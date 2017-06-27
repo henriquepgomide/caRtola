@@ -18,7 +18,7 @@ shinyServer(function(input, output, session) {
     } else {
       player <- cartola[cartola$atletas.apelido == input$nome, ]
       ggplot(data = player, aes(x = atletas.rodada_id, y = c(atletas.pontos_num), color = atletas.apelido), by = atletas.apelido) +
-        geom_line(size = 1.2) + xlim(min(cartola$atletas.rodada_id),max(cartola$atletas.rodada_id)) + 
+        geom_line(size = 1.2) + xlim(min(cartola$atletas.rodada_id)+1,max(cartola$atletas.rodada_id)) + 
         ylim(min(cartola$atletas.pontos_num),max(cartola$atletas.pontos_num)) + ylab("Pontuação") + 
         xlab("Rodada") + theme_minimal() + 
         theme(legend.title=element_blank(), legend.position = "none", text = element_text(size = 10), axis.text = element_text(size = 12))

@@ -1,0 +1,164 @@
+---
+title: "TUT2 - Modelos de regressão são melhores que a média?"
+author: "Henrique Gomide"
+date: "`r Sys.Date()`"
+output:
+  prettydoc::html_pretty:
+    theme: cayman
+    highlight: github
+---
+
+## Motivação
+
+Olá pessoal!
+
+No tutorial anterior, vimos que a média é um indicador limitado para mitar no cartola. Vamos tentar neste tutorial, usar outros modelos e reduzir o risco na tomada de decisão. Começaremos de forma básica, com um modelo de regressão.
+
+<center>![Levy Fidélix - Vamos subir o nível disso aqui](http://geradormemes.com/media/created/n931gu.jpg)</center>
+
+Este tutorial também é dedicado a _iniciantes_ do R. 
+
+### Pacotes
+
+Iremos usar o [Caret](http://caret.r-forge.r-project.org) pacote do R que facilita horrores o desenvolvimento de modelos preditivos. Existem inúmeros tutoriais sobre o pacote, além disso até [artigo científico](https://www.jstatsoft.org/article/view/v028i05) publicado no Jounal of Statistical Software.
+
+```{r, setup, include = FALSE}
+require(devtools) # Carregar função para descrever pacotes e descrição do R
+require(ggplot2)  # Plotar gráficos
+require(ggthemes) # Carregar tema adicional para os gráficos
+require(dplyr)    # Funções para manipulação dos dados 
+require(caret)    # Pacote para modelar os dados
+```
+
+
+### Banco de dados
+
+Usaremos os dados do [Cartola](https://github.com/henriquepgomide/caRtola/tree/master/db). Assim como no primeiro tutorial, iremos segmentar nosso banco em dois. 
+
+```{r}
+# Carregar banco de dados
+cartola <- read.csv("../db/2017/cartola_2017.csv", stringsAsFactors = FALSE)
+```
+
+
+## Plano de Análise
+
+1. Segmentar o banco de dados
+2. Desenvolver diferentes modelos de regressão
+3. Comparar o desempenho destes modelos com nosso Benchmark - a média.
+
+## Análise
+
+### Segmentar o banco de dados
+```{r}
+# Segmentar banco de dados
+cartola$atletas.atleta_id <- as.character(cartola$atletas.atleta_id)
+treino <- cartola %>%
+            filter(atletas.rodada_id < 9 & atletas.status_id == "Provável")
+
+validacao <- cartola %>%
+            filter(atletas.rodada_id == 9 & atletas.status_id == "Provável")
+
+# Selecionar somente algumas variáveis
+variaveis <- c("atletas.clube.id.full.name", "atletas.jogos_num", "casa", "atletas.posicao_id", "goals_dif", "atletas.pontos_num")
+
+treino <- treino[, variaveis]
+variaveis <-  validacao[, variaveis]
+
+# Controles para os modelos
+ctrl <- trainControl(method = "repeatedcv", number = 10, repeats = 10, allowParallel = TRUE, verboseIter = TRUE) # Regression Models
+rfGrid <-  expand.grid(mtry = c(10,20,40,80))                                                                    # Random Forest
+```
+
+## Visualizações
+
+Antes de começarmos precisamos conduzir análises exploratórias para termos uma ideia de quais variáveis podem estar ligadas à pontuação do cartola (atletas.pontos_num). Para isso, inspecionaremos as variáveis:
+
+* atletas.clube.id.full.name - Nome completo do time
+* atletas.posicao_id - Posição do jogador
+* casa - Jogo aconteceu em casa ou fora
+* atletas.jogos_num - Quantidade de jogos do jogador
+
+### Times
+```{r, fig.height=40}
+ggplot(data = treino, aes(y = atletas.pontos_num, x = 1)) + 
+  geom_violin(draw_quantiles = c(0.25, 0.5, 0.75)) + 
+  geom_jitter(width = .8, alpha = .5, colour = "#7cb5ec") +
+  theme_hc() + facet_wrap(~atletas.clube.id.full.name, nrow = 21, shrink = FALSE) + coord_flip() + 
+  labs(title = "Distribuição das médias por time", x = "Time", y = "Média")
+```
+
+
+### Atletas por posição
+
+```{r, fig.height=20}
+ggplot(data = treino, aes(y = atletas.pontos_num, x = 1)) + 
+  geom_violin(draw_quantiles = c(0.25, 0.5, 0.75)) + 
+  geom_jitter(width = .8, alpha = .5, colour = "#7cb5ec") +
+  theme_hc() + facet_wrap(~atletas.posicao_id, nrow = 6, shrink = FALSE) + coord_flip() + 
+  labs(title = "Distribuição das médias por posição", x = "Posição", y = "Média")
+```
+
+
+### Times vs. casa
+
+```{r, fig.height=20}
+ggplot(data = treino, aes(y = atletas.pontos_num, factor(casa))) + 
+  geom_violin(draw_quantiles = c(0.25, 0.5, 0.75)) + 
+  geom_jitter(width = .3, alpha = .3, colour = "#7cb5ec") +
+  theme_hc() + facet_wrap(~ atletas.clube.id.full.name, ncol = 3) +
+  labs(title = "Distribuição das médias por time e casa", x = "", y = "Pontuação")
+```
+
+### Gols e pontuação
+
+```{r}
+ggplot(data = treino, aes(y = atletas.pontos_num, factor(casa))) + 
+  geom_violin(draw_quantiles = c(0.25, 0.5, 0.75)) + 
+  geom_jitter(width = .3, alpha = .3, colour = "#7cb5ec") +
+  theme_hc() + facet_wrap(~ atletas.clube.id.full.name, ncol = 3) +
+  labs(title = "Distribuição das médias por time e casa", x = "", y = "Pontuação")
+```
+
+## Modelagem
+
+### Análise de regressão linear simples
+```{r}
+glmModel_0  <- train(atletas.pontos_num ~ ., data = treino, 
+                     method="glm", metric = "RMSE", preProcess = c("scale", "center"),
+                     trControl = ctrl, na.action = na.omit)
+```
+
+```{r}
+predictions <- predict(glmModel_0, newdata = validacao)
+postResample(pred = predictions, obs = validacao$atletas.pontos_num)
+```
+
+
+### EXtreme Gradient Boosting
+
+```{r}
+boostTree_0  <- train(atletas.pontos_num ~ ., data = treino, 
+                     method="xgbTree", metric = "RMSE", preProcess = c("scale", "center"),
+                     trControl = ctrl, na.action = na.omit)
+boostTree_0
+
+```
+
+```{r}
+cluster <- makeCluster(detectCores())
+registerDoParallel(cluster)
+fit.raf <- train(atletas.pontos_num ~.,
+                 data=treino,
+                 method="rf",
+                 preProcess=c("center","scale"),
+                 tunelength=15,
+                 tuneGrid = rfGrid,
+                 trControl=ctrl,
+                 ntree = 1000,
+                 metric="RMSE",
+                 na.action = na.omit)
+)
+stopCluster(cluster)
+```
+

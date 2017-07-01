@@ -1,4 +1,4 @@
----
+  ---
 title: "TUT2 - Modelos de regressão são melhores que a média?"
 author: "Henrique Gomide"
 date: "`r Sys.Date()`"
@@ -23,11 +23,13 @@ Este tutorial também é dedicado a _iniciantes_ do R.
 Iremos usar o [Caret](http://caret.r-forge.r-project.org) pacote do R que facilita horrores o desenvolvimento de modelos preditivos. Existem inúmeros tutoriais sobre o pacote, além disso até [artigo científico](https://www.jstatsoft.org/article/view/v028i05) publicado no Jounal of Statistical Software.
 
 ```{r, setup, include = FALSE}
-require(devtools) # Carregar função para descrever pacotes e descrição do R
-require(ggplot2)  # Plotar gráficos
-require(ggthemes) # Carregar tema adicional para os gráficos
-require(dplyr)    # Funções para manipulação dos dados 
-require(caret)    # Pacote para modelar os dados
+library(devtools)    # Carregar função para descrever pacotes e descrição do R
+library(ggplot2)     # Plotar gráficos
+library(ggthemes)    # Carregar tema adicional para os gráficos
+library(dplyr)       # Funções para manipulação dos dados 
+library(caret)       # Pacote para modelar os dados
+library(parallel)    # Detectar núcleos do processador
+library(doParallel)  # Usar núcleos para processamento paralelo
 ```
 
 
@@ -54,20 +56,22 @@ cartola <- read.csv("../db/2017/cartola_2017.csv", stringsAsFactors = FALSE)
 # Segmentar banco de dados
 cartola$atletas.atleta_id <- as.character(cartola$atletas.atleta_id)
 treino <- cartola %>%
-            filter(atletas.rodada_id < 9 & atletas.status_id == "Provável")
+            filter(atletas.rodada_id < 10 & atletas.status_id == "Provável")
 
 validacao <- cartola %>%
-            filter(atletas.rodada_id == 9 & atletas.status_id == "Provável")
+            filter(atletas.rodada_id == 10 & atletas.status_id == "Provável")
 
 # Selecionar somente algumas variáveis
-variaveis <- c("atletas.clube.id.full.name", "atletas.jogos_num", "casa", "atletas.posicao_id", "goals_dif", "atletas.pontos_num")
+variaveis <- c("atletas.clube.id.full.name", "atletas.jogos_num", "casa", "atletas.posicao_id", "atletas.pontos_num", "atletas.media_num")
 
 treino <- treino[, variaveis]
 variaveis <-  validacao[, variaveis]
 
 # Controles para os modelos
-ctrl <- trainControl(method = "repeatedcv", number = 10, repeats = 10, allowParallel = TRUE, verboseIter = TRUE) # Regression Models
-rfGrid <-  expand.grid(mtry = c(10,20,40,80))                                                                    # Random Forest
+## Regression Models
+ctrl <- trainControl(method = "repeatedcv", number = 10, repeats = 10, allowParallel = TRUE, verboseIter = TRUE)
+## Random Forest
+rfGrid <-  expand.grid(mtry = c(10,20,40,80))   
 ```
 
 ## Visualizações
@@ -123,7 +127,7 @@ ggplot(data = treino, aes(y = atletas.pontos_num, factor(casa))) +
 ## Modelagem
 
 ### Análise de regressão linear simples
-```{r}
+```{r, echo = FALSE, warning=FALSE}
 glmModel_0  <- train(atletas.pontos_num ~ ., data = treino, 
                      method="glm", metric = "RMSE", preProcess = c("scale", "center"),
                      trControl = ctrl, na.action = na.omit)
@@ -146,6 +150,11 @@ boostTree_0
 ```
 
 ```{r}
+predictions_boost <- predict(boostTree_0, newdata = validacao)
+postResample(pred = predictions_boost, obs = validacao$atletas.pontos_num)
+```
+
+```{r}
 cluster <- makeCluster(detectCores())
 registerDoParallel(cluster)
 fit.raf <- train(atletas.pontos_num ~.,
@@ -158,7 +167,11 @@ fit.raf <- train(atletas.pontos_num ~.,
                  ntree = 1000,
                  metric="RMSE",
                  na.action = na.omit)
-)
-stopCluster(cluster)
+on.exit(stopCluster(cluster))
+```
+
+```{r}
+predictions_rf <- predict(fit.raf, newdata = validacao)
+postResample(pred = predictions_rf, obs = validacao$atletas.pontos_num)
 ```
 

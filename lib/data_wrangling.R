@@ -76,15 +76,15 @@ rm(df)
 # add home and away information into cartola data.frame
 
 # Load libraries
-library(tidyr)
+library(plyr)
 
 # Load team codes and match data
 teamCodes <- read.csv("db/teamids-consolidated.csv")
 matches <- read.csv("db/2017/matches-brasileirao-2017.csv", stringsAsFactors = FALSE)
 
 # Standardize team names
-matches$home_team <- mapvalues(matches$home_team, from = as.vector(teamCodes$nome.cbf), to = as.vector(teamCodes$nome.cartola))
-matches$away_team <- mapvalues(matches$away_team, from = as.vector(teamCodes$nome.cbf), to = as.vector(teamCodes$nome.cartola))
+matches$home_team <- plyr::mapvalues(matches$home_team, from = as.vector(teamCodes$nome.cbf), to = as.vector(teamCodes$nome.cartola))
+matches$away_team <- plyr::mapvalues(matches$away_team, from = as.vector(teamCodes$nome.cbf), to = as.vector(teamCodes$nome.cartola))
 
 # Split string into numeric values
 matches <- separate(matches, score, c("home_score","vs","away_score"), convert = TRUE)
@@ -97,7 +97,7 @@ matches <- matches[,-c(1,7,11)]
 matches$goals_dif <-  matches$home_score - matches$away_score
 
 # Subset data until last round
-matches <- subset(matches, matches$round <= max(cartola$atletas.rodada_id))
+matches <- subset(matches, matches$round <= max(cartola$atletas.rodada_id) + 1)
 matches <- matches[, c("round", "home_team", "home_score", "away_score", "away_team", "goals_dif")] 
 
 # Create data.frame to merge to player data
@@ -113,11 +113,25 @@ cartola <- left_join(x = cartola, y = matches, by = c("atletas.clube.id.full.nam
 # 3. Create data.frame for predicting next round stats ----
 #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-# YET TO BE DONE
+df_pred <- cartola[!duplicated(cartola$atletas.atleta_id), 
+                   c("atletas.atleta_id", "atletas.apelido", "atletas.clube.id.full.name", 
+                       "atletas.posicao_id", "atletas.media_num", "PE",
+                       "SG", "FC", "FS", "I", "RB", "FD", "A", "G", "FF","DD","CA", "GS",
+                       "FT","CV","PP","DP","GC")]
+
+df_pred$atletas.rodada_id <- max(matches$round)
+df_pred <- left_join(x = df_pred,
+                   y = subset(matches, matches$round == max(matches$round)), 
+                              by = c("atletas.clube.id.full.name" = "team", "atletas.rodada_id" = "round"))
+
+
 # Replace data from the last round with the average values
-# df <- 
-#   df %>%
-#   group_by(atletas.atleta_id) %>%
-#   mutate_at(16:32, 
-#             funs(ifelse(atletas.rodada_id == max(df$atletas.rodada_id), mean(., na.rm=TRUE), .)))
-# df <- cartola
+df <-
+  cartola %>%
+  group_by(atletas.atleta_id) %>%
+  summarize_at(c(12,15:32),
+            funs(mean(., na.rm=TRUE)))
+
+df_pred <- df_pred[, -c(5:23)]
+df_pred <- left_join(df_pred, df, by = "atletas.atleta_id")
+rm(df)

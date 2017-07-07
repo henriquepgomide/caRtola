@@ -115,7 +115,7 @@ cartola <- left_join(x = cartola, y = matches, by = c("atletas.clube.id.full.nam
 
 df_pred <- cartola[!duplicated(cartola$atletas.atleta_id), 
                    c("atletas.atleta_id", "atletas.apelido", "atletas.clube.id.full.name", 
-                       "atletas.posicao_id", "atletas.media_num", "PE",
+                       "atletas.posicao_id", "atletas.media_num", "atletas.status_id", 'atletas.jogos_num', "PE",
                        "SG", "FC", "FS", "I", "RB", "FD", "A", "G", "FF","DD","CA", "GS",
                        "FT","CV","PP","DP","GC")]
 
@@ -124,14 +124,15 @@ df_pred <- left_join(x = df_pred,
                    y = subset(matches, matches$round == max(matches$round)), 
                               by = c("atletas.clube.id.full.name" = "team", "atletas.rodada_id" = "round"))
 
+df_pred[, 8:25] <- sapply(df_pred[, 8:25], function(x) as.numeric(NA))
 
 # Replace data from the last round with the average values
 df <-
   cartola %>%
   group_by(atletas.atleta_id) %>%
-  summarize_at(c(12,15:32),
+  summarize_at(c(11,15:32),
             funs(mean(., na.rm=TRUE)))
 
-df_pred <- df_pred[, -c(5:23)]
+df_pred <- df_pred[, -c(8:25)]
 df_pred <- left_join(df_pred, df, by = "atletas.atleta_id")
 rm(df)

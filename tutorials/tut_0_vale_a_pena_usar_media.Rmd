@@ -78,9 +78,9 @@ Aparentemente temos muitos destes zeros nos status "Contundido", "Nulo". Para si
 ## Criar banco de dados
 ```{r}
 treino <- cartola %>%
-            filter(atletas.rodada_id < 9 & atletas.status_id == "Provável")
+            filter(atletas.rodada_id < 10 & atletas.status_id == "Provável" & atletas.variacao_num != 0)
 validacao <- cartola %>%
-            filter(atletas.rodada_id == 9 & atletas.status_id == "Provável")
+            filter(atletas.rodada_id == 10 & atletas.status_id == "Provável" & atletas.variacao_num != 0)
 ```
 
 #### Comentário

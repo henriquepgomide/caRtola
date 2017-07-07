@@ -16,7 +16,7 @@ Este repositório tem como objetivo disponibilizar os dados e modelos preditivos
 ## Estrutura do repositório
 
 <!-- language: lang-none -->
-.
+```
 ├── dashboard
 │   └── cartola-stats
 ├── db
@@ -29,15 +29,16 @@ Este repositório tem como objetivo disponibilizar os dados e modelos preditivos
 │   ├── python
 │   └── R
 └── tutorials
-    └── R
+    └── R
+``` 
 
 
-### Dashboard
+**Dashboard**
 
 * Aplicativo Shiny para escolher seu jogador. Disponível no link (caRtola - STATS)[https://henriquepgomide.shinyapps.io/cartola-stats/]. Você pode executá-lo pelo computador. 
 
 
-### db
+**db**
 
 * Os dados das estatísticas dos jogadores do Cartola estão separados por ano.
   * Crédito das edições 2014 e 2015: (https://github.com/thevtm/CartolaFCDados)
@@ -46,7 +47,7 @@ Este repositório tem como objetivo disponibilizar os dados e modelos preditivos
 * Os dados dos times são extraídos do site da CBF.
 
 
-### lib
+**lib**
 
 Você encontra scripts em R e python para coletar e analisar os dados do cartola
 
@@ -57,7 +58,7 @@ Na pasta R:
   * data_wrangling - agrega os dados dos scouts do cartola, cria variáveis para uso em modelos preditivos agregando outras fontes.
   * rdata_2_sql.R - transforma os dados do objeto cartola em arquivo sql.
 
-### tutorials
+**tutorials**
 
 Você encontra tutoriais para iniciantes sobre o cartola.
 

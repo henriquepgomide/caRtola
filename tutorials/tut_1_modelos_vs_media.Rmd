@@ -1,4 +1,4 @@
-  ---
+---
 title: "TUT2 - Modelos de regressão são melhores que a média?"
 author: "Henrique Gomide"
 date: "`r Sys.Date()`"
@@ -12,11 +12,11 @@ output:
 
 Olá pessoal!
 
-No tutorial anterior, vimos que a média é um indicador limitado para mitar no cartola. Vamos tentar neste tutorial, usar outros modelos e reduzir o risco na tomada de decisão. Começaremos de forma básica, com um modelo de regressão.
+No tutorial anterior, vimos que a média é um indicador limitado para mitar no cartola. Vamos tentar neste tutorial, usar outros modelos e reduzir o risco na tomada de decisão. Começaremos de forma básica, com um modelo de regressão linear. O número a ser batido aqui é RMSE = 4,664063 (lembrando: valores menores são melhores).
 
 <center>![Levy Fidélix - Vamos subir o nível disso aqui](http://geradormemes.com/media/created/n931gu.jpg)</center>
 
-Este tutorial também é dedicado a _iniciantes_ do R. 
+Este tutorial também é dedicado a _iniciantes_ do R e análise de dados. 
 
 ### Pacotes
 
@@ -35,11 +35,11 @@ library(doParallel)  # Usar núcleos para processamento paralelo
 
 ### Banco de dados
 
-Usaremos os dados do [Cartola](https://github.com/henriquepgomide/caRtola/tree/master/db). Assim como no primeiro tutorial, iremos segmentar nosso banco em dois. 
+Usaremos os dados do [Cartola](https://github.com/henriquepgomide/caRtola/tree/master/db). Assim como no primeiro tutorial, iremos segmentar nosso banco em metades. Mas antes, vamos carregar os dados.
 
 ```{r}
 # Carregar banco de dados
-cartola <- read.csv("../db/2017/cartola_2017.csv", stringsAsFactors = FALSE)
+# cartola <- read.csv("../db/2017/cartola_2017.csv", stringsAsFactors = FALSE)
 ```
 
 
@@ -55,17 +55,21 @@ cartola <- read.csv("../db/2017/cartola_2017.csv", stringsAsFactors = FALSE)
 ```{r}
 # Segmentar banco de dados
 cartola$atletas.atleta_id <- as.character(cartola$atletas.atleta_id)
+
 treino <- cartola %>%
-            filter(atletas.rodada_id < 10 & atletas.status_id == "Provável")
+            filter(atletas.rodada_id < 10 & atletas.status_id == "Provável" & atletas.variacao_num != 0)
 
 validacao <- cartola %>%
-            filter(atletas.rodada_id == 10 & atletas.status_id == "Provável")
+            filter(atletas.rodada_id == 10 & atletas.status_id == "Provável" & atletas.variacao_num != 0)
 
 # Selecionar somente algumas variáveis
-variaveis <- c("atletas.clube.id.full.name", "atletas.jogos_num", "casa", "atletas.posicao_id", "atletas.pontos_num", "atletas.media_num")
+variaveis <- c("atletas.clube.id.full.name", "casa", "atletas.posicao_id", "atletas.pontos_num", "atletas.media_num")
 
 treino <- treino[, variaveis]
 variaveis <-  validacao[, variaveis]
+
+# Dados da rodada a ser prevista
+# val_df <- df_pred[df_pred$atletas.atleta_id %in% validacao$atletas.atleta_id, ]
 
 # Controles para os modelos
 ## Regression Models
@@ -129,8 +133,8 @@ ggplot(data = treino, aes(y = atletas.pontos_num, factor(casa))) +
 ### Análise de regressão linear simples
 ```{r, echo = FALSE, warning=FALSE}
 glmModel_0  <- train(atletas.pontos_num ~ ., data = treino, 
-                     method="glm", metric = "RMSE", preProcess = c("scale", "center"),
-                     trControl = ctrl, na.action = na.omit)
+                     method="glm", metric = "RMSE", preProcess = c("knnImpute","scale", "center"),
+                     trControl = ctrl, na.action = na.pass)
 ```
 
 ```{r}
@@ -143,10 +147,9 @@ postResample(pred = predictions, obs = validacao$atletas.pontos_num)
 
 ```{r}
 boostTree_0  <- train(atletas.pontos_num ~ ., data = treino, 
-                     method="xgbTree", metric = "RMSE", preProcess = c("scale", "center"),
-                     trControl = ctrl, na.action = na.omit)
+                     method="xgbTree", metric = "RMSE", preProcess = c("knnImpute", "scale", "center"),
+                     trControl = ctrl, na.action = na.pass)
 boostTree_0
-
 ```
 
 ```{r}

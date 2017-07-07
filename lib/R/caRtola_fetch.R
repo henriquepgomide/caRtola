@@ -29,7 +29,7 @@ library(plyr)
 json_athletes <- "https://api.cartolafc.globo.com/atletas/mercado"
 athletes <- fromJSON(paste(readLines(json_athletes), collapse="")) # Get data from Cartola API
 df_1 <- data.frame(athletes[1]) # Convert List format into DataFrame
-df_1 <- df_1[, 1:14] # Select useful vars
+df_1 <- df_1[, 1:13] # Select useful vars
 
 # Label variable atletas.posicao_id 
 df_3 <- athletes$posicoes

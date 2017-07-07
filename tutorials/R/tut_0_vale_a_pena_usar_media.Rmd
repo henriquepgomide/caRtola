@@ -1,7 +1,7 @@
 ---
 title: "TUT01 -  Vale a pena usar a média para selecionar seus jogadores?"
 author: "Henrique Gomide"
-date: "2017-06-25"
+date: "2017-07-03"
 output:
   prettydoc::html_pretty:
     theme: architect
@@ -33,7 +33,7 @@ Primeiro, vamos carregar nosso banco de dados.
 
 ```r
 # Carregar banco de dados
-cartola <- read.csv("../db/2017/cartola_2017.csv", stringsAsFactors = FALSE)
+cartola <- read.csv("../../db/2017/cartola_2017.csv", stringsAsFactors = FALSE)
 ```
 
 
@@ -74,9 +74,9 @@ Aparentemente temos muitos destes zeros nos status "Contundido", "Nulo". Para si
 
 ```r
 treino <- cartola %>%
-            filter(atletas.rodada_id < 9 & atletas.status_id == "Provável")
+            filter(atletas.rodada_id < 10 & atletas.status_id == "Provável" & atletas.variacao_num != 0)
 validacao <- cartola %>%
-            filter(atletas.rodada_id == 9 & atletas.status_id == "Provável")
+            filter(atletas.rodada_id == 10 & atletas.status_id == "Provável" & atletas.variacao_num != 0)
 ```
 
 #### Comentário
@@ -205,10 +205,10 @@ Iremos comparar a média contra outros modelos, tentando melhorar nossas previs�
 ##  version  R version 3.4.0 (2017-04-21)
 ##  system   x86_64, linux-gnu           
 ##  ui       RStudio (1.0.143)           
-##  language en_AU:en                    
-##  collate  en_AU.UTF-8                 
+##  language (EN)                        
+##  collate  en_US.UTF-8                 
 ##  tz       America/Sao_Paulo           
-##  date     2017-06-25
+##  date     2017-07-03
 ```
 
 ```
@@ -219,19 +219,19 @@ Iremos comparar a média contra outros modelos, tentando melhorar nossas previs�
 ##  package    * version    date       source                         
 ##  assertthat   0.2.0      2017-04-11 CRAN (R 3.4.0)                 
 ##  base       * 3.4.0      2017-04-21 local                          
-##  bindr        0.1        2016-11-13 cran (@0.1)                    
-##  bindrcpp   * 0.1        2016-12-11 cran (@0.1)                    
+##  bindr        0.1        2016-11-13 CRAN (R 3.4.0)                 
+##  bindrcpp   * 0.2        2017-06-17 CRAN (R 3.4.0)                 
 ##  colorspace   1.3-2      2016-12-14 CRAN (R 3.4.0)                 
 ##  compiler     3.4.0      2017-04-21 local                          
 ##  datasets   * 3.4.0      2017-04-21 local                          
 ##  devtools   * 1.13.2     2017-06-02 CRAN (R 3.4.0)                 
 ##  digest       0.6.12     2017-01-27 CRAN (R 3.4.0)                 
-##  dplyr      * 0.7.0      2017-06-09 cran (@0.7.0)                  
-##  evaluate     0.10       2016-10-11 CRAN (R 3.4.0)                 
+##  dplyr      * 0.7.1      2017-06-22 CRAN (R 3.4.0)                 
+##  evaluate     0.10.1     2017-06-24 CRAN (R 3.4.0)                 
 ##  ggdendro     0.1-20     2016-04-27 CRAN (R 3.4.0)                 
-##  ggplot2    * 2.2.1.9000 2017-06-23 Github (hadley/ggplot2@04a707e)
+##  ggplot2    * 2.2.1.9000 2017-06-27 Github (hadley/ggplot2@04a707e)
 ##  ggthemes   * 3.4.0      2017-02-19 CRAN (R 3.4.0)                 
-##  glue         1.1.0      2017-06-13 cran (@1.1.0)                  
+##  glue         1.1.1      2017-06-21 CRAN (R 3.4.0)                 
 ##  graphics   * 3.4.0      2017-04-21 local                          
 ##  grDevices  * 3.4.0      2017-04-21 local                          
 ##  grid         3.4.0      2017-04-21 local                          
@@ -240,10 +240,9 @@ Iremos comparar a média contra outros modelos, tentando melhorar nossas previs�
 ##  highr        0.6        2016-05-09 CRAN (R 3.4.0)                 
 ##  knitr      * 1.16       2017-05-18 CRAN (R 3.4.0)                 
 ##  labeling     0.3        2014-08-23 CRAN (R 3.4.0)                 
-##  lattice    * 0.20-35    2017-03-25 CRAN (R 3.4.0)                 
+##  lattice    * 0.20-35    2017-03-25 CRAN (R 3.3.3)                 
 ##  lazyeval     0.2.0      2016-06-12 CRAN (R 3.4.0)                 
 ##  magrittr     1.5        2014-11-22 CRAN (R 3.4.0)                 
-##  markdown   * 0.8        2017-04-20 CRAN (R 3.4.0)                 
 ##  MASS         7.3-47     2017-04-21 CRAN (R 3.4.0)                 
 ##  Matrix     * 1.2-10     2017-04-28 CRAN (R 3.4.0)                 
 ##  memoise      1.1.0      2017-04-21 CRAN (R 3.4.0)                 
@@ -251,20 +250,19 @@ Iremos comparar a média contra outros modelos, tentando melhorar nossas previs�
 ##  mosaic     * 0.14.4     2016-07-29 CRAN (R 3.4.0)                 
 ##  mosaicData * 0.14.0     2016-06-17 CRAN (R 3.4.0)                 
 ##  munsell      0.4.3      2016-02-13 CRAN (R 3.4.0)                 
-##  pkgconfig    2.0.1      2017-03-21 cran (@2.0.1)                  
+##  pkgconfig    2.0.1      2017-03-21 CRAN (R 3.4.0)                 
 ##  plyr         1.8.4      2016-06-08 CRAN (R 3.4.0)                 
-##  R6           2.2.1      2017-05-10 cran (@2.2.1)                  
-##  Rcpp         0.12.11    2017-05-22 cran (@0.12.11)                
+##  R6           2.2.2      2017-06-17 CRAN (R 3.4.0)                 
+##  Rcpp         0.12.11    2017-05-22 CRAN (R 3.4.0)                 
 ##  reshape2     1.4.2      2016-10-22 CRAN (R 3.4.0)                 
-##  rlang        0.1.1      2017-05-18 cran (@0.1.1)                  
-##  rstudioapi   0.6        2016-06-27 CRAN (R 3.4.0)                 
+##  rlang        0.1.1      2017-05-18 CRAN (R 3.4.0)                 
 ##  scales       0.4.1      2016-11-09 CRAN (R 3.4.0)                 
 ##  splines      3.4.0      2017-04-21 local                          
 ##  stats      * 3.4.0      2017-04-21 local                          
 ##  stringi      1.1.5      2017-04-07 CRAN (R 3.4.0)                 
 ##  stringr      1.2.0      2017-02-18 CRAN (R 3.4.0)                 
-##  tibble       1.3.3      2017-05-28 cran (@1.3.3)                  
-##  tidyr        0.6.3      2017-05-15 cran (@0.6.3)                  
+##  tibble       1.3.3      2017-05-28 CRAN (R 3.4.0)                 
+##  tidyr        0.6.3      2017-05-15 CRAN (R 3.4.0)                 
 ##  tools        3.4.0      2017-04-21 local                          
 ##  utils      * 3.4.0      2017-04-21 local                          
 ##  withr        1.0.2      2016-06-20 CRAN (R 3.4.0)

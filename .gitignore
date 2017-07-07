@@ -1,3 +1,5 @@
 .Rproj.user
 .Rhistory
 .RData
+
+lib/python/.ipynb_checkpoints/*

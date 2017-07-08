@@ -12,7 +12,7 @@ output:
 
 Olá pessoal!
 
-No tutorial anterior, vimos que a média é um indicador limitado para mitar no cartola. Vamos tentar neste tutorial, usar outros modelos e reduzir o risco na tomada de decisão. Começaremos de forma básica, com um modelo de regressão linear. O número a ser batido aqui é RMSE = 4,664063 (lembrando: valores menores são melhores).
+No tutorial anterior, vimos que a média é um indicador limitado para mitar no cartola. Vamos tentar neste tutorial, usar outros modelos e reduzir o risco na tomada de decisão. Começaremos de forma básica, com um modelo de regressão linear. O número a ser batido aqui é RMSE = 4.522518 (lembrando: valores menores são melhores).
 
 <center>![Levy Fidélix - Vamos subir o nível disso aqui](http://geradormemes.com/media/created/n931gu.jpg)</center>
 
@@ -39,7 +39,7 @@ Usaremos os dados do [Cartola](https://github.com/henriquepgomide/caRtola/tree/m
 
 ```{r}
 # Carregar banco de dados
-# cartola <- read.csv("../db/2017/cartola_2017.csv", stringsAsFactors = FALSE)
+source("../../lib/R/data_wrangling.R")
 ```
 
 
@@ -57,10 +57,10 @@ Usaremos os dados do [Cartola](https://github.com/henriquepgomide/caRtola/tree/m
 cartola$atletas.atleta_id <- as.character(cartola$atletas.atleta_id)
 
 treino <- cartola %>%
-            filter(atletas.rodada_id < 10 & atletas.status_id == "Provável" & atletas.variacao_num != 0)
+            filter(atletas.rodada_id < 11 & atletas.status_id == "Provável" & atletas.variacao_num != 0)
 
 validacao <- cartola %>%
-            filter(atletas.rodada_id == 10 & atletas.status_id == "Provável" & atletas.variacao_num != 0)
+            filter(atletas.rodada_id == 11 & atletas.status_id == "Provável" & atletas.variacao_num != 0)
 
 # Selecionar somente algumas variáveis
 variaveis <- c("atletas.clube.id.full.name", "casa", "atletas.posicao_id", "atletas.pontos_num", "atletas.media_num")

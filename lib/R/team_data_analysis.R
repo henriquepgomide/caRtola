@@ -14,8 +14,6 @@ library(dplyr)
 library(tidyr)
 library(ggplot2)
 
-# Load data - carregar banco de dados
-# load("db/worldTeamData/partiteAll")
 
 #####################
 # Previous years ----

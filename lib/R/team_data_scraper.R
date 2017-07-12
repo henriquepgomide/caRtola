@@ -27,12 +27,12 @@ write.csv(info, "db/2017/tabela-times.csv", row.names=FALSE)
 # ---------------
 
 library(XML)
-theurl <- htmlTreeParse("http://www.cbf.com.br/competicoes/brasileiro-serie-a/tabela/2014", useInternal = TRUE)
+theurl <- htmlTreeParse("http://www.cbf.com.br/competicoes/brasileiro-serie-a/tabela/2017", useInternal = TRUE)
 tables <- readHTMLTable(theurl)
 n.rows <- unlist(lapply(tables, function(t) dim(t)[1]))
 info <- tables[[which.max(n.rows)]]
 info <- info[,1:8]
 colnames(info) <- c("game","round","date", "home_team","score","away_team","arena","X")
 # Write file as csv - Gravar resultados das partidas
-write.csv(info, "db/2014/matches-brasileirao-2014.csv")
+write.csv(info, "db/2017/matches-brasileirao-2017.csv")
 rm(n.rows,tables, theurl, info)

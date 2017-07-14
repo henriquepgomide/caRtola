@@ -8,16 +8,16 @@ library(doParallel)
 #%%%%%%%%%%%%%%%%%%%%%%%%%
 # Subset Data Frame
 #%%%%%%%%%%%%%%%%%%%%%%%%%
-source("lib/R/merge_all_years.R")
+#source("lib/R/merge_all_years.R")
 
 # Remove cases with no data
 cartola <- subset(cartola, cartola$Participou == TRUE | cartola$PrecoVariacao != 0)
 
 treino <- cartola %>%
-  filter(!(Rodada < 12 & ano != 2017))
+  filter(!(Rodada < 13 & ano != 2017))
 
 validacao <- cartola %>%
-  filter(Rodada == 12 & ano == 2017)
+  filter(Rodada == 13 & ano == 2017)
 
 validacao <- validacao[complete.cases(validacao), ]
 
@@ -53,24 +53,6 @@ pls_0  <- train(Pontos ~ ., data = treino,
 pls_0
 
 
-###################################
-# BLACKBOX - RANDOM FOREST
-###################################
-cluster <- makeCluster(detectCores())
-registerDoParallel(cluster)
-fit.raf <- train(Pontos ~.,
-                 data=treino,
-                 method="rf",
-                 preProcess=c("center","scale"),
-                 tunelength=15,
-                 tuneGrid = rfGrid,
-                 trControl=ctrl,
-                 ntree = 1000,
-                 metric="RMSE",
-                 na.action = na.omit
-)
-stopCluster(cluster)
-
 ###################
 # GBM
 ###################
@@ -95,6 +77,25 @@ eXModel  <- train(Pontos ~ . , data = treino,
                   method="xgbTree", metric = "RMSE", 
                   preProcess = c("scale", "center"), na.action = na.pass,
                   trControl = ctrl)
+
+
+###################################
+# RANDOM FOREST
+###################################
+cluster <- makeCluster(detectCores())
+registerDoParallel(cluster)
+fit.raf <- train(Pontos ~.,
+                 data=treino,
+                 method="rf",
+                 preProcess=c("center","scale"),
+                 tunelength=15,
+                 tuneGrid = rfGrid,
+                 trControl=ctrl,
+                 ntree = 1000,
+                 metric="RMSE",
+                 na.action = na.omit
+)
+stopCluster(cluster)
 
 
 ###################

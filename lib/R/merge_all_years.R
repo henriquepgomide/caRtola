@@ -3,6 +3,7 @@ library(car)
 library(RcppRoll)
 library(fbRanks)
 library(reshape2)
+library(zoo)
 
 # This code is stil experimental. Do not run it, unless you know what are you doing.
 
@@ -39,24 +40,19 @@ names(cartola) <- c("AtletaID", "Rodada", "Nome",
                     "Posicao","ClubeID", "Status", 
                     "Pontos", "Preco", "PrecoVariacao",
                     "PontosMedia", "Jogos","scout",
-                    c(names(cartola)[16:37]))
+                    c(names(cartola)[16:33]))
 cartola$ano <- 2017
 
 temp1 <- read.csv("db/teamids-consolidated.csv", stringsAsFactors = FALSE)
 cartola$ClubeID <- mapvalues(cartola$ClubeID, 
                              from = as.vector(temp1$nome.cartola), 
                              to = as.vector(temp1$id))
-rm(df_2014, df_2015, df_2016, df_pred)
+rm(df_2014, df_2015, df_2016)
 
 # Merge data frames
 df <- bind_rows(df_3y, cartola)
 rm(cartola, df_3y)
-df <- df[, -c(11:15,16,36,38,39, 41:46)]
-
-df <- df %>% 
-  group_by(AtletaID) %>% 
-  na.locf() %>% 
-  ungroup
+df <- df[, -c(11:15,16,36,38,39, 41)]
 
 # Estimate mean by player
 df <- df %>%
@@ -69,6 +65,10 @@ df <- df %>%
 
 df$Participou <- ifelse(df$PrecoVariacao == 0, FALSE, TRUE)
 
+df <- df %>% 
+  group_by(AtletaID) %>% 
+  mutate_all(funs(na.locf(., na.rm = FALSE))) %>% 
+  ungroup
 
 #%%%%%%%%%%%%%%%%%%%%%%%%%
 # Create Team Features
@@ -105,20 +105,20 @@ colnames(matches) <- c("game","round","date", "home.team","home.score",
 # Rank teams
 team_features <- rank.teams(scores = matches, 
                              family = "poisson",
-                             max.date="2017-07-11",
+                             max.date="2017-07-14",
                              time.weight.eta = 0.01)
 
 teamPredictions <- predict.fbRanks(team_features, 
                       newdata = matches[,c(3:4,7)], 
                       min.date= min(matches$date),
-                      max.date = as.Date("2017-07-15"))
+                      max.date = as.Date("2017-07-18"))
 
 matches_fb <- left_join(matches, teamPredictions$scores, by = c("date","home.team", "away.team"))
 matches_fb <- matches_fb[,-c(9,10,13,14,22,23)]
 rm(teamPredictions, team_features)
 
 # Subset data until last round
-matches_fb <- subset(matches_fb, matches_fb$date <= "2017-07-15")
+matches_fb <- subset(matches_fb, matches_fb$date <= "2017-07-18")
 
 # Create data.frame to merge to player data
 temp2 <- melt(matches_fb, id = c("round", "date", "home.score.x", "away.score.x", 
@@ -136,3 +136,27 @@ df$ano <- as.integer(df$ano)
 
 # Left join com cartola
 cartola <- left_join(x = data.frame(df), y = temp2, by = c("ClubeID" = "value", "Rodada" = "round", "ano" = "ano"))
+
+#%%%%%%%%%%%%%%%%%%%%%%%%%
+# Create data.frame for predicting next round stats
+#%%%%%%%%%%%%%%%%%%%%%%%%%
+
+df_pred <- subset(cartola, cartola$ano == 2017 & cartola$Rodada == 13 & cartola$Status == "Provável")
+
+df_pred$Rodada <- 14
+df_pred <- left_join(x = df_pred[, -c(34:42)],
+                     y = subset(temp2, temp2$round == 14 & temp2$ano == 2017), 
+                     by = c("ClubeID" = "value", "Rodada" = "round"))
+
+#df_pred[, 8:25] <- sapply(df_pred[, 8:25], function(x) as.numeric(NA))
+
+# Replace data from the last round with the average values
+# df <-
+#   cartola %>%
+#   group_by(atletas.atleta_id) %>%
+#   summarize_at(c(11,15:32),
+#                funs(mean(., na.rm=TRUE)))
+# 
+# df_pred <- df_pred[, -c(8:25)]
+# df_pred <- left_join(df_pred, df, by = "atletas.atleta_id")
+# rm(df)

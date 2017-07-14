@@ -2,6 +2,7 @@ library(dplyr)
 library(car)
 library(RcppRoll)
 library(fbRanks)
+library(reshape2)
 
 # This code is stil experimental. Do not run it, unless you know what are you doing.
 
@@ -17,7 +18,7 @@ df_2016 <- read.csv("db/2016/Scouts.csv", stringsAsFactors = FALSE)
 # Inser column year into data
 df_2014$ano <- 2014; df_2015$ano <- 2015; df_2016$ano <- 2016
 
-# Convert Participou into data frame
+# Convert Participou into logic
 df_2014$Participou <- ifelse(df_2014$Participou == 1, TRUE, FALSE)
 
 # Set same col names for all data frames
@@ -51,6 +52,11 @@ rm(df_2014, df_2015, df_2016, df_pred)
 df <- bind_rows(df_3y, cartola)
 rm(cartola, df_3y)
 df <- df[, -c(11:15,16,36,38,39, 41:46)]
+
+df <- df %>% 
+  group_by(AtletaID) %>% 
+  na.locf() %>% 
+  ungroup
 
 # Estimate mean by player
 df <- df %>%
@@ -99,79 +105,34 @@ colnames(matches) <- c("game","round","date", "home.team","home.score",
 # Rank teams
 team_features <- rank.teams(scores = matches, 
                              family = "poisson",
-                             max.date="2017-07-08",
+                             max.date="2017-07-11",
                              time.weight.eta = 0.01)
 
 teamPredictions <- predict.fbRanks(team_features, 
                       newdata = matches[,c(3:4,7)], 
                       min.date= min(matches$date),
-                      max.date = as.Date("2017-07-12"))
+                      max.date = as.Date("2017-07-15"))
 
 matches_fb <- left_join(matches, teamPredictions$scores, by = c("date","home.team", "away.team"))
 matches_fb <- matches_fb[,-c(9,10,13,14,22,23)]
-
-# Create goal differential
-matches_fb$goals_dif <-  matches_fb$home.score.x - matches_fb$away.score.x
+rm(teamPredictions, team_features)
 
 # Subset data until last round
-matches_fb <- subset(matches_fb, matches_fb$round <= max(cartola$atletas.rodada_id) + 1)
-
-
+matches_fb <- subset(matches_fb, matches_fb$date <= "2017-07-15")
 
 # Create data.frame to merge to player data
+temp2 <- melt(matches_fb, id = c("round", "date", "home.score.x", "away.score.x", 
+                                 "pred.home.score", "pred.away.score",
+                                 "home.attack","home.defend"), 
+              measure.vars = c("home.team", "away.team"))
 
-teste <- melt(matches_fb, id = c("round", "date", "home.team", "away.team"), 
-     measure.vars = c("home.score.x", "away.score.x", 
-                      "pred.home.score", "pred.away.score",
-                      "home.attack","home.defend"))
-
-teste <- gather(matches_fb, casa, team, -home.score.x, -away.score.x, 
-                -arena, -pred.home.score, -pred.away.score, -home.attack,
-                -away.attack, -away_defend, -home.win, -away.win, -tie, -goals_dif) 
-
-
-matches$goals_dif <-  matches$home.score - matches_fb$away.score
-teste <- gather(matches, casa, team, -home.score, -away.score, -round, -goals_dif)
-
-# Recode variable name
-matches$casa <- ifelse(matches$casa == "home_team", "Casa", "Fora")
+# Recode date variable into year
+temp2 <- separate(temp2, date, c("ano", "mes","dia"))
+temp2$value <- as.integer(temp2$value)
+temp2$ano <- as.integer(temp2$ano)
+df$ClubeID <- as.integer(df$ClubeID)
+df$Rodada <- as.integer(df$Rodada)
+df$ano <- as.integer(df$ano)
 
 # Left join com cartola
-cartola <- left_join(x = cartola, y = matches, by = c("atletas.clube.id.full.name" = "team", "atletas.rodada_id" = "round"))
-
-#%%%%%%%%%%%%%%%%%%%%%%%%%
-# Subset Data Frame
-#%%%%%%%%%%%%%%%%%%%%%%%%%
-
-# Remove cases with no data
-df <- subset(df, df$Participou == TRUE)
-
-
-#### 
-# Modeling
-####
-
-treino <- df %>%
-  filter(!(Rodada < 11 & ano != 2017))
-
-validacao <- df %>%
-  filter(Rodada == 11 & ano == 2017)
-
-# Selecionar somente algumas variáveis
-variaveis <- c("ClubeID", "Posicao", "media", "roll.media", "Pontos", "PontosMedia")
-
-treino <- treino[, variaveis]
-variaveis <-  validacao[, variaveis]
-
-# Controles para os modelos
-## Regression Models
-ctrl <- trainControl(method = "repeatedcv", number = 10, repeats = 10, allowParallel = TRUE, verboseIter = TRUE)
-
-glmModel_0  <- train(Pontos ~ ., data = treino, 
-                     method="glm", metric = "RMSE", preProcess = c("knnImpute","scale", "center"),
-                     trControl = ctrl, na.action = na.pass)
-
-glmModel_0 <- glm(data = treino, formula = Pontos ~ PontosMedia, family = gaussian, na.action = na.omit)
-
-predictions <- predict(glmModel_0, newdata = validacao)
-postResample(pred = predictions, obs = validacao$Pontos)
+cartola <- left_join(x = data.frame(df), y = temp2, by = c("ClubeID" = "value", "Rodada" = "round", "ano" = "ano"))

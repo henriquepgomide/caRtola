@@ -79,6 +79,14 @@ eXModel  <- train(Pontos ~ . , data = treino,
                   trControl = ctrl)
 
 
+###################
+# SVM
+###################
+svmModel  <- train(Pontos ~ . , data = treino, 
+                  method="svmRadial", metric = "RMSE", 
+                  preProcess = c("scale", "center"), na.action = na.pass,
+                  trControl = ctrl)
+
 ###################################
 # RANDOM FOREST
 ###################################

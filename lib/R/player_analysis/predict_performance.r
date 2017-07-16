@@ -30,7 +30,7 @@ validacao <-  validacao[, variaveis]
 # Controles para os modelos
 ## Regression Models
 ctrl <- trainControl(method = "repeatedcv", number = 10, repeats = 10, allowParallel = TRUE, verboseIter = TRUE)
-rfGrid <-  expand.grid(mtry = c(10,20,40,80))  
+rfGrid <-  expand.grid(mtry = c(5,10))  
 
 ########### 
 # Modeling
@@ -96,7 +96,7 @@ fit.raf <- train(Pontos ~.,
                  data=treino,
                  method="rf",
                  preProcess=c("center","scale"),
-                 tunelength=15,
+                 tunelength=10,
                  tuneGrid = rfGrid,
                  trControl=ctrl,
                  ntree = 1000,
@@ -110,8 +110,8 @@ stopCluster(cluster)
 # COMPARE MODELS
 ###################
 
-models <- list(eXB = eXModel, glm = glmModel_0, NeurN = nnModel, GBM = boostModel, 
-               RF = fit.raf)
+models <- list(eXB = eXModel, glm = glmModel_0, pls = pls_0, NeurN = nnModel, GBM = boostModel, 
+               SVM = svmModel)
 
 results <- resamples(models)
 summary(results)
@@ -120,6 +120,9 @@ dotplot(results)
 
 predictions_glm <- predict(glmModel_0, newdata = validacao)
 postResample(pred = predictions_glm, obs = validacao$Pontos)
+
+predictions_pls <- predict(pls_0, newdata = validacao)
+postResample(pred = predictions_pls, obs = validacao$Pontos)
 
 predictions_exb <- predict(eXModel, newdata = validacao)
 postResample(pred = predictions_exb, obs = validacao$Pontos)
@@ -130,12 +133,32 @@ postResample(pred = predictions_nn, obs = validacao$Pontos)
 predictions_gbm <- predict(boostModel, newdata = validacao)
 postResample(pred = predictions_gbm, obs = validacao$Pontos)
 
-predictions_rf <- predict(fit.raf, newdata = validacao)
-postResample(pred = predictions_rf, obs = validacao$Pontos)
+predictions_svm <- predict(svmModel, newdata = validacao)
+postResample(pred = predictions_svm, obs = validacao$Pontos)
+
+# predictions_rf <- predict(fit.raf, newdata = validacao)
+# postResample(pred = predictions_rf, obs = validacao$Pontos)
 
 
-summary(valicado$Pontos)
+summary(validacao$Pontos)
 summary(predictions_glm)
-summary(predictions_lasso)
+summary(predictions_pls)
+summary(predictions_exb)
+summary(predictions_nn)
 summary(predictions_gbm)
+summary(predictions_svm)
 
+df_pred_r <- df_pred[, c(variaveis, "Apelido")]
+df_pred_r2 <- df_pred_r[complete.cases(df_pred_r), ]
+df_pred_r2$next_round <- predict(eXModel, df_pred)
+
+df_pred_r2 <- arrange(df_pred_r2, - next_round)
+
+ata <- subset(df_pred_r2, df_pred_r2$Posicao == "ata")
+mei <- subset(df_pred_r2, df_pred_r2$Posicao == "mei")
+zag <- subset(df_pred_r2, df_pred_r2$Posicao == "zag")
+lat <- subset(df_pred_r2, df_pred_r2$Posicao == "lat")
+gol <- subset(df_pred_r2, df_pred_r2$Posicao == "gol")
+tec <- subset(df_pred_r2, df_pred_r2$Posicao == "tec")
+
+ata[1:7,]

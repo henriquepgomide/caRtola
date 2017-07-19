@@ -1,11 +1,11 @@
 library(dplyr)
+library(plyr)
 library(car)
 library(RcppRoll)
 library(fbRanks)
 library(reshape2)
 library(zoo)
 
-# This code is stil experimental. Do not run it, unless you know what are you doing.
 
 #%%%%%%%%%%%%%%%%%%%%%%%%%
 # Merge years 2014 to 2017
@@ -24,6 +24,31 @@ df_2014$Participou <- ifelse(df_2014$Participou == 1, TRUE, FALSE)
 
 # Set same col names for all data frames
 colnames(df_2014)[c(1,3)] <-  c("AtletaID", "ClubeID")
+
+# Fix 2015 scouts - they are aggregated, wrong format.
+# Sort data by id and round 
+df_2015 <- 
+  df_2015 %>%
+  arrange(AtletaID, - Rodada)
+
+df_temp <- df_2015
+
+# Create a data.frame to manipulate scouts
+df_temp <- df_temp[, c(3,9:26)]
+
+df_temp <- df_temp %>%
+  group_by(AtletaID) %>%
+  mutate_all(funs(abs(diff(c(.,0))))) %>%
+  ungroup
+
+df_temp$Rodada <- df_2015$Rodada
+
+# Remove aggregated scouts statistics
+df_2015 <- df_2015[, -c(9:26)]
+
+# Join with proper scouts
+df_2015 <- left_join(df_2015, df_temp, by = c("AtletaID", "Rodada"))
+rm(df_temp)
 
 # Merge data frames            
 df_3y <- bind_rows(df_2014, df_2015, df_2016)
@@ -60,8 +85,44 @@ df <- df %>%
 
 df <- df %>%
   group_by(AtletaID) %>%
-  mutate(media = cummean(Pontos), 
-         roll.media = roll_meanr(Pontos, n = 5, fill = 1))
+  mutate(avg.Points = cummean(Pontos), 
+         avg.last10 = roll_meanr(Pontos, n = 5, fill = 1),
+         avg.FS = cummean(FS),
+         avg.FS.l10 = roll_meanr(FS, n = 5, fill = 1),
+         avg.PE = cummean(PE),
+         avg.PE.l10 = roll_meanr(PE, n = 5, fill = 1),
+         avg.A = cummean(A),
+         avg.A.l10 = roll_meanr(A, n = 5, fill = 1),
+         avg.FT = cummean(FT),
+         avg.FT.l10 = roll_meanr(FT, n = 5, fill = 1),
+         avg.FD = cummean(FD),
+         avg.FD.l10 = roll_meanr(FD, n = 5, fill = 1),
+         avg.FF = cummean(FF),
+         avg.FF.l10 = roll_meanr(FF, n = 5, fill = 1),
+         avg.G = cummean(G),
+         avg.G.l10 = roll_meanr(G, n = 5, fill = 1),
+         avg.I = cummean(I),
+         avg.I.l10 = roll_meanr(I, n = 5, fill = 1),
+         avg.PP = cummean(PP),
+         avg.PP.l10 = roll_meanr(PP, n = 5, fill = 1),
+         avg.RB = cummean(RB),
+         avg.RB.l10 = roll_meanr(RB, n = 5, fill = 1),
+         avg.FC = cummean(FC),
+         avg.FC.l10 = roll_meanr(FC, n = 5, fill = 1),
+         avg.GC = cummean(GC),
+         avg.GC.l10 = roll_meanr(GC, n = 5, fill = 1),
+         avg.CA = cummean(CA),
+         avg.CV.l10 = roll_meanr(CV, n = 5, fill = 1),
+         avg.SG = cummean(SG),
+         avg.SG.l10 = roll_meanr(SG, n = 5, fill = 1),
+         avg.DD = cummean(DD),
+         avg.DD.l10 = roll_meanr(DD, n = 5, fill = 1),
+         avg.DP = cummean(DP),
+         avg.DP.l10 = roll_meanr(DP, n = 5, fill = 1),
+         avg.GS = cummean(GS),
+         avg.GS.l10 = roll_meanr(GS, n = 5, fill = 1)
+         ) %>%
+  ungroup
 
 df$Participou <- ifelse(df$PrecoVariacao == 0, FALSE, TRUE)
 
@@ -105,20 +166,21 @@ colnames(matches) <- c("game","round","date", "home.team","home.score",
 # Rank teams
 team_features <- rank.teams(scores = matches, 
                              family = "poisson",
-                             max.date="2017-07-14",
+                             fun = "speedglm",
+                             max.date="2017-07-18",
                              time.weight.eta = 0.01)
 
 teamPredictions <- predict.fbRanks(team_features, 
                       newdata = matches[,c(3:4,7)], 
                       min.date= min(matches$date),
-                      max.date = as.Date("2017-07-18"))
+                      max.date = as.Date("2017-07-20"))
 
 matches_fb <- left_join(matches, teamPredictions$scores, by = c("date","home.team", "away.team"))
 matches_fb <- matches_fb[,-c(9,10,13,14,22,23)]
 rm(teamPredictions, team_features)
 
 # Subset data until last round
-matches_fb <- subset(matches_fb, matches_fb$date <= "2017-07-18")
+matches_fb <- subset(matches_fb, matches_fb$date <= "2017-07-20")
 
 # Create data.frame to merge to player data
 temp2 <- melt(matches_fb, id = c("round", "date", "home.score.x", "away.score.x", 
@@ -141,12 +203,16 @@ cartola <- left_join(x = data.frame(df), y = temp2, by = c("ClubeID" = "value", 
 # Create data.frame for predicting next round stats
 #%%%%%%%%%%%%%%%%%%%%%%%%%
 
-df_pred <- subset(cartola, cartola$ano == 2017 & cartola$Rodada == 13 & cartola$Status == "Provável")
+df_pred <- subset(cartola, cartola$ano == 2017 & cartola$Rodada == 14 & cartola$Status == "Provável")
+variaveis <- c(2, 3, 5, 7, 8, 29,30, 32:69, 72:76)
+df_pred <- df_pred[, variaveis]
 
-df_pred$Rodada <- 14
-df_pred <- left_join(x = df_pred[, -c(34:42)],
-                     y = subset(temp2, temp2$round == 14 & temp2$ano == 2017), 
-                     by = c("ClubeID" = "value", "Rodada" = "round"))
+df_pred$Rodada <- 15
+df_pred <- left_join(x = df_pred[, -c(44:50)],
+                     y = subset(temp2, temp2$round == 15 & temp2$ano == 2017), 
+                     by = c("ClubeID" = "value", "Rodada" = "round", "ano" = "ano"))
+
+rm(matches, matches_fb, temp2)
 
 #df_pred[, 8:25] <- sapply(df_pred[, 8:25], function(x) as.numeric(NA))
 

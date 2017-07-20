@@ -14,7 +14,7 @@ library(doParallel)
 df <- subset(cartola, cartola$Participou == TRUE | cartola$PrecoVariacao != 0)
 
 # Pick only a subset of variables
-variaveis <- c(2, 3, 5, 7, 8, 29, 32:69, 72:76)
+variaveis <- c(2, 3, 5, 7, 8, 29, 32:70, 73:77)
 df <- df[, variaveis]
 
 # Remove nearzero variance predictors
@@ -230,14 +230,11 @@ summary(predictions_nn)
 summary(predictions_gbm)
 summary(predictions_svm)
 
-#df_pred_r <- df_pred[, c(variaveis, "Apelido")]
-df_pred_r <- df_pred[, -c(46,47)]
+# Remove home.score and away.score variables
+df_pred_r <- df_pred[, -c(47,48)]
 df_pred_r2 <- df_pred_r[complete.cases(df_pred_r), ]
-
-
+# Create predictions
 df_pred_r2$next_round <- predict(fit.raf_final, df_pred)
-
-# Estimating risk
 df_pred_r2 <- arrange(df_pred_r2, - next_round)
 
 ata <- subset(df_pred_r2, df_pred_r2$Posicao == "ata")

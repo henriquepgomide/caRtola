@@ -120,7 +120,8 @@ df <- df %>%
          avg.DP = cummean(DP),
          avg.DP.l10 = roll_meanr(DP, n = 5, fill = 1),
          avg.GS = cummean(GS),
-         avg.GS.l10 = roll_meanr(GS, n = 5, fill = 1)
+         avg.GS.l10 = roll_meanr(GS, n = 5, fill = 1),
+         risk_points = sd(Pontos, na.rm = TRUE)
          ) %>%
   ungroup
 
@@ -204,11 +205,11 @@ cartola <- left_join(x = data.frame(df), y = temp2, by = c("ClubeID" = "value", 
 #%%%%%%%%%%%%%%%%%%%%%%%%%
 
 df_pred <- subset(cartola, cartola$ano == 2017 & cartola$Rodada == 14 & cartola$Status == "Provável")
-variaveis <- c(2, 3, 5, 7, 8, 29,30, 32:69, 72:76)
+variaveis <- c(2, 3, 5, 7, 8, 29,30, 32:70, 73:77)
 df_pred <- df_pred[, variaveis]
 
 df_pred$Rodada <- 15
-df_pred <- left_join(x = df_pred[, -c(44:50)],
+df_pred <- left_join(x = df_pred[, -c(45:51)],
                      y = subset(temp2, temp2$round == 15 & temp2$ano == 2017), 
                      by = c("ClubeID" = "value", "Rodada" = "round", "ano" = "ano"))
 

@@ -219,9 +219,6 @@ postResample(pred = predictions_svm, obs = validacao$Pontos)
 predictions_exb1 <- predict(eXModel_v1, newdata = validacao)
 postResample(pred = predictions_exb1, obs = validacao$Pontos)
 
-
-
-
 summary(validacao$Pontos)
 summary(predictions_glm)
 summary(predictions_pls)
@@ -233,8 +230,9 @@ summary(predictions_svm)
 # Remove home.score and away.score variables
 df_pred_r <- df_pred[, -c(48,49)]
 df_pred_r2 <- df_pred_r[complete.cases(df_pred_r), ]
+
 # Create predictions
-df_pred_r2$next_round <- predict(fit.raf_final, df_pred)
+df_pred_r2$next_round <- predict(fit.raf_final, df_pred_r2)
 df_pred_r2 <- arrange(df_pred_r2, - next_round)
 
 ata <- subset(df_pred_r2, df_pred_r2$Posicao == "ata")
@@ -244,4 +242,5 @@ lat <- subset(df_pred_r2, df_pred_r2$Posicao == "lat")
 gol <- subset(df_pred_r2, df_pred_r2$Posicao == "gol")
 tec <- subset(df_pred_r2, df_pred_r2$Posicao == "tec")
 
-gol[1:5, c("Apelido","ClubeID","Posicao")]
+gol[1:5, c("Apelido","ClubeID","Posicao", "risk_points", "next_round", "pred.home.score",
+           "pred.away.score", "variable")]

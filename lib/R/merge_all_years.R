@@ -86,41 +86,41 @@ df <- df %>%
 df <- df %>%
   group_by(AtletaID) %>%
   mutate(avg.Points = cummean(Pontos), 
-         avg.last10 = roll_meanr(Pontos, n = 5, fill = 1),
+         avg.last05 = roll_meanr(Pontos, n = 5, fill = 1),
          avg.FS = cummean(FS),
-         avg.FS.l10 = roll_meanr(FS, n = 5, fill = 1),
+         avg.FS.l05 = roll_meanr(FS, n = 5, fill = 1),
          avg.PE = cummean(PE),
-         avg.PE.l10 = roll_meanr(PE, n = 5, fill = 1),
+         avg.PE.l05 = roll_meanr(PE, n = 5, fill = 1),
          avg.A = cummean(A),
-         avg.A.l10 = roll_meanr(A, n = 5, fill = 1),
+         avg.A.l05 = roll_meanr(A, n = 5, fill = 1),
          avg.FT = cummean(FT),
-         avg.FT.l10 = roll_meanr(FT, n = 5, fill = 1),
+         avg.FT.l05 = roll_meanr(FT, n = 5, fill = 1),
          avg.FD = cummean(FD),
-         avg.FD.l10 = roll_meanr(FD, n = 5, fill = 1),
+         avg.FD.l05 = roll_meanr(FD, n = 5, fill = 1),
          avg.FF = cummean(FF),
-         avg.FF.l10 = roll_meanr(FF, n = 5, fill = 1),
+         avg.FF.l05 = roll_meanr(FF, n = 5, fill = 1),
          avg.G = cummean(G),
-         avg.G.l10 = roll_meanr(G, n = 5, fill = 1),
+         avg.G.l05 = roll_meanr(G, n = 5, fill = 1),
          avg.I = cummean(I),
-         avg.I.l10 = roll_meanr(I, n = 5, fill = 1),
+         avg.I.l05 = roll_meanr(I, n = 5, fill = 1),
          avg.PP = cummean(PP),
-         avg.PP.l10 = roll_meanr(PP, n = 5, fill = 1),
+         avg.PP.l05 = roll_meanr(PP, n = 5, fill = 1),
          avg.RB = cummean(RB),
-         avg.RB.l10 = roll_meanr(RB, n = 5, fill = 1),
+         avg.RB.l05 = roll_meanr(RB, n = 5, fill = 1),
          avg.FC = cummean(FC),
-         avg.FC.l10 = roll_meanr(FC, n = 5, fill = 1),
+         avg.FC.l05 = roll_meanr(FC, n = 5, fill = 1),
          avg.GC = cummean(GC),
-         avg.GC.l10 = roll_meanr(GC, n = 5, fill = 1),
+         avg.GC.l05 = roll_meanr(GC, n = 5, fill = 1),
          avg.CA = cummean(CA),
-         avg.CV.l10 = roll_meanr(CV, n = 5, fill = 1),
+         avg.CV.l05 = roll_meanr(CV, n = 5, fill = 1),
          avg.SG = cummean(SG),
-         avg.SG.l10 = roll_meanr(SG, n = 5, fill = 1),
+         avg.SG.l05 = roll_meanr(SG, n = 5, fill = 1),
          avg.DD = cummean(DD),
-         avg.DD.l10 = roll_meanr(DD, n = 5, fill = 1),
+         avg.DD.l05 = roll_meanr(DD, n = 5, fill = 1),
          avg.DP = cummean(DP),
-         avg.DP.l10 = roll_meanr(DP, n = 5, fill = 1),
+         avg.DP.l05 = roll_meanr(DP, n = 5, fill = 1),
          avg.GS = cummean(GS),
-         avg.GS.l10 = roll_meanr(GS, n = 5, fill = 1),
+         avg.GS.l05 = roll_meanr(GS, n = 5, fill = 1),
          risk_points = roll_sd(Pontos, n = 10, fill = 1)
          ) %>%
   ungroup
@@ -168,20 +168,20 @@ colnames(matches) <- c("game","round","date", "home.team","home.score",
 team_features <- rank.teams(scores = matches, 
                              family = "poisson",
                              fun = "speedglm",
-                             max.date="2017-07-18",
+                             max.date="2017-07-20",
                              time.weight.eta = 0.01)
 
 teamPredictions <- predict.fbRanks(team_features, 
                       newdata = matches[,c(3:4,7)], 
                       min.date= min(matches$date),
-                      max.date = as.Date("2017-07-20"))
+                      max.date = as.Date("2017-07-23"))
 
 matches_fb <- left_join(matches, teamPredictions$scores, by = c("date","home.team", "away.team"))
 matches_fb <- matches_fb[,-c(9,10,13,14,22,23)]
 rm(teamPredictions, team_features)
 
 # Subset data until last round
-matches_fb <- subset(matches_fb, matches_fb$date <= "2017-07-20")
+matches_fb <- subset(matches_fb, matches_fb$date <= "2017-07-23")
 
 # Create data.frame to merge to player data
 temp2 <- melt(matches_fb, id = c("round", "date", "home.score.x", "away.score.x", 
@@ -201,29 +201,22 @@ df$ano <- as.integer(df$ano)
 cartola <- left_join(x = data.frame(df), y = temp2, by = c("ClubeID" = "value", "Rodada" = "round", "ano" = "ano"))
 
 #%%%%%%%%%%%%%%%%%%%%%%%%%
+# Create data.frame with aggregated data
+#%%%%%%%%%%%%%%%%%%%%%%%%%
+write.csv(subset(cartola, cartola$Participou == TRUE | cartola$PrecoVariacao != 0), 
+          "db/cartola_aggregated.csv", row.names = FALSE)
+
+#%%%%%%%%%%%%%%%%%%%%%%%%%
 # Create data.frame for predicting next round stats
 #%%%%%%%%%%%%%%%%%%%%%%%%%
 
-df_pred <- subset(cartola, cartola$ano == 2017 & cartola$Rodada == 14 & cartola$Status == "Provável")
+df_pred <- subset(cartola, cartola$ano == 2017 & cartola$Rodada == 15 & cartola$Status == "Provável")
 variaveis <- c(2, 3, 5, 7, 8, 9, 29,30, 32:70, 73:77)
 df_pred <- df_pred[, variaveis]
 
 df_pred$Rodada <- 15
 df_pred <- left_join(x = df_pred[, -c(46:52)],
-                     y = subset(temp2, temp2$round == 15 & temp2$ano == 2017), 
+                     y = subset(temp2, temp2$round == 16 & temp2$ano == 2017), 
                      by = c("ClubeID" = "value", "Rodada" = "round", "ano" = "ano"))
 
-rm(matches, matches_fb, temp2)
-
-#df_pred[, 8:25] <- sapply(df_pred[, 8:25], function(x) as.numeric(NA))
-
-# Replace data from the last round with the average values
-# df <-
-#   cartola %>%
-#   group_by(atletas.atleta_id) %>%
-#   summarize_at(c(11,15:32),
-#                funs(mean(., na.rm=TRUE)))
-# 
-# df_pred <- df_pred[, -c(8:25)]
-# df_pred <- left_join(df_pred, df, by = "atletas.atleta_id")
-# rm(df)
+# rm(matches, matches_fb, temp2)

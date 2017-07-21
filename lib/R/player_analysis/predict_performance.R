@@ -231,7 +231,7 @@ summary(predictions_gbm)
 summary(predictions_svm)
 
 # Remove home.score and away.score variables
-df_pred_r <- df_pred[, -c(47,48)]
+df_pred_r <- df_pred[, -c(48,49)]
 df_pred_r2 <- df_pred_r[complete.cases(df_pred_r), ]
 # Create predictions
 df_pred_r2$next_round <- predict(fit.raf_final, df_pred)
@@ -244,4 +244,4 @@ lat <- subset(df_pred_r2, df_pred_r2$Posicao == "lat")
 gol <- subset(df_pred_r2, df_pred_r2$Posicao == "gol")
 tec <- subset(df_pred_r2, df_pred_r2$Posicao == "tec")
 
-ata[1:10, c("Apelido","next_round","pred.home.score", "pred.away.score","variable")]
+gol[1:5, c("Apelido","ClubeID","Posicao")]

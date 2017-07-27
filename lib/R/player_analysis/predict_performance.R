@@ -14,7 +14,7 @@ library(doParallel)
 df <- subset(cartola, cartola$Participou == TRUE | cartola$PrecoVariacao != 0)
 
 # Pick only a subset of variables
-variaveis <- c(2, 3, 5, 7, 8, 29, 32:70, 73:77)
+variaveis <- c(2, 3, 5, 7, 8, 29, 32:67, 71:77)
 df <- df[, variaveis]
 
 # Remove nearzero variance predictors
@@ -23,10 +23,10 @@ df <- df[, -nzv]
 
 # Split training and validation
 treino <- df %>%
-  filter(!(Rodada < 15 & ano != 2017))
+  filter(!(Rodada == 15 & ano == 2017))
 
 validacao <- df %>%
-  filter(Rodada == 15 & ano == 2017)
+  filter(Rodada == 13 & ano == 2017)
 
 validacao <- validacao[complete.cases(validacao), ]
 
@@ -46,6 +46,16 @@ eXGBGrid <-  expand.grid(nrounds = 150,
                          gamma = 0,
                          min_child_weight = 1
                          )
+ga_ctrl <- gafsControl(functions = rfGA,
+                       method = "repeatedcv",
+                       repeats = 1,
+                       number = 10,
+                       verbose = TRUE)
+
+rf_ga <- gafs(x = treino[, -4], y = treino[, 4],
+              iters = 10,
+              popSize = 30,
+              gafsControl = ga_ctrl)
 
 
 ########### 
@@ -53,12 +63,20 @@ eXGBGrid <-  expand.grid(nrounds = 150,
 ###########
 
 ###################
-# GLM
+# Baseline
 ###################
-glmModel_0  <- train(Pontos ~ ., data = treino, 
+glmModel_0  <- train(Pontos ~ PontosMedia, data = treino, 
                      method="glm", metric = "RMSE", preProcess = c("scale", "center"), na.action = na.pass,
                      trControl = ctrl)
 glmModel_0
+
+###################
+# GLM
+###################
+glmModel_1  <- train(Pontos ~ ., data = treino, 
+                     method="glm", metric = "RMSE", preProcess = c("scale", "center"), na.action = na.pass,
+                     trControl = ctrl)
+glmModel_1
 
 ###################
 # Partial Least Square
@@ -228,11 +246,11 @@ summary(predictions_gbm)
 summary(predictions_svm)
 
 # Remove home.score and away.score variables
-df_pred_r <- df_pred[, -c(48,49)]
+df_pred_r <- df_pred
 df_pred_r2 <- df_pred_r[complete.cases(df_pred_r), ]
 
 # Create predictions
-df_pred_r2$next_round <- predict(fit.raf_final, df_pred_r2)
+df_pred_r2$next_round <- predict(eXModel_v1, df_pred_r2)
 df_pred_r2 <- arrange(df_pred_r2, - next_round)
 
 ata <- subset(df_pred_r2, df_pred_r2$Posicao == "ata")
@@ -242,5 +260,5 @@ lat <- subset(df_pred_r2, df_pred_r2$Posicao == "lat")
 gol <- subset(df_pred_r2, df_pred_r2$Posicao == "gol")
 tec <- subset(df_pred_r2, df_pred_r2$Posicao == "tec")
 
-gol[1:5, c("Apelido","ClubeID","Posicao", "risk_points", "next_round", "pred.home.score",
+ata[1:10, c("Apelido","ClubeID","Posicao", "risk_points", "next_round", "pred.home.score",
            "pred.away.score", "variable")]

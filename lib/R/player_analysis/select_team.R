@@ -33,11 +33,12 @@ const.rhs <- c(3, 1,
                2, 0,
                1, 1,
                rep(5, length(df_pred_r2$next_round)),
-               180)
+               97.11)
 
 
 sol <- lp(direction = "max", objective.in, # maximize objective function
           matrix, const.dir, const.rhs,   # constraints
           all.bin = TRUE)
 inds <- which(sol$solution == 1)
-df_pred_r2[inds, c("Apelido", "Posicao", "next_round", "Preco", "risk_points")]
+df_pred_r2[inds, c("Apelido", "Posicao", "next_round", "Preco", "risk_points", "variable", "pred.home.score",
+                   "pred.away.score"), ]

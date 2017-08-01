@@ -6,7 +6,7 @@
 # XML 
 
 require(XML)
-theurl <- htmlTreeParse("http://www.cbf.com.br/competicoes/brasileiro-serie-a/classificacao/2017", useInternal = TRUE)
+theurl <- htmlTreeParse("http://cbf.com.br/competicoes/brasileiro-serie-a/classificacao/2017", useInternal = TRUE)
 tables <- readHTMLTable(theurl)
 n.rows <- unlist(lapply(tables, function(t) dim(t)[2]))
 info <- tables[[which.max(n.rows)]]
@@ -27,7 +27,7 @@ write.csv(info, "db/2017/tabela-times.csv", row.names=FALSE)
 # ---------------
 
 library(XML)
-theurl <- htmlTreeParse("http://www.cbf.com.br/competicoes/brasileiro-serie-a/tabela/2017", useInternal = TRUE)
+theurl <- htmlTreeParse("http://cbf.com.br/competicoes/brasileiro-serie-a/tabela/2017", useInternal = TRUE)
 tables <- readHTMLTable(theurl)
 n.rows <- unlist(lapply(tables, function(t) dim(t)[1]))
 info <- tables[[which.max(n.rows)]]

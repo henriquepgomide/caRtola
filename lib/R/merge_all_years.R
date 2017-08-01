@@ -121,7 +121,7 @@ df <- df %>%
          avg.DP.l05 = roll_meanr(DP, n = 5, fill = 1),
          avg.GS = cummean(GS),
          avg.GS.l05 = roll_meanr(GS, n = 5, fill = 1),
-         risk_points = roll_sdr(Pontos, n = 5, fill = 1)
+         risk_points = roll_sdr(Pontos, n = 10, fill = 1),
          ) %>%
   ungroup
 
@@ -209,13 +209,13 @@ write.csv(subset(cartola, cartola$Participou == TRUE | cartola$PrecoVariacao != 
 #%%%%%%%%%%%%%%%%%%%%%%%%%
 # Create data.frame for predicting next round stats
 #%%%%%%%%%%%%%%%%%%%%%%%%%
-df_pred <- subset(cartola, cartola$ano == 2017 & cartola$Rodada == 15 & cartola$Status == "Provável")
+df_pred <- subset(cartola, cartola$ano == 2017 & cartola$Rodada == 16 & cartola$Status == "Provável")
 variaveis <- c(2, 3, 5, 7, 8, 9, 29,30, 32:70, 73:77)
 df_pred <- df_pred[, variaveis]
 
-df_pred$Rodada <- 16
+df_pred$Rodada <- 17
 df_pred <- left_join(x = df_pred[, -c(46:52)],
-                     y = subset(temp2, temp2$round == 16 & temp2$ano == 2017), 
+                     y = subset(temp2, temp2$round == 17 & temp2$ano == 2017), 
                      by = c("ClubeID" = "value", "Rodada" = "round", "ano" = "ano"))
 df_pred$home.score.x <- ifelse(is.na(df_pred$home.score.x), df_pred$pred.home.score, df_pred$home.score.x)
 df_pred$away.score.x <- ifelse(is.na(df_pred$away.score.x), df_pred$pred.away.score, df_pred$away.score.x)

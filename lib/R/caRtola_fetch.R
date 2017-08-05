@@ -66,6 +66,5 @@ df_1 <- cbind(df_1, athletes$atletas$scout)
 rm(df_2,df_3, athletes, json_athletes)
 
 # Store data frame
-# Escrever arquivo com dados da rodada. Por favor, tirar comentário "#" da linha abaixo para executar o código.
 write.csv(df_1, paste0("db/2017/rodada-", df_1$atletas.rodada_id[1],".csv"))
 rm(df_1)

@@ -23,10 +23,10 @@ df <- df[, -nzv]
 
 # Split training and validation
 treino <- df %>%
-  filter(!(Rodada == 18 & ano == 2017))
+  filter(!(Rodada == 19 & ano == 2017))
 
 validacao <- df %>%
-  filter(Rodada == 18 & ano == 2017)
+  filter(Rodada == 19 & ano == 2017)
 
 validacao <- validacao[complete.cases(validacao), ]
 

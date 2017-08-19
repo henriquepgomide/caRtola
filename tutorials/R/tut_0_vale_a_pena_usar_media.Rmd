@@ -1,7 +1,7 @@
 ---
 title: "TUT01 -  Vale a pena usar a média para selecionar seus jogadores?"
 author: "Henrique Gomide"
-date: "2017-07-07"
+date: "2017-08-18"
 output:
   prettydoc::html_pretty:
     theme: architect
@@ -29,11 +29,11 @@ Para este tutorial, trabalharemos com os dados do cartola até a nona rodada. No
 ## Análise dos dados
 
 ### Abrir banco
-Primeiro, vamos carregar nosso banco de dados.
+Primeiro, vamos carregar nosso banco de dados. Os dados cobrem vão de 2014 até a 21 rodada do campeonato brasileiro deste ano, jogadores que precisam ter sido escalados para estarem no banco.
 
 ```{r}
 # Carregar banco de dados
-cartola <- read.csv("../../db/2017/cartola_2017.csv", stringsAsFactors = FALSE)
+cartola <- read.csv("../../db/cartola_aggregated.csv", stringsAsFactors = FALSE)
 
 # Carregar pacotes
 library(ggplot2)
@@ -48,38 +48,21 @@ Antes de começar a realizar as análises precisamos, separar nosso banco em dua
 
 ```{r}
 # Histograma da distribuição de pontos
-ggplot(data = cartola, aes(x = atletas.pontos_num)) +
+ggplot(data = cartola, aes(x = Pontos)) +
   geom_histogram(bins = 30, fill = ggthemes_data$hc$palettes$default[3], colour = ggthemes_data$hc$palettes$default[2]) + 
   theme_hc() +
   labs(title = "Histograma da distribuição de pontos", x = "Pontos", y = "Frequência")
 ```
 
 
-#### Comentário
-A distribuição de dados nos mostra que temos muitos valores iguais a zero. Como não aplicamos nenhum filtro, os jogadores que não jogaram sequer uma partida podem bagunçar nossa análise. Vamos ver se com a variável _atletas.rodada_id_ podemos remover a maior quantidade destes zeros.
-
-```{r}
-# Histograma da distribuição de pontos por status
-ggplot(data = cartola, aes(x = atletas.pontos_num)) +
-  geom_histogram(bins = 30, fill = ggthemes_data$hc$palettes$default[1], colour = ggthemes_data$hc$palettes$default[2]) + 
-  facet_grid(~ atletas.status_id) + 
-  theme_hc() +
-  labs(title = "Histograma da distribuição de pontos por status", x = "Pontos", y = "Frequência") 
-
-```
-
-#### Comentário
-Aparentemente temos muitos destes zeros nos status "Contundido", "Nulo". Para simplificar nossa análise, concentremo-nos nos jogadores com status "Provável", ou seja, aqueles que possuem maior probabilidade de entrar em campo. Assim aplicamos segmentamos o banco de dados usando os critérios abaixo.
-
-
 ## Criar banco de dados
 
 ```{r}
 treino <- cartola %>%
-            filter(atletas.rodada_id < 11 & atletas.status_id == "Provável" & atletas.variacao_num != 0)
-validacao <- cartola %>%
-            filter(atletas.rodada_id == 11 & atletas.status_id == "Provável" & atletas.variacao_num != 0)
+  filter(!(Rodada == 20 & ano == 2017))
 
+validacao <- cartola %>%
+  filter(Rodada == 20 & ano == 2017)
 ```
 
 
@@ -90,9 +73,9 @@ Pronto, agora que fizemos a divisão, precisamos calcular a média de desempenho
 
 ```{r}
 by_player <- treino %>% 
-                group_by(atletas.atleta_id) %>%
-                summarise(media = mean(atletas.pontos_num), mediana = median(atletas.pontos_num), 
-                          jogos = n_distinct(atletas.rodada_id)- 1)
+                group_by(AtletaID) %>%
+                summarise(media = mean(Pontos), mediana = median(Pontos), 
+                          jogos = n_distinct(Rodada)- 1)
 ```
 
 
@@ -108,18 +91,18 @@ ggplot(data = by_player, aes(media)) +
 
 
 #### Comentário
-Através do nosso histograma, podemos observar que a distribuição dos pontos é razoavelmente simétrica. No entanto, sabemos que o número de jogos pode influenciar a média de pontos. Talvez, jogadores que jogam menos e têm status de provável pontuam menos que aqueles que entram e possuem melhor pontuação. Lembre-se aqui, que a quantidade de pontos do cartola não necessariamente caracterizam bons jogadores (Cartola != Futebol real). Para verificarmos plotamos as médias em gráficos violino.
+Através do nosso histograma, podemos observar que a distribuição dos pontos é razoavelmente simétrica. No entanto, sabemos que o número de jogos pode influenciar a média de pontos. Talvez, jogadores que joguem menos e têm status de provável pontuam menos que aqueles que entram e possuem melhor pontuação. Lembre-se aqui, que a quantidade de pontos do cartola não necessariamente caracterizam bons jogadores (Cartola != Futebol real). Para verificarmos plotamos as médias em gráficos violino.
 
 ```{r}
 ggplot(data = by_player, aes(y = media, factor(jogos))) + 
   geom_violin() + geom_jitter(width = .3, alpha = .5, colour = "#7cb5ec") +
   theme_hc() + 
-  labs(title = "Distribuição das médias por número de jogos", x = "Jogos", y = "Média")
+  labs(title = "Distribuição das médias por número de jogos", x = "Número de jogos", y = "Média")
 ```
 
 
 #### Comentário
-Pelas informações do gráfico acima, podemos perceber que a variabilidade da média permanece razoavelmente estável quando o jogador participa de mais de 2 partidas. 
+Pelas informações do gráfico acima, podemos perceber que a variabilidade da média permanece razoavelmente estável quando o jogador participa de mais de 4 partidas.
 
 ## E a média, vale a pena?
 Vamos agora ao que interessa, comparar se a média é um bom indicador (modelo) para prever o desempenho dos jogadores.
@@ -132,22 +115,12 @@ Vamos, então avaliar o quão bem a média é capaz de prever os resultados da n
 ```{r}
 # Vamos preparar os dados para fazer a comparação.
 # 1. Criamos os dados por jogador da rodada 11
-round11_player <- validacao %>% 
-                group_by(atletas.atleta_id) %>%
-                summarise(pontos = mean(atletas.pontos_num))
-# 2. Concatenamos (join) os resultados da nossa predição com os dados da rodada 11 pela id do jogador
-dados <- left_join(by_player, round11_player, by = "atletas.atleta_id")
+round20_player <- validacao %>% 
+                group_by(AtletaID) %>%
+                summarise(pontos = mean(Pontos))
+# 2. Concatenamos (join) os resultados da nossa predição com os dados da rodada 20 pela id do jogador
+dados <- left_join(by_player, round20_player, by = "AtletaID")
 ```
-
-Agora podemos ver como a média está ligada aos resultados da rodada 11. Para isso, vamos ao próximo gráfico.
-
-```{r}
-ggplot(data = dados, aes(x = pontos, y = media)) + geom_point(alpha = .8, size = 2) + 
-    facet_wrap(~ jogos) +      
-    theme_hc() + scale_colour_hc() +
-    labs(title = "Dispersão da média e pontuação", x = "Pontos", y = "Média")
-```
-
 
 
 ```{r}
@@ -179,11 +152,12 @@ print(sapply(dados[, c("erro_media","erro_mediana")], MAE))
 
 
 ## Conclusão
-Sim, ao comparar a média com a mediana, podemos notar que em média erramos quatro pontos para mais ou menos a pontuação de um dado jogador. Isto significa que um jogador que pontuação média décima primeira rodada igual a 10 pontos, provavelmente pontuará entre 6 e 14 pontos. Assim, fazer predições com base em médias parece ser algo arriscado, embora melhor que simplesmete chutar um atleta.
+Sim, ao comparar a média com a mediana, podemos notar que em média erramos quatro pontos para mais ou menos a pontuação de um dado jogador. Isto significa que um jogador que pontuação média na rodada 20 igual a 10 pontos, provavelmente pontuará entre 6 e 14 pontos. Assim, fazer predições com base em médias parece ser algo arriscado, embora melhor que simplesmete chutar arbitrariamente um jogador.
 
 ## Próximo tutorial
 
-Iremos comparar a média contra outros modelos, tentando melhorar nossas previsões. Até o segundo tutorial.
+Iremos comparar a média contra outros modelos, tentando melhorar nossas previsões. Até o segundo tutorial!
+:)
 
 # Dados da sessão
 

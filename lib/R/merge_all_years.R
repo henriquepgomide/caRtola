@@ -168,20 +168,20 @@ colnames(matches) <- c("game","round","date", "home.team","home.score",
 team_features <- rank.teams(scores = matches, 
                              family = "poisson",
                              fun = "speedglm",
-                             max.date="2017-08-25",
+                             max.date="2017-09-08",
                              time.weight.eta = 0.01)
 
 teamPredictions <- predict.fbRanks(team_features, 
                       newdata = matches[,c(3:4,7)], 
                       min.date= min(matches$date),
-                      max.date = as.Date("2017-08-29"))
+                      max.date = as.Date("2017-09-11"))
 
 matches_fb <- left_join(matches, teamPredictions$scores, by = c("date","home.team", "away.team"))
 matches_fb <- matches_fb[,-c(9,10,13,14,22,23)]
 rm(teamPredictions, team_features)
 
 # Subset data until last round
-matches_fb <- subset(matches_fb, matches_fb$date <= "2017-08-29")
+matches_fb <- subset(matches_fb, matches_fb$date <= "2017-09-11")
 
 # Create data.frame to merge to player data
 temp2 <- melt(matches_fb, id = c("round", "date", "home.score.x", "away.score.x", 

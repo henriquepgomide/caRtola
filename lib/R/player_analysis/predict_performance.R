@@ -258,5 +258,4 @@ lat <- subset(df_pred_r2, df_pred_r2$Posicao == "lat")
 gol <- subset(df_pred_r2, df_pred_r2$Posicao == "gol")
 tec <- subset(df_pred_r2, df_pred_r2$Posicao == "tec")
 
-lat[1:20, c("Apelido","ClubeID","Posicao", "Preco", "risk_points", "next_round", "pred.home.score",
-           "pred.away.score", "variable")]
+write.csv(df_pred_r2[, c("Apelido","ClubeID","Posicao", "Preco", "risk_points", "next_round", "pred.home.score", "pred.away.score", "variable")], "~/rodada22.csv", row.names = FALSE)

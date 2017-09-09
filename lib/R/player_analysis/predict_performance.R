@@ -23,10 +23,10 @@ df <- df[, -nzv]
 
 # Split training and validation
 treino <- df %>%
-  filter(!(Rodada == 21 & ano == 2017))
+  filter(!(Rodada == 22 & ano == 2017))
 
 validacao <- df %>%
-  filter(Rodada == 21 & ano == 2017)
+  filter(Rodada == 22 & ano == 2017)
 
 validacao <- validacao[complete.cases(validacao), ]
 
@@ -259,3 +259,5 @@ gol <- subset(df_pred_r2, df_pred_r2$Posicao == "gol")
 tec <- subset(df_pred_r2, df_pred_r2$Posicao == "tec")
 
 write.csv(df_pred_r2[, c("Apelido","ClubeID","Posicao", "Preco", "risk_points", "next_round", "pred.home.score", "pred.away.score", "variable")], "~/rodada22.csv", row.names = FALSE)
+
+ata[,c("Apelido","ClubeID","Posicao", "Preco", "risk_points", "next_round", "pred.home.score", "pred.away.score", "variable")]

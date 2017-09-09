@@ -209,13 +209,13 @@ write.csv(subset(cartola, cartola$Participou == TRUE | cartola$PrecoVariacao != 
 #%%%%%%%%%%%%%%%%%%%%%%%%%
 # Create data.frame for predicting next round stats
 #%%%%%%%%%%%%%%%%%%%%%%%%%
-df_pred <- subset(cartola, cartola$ano == 2017 & cartola$Rodada == 21 & cartola$Status == "Provável")
+df_pred <- subset(cartola, cartola$ano == 2017 & cartola$Rodada == 22 & cartola$Status == "Provável")
 variaveis <- c(2, 3, 5, 7, 8, 9, 29,30, 32:70, 73:77)
 df_pred <- df_pred[, variaveis]
 
-df_pred$Rodada <- 22
+df_pred$Rodada <- 23
 df_pred <- left_join(x = df_pred[, -c(46:52)],
-                     y = subset(temp2, temp2$round == 22 & temp2$ano == 2017), 
+                     y = subset(temp2, temp2$round == 23 & temp2$ano == 2017), 
                      by = c("ClubeID" = "value", "Rodada" = "round", "ano" = "ano"))
 df_pred$home.score.x <- ifelse(is.na(df_pred$home.score.x), df_pred$pred.home.score, df_pred$home.score.x)
 df_pred$away.score.x <- ifelse(is.na(df_pred$away.score.x), df_pred$pred.away.score, df_pred$away.score.x)

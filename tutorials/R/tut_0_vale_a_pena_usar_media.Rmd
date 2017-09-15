@@ -2,13 +2,8 @@
 title: "TUT01 -  Vale a pena usar a média para selecionar seus jogadores?"
 author: "Henrique Gomide"
 date: "2017-08-18"
-output:
-  prettydoc::html_pretty:
-    theme: architect
-    highlight: github
+output: html_document
 ---
-
-
 
 ## Motivação
 

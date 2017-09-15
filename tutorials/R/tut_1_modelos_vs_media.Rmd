@@ -2,10 +2,7 @@
 title: "TUT2 - Modelos de regressão são melhores que a média?"
 author: "Henrique Gomide"
 date: "`r Sys.Date()`"
-output:
-  prettydoc::html_pretty:
-    theme: cayman
-    highlight: github
+output: html_document
 ---
 
 ## Motivação

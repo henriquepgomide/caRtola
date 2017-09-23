@@ -260,4 +260,4 @@ tec <- subset(df_pred_r2, df_pred_r2$Posicao == "tec")
 
 write.csv(df_pred_r2[, c("Apelido","ClubeID","Posicao", "Preco", "risk_points", "next_round", "pred.home.score", "pred.away.score", "variable")], "~/rodada22.csv", row.names = FALSE)
 
-ata[,c("Apelido","ClubeID","Posicao", "Preco", "risk_points", "next_round", "pred.home.score", "pred.away.score", "variable")]
+lat[,c("Apelido","ClubeID","Posicao", "Preco", "risk_points", "next_round", "pred.home.score", "pred.away.score", "variable")]

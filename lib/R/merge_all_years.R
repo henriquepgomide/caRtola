@@ -168,20 +168,20 @@ colnames(matches) <- c("game","round","date", "home.team","home.score",
 team_features <- rank.teams(scores = matches, 
                              family = "poisson",
                              fun = "speedglm",
-                             max.date="2017-10-17",
+                             max.date="2017-10-20",
                              time.weight.eta = 0.01)
 
 teamPredictions <- predict.fbRanks(team_features, 
                       newdata = matches[,c(3:4,7)], 
-                      min.date= as.Date("2017-10-17"),
-                      max.date = as.Date("2017-10-20"))
+                      min.date= as.Date("2017-10-20"),
+                      max.date = as.Date("2017-10-23"))
 
 matches_fb <- left_join(matches, teamPredictions$scores, by = c("date","home.team", "away.team"))
 matches_fb <- matches_fb[,-c(9,10,13,14,22,23)]
 rm(teamPredictions, team_features)
 
 # Subset data until last round
-matches_fb <- subset(matches_fb, matches_fb$date <= "2017-10-20")
+matches_fb <- subset(matches_fb, matches_fb$date <= "2017-10-23")
 
 # Create data.frame to merge to player data
 temp2 <- melt(matches_fb, id = c("round", "date", "home.score.x", "away.score.x", 
@@ -209,13 +209,13 @@ write.csv(subset(cartola, cartola$Participou == TRUE | cartola$PrecoVariacao != 
 #%%%%%%%%%%%%%%%%%%%%%%%%%
 # Create data.frame for predicting next round stats
 #%%%%%%%%%%%%%%%%%%%%%%%%%
-df_pred <- subset(cartola, cartola$ano == 2017 & cartola$Rodada == 28 & cartola$Status == "Provável")
+df_pred <- subset(cartola, cartola$ano == 2017 & cartola$Rodada == 29 & cartola$Status == "Provável")
 variaveis <- c(2, 3, 5, 7, 8, 9, 29,30, 32:70, 73:77)
 df_pred <- df_pred[, variaveis]
 
-df_pred$Rodada <- 29
+df_pred$Rodada <- 30
 df_pred <- left_join(x = df_pred[, -c(46:52)],
-                     y = subset(temp2, temp2$round == 29 & temp2$ano == 2017), 
+                     y = subset(temp2, temp2$round == 30 & temp2$ano == 2017), 
                      by = c("ClubeID" = "value", "Rodada" = "round", "ano" = "ano"))
 df_pred$home.score.x <- ifelse(is.na(df_pred$home.score.x), df_pred$pred.home.score, df_pred$home.score.x)
 df_pred$away.score.x <- ifelse(is.na(df_pred$away.score.x), df_pred$pred.away.score, df_pred$away.score.x)

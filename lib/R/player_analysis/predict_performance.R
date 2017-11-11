@@ -1,3 +1,15 @@
+# What does this code do?
+# It runs multiple models to predict scores for the next Cartola round.
+
+# O que esse script faz?
+# Você rodará vários modelos para tentar predizer a próxima rodada do cartola.
+# Ele é muito experimental. Vários modelos *demoram* tempo para convergir e parte do código pode estar quebrada.
+# Uai, cadê o banco de dados? O banco de dados é gerado a partir da execução do script 'merge_all_years.R'. Leia os comentários do script para gerá-lo.
+
+# Set the last cartola round
+# Definir a rodada que quer prever
+round <- 33
+
 # Load libraries
 # Carregar pacotes
 library(caret)
@@ -5,32 +17,39 @@ library(dplyr)
 library(parallel)
 library(doParallel)
 
+
 #%%%%%%%%%%%%%%%%%%%%%%%%%
 # Subset Data Frame
 #%%%%%%%%%%%%%%%%%%%%%%%%%
 # source("lib/R/merge_all_years.R")
 
 # Remove cases with no data
+# Remover casos de jogadores que não participaram de partidas
 df <- subset(cartola, cartola$Participou == TRUE | cartola$PrecoVariacao != 0)
 
 # Pick only a subset of variables
+# Selecionar somente variáveis que são candidatas a preditores
 variaveis <- c(2, 3, 5, 7, 8, 29, 32:67, 73:77)
 df <- df[, variaveis]
 
 # Remove nearzero variance predictors
+# Remover preditores com pouca informação
 nzv <- nearZeroVar(df)
 df <- df[, -nzv]
 
 # Split training and validation
+# Separar banco de dados de treino e validação
 treino <- df %>%
-  filter(!(Rodada == 31 & ano == 2017))
+  filter(!(Rodada == (round - 1) & ano == 2017))
 
 validacao <- df %>%
-  filter(Rodada == 31 & ano == 2017)
+  filter(Rodada == (round - 1) & ano == 2017)
 
+# Selecionar somente resultados completos para validação
 validacao <- validacao[complete.cases(validacao), ]
 
 # Controles para os modelos
+# Definir uma semente para garantir replicabilidade dos resultados
 set.seed(123)
 ## Regression Models
 ctrl <- trainControl(method = "repeatedcv", number = 10, allowParallel = TRUE, verboseIter = TRUE)
@@ -46,7 +65,6 @@ eXGBGrid <-  expand.grid(nrounds = 150,
                          gamma = 0,
                          min_child_weight = 1
                          )
-
 
 ########### 
 # Modeling
@@ -102,11 +120,13 @@ eXModel  <- train(Pontos ~ . , data = treino,
                   preProcess = c("scale", "center"), na.action = na.pass,
                   trControl = ctrl)
 
+# Tune model with better parameters based on prior experience
 eXModel_v1  <- train(Pontos ~ . , data = treino, 
                   method="xgbTree", metric = "RMSE", 
                   preProcess = c("scale", "center"), na.action = na.pass,
                   tuneGrid = eXGBGrid, trControl = ctrl)
 
+# Transform data to deal with outliers before running model
 eXModel_v1_out  <- train(Pontos ~ . , data = treino, 
                      method="xgbTree", metric = "RMSE", 
                      preProcess = c("scale", "center", "spatialSign"), na.action = na.omit,
@@ -247,10 +267,11 @@ summary(predictions_svm)
 df_pred_r <- df_pred
 df_pred_r2 <- df_pred_r[complete.cases(df_pred_r), ]
 
-# Create predictions
+# Create predictions based on specific model
 df_pred_r2$next_round <- predict(eXModel_v1_out, df_pred_r2)
 df_pred_r2 <- arrange(df_pred_r2, - next_round)
 
+# Subset by position
 ata <- subset(df_pred_r2, df_pred_r2$Posicao == "ata")
 mei <- subset(df_pred_r2, df_pred_r2$Posicao == "mei")
 zag <- subset(df_pred_r2, df_pred_r2$Posicao == "zag")
@@ -258,6 +279,8 @@ lat <- subset(df_pred_r2, df_pred_r2$Posicao == "lat")
 gol <- subset(df_pred_r2, df_pred_r2$Posicao == "gol")
 tec <- subset(df_pred_r2, df_pred_r2$Posicao == "tec")
 
+# Write predictions as csv
 write.csv(df_pred_r2[, c("Apelido","ClubeID","Posicao", "Preco", "risk_points", "next_round", "pred.home.score", "pred.away.score", "variable")], "~/rodada22.csv", row.names = FALSE)
 
-mei[,c("Apelido","ClubeID","Posicao", "Preco", "risk_points", "next_round", "pred.home.score", "pred.away.score", "variable")]
+# Create tables to select players
+ata[,c("Apelido","ClubeID","Posicao", "Preco", "risk_points", "next_round", "pred.home.score", "pred.away.score", "variable")]

@@ -173,15 +173,15 @@ team_features <- rank.teams(scores = matches,
 
 teamPredictions <- predict.fbRanks(team_features, 
                       newdata = matches[,c(3:4,7)], 
-                      min.date= as.Date("2017-11-17"),
-                      max.date = as.Date("2017-11-21"))
+                      min.date= as.Date("2017-11-24"),
+                      max.date = as.Date("2017-11-27"))
 
 matches_fb <- left_join(matches, teamPredictions$scores, by = c("date","home.team", "away.team"))
 matches_fb <- matches_fb[,-c(9,10,13,14,22,23)]
 rm(teamPredictions, team_features)
 
 # Subset data until last round
-matches_fb <- subset(matches_fb, matches_fb$date <= "2017-11-21")
+matches_fb <- subset(matches_fb, matches_fb$date <= "2017-11-27")
 
 # Create data.frame to merge to player data
 temp2 <- melt(matches_fb, id = c("round", "date", "home.score.x", "away.score.x", 
@@ -209,13 +209,13 @@ write.csv(subset(cartola, cartola$Participou == TRUE | cartola$PrecoVariacao != 
 #%%%%%%%%%%%%%%%%%%%%%%%%%
 # Create data.frame for predicting next round stats
 #%%%%%%%%%%%%%%%%%%%%%%%%%
-df_pred <- subset(cartola, cartola$ano == 2017 & cartola$Rodada == 35 & cartola$Status == "Provável")
+df_pred <- subset(cartola, cartola$ano == 2017 & cartola$Rodada == 36 & cartola$Status == "Provável")
 variaveis <- c(2, 3, 5, 7, 8, 9, 29,30, 32:70, 73:77)
 df_pred <- df_pred[, variaveis]
 
-df_pred$Rodada <- 36
+df_pred$Rodada <- 37
 df_pred <- left_join(x = df_pred[, -c(46:52)],
-                     y = subset(temp2, temp2$round == 36 & temp2$ano == 2017), 
+                     y = subset(temp2, temp2$round == 37 & temp2$ano == 2017), 
                      by = c("ClubeID" = "value", "Rodada" = "round", "ano" = "ano"))
 df_pred$home.score.x <- ifelse(is.na(df_pred$home.score.x), df_pred$pred.home.score, df_pred$home.score.x)
 df_pred$away.score.x <- ifelse(is.na(df_pred$away.score.x), df_pred$pred.away.score, df_pred$away.score.x)

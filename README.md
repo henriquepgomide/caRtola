@@ -1,7 +1,6 @@
 [![Gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg)](https://gitter.im/caRtola-R/Lobby?utm_source=share-link&utm_medium=link&utm_campaign=share-link) | README in [English](https://github.com/henriquepgomide/caRtola/blob/master/README.en.md)
 
-*Novidade #1* - Modelo preditivo em python agora disponível
-*Novidade #2* - Acesse o protótipo da dashboard (caRtola - STATS)[https://henriquepgomide.shinyapps.io/cartola-stats/]. 
+Voltaremos em 2018 com uma grande novidade. :)
 
 # Introdução
 

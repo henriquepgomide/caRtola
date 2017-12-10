@@ -4,4 +4,4 @@
 .Rproj
 .Rproj.RData
 
-lib/python/.ipynb_checkpoints/*
+src/python/.ipynb_checkpoints/*

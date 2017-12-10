@@ -1,79 +1,42 @@
-[![Gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg)](https://gitter.im/caRtola-R/Lobby?utm_source=share-link&utm_medium=link&utm_campaign=share-link) | README in [English](https://github.com/henriquepgomide/caRtola/blob/master/README.en.md)
+[![Gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg)](https://gitter.im/caRtola-R/Lobby?utm_source=share-link&utm_medium=link&utm_campaign=share-link) | [README in English](https://github.com/henriquepgomide/caRtola/blob/master/README.en.md)
 
-Voltaremos em 2018 com uma grande novidade. :)
+> Voltaremos em 2018 com uma grande novidade. :sunglasses:
 
-# Introdução
+# :tophat: caRtola :tophat:
 
-Este repositório tem como objetivo disponibilizar os dados e modelos preditivos do Cartola FC. Os scripts estão escritos em R e Python.
+> Este repositório tem como objetivo disponibilizar todos os dados do *Cartola FC* desde sua criação em 2014. Nós também tentamos prever a pontuação de cada jogador no Brasileirão.
 
-* Para acessar os dados, use qualquer programa. Está tudo disponível em arquivos separados por vírgulas. Até o Excel abre :)
-* Para executar os scripts contidos:
-  * R -  você precisará instalar o [R](https://www.r-project.org/) e eu fortemente recomendo a instalação da [IDE RStudio](https://www.rstudio.com/products/rstudio/download/)
-  * Python - siga as instruções no diretório lib/python. 
+## Dados :memo:
+Para ter acesso a todo o histórico de dados do _Cartola FC_ é só acessar a pasta [data](data/). Lá você encontra os dados organizados por ano e ainda um arquivo com os dados agregados de todos os anos. Está tudo disponível em arquivos separados por vírgulas. Até o Excel abre. :wink:
 
+## Previsões :dart:
 
-## Estrutura do repositório
+Você pode conferir o resultado das previsões do nosso modelo preditivo em 2017 [nessa planilha](https://docs.google.com/spreadsheets/d/1knS8pE-JtIaeilUcjI_grIKBeox94QWAuMGKlfCfQSk/edit?usp=sharing). Nela, você vai encontrar os jogadores que o nosso modelo previu que iam fazer boas predições e a pontuação real do jogador naquela rodada. __Você acha que o modelo mandou bem? Foi ruim?__ [Vem resenhar com a gente, parça!](https://github.com/henriquepgomide/caRtola/issues/33)  :speech_balloon:
 
-<!-- language: lang-none -->
-```
-├── dashboard
-│   └── cartola-stats
-├── db
-│   ├── 2014
-│   ├── 2015
-│   ├── 2016
-│   ├── 2017
-│   └── worldTeamData
-├── lib
-│   ├── python
-│   └── R
-└── tutorials
-    └── R
-``` 
+Ah, o nosso modelo preditivo é de domínio público também! Quer saber como ele foi treinado e como você pode utilizá-lo? [Confira aqui](src/python/Análise dos Dados.ipynb).
 
+## Contribuições :octocat:
 
-**Dashboard**
+O repositório __caRtola__ é totalmente aberto a novas contribuições. Quer ajudar a gente, mas não sabe como? A gente te dá algumas ideias:
 
-* Aplicativo Shiny para escolher seu jogador. Disponível no link (caRtola - STATS)[https://henriquepgomide.shinyapps.io/cartola-stats/]. Você pode executá-lo pelo computador. 
+- Você já fez alguma análise estatística do _Cartola FC_ que acha legal e gostaria de compartilhar aqui?
+- Você também tem um modelo preditivo para tentar prever os melhores jogadores?
+- Ou simplesmente você viu um erro nos nossos dados/análises?
 
+Sinta-se à vontade para submeter um Pull Request ou abrir uma issue! Nós vamos adorar ter isso no __caRtola__! :v:
 
-**db**
+### Autores :busts_in_silhouette:
 
-* Os dados das estatísticas dos jogadores do Cartola estão separados por ano.
-  * Crédito das edições 2014 e 2015: (https://github.com/thevtm/CartolaFCDados)
-  * Crédito da edição de 2016: Arnaldo Gualberto
+:bust_in_silhouette: __Henrique Gomide__:
 
-* Os dados dos times são extraídos do site da CBF.
+* henriquepgomide@gmail.com
+* [Github](https://github.com/henriquepgomide)
+* [Twitter](https://twitter.com/hpgomide)
+* [Linkedin](https://www.linkedin.com/in/hpgomide/)
+* [Lattes](http://lattes.cnpq.br/6230665865154742)
 
+:bust_in_silhouette: __Arnaldo Gualberto__:
 
-**lib**
-
-Você encontra scripts em R e python para coletar e analisar os dados do cartola
-
-Na pasta R:
-
-  * caRtola_fetch.R - coleta os dados da API do Cartola
-  * team_data_scraper.R* - coleta dados do site da CBF 
-  * data_wrangling - agrega os dados dos scouts do cartola, cria variáveis para uso em modelos preditivos agregando outras fontes.
-  * rdata_2_sql.R - transforma os dados do objeto cartola em arquivo sql.
-
-**tutorials**
-
-Você encontra tutoriais para iniciantes sobre o cartola.
-
-  *  Vale a pena usar a média para escolher jogadores?
-  *  Modelos preditivos são melhores que a média?
-
-
-
-# Autores
-
-Henrique Gomide
- * henriquepgomide@gmail.com
- * [@hpgomide](https://twitter.com/hpgomide)
- * [Linkedin](https://www.linkedin.com/in/hpgomide/)
- * [Lattes](http://lattes.cnpq.br/6230665865154742)
-
-Arnaldo Gualberto
- * [Site](http://arnaldogualberto.com) 
- * [Linkedin](https://www.linkedin.com/in/arnaldo-gualberto-95717939/?ppe=1)
+* arnaldo.g12@gmail.com
+* [Github](https://github.com/arnaldog12)
+* [Site Pessoal](http://arnaldogualberto.com)

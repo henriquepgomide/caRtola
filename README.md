@@ -1,4 +1,4 @@
-[![Gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg)](https://gitter.im/caRtola-R/Lobby?utm_source=share-link&utm_medium=link&utm_campaign=share-link) | [README in English](https://github.com/henriquepgomide/caRtola/blob/master/README.en.md)
+[![Gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg)](https://gitter.im/caRtola-R/Lobby?utm_source=share-link&utm_medium=link&utm_campaign=share-link) | [README in English](README.en.md)
 
 > Voltaremos em 2018 com uma grande novidade. :sunglasses:
 
@@ -13,7 +13,7 @@ Para ter acesso a todo o histórico de dados do _Cartola FC_ é só acessar a pa
 
 Você pode conferir o resultado das previsões do nosso modelo preditivo em 2017 [nessa planilha](https://docs.google.com/spreadsheets/d/1knS8pE-JtIaeilUcjI_grIKBeox94QWAuMGKlfCfQSk/edit?usp=sharing). Nela, você vai encontrar os jogadores que o nosso modelo previu que iam fazer boas predições e a pontuação real do jogador naquela rodada. __Você acha que o modelo mandou bem? Foi ruim?__ [Vem resenhar com a gente, parça!](https://github.com/henriquepgomide/caRtola/issues/33)  :speech_balloon:
 
-Ah, o nosso modelo preditivo é de domínio público também! Quer saber como ele foi treinado e como você pode utilizá-lo? [Confira aqui](src/python/Análise dos Dados.ipynb).
+Ah, o nosso modelo preditivo é de domínio público também! Quer saber como ele foi treinado e como você pode utilizá-lo? [Confira aqui](src/python/Análise%20dos%20Dados.ipynb).
 
 ## Contribuições :octocat:
 

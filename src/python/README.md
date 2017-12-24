@@ -8,7 +8,7 @@ Além disso, na pasta __models__, você encontra os modelos de Rede Neural trein
 - **nn.pkl**: Esse modelo é atualizado a cada rodada do Brasileirão. Você pode pegar outros modelos pelo histórico do git.
 - **nn_31.pkl**: modelo que foi treinado para a rodada 31 do Brasileirão 2017, onde obtivemos ótimos resultados. A partir dessa rodada, nós comparávamos esse modelo com o _nn.pkl_.
 
-Você pode ver como esses modelos foram treinados e como utilizá-los no arquivo [Análise de Dados.ipynb](Análise de Dados.ipynb).
+Você pode ver como esses modelos foram treinados e como utilizá-los no arquivo [Análise de Dados.ipynb](src/python/Análise%20dos%20Dados.ipynb).
 
 ## E como faço para rodar os códigos?
 

@@ -1,14 +1,14 @@
 # What? ----------------------------------------------
 # Retrieve data from Cartola and store as a csv file
 # Every round, you need to gather and store data into
-# db/2017 folder
+# data/2018 folder
 # ----------------------------------------------------
 
 # Objetivo--------------------------------------------
 # Recuperar os dados da API do cartola e salvar num
 # em csv. Toda rodada, é necessário executar
 # o script. Os dados são armazenados em um arquivo
-# csv na pasta db/2017.
+# csv na pasta data/2018.
 # ----------------------------------------------------
 
 # Remind yourself to install packages before loading them
@@ -66,5 +66,5 @@ df_1 <- cbind(df_1, athletes$atletas$scout)
 rm(df_2,df_3, athletes, json_athletes)
 
 # Store data frame
-write.csv(df_1, paste0("db/2017/rodada-", df_1$atletas.rodada_id[1],".csv"))
+write.csv(df_1, paste0("data/2018/rodada-", df_1$atletas.rodada_id[1],".csv"))
 rm(df_1)

@@ -68,7 +68,7 @@ names(cartola) <- c("AtletaID", "Rodada", "Nome",
                     c(names(cartola)[16:33]))
 cartola$ano <- 2017
 
-temp1 <- read.csv("db/teamids-consolidated.csv", stringsAsFactors = FALSE)
+temp1 <- read.csv("data/times_ids.csv", stringsAsFactors = FALSE)
 cartola$ClubeID <- mapvalues(cartola$ClubeID, 
                              from = as.vector(temp1$nome.cartola), 
                              to = as.vector(temp1$id))
@@ -137,14 +137,15 @@ df <- df %>%
 #%%%%%%%%%%%%%%%%%%%%%%%%%
 
 # Open data frames
-df_2014 <- read.csv("db/2014/matches-brasileirao-2014.csv", stringsAsFactors = FALSE)
-df_2015 <- read.csv("db/2015/matches-brasileirao-2015.csv", stringsAsFactors = FALSE)
-df_2016 <- read.csv("db/2016/matches-brasileirao-2016.csv", stringsAsFactors = FALSE)
-df_2017 <- read.csv("db/2017/matches-brasileirao-2017.csv", stringsAsFactors = FALSE)
+df_2014 <- read.csv("data/2014/matches-brasileirao-2014.csv", stringsAsFactors = FALSE)
+df_2015 <- read.csv("data/2015/matches-brasileirao-2015.csv", stringsAsFactors = FALSE)
+df_2016 <- read.csv("data/2016/matches-brasileirao-2016.csv", stringsAsFactors = FALSE)
+df_2017 <- read.csv("data/2017/matches-brasileirao-2017.csv", stringsAsFactors = FALSE)
+df_2018 <- read.csv("data/2018/matches-brasileirao-2018.csv", stringsAsFactors = FALSE)
 
 # Merge data frames
-matches <- bind_rows(df_2014, df_2015, df_2016, df_2017)
-rm(df_2014, df_2015, df_2016, df_2017)
+matches <- bind_rows(df_2014, df_2015, df_2016, df_2017, df_2018)
+rm(df_2014, df_2015, df_2016, df_2017, df_2018)
 
 # Standardize team names
 matches$home_team <- plyr::mapvalues(matches$home_team, from = as.vector(temp1$nome.cbf), to = as.vector(temp1$id))

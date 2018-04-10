@@ -9,7 +9,7 @@ library(XML)
 library(httr)
 
 page <- GET(
-  "https://cbf.com.br/competicoes/brasileiro-serie-a/classificacao/2017"
+  "https://cbf.com.br/competicoes/brasileiro-serie-a/classificacao/2018"
 )
 
 theurl <- htmlTreeParse(page, useInternal = TRUE)
@@ -24,7 +24,7 @@ info <- info[1:20,]
 rm(n.rows,tables, theurl)
 
 # Write data as csv file
-write.csv(info, "db/2017/tabela-times.csv", row.names=FALSE)
+write.csv(info, "data/2018/2018_tabelas.csv", row.names=FALSE)
 
 
 # ---------------
@@ -33,7 +33,7 @@ write.csv(info, "db/2017/tabela-times.csv", row.names=FALSE)
 # ---------------
 
 page <- GET(
-  "https://cbf.com.br/competicoes/brasileiro-serie-a/tabela/2017"
+  "https://cbf.com.br/competicoes/brasileiro-serie-a/tabela/2018"
 )
 
 theurl <- htmlTreeParse(page, useInternal = TRUE)
@@ -43,5 +43,5 @@ info <- tables[[which.max(n.rows)]]
 info <- info[,1:8]
 colnames(info) <- c("game","round","date", "home_team","score","away_team","arena","X")
 # Write file as csv - Gravar resultados das partidas
-write.csv(info, "db/2017/matches-brasileirao-2017.csv")
+write.csv(info, "data/2018/2018_partidas.csv")
 rm(n.rows,tables, theurl, info)

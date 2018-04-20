@@ -137,11 +137,11 @@ df <- df %>%
 #%%%%%%%%%%%%%%%%%%%%%%%%%
 
 # Open data frames
-df_2014 <- read.csv("data/2014/matches-brasileirao-2014.csv", stringsAsFactors = FALSE)
-df_2015 <- read.csv("data/2015/matches-brasileirao-2015.csv", stringsAsFactors = FALSE)
-df_2016 <- read.csv("data/2016/matches-brasileirao-2016.csv", stringsAsFactors = FALSE)
-df_2017 <- read.csv("data/2017/matches-brasileirao-2017.csv", stringsAsFactors = FALSE)
-df_2018 <- read.csv("data/2018/matches-brasileirao-2018.csv", stringsAsFactors = FALSE)
+df_2014 <- read.csv("data/2014/2014_partidas.csv", stringsAsFactors = FALSE)
+df_2015 <- read.csv("data/2015/2015_partidas.csv", stringsAsFactors = FALSE)
+df_2016 <- read.csv("data/2016/2016_partidas.csv", stringsAsFactors = FALSE)
+df_2017 <- read.csv("data/2017/2017_partidas.csv", stringsAsFactors = FALSE)
+df_2018 <- read.csv("data/2018/2018_partidas.csv", stringsAsFactors = FALSE)
 
 # Merge data frames
 matches <- bind_rows(df_2014, df_2015, df_2016, df_2017, df_2018)

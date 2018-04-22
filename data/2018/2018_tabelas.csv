@@ -1,21 +1,21 @@
-"x"
-"P pontos
-					- J jogos
-					- V vitórias
-					- E empates
-					- D derrotas
-					- GP gols pró
-					- GC gols contra
-					- SG saldo de gols
-					- VM vitória mandante
-					- VV vitória visitante
-					- DM derrota mandante
-					- DV derrota visitante
-					- CA cartões amarelos
-					- CV cartões vermelhos
-					- % aproveitamento
-				
-
-				
-										Libertadores
-															Rebaixados"
+"Pos","Clube","P","J","V","E","D","GP","GC","SG","VM","VV","DM","DV","CA","CV","%"
+"1º","Atlético - PR",3,1,1,0,0,5,1,4,1,0,0,0,1,0,100
+"2º","América - MG",3,1,1,0,0,3,0,3,1,0,0,0,1,0,100
+"3º","Santos - SP",3,1,1,0,0,2,0,2,1,0,0,0,0,0,100
+"4º","Internacional - RS",3,1,1,0,0,2,0,2,1,0,0,0,2,0,100
+"5º","Corinthians - SP",3,1,1,0,0,2,1,1,1,0,0,0,0,0,100
+"6º","Vasco da Gama - RJ",3,1,1,0,0,2,1,1,1,0,0,0,4,0,100
+"7º","São Paulo - SP",3,1,1,0,0,1,0,1,1,0,0,0,4,0,100
+"8º","Grêmio - RS",3,1,1,0,0,1,0,1,0,1,0,0,1,1,100
+"9º","Vitória - BA",1,1,0,1,0,2,2,0,0,0,0,0,3,0,33
+"10º","Flamengo - RJ",1,1,0,1,0,2,2,0,0,0,0,0,2,1,33
+"11º","Botafogo - RJ",1,1,0,1,0,1,1,0,0,0,0,0,1,0,33
+"12º","Palmeiras - SP",1,1,0,1,0,1,1,0,0,0,0,0,4,0,33
+"13º","Fluminense - RJ",0,1,0,0,1,1,2,-1,0,0,0,1,0,0,0
+"14º","Atlético - MG",0,1,0,0,1,1,2,-1,0,0,0,1,3,0,0
+"15º","Paraná - PR",0,1,0,0,1,0,1,-1,0,0,0,1,2,0,0
+"16º","Cruzeiro - MG",0,1,0,0,1,0,1,-1,0,0,1,0,3,0,0
+"17º","Bahia - BA",0,1,0,0,1,0,2,-2,0,0,0,1,0,0,0
+"18º","Ceará - CE",0,1,0,0,1,0,2,-2,0,0,0,1,1,0,0
+"19º","Sport - PE",0,1,0,0,1,0,3,-3,0,0,0,1,3,0,0
+"20º","Chapecoense - SC",0,1,0,0,1,1,5,-4,0,0,0,1,3,0,0

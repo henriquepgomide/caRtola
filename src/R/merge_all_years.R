@@ -12,15 +12,21 @@ library(zoo)
 #%%%%%%%%%%%%%%%%%%%%%%%%%
 
 # Open data frames
-df_2014 <- read.csv("db/2014/Scouts.csv", stringsAsFactors = FALSE)
-df_2015 <- read.csv("db/2015/Scouts.csv", stringsAsFactors = FALSE)
-df_2016 <- read.csv("db/2016/Scouts.csv", stringsAsFactors = FALSE)
+df_2014 <- read.csv("data/2014/2014_scouts_raw.csv", stringsAsFactors = FALSE)
+df_2015 <- read.csv("data/2015/2015_scouts_raw.csv", stringsAsFactors = FALSE)
+df_2016 <- read.csv("data/2016/2016_scouts_raw.csv", stringsAsFactors = FALSE)
+df_2017 <- read.csv("data/2017/2017_scouts_raw.csv", stringsAsFactors = FALSE)
 
 # Inser column year into data
-df_2014$ano <- 2014; df_2015$ano <- 2015; df_2016$ano <- 2016
+df_2014$ano <- 2014
+df_2015$ano <- 2015
+df_2016$ano <- 2016
+df_2017$ano <- 2017
 
 # Convert Participou into logic
-df_2014$Participou <- ifelse(df_2014$Participou == 1, TRUE, FALSE)
+df_2014$Participou <- ifelse(df_2014$Participou == 1, 
+                             TRUE, 
+                             FALSE)
 
 # Set same col names for all data frames
 colnames(df_2014)[c(1,3)] <-  c("AtletaID", "ClubeID")
@@ -29,7 +35,7 @@ colnames(df_2014)[c(1,3)] <-  c("AtletaID", "ClubeID")
 # Sort data by id and round 
 df_2015 <- 
   df_2015 %>%
-  arrange(AtletaID, - Rodada)
+  arrange(AtletaID, -Rodada)
 
 df_temp <- df_2015
 
@@ -51,33 +57,33 @@ df_2015 <- left_join(df_2015, df_temp, by = c("AtletaID", "Rodada"))
 rm(df_temp)
 
 # Merge data frames            
-df_3y <- bind_rows(df_2014, df_2015, df_2016)
-df_3y$Posicao <- Recode(df_3y$Posicao, "1 = 'gol'; 2 = 'lat'; 3 = 'zag'; 
-                     4 = 'mei'; 5 = 'ata'; 6 = 'tec'")
-df_3y$ClubeID <- as.character(df_3y$ClubeID) 
+df_4y <- bind_rows(df_2014, df_2015, df_2016, df_2017)
+df_4y$Posicao <- Recode(df_4y$Posicao, "1 = 'gol'; 2 = 'lat'; 3 = 'zag'; 
+                                       4 = 'mei'; 5 = 'ata'; 6 = 'tec'")
+df_4y$ClubeID <- as.character(df_4y$ClubeID) 
 
-# Get 2017 cartola data
-source("lib/R/data_wrangling.R")
+# Get 2018 cartola data
+source("src/R/data_wrangling.R")
 
 # Set better names for Cartola data.frame
 names(cartola) <- c("AtletaID", "Rodada", "Nome", 
-                    "Apelido", "foto","Clube_id", 
-                    "Posicao","ClubeID", "Status", 
+                    "slug", "Apelido", "foto",
+                    "Clube_id", "Posicao", "Status", 
                     "Pontos", "Preco", "PrecoVariacao",
-                    "PontosMedia", "Jogos","scout",
-                    c(names(cartola)[16:33]))
-cartola$ano <- 2017
+                    "PontosMedia", "ClubeID",
+                    c(names(cartola)[15:30]))
+cartola$ano <- 2018
 
 temp1 <- read.csv("data/times_ids.csv", stringsAsFactors = FALSE)
 cartola$ClubeID <- mapvalues(cartola$ClubeID, 
                              from = as.vector(temp1$nome.cartola), 
                              to = as.vector(temp1$id))
-rm(df_2014, df_2015, df_2016)
+rm(df_2014, df_2015, df_2016, df_2017)
 
 # Merge data frames
-df <- bind_rows(df_3y, cartola)
-rm(cartola, df_3y)
-df <- df[, -c(11:15,16,36,38,39, 41)]
+df <- bind_rows(df_4y, cartola)
+rm(cartola, df_4y)
+df <- df[, -c(11:15,16,36:56)]
 
 # Estimate mean by player
 df <- df %>%

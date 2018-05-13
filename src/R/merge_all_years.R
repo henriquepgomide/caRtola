@@ -6,7 +6,6 @@ library(fbRanks)
 library(reshape2)
 library(zoo)
 
-
 #%%%%%%%%%%%%%%%%%%%%%%%%%
 # Merge years 2014 to 2017
 #%%%%%%%%%%%%%%%%%%%%%%%%%

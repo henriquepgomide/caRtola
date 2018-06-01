@@ -88,48 +88,6 @@ df <- df[, -c(11:15,16,36:56)]
 df <- df %>%
   arrange(AtletaID, ano, Rodada)
 
-df <- df %>%
-  group_by(AtletaID) %>%
-  mutate(avg.Points = cummean(Pontos), 
-         avg.last05 = roll_meanr(Pontos, n = 5, fill = 1),
-         avg.FS = cummean(FS),
-         avg.FS.l05 = roll_meanr(FS, n = 5, fill = 1),
-         avg.PE = cummean(PE),
-         avg.PE.l05 = roll_meanr(PE, n = 5, fill = 1),
-         avg.A = cummean(A),
-         avg.A.l05 = roll_meanr(A, n = 5, fill = 1),
-         avg.FT = cummean(FT),
-         avg.FT.l05 = roll_meanr(FT, n = 5, fill = 1),
-         avg.FD = cummean(FD),
-         avg.FD.l05 = roll_meanr(FD, n = 5, fill = 1),
-         avg.FF = cummean(FF),
-         avg.FF.l05 = roll_meanr(FF, n = 5, fill = 1),
-         avg.G = cummean(G),
-         avg.G.l05 = roll_meanr(G, n = 5, fill = 1),
-         avg.I = cummean(I),
-         avg.I.l05 = roll_meanr(I, n = 5, fill = 1),
-         avg.PP = cummean(PP),
-         avg.PP.l05 = roll_meanr(PP, n = 5, fill = 1),
-         avg.RB = cummean(RB),
-         avg.RB.l05 = roll_meanr(RB, n = 5, fill = 1),
-         avg.FC = cummean(FC),
-         avg.FC.l05 = roll_meanr(FC, n = 5, fill = 1),
-         avg.GC = cummean(GC),
-         avg.GC.l05 = roll_meanr(GC, n = 5, fill = 1),
-         avg.CA = cummean(CA),
-         avg.CV.l05 = roll_meanr(CV, n = 5, fill = 1),
-         avg.SG = cummean(SG),
-         avg.SG.l05 = roll_meanr(SG, n = 5, fill = 1),
-         avg.DD = cummean(DD),
-         avg.DD.l05 = roll_meanr(DD, n = 5, fill = 1),
-         avg.DP = cummean(DP),
-         avg.DP.l05 = roll_meanr(DP, n = 5, fill = 1),
-         avg.GS = cummean(GS),
-         avg.GS.l05 = roll_meanr(GS, n = 5, fill = 1),
-         risk_points = roll_sdr(Pontos, n = 10, fill = 1)
-         ) %>%
-  ungroup
-
 df$Participou <- ifelse(df$PrecoVariacao == 0, FALSE, TRUE)
 
 df <- df %>% 
@@ -141,53 +99,83 @@ df <- df %>%
 # Create Team Features
 #%%%%%%%%%%%%%%%%%%%%%%%%%
 
+round_start_date <- as.Date("2018-05-18") # Start round date you want to predict
+round_max_date   <- as.Date("2018-05-21") # Max date round you want to predict
+
+# Open team codes
+temp1 <- read.csv("~/caRtola/data/times_ids.csv", stringsAsFactors = FALSE)
+
 # Open data frames
-df_2014 <- read.csv("data/2014/2014_partidas.csv", stringsAsFactors = FALSE)
-df_2015 <- read.csv("data/2015/2015_partidas.csv", stringsAsFactors = FALSE)
-df_2016 <- read.csv("data/2016/2016_partidas.csv", stringsAsFactors = FALSE)
-df_2017 <- read.csv("data/2017/2017_partidas.csv", stringsAsFactors = FALSE)
-df_2018 <- read.csv("data/2018/2018_partidas.csv", stringsAsFactors = FALSE)
+df_2014 <- read.csv("~/caRtola/data/2014/2014_partidas.csv", stringsAsFactors = FALSE)
+df_2015 <- read.csv("~/caRtola/data/2015/2015_partidas.csv", stringsAsFactors = FALSE)
+df_2016 <- read.csv("~/caRtola/data/2016/2016_partidas.csv", stringsAsFactors = FALSE)
+df_2017 <- read.csv("~/caRtola/data/2017/2017_partidas.csv", stringsAsFactors = FALSE)
+df_2018 <- read.csv("~/caRtola/data/2018/2018_partidas.csv", stringsAsFactors = FALSE)
 
 # Merge data frames
 matches <- bind_rows(df_2014, df_2015, df_2016, df_2017, df_2018)
 rm(df_2014, df_2015, df_2016, df_2017, df_2018)
 
 # Standardize team names
-matches$home_team <- plyr::mapvalues(matches$home_team, from = as.vector(temp1$nome.cbf), to = as.vector(temp1$id))
-matches$away_team <- plyr::mapvalues(matches$away_team, from = as.vector(temp1$nome.cbf), to = as.vector(temp1$id))
-rm(temp1)
+matches$home_team <- plyr::mapvalues(matches$home_team, from = as.vector(temp1$nome.cbf), to = as.vector(temp1$id), warn_missing = FALSE)
+matches$away_team <- plyr::mapvalues(matches$away_team, from = as.vector(temp1$nome.cbf), to = as.vector(temp1$id), warn_missing = FALSE)
 
 # Split string into numeric values
-matches <- separate(matches, score, c("home_score","vs","away_score"), convert = TRUE)
+matches            <- separate(matches, score, c("home_score","vs","away_score"), convert = TRUE)
 matches$home_score <- as.integer(matches$home_score)
 
-# Remove useless variables
-matches <- matches[,-c(1,7,11)]
+# Remove games that don't have a defined date
+matches <- 
+  matches %>%
+  filter(date != "A definir")
+
+# Remove useless variables X, vs, X.1
+matches <- matches[, -c(1, 7, 11)]
 
 # Convert character to date format
-matches$date <- as.Date(matches$date, format = "%d/%m/%Y")
-colnames(matches) <- c("game","round","date", "home.team","home.score",
-                       "away.score","away.team","arena")
+matches$date      <- as.Date(matches$date, format = "%d/%m/%Y")
+colnames(matches) <- c("game","round","date", 
+                       "home.team","home.score", "away.score",
+                       "away.team","arena")
 
 
 # Rank teams
-team_features <- rank.teams(scores = matches, 
-                             family = "poisson",
-                             fun = "speedglm",
-                             max.date="2017-12-04",
-                             time.weight.eta = 0.01)
+team_features <- rank.teams(scores          = matches, 
+                            family          = "poisson",
+                            fun             = "speedglm",
+                            max.date        = round_start_date,
+                            time.weight.eta = 0.01)
 
 teamPredictions <- predict.fbRanks(team_features, 
-                      newdata = matches[,c(3:4,7)], 
-                      min.date= as.Date("2017-12-01"),
-                      max.date = as.Date("2017-12-04"))
+                                   newdata  = matches[, c(3,4,7)],
+                                   min.date = round_start_date,
+                                   max.date = round_max_date)
 
-matches_fb <- left_join(matches, teamPredictions$scores, by = c("date","home.team", "away.team"))
+matches_fb <- dplyr::left_join(matches, teamPredictions$scores, by = c("date","home.team", "away.team"))
+matches_fb <- subset(matches_fb, matches$date >= round_start_date & matches$date <= round_max_date)
 matches_fb <- matches_fb[,-c(9,10,13,14,22,23)]
+
+# Remove temp dataframes
 rm(teamPredictions, team_features)
 
+#matches_fb$home.team <- plyr::mapvalues(matches_fb$home.team, from = as.vector(temp1$id), to = as.vector(temp1$nome.cartola), warn_missing = FALSE)
+#matches_fb$away.team <- plyr::mapvalues(matches_fb$away.team, from = as.vector(temp1$id), to = as.vector(temp1$nome.cartola), warn_missing = FALSE)
+
+matches_fb <- 
+  matches_fb %>%
+  dplyr::select(home.team, home.attack, home.defend, away.team, away.attack, away.defend, home.win, away.win, tie)
+
+matches_fb$id <- 1:nrow(matches_fb)
+matches_fb[,c("home.attack","home.defend", "away.attack", "away.defend", "home.win", "away.win", "tie")] <- round(matches_fb[,c("home.attack","home.defend", "away.attack", "away.defend", "home.win", "away.win", "tie")],2)
+
+colnames(matches_fb) <- c("time_casa", "ataque_casa","defesa_casa",
+                          "time_fora", "ataque_fora","defesa_fora",
+                          "vitoria_casa", "vitoria_fora", "empate")
+matches_fb$id <- 1:nrow(matches_fb)
+
+
 # Subset data until last round
-matches_fb <- subset(matches_fb, matches_fb$date <= "2017-12-04")
+matches_fb <- subset(matches_fb, matches_fb$date <= "2018-05-21")
 
 # Create data.frame to merge to player data
 temp2 <- melt(matches_fb, id = c("round", "date", "home.score.x", "away.score.x", 

@@ -16,11 +16,35 @@ aggregateCsv <- function(files){
   return(df)
 }
 
+fixEncodingIssues <- function(vector){
+  vector <- gsub("<e1>", "á", vector)
+  vector <- gsub("<e3>", "ã", vector)
+  vector <- gsub("<e2>", "ã", vector)
+  vector <- gsub("<c1>", "Á", vector)
+  vector <- gsub("<c2>", "Â", vector)
+  vector <- gsub("<e9>", "é", vector)
+  vector <- gsub("<ea>", "ê", vector)
+  vector <- gsub("<ed>", "í", vector)
+  vector <- gsub("<f3>", "ó", vector)
+  vector <- gsub("<f4>", "ô", vector)
+  vector <- gsub("<e7>", "ç", vector)
+  vector <- gsub("<fa>", "ú", vector)
+  vector <- gsub("<f1>", "ñ", vector)
+  vector <- gsub("<c9>", "É", vector)
+  vector <- gsub("<cd>", "Í", vector)
+
+  return(vector)
+}
+
 # Read all round data for the year of 2018
 setwd("~/caRtola/data/2018/")
 df_list <- list()
 files   <- list.files(pattern = "rodada-*.*csv")
 data    <- aggregateCsv(files)
+
+# Fix weird characters
+data$atletas.nome <- fixEncodingIssues(data$atletas.nome)
+data$atletas.clube.id.full.name <- fixEncodingIssues(data$atletas.clube.id.full.name)
 
 # Write 2018_jogadores.csv
 players <- 

@@ -9,7 +9,7 @@ library(XML)
 library(httr)
 
 page <- GET(
-  "https://cbf.com.br/competicoes/brasileiro-serie-a/classificacao/2018"
+  "https://www.cbf.com.br/futebol-brasileiro/competicoes/campeonato-brasileiro-serie-a/2018"
 )
 
 theurl <- htmlTreeParse(page, useInternal = TRUE)

@@ -7,7 +7,7 @@
 #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 # This function merges data from different rounds and merge them into
-# a single data.frame for a give year.
+# a single data.frame for a given year.
 
 merge_cartola_data <- function(year){
   year <- as.character(year)
@@ -28,7 +28,7 @@ cartola <- merge_cartola_data(2018)
 setwd("../../")
 
 #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-# 2. Wrange scouts from Cartola API, which is aggregated ----
+# 2. Wrangle scouts from Cartola API, aggregated format  ----
 #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 ## Carregar pacotes

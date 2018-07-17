@@ -52,8 +52,8 @@ data$atletas.foto <- gsub("FORMATO", "140x140", data$atletas.foto)
 # Write 2018_jogadores.csv
 players <- 
   data %>%
-  distinct(atletas.atleta_id, .keep_all = TRUE) %>%
-  select(atletas.atleta_id, atletas.apelido, atletas.clube.id.full.name, atletas.posicao_id, atletas.foto)
+  dplyr::distinct(atletas.atleta_id, .keep_all = TRUE) %>%
+  dplyr::select(atletas.atleta_id, atletas.apelido, atletas.clube.id.full.name, atletas.posicao_id, atletas.foto)
 
 # Convert id.full.name and posicao_id to cartola codes
 temp1 <- read.csv("~/caRtola/data/times_ids.csv", stringsAsFactors = FALSE)

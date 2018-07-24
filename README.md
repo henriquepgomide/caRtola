@@ -1,7 +1,5 @@
 [![Gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg)](https://gitter.im/caRtola-R/Lobby?utm_source=share-link&utm_medium=link&utm_campaign=share-link) | [README in English](README.en.md)
 
-> Voltaremos em 2018 com uma grande novidade. :sunglasses:
-
 # :tophat: caRtola :tophat:
 
 > Este repositório tem como objetivo disponibilizar todos os dados do *Cartola FC* desde sua criação em 2014. Nós também tentamos prever a pontuação de cada jogador no Brasileirão.

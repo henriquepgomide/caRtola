@@ -14,7 +14,7 @@ page <- GET(
 
 theurl <- htmlTreeParse(page, useInternal = TRUE)
 tables <- readHTMLTable(theurl)
-n.rows <- unlist(lapply(tables, function(t) dim(t)[2]))
+ n.rows <- unlist(lapply(tables, function(t) dim(t)[2]))
 info <- tables[[which.max(n.rows)]]
 info <- info[,1:18]
 colnames(info) <- c("Pos","None","Clube", "P","J","V","E","D", "GP",	"GC",	"SG",	"VM",	"VV",	"DM",	"DV",	"CA",	"CV",	"%")

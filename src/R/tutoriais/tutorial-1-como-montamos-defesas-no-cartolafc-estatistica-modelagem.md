@@ -1,3 +1,5 @@
+Texto corrigido em 04/09/2018. Lista de correções: 1) cálculo das estimativas das chances dos times fazerem gols; 2) Interpretação dos resultados da última tabela e 3) Pequenos erros de ortografia.
+
 Introdução
 ==========
 
@@ -15,7 +17,7 @@ Tradicionalmente, os cartoleiros e cartoleiras acessam somente a tabela simples 
 
 No entanto, nós do Cartola PFC podemos ajudamos você a medir a incerteza usando estatística. A literatura científica sobre previsão de partidas é [vasta](https://scholar.google.com.br/scholar?hl=pt-BR&as_sdt=0%2C5&q=soccer+match+prediction&btnG=&oq=soccer+match). Vamos nos concentrar no trabalho de [Dixon e Coles (1997)](https://rss.onlinelibrary.wiley.com/doi/abs/10.1111/1467-9876.00065), que analisou 6629 partidas da Premier League para criar um modelo estatístico de previsão. O modelo de previsão dos autores têm quatro vantagens ao assumir as características:
 
-1.  As habilidades de cada time são uma função do seu desempenho ;
+1.  As habilidades de cada time são uma função do seu desempenho;
 2.  O efeito "mando de campo" é levado em consideração para a estimação dos parâmetros;
 3.  A habilidade de um time deve levar em consideração resultados mais recentes;
 4.  Devido à natureza do futebol, um time pode ser resumido em duas habilidades: habilidade de ataque (capacidade de fazer gols) e defesa (habilidade de não levar gols);
@@ -41,7 +43,7 @@ matches <- read.csv("~/caRtola/data/2018/2018_partidas.csv", stringsAsFactors = 
 glimpse(matches)
 ```
 
-    ## Observations: 220
+    ## Observations: 230
     ## Variables: 9
     ## $ X.1       <int> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 1...
     ## $ game      <int> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 1...
@@ -100,6 +102,31 @@ team_features <- rank.teams(scores          = matches,
                             time.weight.eta = 0.01)
 ```
 
+    ## Alert: teams data frame was not passed in. Will attempt to construct one from the scores data frame.You should ensure that teams use only one name in scores data frame.
+    ## 
+    ## Team Rankings based on matches 1900-05-01 to 2018-09-04
+    ##    team               total attack defense n.games.Var1       n.games.Freq
+    ## 1  Grêmio - RS         1.47 1.42   1.94    Grêmio - RS        22          
+    ## 2  Internacional - RS  1.46 1.22   2.24    Internacional - RS 22          
+    ## 3  Palmeiras - SP      1.14 1.40   1.57    Palmeiras - SP     22          
+    ## 4  São Paulo - SP      0.91 1.54   1.22    São Paulo - SP     22          
+    ## 5  Atlético - PR       0.80 1.32   1.32    Atlético - PR      21          
+    ## 6  Flamengo - RJ       0.48 1.31   1.07    Flamengo - RJ      22          
+    ## 7  Atlético - MG       0.43 1.49   0.91    Atlético - MG      22          
+    ## 8  Santos - SP         0.31 1.14   1.09    Santos - SP        21          
+    ## 9  Corinthians - SP    0.30 0.99   1.25    Corinthians - SP   22          
+    ## 10 Cruzeiro - MG       0.14 0.90   1.22    Cruzeiro - MG      22          
+    ## 11 Bahia - BA         -0.14 1.06   0.86    Bahia - BA         22          
+    ## 12 Fluminense - RJ    -0.25 0.93   0.90    Fluminense - RJ    22          
+    ## 13 América - MG       -0.32 0.84   0.95    América - MG       22          
+    ## 14 Vasco da Gama - RJ -0.39 1.06   0.72    Vasco da Gama - RJ 21          
+    ## 15 Chapecoense - SC   -0.52 0.93   0.75    Chapecoense - SC   21          
+    ## 16 Ceará - CE         -0.65 0.58   1.09    Ceará - CE         22          
+    ## 17 Botafogo - RJ      -0.89 0.77   0.70    Botafogo - RJ      22          
+    ## 18 Vitória - BA       -0.90 0.84   0.63    Vitória - BA       22          
+    ## 19 Sport - PE         -1.20 0.73   0.60    Sport - PE         22          
+    ## 20 Paraná - PR        -1.52 0.39   0.88    Paraná - PR        22
+
 Como interpretar os resultados acima?
 -------------------------------------
 
@@ -120,6 +147,20 @@ teamPredictions <- predict.fbRanks(team_features,
                                    max.date = "2018-09-03")
 ```
 
+    ## Predicted Match Results for 2018-09-01 to 2018-09-03
+    ## Model based on data from 1900-05-01 to 2018-09-04
+    ## ---------------------------------------------
+    ## 2018-09-01 Vitória - BA vs América - MG, HW 25%, AW 47%, T 28%, pred score 0.9-1.3
+    ## 2018-09-01 Grêmio - RS vs Botafogo - RJ, HW 76%, AW 6%, T 18%, pred score 2-0.4
+    ## 2018-09-01 Vasco da Gama - RJ vs Santos - SP, HW 23%, AW 51%, T 25%, pred score 1-1.6
+    ## 2018-09-01 Corinthians - SP vs Atlético - MG, HW 33%, AW 38%, T 28%, pred score 1.1-1.2
+    ## 2018-09-02 Flamengo - RJ vs Ceará - CE, HW 52%, AW 17%, T 31%, pred score 1.2-0.5
+    ## 2018-09-02 Atlético - PR vs Bahia - BA, HW 54%, AW 20%, T 26%, pred score 1.5-0.8
+    ## 2018-09-02 São Paulo - SP vs Fluminense - RJ, HW 60%, AW 16%, T 24%, pred score 1.7-0.8
+    ## 2018-09-02 Sport - PE vs Paraná - PR, HW 36%, AW 27%, T 37%, pred score 0.8-0.7
+    ## 2018-09-02 Cruzeiro - MG vs Internacional - RS, HW 14%, AW 50%, T 35%, pred score 0.4-1
+    ## 2018-09-02 Chapecoense - SC vs Palmeiras - SP, HW 11%, AW 68%, T 21%, pred score 0.6-1.9
+
 Como interpretar os resultados acima?
 -------------------------------------
 
@@ -134,44 +175,44 @@ home.goals.vector <- rep(NA,10)
 away.goals.vector <- rep(NA,10)
 
 for (i in 1:10){
-  home.goals.vector[i] <- round(prop.table(table(teamPredictions$home.goals[i,] == 0))[1],2)
-  away.goals.vector[i] <- round(prop.table(table(teamPredictions$away.goals[i,] == 0))[1],2)
+  home.goals.vector[i] <- round(prop.table(table(teamPredictions$home.goals[i,] > 0))[2],2)
+  away.goals.vector[i] <- round(prop.table(table(teamPredictions$away.goals[i,] > 0))[2],2)
 }
 
-team.names       <- c(home.team.names, away.team.names)
-clean.sheet.odds <- c(home.goals.vector, away.goals.vector)
+team.names   <- c(home.team.names, away.team.names)
+scoring.odds <- c(home.goals.vector, away.goals.vector)
 
-clean.sheet.df <- data.frame(team.names = team.names, clean.sheet.odds = clean.sheet.odds*100)
-clean.sheet.df <- arrange(clean.sheet.df, desc(clean.sheet.odds))
+scoring.odds.df <- data.frame(team.names = team.names, scoring.odds = scoring.odds*100)
+scoring.odds.df <- arrange(scoring.odds.df, scoring.odds)
 
-print(clean.sheet.df)
+print(scoring.odds.df)
 ```
 
-    ##            team.names clean.sheet.odds
-    ## 1      São Paulo - SP               84
-    ## 2      Palmeiras - SP               84
-    ## 3        América - MG               80
-    ## 4         Grêmio - RS               79
-    ## 5       Atlético - PR               76
-    ## 6         Santos - SP               73
-    ## 7       Atlético - MG               71
-    ## 8       Flamengo - RJ               70
-    ## 9  Internacional - RS               70
-    ## 10 Vasco da Gama - RJ               68
-    ## 11   Corinthians - SP               67
-    ## 12         Bahia - BA               61
-    ## 13       Vitória - BA               58
-    ## 14         Sport - PE               55
-    ## 15        Paraná - PR               54
-    ## 16    Fluminense - RJ               52
-    ## 17   Chapecoense - SC               41
-    ## 18         Ceará - CE               39
-    ## 19      Cruzeiro - MG               36
-    ## 20      Botafogo - RJ               35
+    ##            team.names scoring.odds
+    ## 1       Cruzeiro - MG           33
+    ## 2       Botafogo - RJ           33
+    ## 3          Ceará - CE           42
+    ## 4    Chapecoense - SC           44
+    ## 5         Paraná - PR           48
+    ## 6     Fluminense - RJ           53
+    ## 7          Bahia - BA           55
+    ## 8          Sport - PE           56
+    ## 9        Vitória - BA           59
+    ## 10 Vasco da Gama - RJ           62
+    ## 11 Internacional - RS           63
+    ## 12   Corinthians - SP           66
+    ## 13      Flamengo - RJ           70
+    ## 14      Atlético - MG           70
+    ## 15       América - MG           73
+    ## 16      Atlético - PR           78
+    ## 17        Santos - SP           79
+    ## 18     São Paulo - SP           82
+    ## 19     Palmeiras - SP           84
+    ## 20        Grêmio - RS           87
 
-Isso significa que o São Paulo possui 84% de chances de não levar gol na rodada 22. Lembrando que o modelo leva em conta os gols marcados pelo São Paulo quando joga em casa e gols levados pela defesa do Fluminense quando joga fora de casa.
+A coluna 'scoring.odds' (chances de fazer gol) representa a probabilidade de um time fazer gols em %. Olhando os três times do topo da tabela, podemos assumir que seus rivais provavelmente não levarão gols.
 
-Concluindo, se queremos montar uma defesa com potencial ganho de pontos por saldo de gols para a rodada 22, devemos escolher jogadores de times com alto valores na coluna acima como São Paulo, Palmeiras, América e Grêmio.
+Assim, se queremos montar uma defesa com potencial de ganho de pontos por saldo de gols para a rodada 22, os adversários de Cruzeiro, Botafogo e Ceará. Neste caso, escolheríamos defensores de Internacional, Grêmio e Flamengo.
 
 Considerações
 =============

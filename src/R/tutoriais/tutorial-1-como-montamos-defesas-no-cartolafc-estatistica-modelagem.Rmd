@@ -14,6 +14,8 @@ title: "Tutorial 1 - Como montamos defesas no CartolaFC? Com estatística e mode
 output: html_notebook
 ---
 
+Texto corrigido em 04/09/2018. Lista de correções: 1) cálculo das estimativas das chances dos times fazerem gols; 2) Interpretação dos resultados da última tabela e 3) Pequenos erros de ortografia.
+
 # Introdução
 
 Nosso objetivo neste primeiro tutorial da série é desenvolver um modelo que avalia a qualidade das defesas e ataques dos times que disputam o Campeonato Brasileiro.
@@ -29,7 +31,7 @@ Tradicionalmente, os cartoleiros e cartoleiras acessam somente a tabela simples 
 
 No entanto, nós do Cartola PFC podemos ajudamos você a medir a incerteza usando estatística. A literatura científica sobre previsão de partidas é [vasta](https://scholar.google.com.br/scholar?hl=pt-BR&as_sdt=0%2C5&q=soccer+match+prediction&btnG=&oq=soccer+match). Vamos nos concentrar no trabalho de [Dixon e Coles (1997)](https://rss.onlinelibrary.wiley.com/doi/abs/10.1111/1467-9876.00065), que analisou 6629 partidas da Premier League para criar um modelo estatístico de previsão. O modelo de previsão dos autores têm quatro vantagens ao assumir as características:
 
-1. As habilidades de cada time são uma função do seu desempenho ;
+1. As habilidades de cada time são uma função do seu desempenho;
 2. O efeito "mando de campo" é levado em consideração para a estimação dos parâmetros;
 3. A habilidade de um time deve levar em consideração resultados mais recentes;
 4. Devido à natureza do futebol, um time pode ser resumido em duas habilidades: habilidade de ataque (capacidade de fazer gols) e defesa (habilidade de não levar gols);
@@ -91,7 +93,7 @@ names(matches)[c(4,7)] <- c("home.team", "away.team")
 
 Pronto. Depois da limpeza, a modelagem. Para facilitar nossa vida, vamos usar o pacote fbRanks, especificamente a função rank.teams, que usará o modelo especificado no início do artigo.
 
-```{r, results='hide', message=FALSE, warning=FALSE}
+```{r, message=FALSE, warning=FALSE}
 # Criar sistema de pontuação dos times
 team_features <- rank.teams(scores          = matches, 
                             family          = "poisson",
@@ -109,7 +111,7 @@ Se você gosta e entende de estatística, estes valores de defesa e ataque são 
 
 # Prever resultados de jogos no futuro
 
-```{r, results='hide', message=FALSE, warning=FALSE}
+```{r, message=FALSE, warning=FALSE}
 teamPredictions <- predict.fbRanks(team_features, 
                                    newdata  = matches[, c(3,4,7)],
                                    min.date = "2018-09-01",
@@ -129,22 +131,22 @@ home.goals.vector <- rep(NA,10)
 away.goals.vector <- rep(NA,10)
 
 for (i in 1:10){
-  home.goals.vector[i] <- round(prop.table(table(teamPredictions$home.goals[i,] == 0))[1],2)
-  away.goals.vector[i] <- round(prop.table(table(teamPredictions$away.goals[i,] == 0))[1],2)
+  home.goals.vector[i] <- round(prop.table(table(teamPredictions$home.goals[i,] > 0))[2],2)
+  away.goals.vector[i] <- round(prop.table(table(teamPredictions$away.goals[i,] > 0))[2],2)
 }
 
-team.names       <- c(home.team.names, away.team.names)
-clean.sheet.odds <- c(home.goals.vector, away.goals.vector)
+team.names   <- c(home.team.names, away.team.names)
+scoring.odds <- c(home.goals.vector, away.goals.vector)
 
-clean.sheet.df <- data.frame(team.names = team.names, clean.sheet.odds = clean.sheet.odds*100)
-clean.sheet.df <- arrange(clean.sheet.df, desc(clean.sheet.odds))
+scoring.odds.df <- data.frame(team.names = team.names, scoring.odds = scoring.odds*100)
+scoring.odds.df <- arrange(scoring.odds.df, scoring.odds)
 
-print(clean.sheet.df)
+print(scoring.odds.df)
 ```
 
-Isso significa que o São Paulo possui 84% de chances de não levar gol na rodada 22. Lembrando que o modelo leva em conta os gols marcados pelo São Paulo quando joga em casa e gols levados pela defesa do Fluminense quando joga fora de casa.
+A coluna 'scoring.odds' (chances de fazer gol) representa a probabilidade de um time fazer gols em %. Olhando os três times do topo da tabela, podemos assumir que seus rivais provavelmente não levarão gols. 
 
-Concluindo, se queremos montar uma defesa com potencial ganho de pontos por saldo de gols para a rodada 22, devemos escolher jogadores de times com alto valores na coluna acima como São Paulo, Palmeiras, América e Grêmio.
+Assim, se queremos montar uma defesa com potencial de ganho de pontos por saldo de gols para a rodada 22, os adversários de Cruzeiro, Botafogo e Ceará. Neste caso, escolheríamos defensores de Internacional, Grêmio e Flamengo.
 
 # Considerações
 

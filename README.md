@@ -7,6 +7,10 @@
 ## Dados :memo:
 Para ter acesso a todo o histórico de dados do _Cartola FC_ é só acessar a pasta [data](data/). Lá você encontra os dados organizados por ano e ainda um arquivo com os dados agregados de todos os anos. Está tudo disponível em arquivos separados por vírgulas. Até o Excel abre. :wink:
 
+## Tutoriais
+
+* [Como montar defesas no Cartola usando regressão de Poisson?](https://medium.com/@hpgomide/como-montamos-defesas-no-cartolafc-com-estatística-e-modelagem-de-dados-6f5d58ac1034)
+
 ## Previsões :dart:
 
 Você pode conferir o resultado das previsões do nosso modelo preditivo em 2017 [nessa planilha](https://docs.google.com/spreadsheets/d/1knS8pE-JtIaeilUcjI_grIKBeox94QWAuMGKlfCfQSk/edit?usp=sharing). Nela, você vai encontrar os jogadores que o nosso modelo previu que iam fazer boas predições e a pontuação real do jogador naquela rodada. __Você acha que o modelo mandou bem? Foi ruim?__ [Vem resenhar com a gente, parça!](https://github.com/henriquepgomide/caRtola/issues/33)  :speech_balloon:

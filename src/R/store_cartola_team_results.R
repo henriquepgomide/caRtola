@@ -30,7 +30,7 @@ getTeamResults <- function(vector_teams, round){
     team_round_info[[i]] <- df
     print(team_round_info[[i]])
     
-    Sys.sleep(2) # It's a dood practice to give the server a break while lopping.
+    Sys.sleep(2) # It's a good practice to give the server a break while lopping.
   }
   
   team_round_info <- do.call(rbind.data.frame, team_round_info)

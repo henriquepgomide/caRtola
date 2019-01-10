@@ -1,4 +1,6 @@
 # Author - Henrique Gomide Copyright
+# TODO : Add player home_mean and away_mean, games_played, regularity, matches, price
+
 library(tidyverse)
 library(zoo)
 
@@ -11,9 +13,6 @@ data <- ReadCsvInsideFolder(folderPath = "~/caRtola/data/2018/",
 data$atletas.nome <- fixEncodingIssues(data$atletas.nome)
 data$atletas.clube.id.full.name <- fixEncodingIssues(data$atletas.clube.id.full.name)
 data$atletas.status_id <- fixEncodingIssues(data$atletas.status_id)
-
-# Subset defenders
-# data <- filter(data, atletas.posicao_id %in% c("zag", "lat"))
 
 # Transform rodada_id into factor
 data$atletas.rodada_id  <- factor(data$atletas.rodada_id,

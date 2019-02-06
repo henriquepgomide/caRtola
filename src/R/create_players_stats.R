@@ -60,7 +60,7 @@ rm(temp1)
 #   (data$FT * 3) + (data$FD * 1.2) + (data$FF * .8) +
 #   (data$G * 8) + (data$I * -.5) + (data$PP * -4)
 
-# 1. Feature Engenering ---------------------------------------------------
+# 1. Feature Engineering ---------------------------------------------------
 
 # 2. Remove clean sheet bonus
 data$score.no.cleansheets <- (data$CA * -2) + (data$FC * -0.5) + (data$RB * 1.5) +

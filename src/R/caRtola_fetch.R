@@ -8,7 +8,7 @@
 # Recuperar os dados da API do cartola e salvar num
 # em csv. Toda rodada, é necessário executar
 # o script. Os dados são armazenados em um arquivo
-# csv na pasta data/2018.
+# csv na pasta data/2019.
 # ----------------------------------------------------
 
 # Remind yourself to install packages before loading them
@@ -51,13 +51,12 @@ rm(temp1)
 
 # Label team
 teams <- athletes[2]
-temp1 <- t(matrix(unlist(teams),7,20))
+temp1 <- t(matrix(unlist(teams),8,20))
 temp1 <- data.frame(temp1, stringsAsFactors = FALSE)
 temp1 <- temp1[,1:4]
 colnames(temp1) <- c("Cod", "nome.completo","nome","pos")
 temp1$Cod <- as.integer(temp1$Cod)
 df_1$atletas.clube.id.full.name <- mapvalues(df_1$atletas.clube_id, from = as.vector(temp1$Cod), to = as.vector(temp1$nome.completo))
-df_1$atletas.clube_id <- mapvalues(df_1$atletas.clube_id, from = as.vector(temp1$Cod), to = as.vector(temp1$nome))
 rm(teams);rm(temp1)
 
 # Merge detailed scouts into df_1
@@ -66,5 +65,5 @@ df_1 <- cbind(df_1, athletes$atletas$scout)
 rm(df_2,df_3, athletes, json_athletes)
 
 # Store data frame
-write.csv(df_1, paste0("data/2018/rodada-", df_1$atletas.rodada_id[1],".csv"))
+write.csv(df_1, paste0("data/2019/rodada-", df_1$atletas.rodada_id[1],".csv"))
 rm(df_1)

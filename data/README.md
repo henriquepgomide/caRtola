@@ -1,6 +1,9 @@
 Essa pasta contém os dados de todo o histórico do Cartola organizados por ano. __Cada pasta contém os dados sobre jogadores, partidas, times, scouts e uma descrição dos dados em cada arquivo__. Na raiz dessa pasta, você vai encontrar os seguintes arquivos:
 
-### :star: dados_agregados.csv :star:
+### :star: 2018_dados_agregados.xlsx :star:
+Estes são os dados agregados em Excel para os cartoleiros que estão familiarizados com Excel (Segredo: todos nós temos alma de planilheiros em alguma medida).
+
+### 2017_dados_agregados.csv
 
 __Esse é o principal arquivo desse repositório__. Ele tem todos os dados, de todos os anos, de todas as rodadas, e de todos os jogadores (ufa!). Cada linha representa os scouts de um jogador para uma rodada de um certo ano. Esses dados estão em formato bruto, ou seja, precisam ser limpos antes de serem utilizados. __Há erros de inconsistência, presença de NANs, entre outras coisas, que já vêm da API do _Cartola FC___.
 

@@ -1,7 +1,7 @@
 # What? ----------------------------------------------
 # Retrieve data from Cartola and store as a csv file
 # Every round, you need to gather and store data into
-# data/2018 folder
+# data/2019 folder
 # ----------------------------------------------------
 
 # Objetivo--------------------------------------------
@@ -65,5 +65,6 @@ df_1 <- cbind(df_1, athletes$atletas$scout)
 rm(df_2,df_3, athletes, json_athletes)
 
 # Store data frame
-write.csv(df_1, paste0("data/2019/rodada-", df_1$atletas.rodada_id[1],".csv"))
+#write.csv(df_1, paste0("data/2019/rodada-", df_1$atletas.rodada_id[1],".csv"))
+write.csv(df_1, paste0("data/2019/rodada-", "0",".csv"))
 rm(df_1)

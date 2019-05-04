@@ -4,11 +4,12 @@
 library(tidyverse)
 library(zoo)
 
-source("~/pfc_R/lib/utils/functions.R")
+source("~/caRtola/src/R/utils.R")
 
 # 0. Dataprep -------------------------------------------------------------
-data <- readCsvInsideFolder(folderPath = "~/caRtola/data/2018/",
-                            pattern = "rodada")
+data <- readCsvInsideFolder("~/caRtola/data/2019/",
+                            "rodada",
+                            "2019")
 
 data$atletas.nome <- fixEncodingIssues(data$atletas.nome)
 data$atletas.clube.id.full.name <- fixEncodingIssues(data$atletas.clube.id.full.name)
@@ -54,21 +55,24 @@ data$atletas.clube.id.full.name <- plyr::mapvalues(data$atletas.clube.id.full.na
 rm(temp1)
 
 # Validation  - Compute scores
-# data$computed.score <- (data$CA * -2) + (data$FC * -0.5) + (data$RB * 1.5) +
-#   (data$GC * -5) + (data$CV * -5) + (data$SG * 5) +
-#   (data$FS * .5) + (data$PE * -.3) + (data$A * 5) +
-#   (data$FT * 3) + (data$FD * 1.2) + (data$FF * .8) +
-#   (data$G * 8) + (data$I * -.5) + (data$PP * -4)
+data$computed.score <- 
+   (data$CA * -2) + (data$FC * -0.5) + (data$RB * 1.5) +
+   (data$GC * -5) + (data$CV * -5)   + (data$SG * 5) +
+   (data$FS * .5) + (data$PE * -.3)  + (data$A * 5)  +
+   (data$FT * 3)  + (data$FD * 1.2)  + (data$FF * .8) +
+   (data$G * 8)   + (data$I * -.5)   + (data$PP * -4) +
+   (data$DD * 3)  + (data$DP * 7)    + (data$GS * -2)
 
 # 1. Feature Engineering ---------------------------------------------------
 
 # 2. Remove clean sheet bonus
-data$score.no.cleansheets <- (data$CA * -2) + (data$FC * -0.5) + (data$RB * 1.5) +
-  (data$GC * -5) + (data$CV * -5) + #(data$SG * 5) +
-  (data$FS * .5) + (data$PE * -.3) + (data$A * 5) +
-  (data$FT * 3) + (data$FD * 1.2) + (data$FF * .8) +
-  (data$G * 8) + (data$I * -.5) + (data$PP * -4) +
-  (data$DD * 3) + (data$DP * 7) 
+data$score.no.cleansheets <- 
+   (data$CA * -2) + (data$FC * -0.5) + (data$RB * 1.5) +
+   (data$GC * -5) + (data$CV * -5)   + #(data$SG * 5) +
+   (data$FS * .5) + (data$PE * -.3)  + (data$A * 5)  +
+   (data$FT * 3)  + (data$FD * 1.2)  + (data$FF * .8) +
+   (data$G * 8)   + (data$I * -.5)   + (data$PP * -4) +
+   (data$DD * 3)  + (data$DP * 7)    + (data$GS * -2)
 
 # Compute fouls for each round
 data$faltas <- data$FC + data$CA + data$CV

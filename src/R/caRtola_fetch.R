@@ -21,6 +21,10 @@ library(rjson)
 library(jsonlite)
 library(plyr)
 
+# Set working directory
+# Setar diretório de trabalho. No Windows é um pouco diferente.
+setwd("~/caRtola/")
+
 ###################
 # Fetch Player Data 
 # Recuperar dados da API

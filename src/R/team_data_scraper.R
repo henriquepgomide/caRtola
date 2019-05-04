@@ -32,16 +32,20 @@ write.csv(info, "data/2018/2018_tabelas.csv", row.names=FALSE)
 # Recuperar dados das partidas para prever vitórias entre os times do campeonato brasileiro
 # ---------------
 
-page <- GET(
-  "https://cbf.com.br/competicoes/brasileiro-serie-a/tabela/2018"
-)
+fetchMatchData <- function(url, path) {
+  # Returns match results from us.soccerway website and store them as csv file
+  # url - url to fetch data
+  # path - where to save data
+  GET(url) 
+  theurl <- htmlTreeParse(page, useInternal = TRUE)
+  tables <- readHTMLTable(theurl)
+  n.rows <- unlist(lapply(tables, function(t) dim(t)[1]))
+  info <- tables[[which.max(n.rows)]]
+  info <- info[, 2:5]
+  colnames(info) <- c("date", "home_team", "score", "away_team")
+  write.csv(info, path)
+}
 
-theurl <- htmlTreeParse(page, useInternal = TRUE)
-tables <- readHTMLTable(theurl)
-n.rows <- unlist(lapply(tables, function(t) dim(t)[1]))
-info <- tables[[which.max(n.rows)]]
-info <- info[,1:8]
-colnames(info) <- c("game","round","date", "home_team","score","away_team","arena","X")
-# Write file as csv - Gravar resultados das partidas
-write.csv(info, "data/2018/2018_partidas.csv")
-rm(n.rows,tables, theurl, info)
+fetchMatchData("https://us.soccerway.com/national/brazil/serie-a/2019/regular-season/r51143/matches/",
+               "data/2019/2019_partidas.csv")
+

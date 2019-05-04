@@ -75,5 +75,5 @@ fetchMatchDetail <- function(round) {
 }
 
 
-data <- fetchMatchDetail(round = 3)
-write_csv(data, "data/2019/2019_partidas.csv", row.names = FALSE)
+# Write csv
+write.csv(fetchMatchDetail(round = 3), "data/2019/2019_partidas.csv", row.names = FALSE)

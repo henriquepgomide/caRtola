@@ -242,4 +242,5 @@ names(df.cartola.2019) <- c("player_slug", "player_id", "player_nickname",
 
 write.csv(df.cartola.2019,
           "~/caRtola/data/2019/2019-medias-jogadores.csv", 
-          row.names = FALSE)
+          row.names = FALSE,
+          na="0")

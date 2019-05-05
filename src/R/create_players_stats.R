@@ -55,13 +55,13 @@ data$atletas.clube.id.full.name <- plyr::mapvalues(data$atletas.clube.id.full.na
 rm(temp1)
 
 # Validation  - Compute scores
-data$computed.score <- 
-   (data$CA * -2) + (data$FC * -0.5) + (data$RB * 1.5) +
-   (data$GC * -5) + (data$CV * -5)   + (data$SG * 5) +
-   (data$FS * .5) + (data$PE * -.3)  + (data$A * 5)  +
-   (data$FT * 3)  + (data$FD * 1.2)  + (data$FF * .8) +
-   (data$G * 8)   + (data$I * -.5)   + (data$PP * -4) +
-   (data$DD * 3)  + (data$DP * 7)    + (data$GS * -2)
+#data$computed.score <- 
+#   (data$CA * -2) + (data$FC * -0.5) + (data$RB * 1.5) +
+#   (data$GC * -5) + (data$CV * -5)   + (data$SG * 5) +
+#   (data$FS * .5) + (data$PE * -.3)  + (data$A * 5)  +
+#   (data$FT * 3)  + (data$FD * 1.2)  + (data$FF * .8) +
+#   (data$G * 8)   + (data$I * -.5)   + (data$PP * -4) +
+#   (data$DD * 3)  + (data$DP * 7)    + (data$GS * -2)
 
 # 1. Feature Engineering ---------------------------------------------------
 
@@ -101,9 +101,24 @@ data <- mutate(data, pontuou = ifelse(CA + FC + FS +
                                       CV + DP + PP == 0,
                                       FALSE, TRUE))
 
+# TODO - PREPARE MATCH DATA TO COMBINE AND CREATE AGGREGATED STATISTICS
+
+matches <- read.csv("~/caRtola/data/2019/2019_partidas.csv", check.names = FALSE)
+
+convertMatchesToTidy <- function(dataframe) { 
+  # Convert and preprocess matches dataframe  
+  tidy_matches <- gather(dataframe, `home_team`, `away_team`, value = "team_name", key = "home_away")
+  tidy_matches <- select(tidy_matches, date, home_away, team_name, round)
+  tidy_matches$home_away <- gsub("_team", "", tidy_matches$home_away)
+  tidy_matches$team_name <- as.character(tidy_matches$team_name)
+  tidy_matches
+}
+
+matches <- convertMatchesToTidy(matches)
+
 # Merge matches and data frames to compute home and away scores
-data <- left_join(data, matches[, c("round", "mando", "id", "date")], 
-                   by = c("rodada" = "round", "team" = "id"))
+data <- left_join(data, matches, 
+                  by = c("rodada" = "round", "team" = "team_name"))
 
 # Create scouts with mean
 scouts.mean <- 
@@ -134,12 +149,12 @@ data <- left_join(data, scouts.mean, by = c("rodada", "atleta.id"))
 createHomeAndAwayScouts <- function(){
   scouts.home.away <- 
     data %>%
-    group_by(atleta.id, mando) %>%
+    group_by(atleta.id, home_away) %>%
     filter(pontuou == TRUE) %>%
     arrange(rodadaF) %>%
     mutate_at(.vars = c("score.no.cleansheets","pontuacao"), 
               .funs = cummean) %>%
-    dplyr::select("atleta.id", "mando", "rodada", 
+    dplyr::select("atleta.id", "home_away", "rodada", 
                   "score.no.cleansheets","pontuacao")
   
   names(scouts.home.away)[4:5] <- paste0(names(scouts.home.away)[4:5], ".mean") 
@@ -147,40 +162,40 @@ createHomeAndAwayScouts <- function(){
   scouts.home.away <- gather(scouts.home.away, 
                              key = vars,
                              value = "valores",
-                             -mando,
+                             -home_away,
                              -rodada,
                              -atleta.id) 
   
   scouts.home.away <- unite(scouts.home.away, 
                             col = "var",
-                            "vars", "mando",
+                            "vars", "home_away",
                             sep = ".")
   
   scouts.home.away <- spread(scouts.home.away,
                              key = var,
                              value = valores)
   
-  scouts.home.away <- scouts.home.away %>%
-    dplyr::select(-score.no.cleansheets.mean.NA, 
-                  -pontuacao.mean.NA)
+#  scouts.home.away <- scouts.home.away %>%
+#    dplyr::select(-score.no.cleansheets.mean.NA, 
+#                  -pontuacao.mean.NA)
   
   scouts.home.away <- scouts.home.away %>%
-    fill(pontuacao.mean.casa, pontuacao.mean.fora,
-         score.no.cleansheets.mean.casa, score.no.cleansheets.mean.fora)
+    fill(pontuacao.mean.home, pontuacao.mean.away,
+         score.no.cleansheets.mean.home, score.no.cleansheets.mean.away)
   
   return(scouts.home.away)
   
 }
-
 scouts.home.away <- createHomeAndAwayScouts()
 
+# Create players list and estimate number of games played for each player
 players.list <- 
   data %>%
   dplyr::group_by(atleta.id) %>%
   dplyr::filter(pontuou == TRUE) %>%
   dplyr::summarise(n.jogos = n(),
                    rodada  = max(rodada)) %>%
-  dplyr::filter(n.jogos >= 10)
+  dplyr::filter(n.jogos >= 1)
 
 n.games.scouts.home.away <- left_join(players.list, scouts.home.away,
                               by = c("atleta.id" = "atleta.id",
@@ -190,11 +205,12 @@ data <- left_join(data, n.games.scouts.home.away,
                   by = c("atleta.id" = "atleta.id",
                          "rodada" = "rodada"))
 
+# Create home and away diff to measure how stable each player at home and away
 df.model <- 
   data %>%
   dplyr::filter(atleta.id %in% players.list$atleta.id) %>%
-  dplyr::filter(rodada > 10 & pontuou == TRUE) %>%
-  dplyr::mutate(diff.home.away = score.no.cleansheets.mean.casa - score.no.cleansheets.mean.fora)
+  dplyr::filter(rodada >= 1 & pontuou == TRUE) %>%
+  dplyr::mutate(diff.home.away = score.no.cleansheets.mean.home - score.no.cleansheets.mean.away)
 
 df.model$diff.home.away.scalled <- scale(df.model$diff.home.away)
 
@@ -204,18 +220,18 @@ df.agg <-
   dplyr::group_by(atleta.id) %>%
   dplyr::filter(rodadaF == max(rodadaF))
 
-df.cartola.2018 <- 
+df.cartola.2019 <- 
   df.agg %>%
   select(slug, atleta.id, atletas.apelido, 
          team, posicao, atletas.preco_num, 
          pontuacao_mean, score.no.cleansheets_mean, diff.home.away.scalled, n.jogos,
-         pontuacao.mean.casa, pontuacao.mean.fora,
+         pontuacao.mean.home, pontuacao.mean.away,
          shotsX_mean, faltas_mean, RB_mean,
          PE_mean, A_mean, I_mean, 
          FS_mean, FF_mean, G_mean,
          DD_mean, DP_mean)
 
-names(df.cartola.2018) <- c("player_slug", "player_id", "player_nickname",
+names(df.cartola.2019) <- c("player_slug", "player_id", "player_nickname",
                             "player_team", "player_position", "price_cartoletas",
                             "score_mean", "score_no_cleansheets_mean", "diff_home_away_s", "n_games",
                             "score_mean_home", "score_mean_away",
@@ -224,6 +240,6 @@ names(df.cartola.2018) <- c("player_slug", "player_id", "player_nickname",
                             "I_mean", "FS_mean", "FF_mean",
                             "G_mean", "DD_mean", "DP_mean")
 
-write.csv(df.cartola.2018,
-          "~/caRtola/data/2018/2018-medias-jogadores.csv", 
+write.csv(df.cartola.2019,
+          "~/caRtola/data/2019/2019-medias-jogadores.csv", 
           row.names = FALSE)

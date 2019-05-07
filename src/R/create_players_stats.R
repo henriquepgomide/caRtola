@@ -4,6 +4,8 @@
 library(tidyverse)
 library(zoo)
 
+setwd("~/caRtola")
+
 source("~/caRtola/src/R/utils.R")
 
 # 0. Dataprep -------------------------------------------------------------

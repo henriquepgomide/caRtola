@@ -103,8 +103,7 @@ data <- mutate(data, pontuou = ifelse(CA + FC + FS +
                                       CV + DP + PP == 0,
                                       FALSE, TRUE))
 
-# TODO - PREPARE MATCH DATA TO COMBINE AND CREATE AGGREGATED STATISTICS
-
+# Get matches data
 matches <- read.csv("~/caRtola/data/2019/2019_partidas.csv", check.names = FALSE)
 
 convertMatchesToTidy <- function(dataframe) { 

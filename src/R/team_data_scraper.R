@@ -13,7 +13,6 @@ library(tidyverse)
 
 fetchRoundData <- function(url) {
   # Returns data frame with dates and rounds for Brasileirao 2019
-  
   result <- jsonlite::fromJSON(url)
   result$inicio <- date(ymd_hms(result$inicio))
   result$fim <- date(ymd_hms(result$fim))
@@ -40,7 +39,6 @@ fetchRoundData <- function(url) {
 fetchMatchDetail <- function(round) {
   # Returns a data frame with all matches results from the cartola api until a given round.
   # round - Brasileirao round. E.g., If you insert n=3, data will be collected until the round 3.
-  
   round_dates <- fetchRoundData("https://api.cartolafc.globo.com/rodadas")
   
   url_vec <- c()

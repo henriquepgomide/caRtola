@@ -1,5 +1,4 @@
 # Author - Henrique Gomide Copyright
-# TODO : Add player home_mean and away_mean, games_played, regularity, matches, price
 
 library(tidyverse)
 library(zoo)
@@ -93,7 +92,7 @@ data <-
   arrange(rodadaF) %>%
   mutate(status = lag(atletas.status_id))
 
-data$status <- ifelse(data$rodada == 1 & data$pontuacao != 0,  "Provável", data$status)
+# data$status <- ifelse(data$rodada == 1 & data$pontuacao != 0,  "Provável", data$status)
 
 data <- mutate(data, pontuou = ifelse(CA + FC + FS + 
                                       GC + I + PE + 

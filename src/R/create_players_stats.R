@@ -27,7 +27,8 @@ playerInfo <-
   data %>%
   dplyr::select(atletas.slug, atletas.atleta_id, atletas.clube.id.full.name, 
                 atletas.posicao_id, atletas.rodada_id, atletas.pontos_num, 
-                atletas.status_id, atletas.apelido, atletas.preco_num)
+                atletas.status_id, atletas.apelido, atletas.preco_num,
+                atletas.variacao_num)
 
 scouts <- dplyr::select(data, 
                         atletas.rodada_id, atletas.atleta_id, CA, FC, 
@@ -229,7 +230,8 @@ df.cartola.2019 <-
          shotsX_mean, faltas_mean, RB_mean,
          PE_mean, A_mean, I_mean, 
          FS_mean, FF_mean, G_mean,
-         DD_mean, DP_mean)
+         DD_mean, DP_mean,
+         atletas.status_id, atletas.variacao_num, pontuacao)
 
 names(df.cartola.2019) <- c("player_slug", "player_id", "player_nickname",
                             "player_team", "player_position", "price_cartoletas",
@@ -238,9 +240,11 @@ names(df.cartola.2019) <- c("player_slug", "player_id", "player_nickname",
                             "shots_x_mean", "fouls_mean",
                             "RB_mean", "PE_mean", "A_mean",
                             "I_mean", "FS_mean", "FF_mean",
-                            "G_mean", "DD_mean", "DP_mean")
+                            "G_mean", "DD_mean", "DP_mean",
+                            "status", "price_diff", "last_points")
 
 write.csv(df.cartola.2019,
           "~/caRtola/data/2019/2019-medias-jogadores.csv", 
           row.names = FALSE,
           na="0")
+  

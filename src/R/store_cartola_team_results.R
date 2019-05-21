@@ -5,13 +5,13 @@
 library(httr)
 library(rjson)
 
-getTeamResults <- function(vector_teams, round){
+getTeamResults <- function(vector_teams, round, path){
   # Store team results as csv for a given round based on a vector of teams slugs
   # vector_teams: vector of team slugs to be passed on (e.g., outliers) 
   # round       : round to get data
-  # Simple Use: getTeamResults(c("afinco", "outliers"), 1)
+  # Simple Use: getTeamResults(c("afinco", "outliers"), 1, "~/caRtola/data")
   # You can loop over the function too to get multiple rounds info at once:
-  # for (i in 1:25){getTeamResults(c("afinco", "outliers"), i)}
+  # for (i in 1:25){getTeamResults(c("afinco", "outliers"), i, "~/caRtola/data")}
 
   url <- "https://api.cartolafc.globo.com/time/slug/%s/%s"
   slugs_vector <- sapply(vector_teams, function(x) sprintf(url,x,round))
@@ -35,7 +35,7 @@ getTeamResults <- function(vector_teams, round){
   
   team_round_info <- do.call(rbind.data.frame, team_round_info)
   write.csv(team_round_info,
-            sprintf("rodada-%s.csv", max(team_round_info$rodada_atual)), 
+            sprintf("%s/rodada-%s.csv", path, max(team_round_info$rodada_atual)), 
             row.names = FALSE)
   
 }

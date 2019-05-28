@@ -195,8 +195,8 @@ players.list <-
   dplyr::group_by(atleta.id) %>%
   dplyr::filter(pontuou == TRUE) %>%
   dplyr::summarise(n.jogos = n(),
-                   rodada  = max(rodada)) %>%
-  dplyr::filter(n.jogos >= 1)
+                   rodada  = max(rodada)) # %>%
+#  dplyr::filter(n.jogos >= 1)
 
 n.games.scouts.home.away <- left_join(players.list, scouts.home.away,
                               by = c("atleta.id" = "atleta.id",

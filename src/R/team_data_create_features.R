@@ -162,7 +162,7 @@ df_to_export <- dplyr::select(df_to_export,
                               away_team_name, away_scoring.odds, home_scoring.odds,
                               home_team_name, home_strength, home_attack, home_defense)
 
-names(df_to_export)[c(5,6)] <- c("away_scoring_odds", "home_scoring.odds")
+names(df_to_export)[c(5,6)] <- c("away_scoring_odds", "home_scoring_odds")
 
 write.csv(df_to_export,
           sprintf("~/caRtola/data/2019/team-features/2019-team-features-round-%s.csv", max(matches_to_predict$round)), 

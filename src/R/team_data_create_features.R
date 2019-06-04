@@ -72,11 +72,14 @@ createRanksDataFrame <- function(team_features){
 
 predictCleanSheets <- function(team_features){
   
+  date_range <- 
+    matches %>%
+    dplyr::filter(year == last(year) & round == last(round))
  
-  teamPredictions <- predict.fbRanks(team_features, 
+  teamPredictions <- predict.fbRanks(team_ranks, 
                                      newdata  = matches_to_predict[, c(2,3)],
-                                     min.date = date_range$min.date,
-                                     max.date = date_range$max.date,
+                                     min.date = min(date_range$date),
+                                     max.date = max(date_range$date),
                                      show.matches = FALSE)
   
   home.team.names   <- names(teamPredictions$home.score)
@@ -168,4 +171,3 @@ write.csv(df_to_export,
           sprintf("~/caRtola/data/2019/team-features/2019-team-features-round-%s.csv", max(matches_to_predict$round)), 
           row.names = FALSE,
           na="0")
- 

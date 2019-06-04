@@ -23,14 +23,8 @@ fetchRoundData <- function(url) {
   result <- left_join(temp.df, result, by = "data")
   result <- 
     result %>%
-    mutate(index = lead(rodada_id) - lag(rodada_id))
-  
-  result$filter <- ifelse(!is.na(result$rodada_id) | result$index == 0, TRUE, FALSE)
-  result <- 
-    result %>%
-    filter(filter == TRUE) %>%
-    select(data, rodada_id) %>%
-    fill(data, rodada_id, .direction = "down")
+    fill(rodada_id, .direction = "down") %>%
+    dplyr::select(-marco)
   
   return(result)
   
@@ -73,4 +67,5 @@ fetchMatchDetail <- function(round) {
 }
 
 # Write csv
-write.csv(fetchMatchDetail(round = 7), "data/2019/2019_partidas.csv", row.names = FALSE)
+
+write.csv(fetchMatchDetail(round = 8), "data/2019/2019_partidas.csv", row.names = FALSE)

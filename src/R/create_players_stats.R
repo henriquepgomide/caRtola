@@ -109,7 +109,7 @@ matches <- read.csv("~/caRtola/data/2019/2019_partidas.csv", check.names = FALSE
 convertMatchesToTidy <- function(dataframe) { 
   # Convert and preprocess matches dataframe  
   tidy_matches <- gather(dataframe, `home_team`, `away_team`, value = "team_name", key = "home_away")
-  tidy_matches <- select(tidy_matches, date, home_away, team_name, round)
+  tidy_matches <- dplyr::select(tidy_matches, date, home_away, team_name, round)
   tidy_matches$home_away <- gsub("_team", "", tidy_matches$home_away)
   tidy_matches$team_name <- as.character(tidy_matches$team_name)
   tidy_matches

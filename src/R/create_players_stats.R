@@ -223,7 +223,7 @@ df.agg <-
 
 df.cartola.2019 <- 
   df.agg %>%
-  select(slug, atleta.id, atletas.apelido, 
+  dplyr::select(slug, atleta.id, atletas.apelido, 
          team, posicao, atletas.preco_num, 
          pontuacao_mean, score.no.cleansheets_mean, diff.home.away.scalled, n.jogos,
          pontuacao.mean.home, pontuacao.mean.away,

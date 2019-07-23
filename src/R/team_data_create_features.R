@@ -110,6 +110,7 @@ matches_18 <- process2018Matches(matches_18)
 
 matches_19 <- read.csv("~/caRtola/data/2019/2019_partidas.csv",
                        stringsAsFactors = FALSE) 
+
 matches_19 <- dplyr::mutate(matches_19, year = 2019)
 
 matches <- rbind(matches_18, matches_19)

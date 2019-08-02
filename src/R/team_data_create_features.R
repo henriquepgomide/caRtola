@@ -127,6 +127,11 @@ matches_to_predict <-
   filter(year == max(year)) %>%
   filter(round == max(round))
 
+matches_to_predict <- 
+  matches %>%
+  filter(year == max(2019)) %>%
+  filter(round == max(13))
+
 team_ranks <- createTeamRanks(matches)
 df_ranks <- createRanksDataFrame(team_ranks)
 df_clean_sheets <- predictCleanSheets(team_ranks)

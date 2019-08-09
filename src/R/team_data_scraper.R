@@ -56,7 +56,8 @@ fetchMatchDetail <- function(round) {
   }
   
   matches <- do.call("rbind", matches_list)
-  matches <- left_join(matches, round_dates, by = c("partida_data" = "data"))
+  matches <- dplyr::left_join(matches, round_dates, by = c("partida_data" = "data"))
+
   
   # Standardize names to previous years
   names(matches) <- c("date", "home_team", "away_team", 
@@ -67,4 +68,7 @@ fetchMatchDetail <- function(round) {
 }
 
 # Write csv
-write.csv(fetchMatchDetail(round = 13), "data/2019/2019_partidas.csv", row.names = FALSE)
+round_number <- 14
+data <- fetchMatchDetail(round_number)
+data <- subset(data, data$round <= round_number)
+write.csv(data, "data/2019/2019_partidas.csv", row.names = FALSE)

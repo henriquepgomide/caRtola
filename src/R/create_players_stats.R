@@ -150,17 +150,17 @@ data <- left_join(data, scouts.mean, by = c("rodada", "atleta.id"))
 createHomeAndAwayScouts <- function(){
   scouts.home.away <- 
     data %>%
-    group_by(atleta.id, home_away) %>%
-    filter(pontuou == TRUE) %>%
-    arrange(rodadaF) %>%
-    mutate_at(.vars = c("score.no.cleansheets","pontuacao"), 
+    dplyr::group_by(atleta.id, home_away) %>%
+    dplyr::filter(pontuou == TRUE) %>%
+    dplyr::arrange(rodadaF) %>%
+    dplyr::mutate_at(.vars = c("score.no.cleansheets","pontuacao"), 
               .funs = cummean) %>%
     dplyr::select("atleta.id", "home_away", "rodada", 
                   "score.no.cleansheets","pontuacao")
   
   names(scouts.home.away)[4:5] <- paste0(names(scouts.home.away)[4:5], ".mean") 
   
-  scouts.home.away <- gather(scouts.home.away, 
+  scouts.home.away <- tidyr::gather(scouts.home.away, 
                              key = vars,
                              value = "valores",
                              -home_away,

@@ -31,7 +31,8 @@ playerInfo <-
                 atletas.variacao_num)
 
 scouts <- dplyr::select(data, 
-                        atletas.rodada_id, atletas.atleta_id, CA, FC, 
+                        atletas.rodada_id, atletas.atleta_id, 
+                        CA, FC, 
                         FS, GC, I,
                         PE, RB, SG,
                         FF, FD, G, 
@@ -51,6 +52,7 @@ scouts <-
 data <- left_join(playerInfo, scouts, by = c("atletas.atleta_id", "atletas.rodada_id"))
 
 temp1 <- read.csv("~/caRtola/data/times_ids.csv", stringsAsFactors = FALSE)
+
 data$atletas.clube.id.full.name <- plyr::mapvalues(data$atletas.clube.id.full.name, 
                                              from = as.vector(temp1$nome.cartola), 
                                              to = as.vector(temp1$id))
@@ -89,13 +91,13 @@ data$rodada <- as.integer(data$rodadaF)
 
 data <- 
   data %>%
-  group_by(atleta.id) %>% 
-  arrange(rodadaF) %>%
-  mutate(status = lag(atletas.status_id))
+  dplyr::group_by(atleta.id) %>% 
+  dplyr::arrange(rodadaF) %>%
+  dplyr::mutate(status = lag(atletas.status_id))
 
 # data$status <- ifelse(data$rodada == 1 & data$pontuacao != 0,  "Provável", data$status)
 
-data <- mutate(data, pontuou = ifelse(CA + FC + FS + 
+data <- dplyr::mutate(data, pontuou = ifelse(CA + FC + FS + 
                                       GC + I + PE + 
                                       RB + SG + FF + 
                                       FD + G + DD + 
@@ -108,7 +110,7 @@ matches <- read.csv("~/caRtola/data/2019/2019_partidas.csv", check.names = FALSE
 
 convertMatchesToTidy <- function(dataframe) { 
   # Convert and preprocess matches dataframe  
-  tidy_matches <- gather(dataframe, `home_team`, `away_team`, value = "team_name", key = "home_away")
+  tidy_matches <- tidyr::gather(dataframe, `home_team`, `away_team`, value = "team_name", key = "home_away")
   tidy_matches <- dplyr::select(tidy_matches, date, home_away, team_name, round)
   tidy_matches$home_away <- gsub("_team", "", tidy_matches$home_away)
   tidy_matches$team_name <- as.character(tidy_matches$team_name)
@@ -124,16 +126,15 @@ data <- left_join(data, matches,
 # Create scouts with mean
 scouts.mean <- 
   data %>%
-  group_by(atleta.id) %>% 
-  filter(pontuou == TRUE) %>%
-  arrange(rodadaF) %>%
-  mutate_at(.vars = c("shotsX", "faltas", "RB", 
+  dplyr::group_by(atleta.id) %>% 
+  dplyr::filter(pontuou == TRUE) %>%
+  dplyr::arrange(rodadaF) %>%
+  dplyr::mutate_at(.vars = c("shotsX", "faltas", "RB", 
                       "PE", "A", "I",
                       "FS", "FF", "G",
                       "DD", "DP", 
                       "score.no.cleansheets",
                       "pontuacao"), .funs = cummean) %>%
-  
   dplyr::select(c("atleta.id", "rodada",
                   "shotsX", "faltas", "RB", 
                   "PE", "A", "I",
@@ -156,9 +157,16 @@ createHomeAndAwayScouts <- function(){
     dplyr::mutate_at(.vars = c("score.no.cleansheets","pontuacao"), 
               .funs = cummean) %>%
     dplyr::select("atleta.id", "home_away", "rodada", 
-                  "score.no.cleansheets","pontuacao")
+                  "score.no.cleansheets","pontuacao") %>%
+    dplyr::filter(rodada == max(rodada)) %>%
+    ungroup()
   
   names(scouts.home.away)[4:5] <- paste0(names(scouts.home.away)[4:5], ".mean") 
+  
+  scouts.home.away <- 
+    scouts.home.away %>%
+    dplyr::group_by(atleta.id, home_away) %>%
+    dplyr::filter(rodada == max(rodada))
   
   scouts.home.away <- tidyr::gather(scouts.home.away, 
                              key = vars,
@@ -167,19 +175,15 @@ createHomeAndAwayScouts <- function(){
                              -rodada,
                              -atleta.id) 
   
-  scouts.home.away <- unite(scouts.home.away, 
+  scouts.home.away <- tidyr::unite(scouts.home.away, 
                             col = "var",
                             "vars", "home_away",
                             sep = ".")
   
-  scouts.home.away <- spread(scouts.home.away,
+  scouts.home.away <- tidyr::spread(scouts.home.away,
                              key = var,
                              value = valores)
-  
-#  scouts.home.away <- scouts.home.away %>%
-#    dplyr::select(-score.no.cleansheets.mean.NA, 
-#                  -pontuacao.mean.NA)
-  
+ 
   scouts.home.away <- scouts.home.away %>%
     fill(pontuacao.mean.home, pontuacao.mean.away,
          score.no.cleansheets.mean.home, score.no.cleansheets.mean.away)

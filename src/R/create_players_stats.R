@@ -1,5 +1,4 @@
 # Author - Henrique Gomide Copyright
-
 library(tidyverse)
 library(zoo)
 
@@ -42,6 +41,9 @@ scouts <- dplyr::select(data,
 
 scouts[,3:20] <- sapply(scouts[,3:20], function(x) ifelse(is.na(x), 0, x))
 
+left_join(pl, scouts, by = ""
+
+# TODO - Filter scouts of players who haven't played yet.
 scouts <- 
   scouts %>%
   dplyr::group_by(atletas.atleta_id) %>%
@@ -59,13 +61,13 @@ data$atletas.clube.id.full.name <- plyr::mapvalues(data$atletas.clube.id.full.na
 rm(temp1)
 
 # Validation  - Compute scores
-#data$computed.score <- 
-#   (data$CA * -2) + (data$FC * -0.5) + (data$RB * 1.5) +
-#   (data$GC * -5) + (data$CV * -5)   + (data$SG * 5) +
-#   (data$FS * .5) + (data$PE * -.3)  + (data$A * 5)  +
-#   (data$FT * 3)  + (data$FD * 1.2)  + (data$FF * .8) +
-#   (data$G * 8)   + (data$I * -.5)   + (data$PP * -4) +
-#   (data$DD * 3)  + (data$DP * 7)    + (data$GS * -2)
+data$computed.score <- 
+   (data$CA * -2) + (data$FC * -0.5) + (data$RB * 1.5) +
+   (data$GC * -5) + (data$CV * -5)   + (data$SG * 5) +
+   (data$FS * .5) + (data$PE * -.3)  + (data$A * 5)  +
+   (data$FT * 3)  + (data$FD * 1.2)  + (data$FF * .8) +
+   (data$G * 8)   + (data$I * -.5)   + (data$PP * -4) +
+   (data$DD * 3)  + (data$DP * 7)    + (data$GS * -2)
 
 # 1. Feature Engineering ---------------------------------------------------
 
@@ -89,13 +91,7 @@ names(data)[1:6] <- c("slug", "atleta.id", "team",
 
 data$rodada <- as.integer(data$rodadaF)
 
-data <- 
-  data %>%
-  dplyr::group_by(atleta.id) %>% 
-  dplyr::arrange(rodadaF) %>%
-  dplyr::mutate(status = lag(atletas.status_id))
-
-# data$status <- ifelse(data$rodada == 1 & data$pontuacao != 0,  "Provável", data$status)
+data$status <- ifelse(data$rodada == 1 & data$pontuacao != 0,  "Provável", data$status)
 
 data <- dplyr::mutate(data, pontuou = ifelse(CA + FC + FS + 
                                       GC + I + PE + 
@@ -156,9 +152,8 @@ createHomeAndAwayScouts <- function(){
     dplyr::arrange(rodadaF) %>%
     dplyr::mutate_at(.vars = c("score.no.cleansheets","pontuacao"), 
               .funs = cummean) %>%
-    dplyr::select("atleta.id", "home_away", "rodada", 
-                  "score.no.cleansheets","pontuacao") %>%
-    dplyr::filter(rodada == max(rodada)) %>%
+#    dplyr::select("atleta.id", "home_away", "rodada", 
+#                  "score.no.cleansheets","pontuacao") %>%
     ungroup()
   
   names(scouts.home.away)[4:5] <- paste0(names(scouts.home.away)[4:5], ".mean") 

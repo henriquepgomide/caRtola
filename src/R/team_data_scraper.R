@@ -68,7 +68,7 @@ fetchMatchDetail <- function(round) {
 }
 
 # Write csv
-round_number <- 14
+round_number <- 15
 data <- fetchMatchDetail(round_number)
 data <- subset(data, data$round <= round_number)
 write.csv(data, "data/2019/2019_partidas.csv", row.names = FALSE)

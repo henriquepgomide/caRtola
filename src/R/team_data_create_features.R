@@ -80,7 +80,7 @@ predictCleanSheets <- function(team_features){
                                      newdata  = matches_to_predict[, c(2,3)],
                                      min.date = min(date_range$date),
                                      max.date = max(date_range$date),
-                                     show.matches = FALSE)
+                                     show.matches = TRUE)
   
   home.team.names   <- names(teamPredictions$home.score)
   away.team.names   <- names(teamPredictions$away.score)
@@ -119,7 +119,8 @@ rm(matches_18, matches_19)
 
 # Data munging ---------------------------------------------------------------
 names(matches) <- c("date", "home.team", "away.team",
-                    "home.score", "away.score", "round", "year")
+                    "home.score", "away.score", 
+                    "round", "year")
 
 # Create data frame to matches to predict
 matches_to_predict <- 
@@ -127,10 +128,6 @@ matches_to_predict <-
   filter(year == max(year)) %>%
   filter(round == max(round))
 
-matches_to_predict <- 
-  matches %>%
-  filter(year == max(2019)) %>%
-  filter(round == max(15))
 
 team_ranks <- createTeamRanks(matches)
 df_ranks <- createRanksDataFrame(team_ranks)

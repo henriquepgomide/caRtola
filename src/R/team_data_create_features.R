@@ -173,4 +173,16 @@ names(df_to_export)[c(5,6)] <- c("away_scoring_odds", "home_scoring_odds")
 write.csv(df_to_export,
           sprintf("~/caRtola/data/2019/team-features/2019-team-features-round-%s.csv", max(matches_to_predict$round)), 
           row.names = FALSE,
-          na="0")
+          na = "0")
+
+first_tier_2019 <- unique(c(df_to_export$away_team_name,
+                            df_to_export$home_team_name))
+  
+df_rank_to_export <- 
+  df_ranks %>%
+  filter(team_name %in% first_tier_2019)
+
+write.csv(df_rank_to_export,
+          sprintf("~/caRtola/data/2019/team-rankings/2019-team-rankings-round-%s.csv", max(matches_to_predict$round)),
+          row.names = FALSE,
+          na = "0")

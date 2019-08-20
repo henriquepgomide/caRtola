@@ -30,8 +30,9 @@ setwd("~/caRtola/")
 # Recuperar dados da API
 ###################
 
+# Get data from Cartola API
 json_athletes <- "https://api.cartolafc.globo.com/atletas/mercado"
-athletes <- fromJSON(paste(readLines(json_athletes), collapse="")) # Get data from Cartola API
+athletes <- fromJSON(paste(readLines(json_athletes), collapse = "")) 
 df_1 <- data.frame(athletes[1]) # Convert List format into DataFrame
 df_1 <- df_1[, 1:13] # Select useful vars
 
@@ -41,7 +42,9 @@ temp1 <- t(matrix(unlist(df_3),3,6))
 temp1 <- data.frame(temp1, stringsAsFactors = FALSE)
 colnames(temp1) <- c("Cod", "Position", "abbr")
 temp1$Cod <- as.integer(temp1$Cod)
-df_1$atletas.posicao_id <- mapvalues(df_1$atletas.posicao_id, from = as.vector(temp1$Cod), to = as.vector(temp1$abbr))
+df_1$atletas.posicao_id <- mapvalues(df_1$atletas.posicao_id, 
+                                     from = as.vector(temp1$Cod), 
+                                     to = as.vector(temp1$abbr))
 rm(temp1)
 
 # Label variable 
@@ -50,7 +53,9 @@ temp1 <- t(matrix(unlist(df_3),2,5))
 temp1 <- data.frame(temp1, stringsAsFactors = FALSE)
 colnames(temp1) <- c("Cod", "status")
 temp1$Cod <- as.integer(temp1$Cod)
-df_1$atletas.status_id <- mapvalues(df_1$atletas.status_id, from = as.vector(temp1$Cod), to = as.vector(temp1$status))
+df_1$atletas.status_id <- mapvalues(df_1$atletas.status_id,
+                                    from = as.vector(temp1$Cod), 
+                                    to = as.vector(temp1$status))
 rm(temp1)
 
 # Label team
@@ -60,7 +65,9 @@ temp1 <- data.frame(temp1, stringsAsFactors = FALSE)
 temp1 <- temp1[,1:4]
 colnames(temp1) <- c("Cod", "nome.completo","nome","pos")
 temp1$Cod <- as.integer(temp1$Cod)
-df_1$atletas.clube.id.full.name <- mapvalues(df_1$atletas.clube_id, from = as.vector(temp1$Cod), to = as.vector(temp1$nome.completo))
+df_1$atletas.clube.id.full.name <- mapvalues(df_1$atletas.clube_id,
+                                             from = as.vector(temp1$Cod),
+                                             to = as.vector(temp1$nome.completo))
 rm(teams);rm(temp1)
 
 # Merge detailed scouts into df_1

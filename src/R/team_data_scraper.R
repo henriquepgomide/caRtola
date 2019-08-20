@@ -2,7 +2,8 @@
 # INFO ---------------
 ######################
 
-# This script scrapes team data from the cartola api and writes it down to file tabela-times.csv
+# This script scrapes team data from the cartola api
+# and writes it down to file tabela-times.csv
 # Author: Henrique Gomide
 
 setwd("~/caRtola")
@@ -19,7 +20,10 @@ fetchRoundData <- function(url) {
   result <- gather(result, `inicio`, `fim`, key = "marco", value = "data")
   result <- arrange(result, data)
   
-  temp.df <- data.frame(data = seq(as.Date(min(result$data)), as.Date(max(result$data)), by = "days" ))
+  temp.df <- data.frame(data = seq(as.Date(min(result$data)), 
+                                   as.Date(max(result$data)), 
+                                   by = "days" ))
+  
   result <- left_join(temp.df, result, by = "data")
   result <- 
     result %>%
@@ -31,8 +35,10 @@ fetchRoundData <- function(url) {
 }
 
 fetchMatchDetail <- function(round) {
-  # Returns a data frame with all matches results from the cartola api until a given round.
-  # round - Brasileirao round. E.g., If you insert n=3, data will be collected until the round 3.
+  # Returns a data frame with all matches results from the cartola api
+  # until a given round.
+  # round - Brasileirao round. E.g., 
+  # If you insert n=3, data will be collected until the round 3.
   round_dates <- fetchRoundData("https://api.cartolafc.globo.com/rodadas")
   
   url_vec <- c()
@@ -56,7 +62,9 @@ fetchMatchDetail <- function(round) {
   }
   
   matches <- do.call("rbind", matches_list)
-  matches <- dplyr::left_join(matches, round_dates, by = c("partida_data" = "data"))
+  matches <- dplyr::left_join(matches, 
+                              round_dates, 
+                              by = c("partida_data" = "data"))
 
   
   # Standardize names to previous years
@@ -68,10 +76,10 @@ fetchMatchDetail <- function(round) {
 }
 
 # Write csv
-round_number <- 15
+round_number <- 16
 data <- fetchMatchDetail(round_number)
 data <- subset(data, data$round <= round_number)
 
 # Temp
-data <- subset(data, data$date <= as.Date("2019-08-20"))
+#data <- subset(data, data$date <= as.Date("2019-08-20"))
 write.csv(data, "data/2019/2019_partidas.csv", row.names = FALSE)

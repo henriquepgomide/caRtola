@@ -29,7 +29,8 @@ process2018Matches <- function(data){
   
   data <- 
     data %>%
-    dplyr::select(date, home_team, away_team, home_score, away_score, round) %>%
+    dplyr::select(date, home_team, away_team, 
+                  home_score, away_score, round) %>%
     dplyr::mutate(year = 2018)
   
   return(data)
@@ -87,7 +88,7 @@ predictCleanSheets <- function(team_features){
   home.goals.vector <- rep(NA,10)
   away.goals.vector <- rep(NA,10)
   
-  for (i in 1:10){
+  for (i in 1:10) {
     home.goals.vector[i] <- round(prop.table(table(teamPredictions$home.goals[i,] > 0))[2],2)
     away.goals.vector[i] <- round(prop.table(table(teamPredictions$away.goals[i,] > 0))[2],2)
   }
@@ -95,7 +96,9 @@ predictCleanSheets <- function(team_features){
   team.names   <- c(home.team.names, away.team.names)
   scoring.odds <- c(home.goals.vector, away.goals.vector)
   
-  scoring.odds.df <- data.frame(team.names = team.names, scoring.odds = scoring.odds*100)
+  scoring.odds.df <- data.frame(team.names = team.names, 
+                                scoring.odds = scoring.odds*100)
+  
   scoring.odds.df <- arrange(scoring.odds.df, scoring.odds)
   
   return(scoring.odds.df)
@@ -128,9 +131,8 @@ matches_to_predict <-
   filter(year == max(year)) %>%
   filter(round == max(round))
 
-
-team_ranks <- createTeamRanks(matches)
-df_ranks <- createRanksDataFrame(team_ranks)
+team_ranks      <- createTeamRanks(matches)
+df_ranks        <- createRanksDataFrame(team_ranks)
 df_clean_sheets <- predictCleanSheets(team_ranks)
 
 
@@ -145,8 +147,8 @@ df_matches$id <- seq.int(nrow(df_matches))
 df_matches <- gather(df_matches, `home.team`, `away.team`, key = "home.away", value = "team_name")
 df_matches$home.away <- gsub("\\.team", "", df_matches$home.away)
 
-df_to_export <- left_join(df_matches, df_ranks, by="team_name")
-df_to_export <- left_join(df_to_export, df_clean_sheets, by=c("team_name"="team.names"))
+df_to_export <- left_join(df_matches, df_ranks, by = "team_name")
+df_to_export <- left_join(df_to_export, df_clean_sheets, by = c("team_name" = "team.names"))
 df_to_export <- dplyr::select(df_to_export, -n_games, -round)
 
 df_to_export <- gather(df_to_export, 
@@ -171,7 +173,8 @@ df_to_export <- dplyr::select(df_to_export,
 names(df_to_export)[c(5,6)] <- c("away_scoring_odds", "home_scoring_odds")
 
 write.csv(df_to_export,
-          sprintf("~/caRtola/data/2019/team-features/2019-team-features-round-%s.csv", max(matches_to_predict$round)), 
+          sprintf("~/caRtola/data/2019/team-features/2019-team-features-round-%s.csv",
+                  max(matches_to_predict$round)), 
           row.names = FALSE,
           na = "0")
 
@@ -183,6 +186,7 @@ df_rank_to_export <-
   filter(team_name %in% first_tier_2019)
 
 write.csv(df_rank_to_export,
-          sprintf("~/caRtola/data/2019/team-rankings/2019-team-rankings-round-%s.csv", max(matches_to_predict$round)),
+          sprintf("~/caRtola/data/2019/team-rankings/2019-team-rankings-round-%s.csv", 
+                  max(matches_to_predict$round)),
           row.names = FALSE,
           na = "0")

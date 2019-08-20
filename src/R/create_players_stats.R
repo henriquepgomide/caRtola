@@ -22,7 +22,7 @@ data$atletas.rodada_id  <- factor(data$atletas.rodada_id,
                                   ordered = TRUE)
 
 # Convert team names with universal team ids
-mapTeamNames <- function (var) {
+mapTeamNames <- function(var) {
   # Map team names using all year dictionary
   temp1 <- read.csv("~/caRtola/data/times_ids.csv", stringsAsFactors = FALSE)
   var <- plyr::mapvalues(var, 
@@ -36,7 +36,7 @@ data$atletas.clube.id.full.name <-  mapTeamNames(data$atletas.clube.id.full.name
 
 # Create column to flag players who really got into the game
 is_column_NA    <- sapply(data[, 16:33],  function(x) is.na(x))
-data$has.played <- apply(is_column_NA, 1, function(x) any(x==FALSE))
+data$has.played <- apply(is_column_NA, 1, function(x) any(x == FALSE))
 rm(is_column_NA)
 
 # Subset data
@@ -54,7 +54,7 @@ player_info <-
                 atletas.variacao_num)
 
 # Deaggregate scouts
-deaggregateScouts <- function (data) {
+deaggregateScouts <- function(data) {
   # Deaggregate scouts from Cartola Data - which is aggregated from the API
   
   # Helper function to lag over columns 
@@ -66,7 +66,7 @@ deaggregateScouts <- function (data) {
   scouts <-
     data %>%
     arrange(atletas.atleta_id, atletas.rodada_id) %>%
-    select(atletas.status_id, 
+    dplyr::select(atletas.status_id, 
            atletas.rodada_id, atletas.atleta_id, 
            CA, FC, 
            FS, GC, I,
@@ -77,7 +77,6 @@ deaggregateScouts <- function (data) {
            PP) 
   
   scouts[,4:21] <- sapply(scouts[,4:21], function(x) ifelse(is.na(x), 0, x))
-  
   
   col_names <- names(scouts)[4:21]
   
@@ -103,7 +102,8 @@ deaggregateScouts <- function (data) {
 
 # Join with proper scouts
 scouts <- deaggregateScouts(data)
-data <- left_join(player_info, scouts, by = c("atletas.atleta_id", "atletas.rodada_id"))
+data <- left_join(player_info, scouts, 
+                  by = c("atletas.atleta_id", "atletas.rodada_id"))
 
 # Validation  - Compute scores
 #data$computed.score <- 
@@ -142,7 +142,10 @@ matches <- read.csv("~/caRtola/data/2019/2019_partidas.csv", check.names = FALSE
 
 convertMatchesToTidy <- function(dataframe) { 
   # Convert and preprocess matches dataframe 
-  tidy_matches <- tidyr::gather(dataframe, `home_team`, `away_team`, value = "team_name", key = "home_away")
+  
+  tidy_matches <- tidyr::gather(dataframe, `home_team`, `away_team`, 
+                                value = "team_name", key = "home_away")
+  
   tidy_matches <- dplyr::select(tidy_matches, date, home_away, team_name, round)
   tidy_matches$home_away <- gsub("_team", "", tidy_matches$home_away)
   tidy_matches$team_name <- as.character(tidy_matches$team_name)
@@ -206,9 +209,9 @@ createHomeAndAwayScouts <- function(){
                             "vars", "home_away",
                             sep = ".")
   
-#  scouts.home.away <- distinct(scouts.home.away, 
-#                    atleta.id, var, rodada, 
-#                    .keep_all = TRUE)
+  scouts.home.away <- distinct(scouts.home.away, 
+                    atleta.id, var, rodada, 
+                    .keep_all = TRUE)
   
   scouts.home.away <- tidyr::spread(scouts.home.away,
                              key = var,
@@ -244,7 +247,8 @@ df.model <-
   data %>%
   dplyr::filter(atleta.id %in% players.list$atleta.id) %>%
   dplyr::filter(rodada >= 1) %>%
-  dplyr::mutate(diff.home.away = score.no.cleansheets.mean.home - score.no.cleansheets.mean.away)
+  dplyr::mutate(diff.home.away = score.no.cleansheets.mean.home
+                - score.no.cleansheets.mean.away)
 
 df.model$diff.home.away.scalled <- scale(df.model$diff.home.away)
 
@@ -268,7 +272,8 @@ df.cartola.2019 <-
 
 names(df.cartola.2019) <- c("player_slug", "player_id", "player_nickname",
                             "player_team", "player_position", "price_cartoletas",
-                            "score_mean", "score_no_cleansheets_mean", "diff_home_away_s", "n_games",
+                            "score_mean", "score_no_cleansheets_mean", 
+                            "diff_home_away_s", "n_games",
                             "score_mean_home", "score_mean_away",
                             "shots_x_mean", "fouls_mean",
                             "RB_mean", "PE_mean", "A_mean",
@@ -279,4 +284,4 @@ names(df.cartola.2019) <- c("player_slug", "player_id", "player_nickname",
 write.csv(df.cartola.2019,
           "~/caRtola/data/2019/2019-medias-jogadores.csv", 
           row.names = FALSE,
-          na="0")
+          na = "0")

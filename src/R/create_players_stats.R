@@ -94,14 +94,15 @@ deaggregateScouts <- function(data) {
   
   scouts <- rbind(deaggragate_scouts, first_round_stats)
   scouts <- arrange(scouts, atletas.atleta_id, atletas.rodada_id)
-  
+  scouts <- select(scouts, -atletas.status_id)
+  scouts <- as.data.frame(scouts)
   return(scouts)
   
 }
 
-
 # Join with proper scouts
 scouts <- deaggregateScouts(data)
+
 data <- left_join(player_info, scouts, 
                   by = c("atletas.atleta_id", "atletas.rodada_id"))
 
@@ -138,28 +139,31 @@ names(data)[1:6] <- c("slug", "atleta.id", "team",
 
 data$rodada <- as.integer(data$rodadaF)
 
-matches <- read.csv("~/caRtola/data/2019/2019_partidas.csv", check.names = FALSE)
+matches <- read.csv("~/caRtola/data/2019/2019_partidas.csv", 
+                    check.names = FALSE,
+                    stringsAsFactors = FALSE)
 
 convertMatchesToTidy <- function(dataframe) { 
   # Convert and preprocess matches dataframe 
-  
   tidy_matches <- tidyr::gather(dataframe, `home_team`, `away_team`, 
                                 value = "team_name", key = "home_away")
   
   tidy_matches <- dplyr::select(tidy_matches, date, home_away, team_name, round)
   tidy_matches$home_away <- gsub("_team", "", tidy_matches$home_away)
   tidy_matches$team_name <- as.character(tidy_matches$team_name)
-  tidy_matches
+  tidy_matches <- as.data.frame(tidy_matches)
+  tidy_matches <- distinct(tidy_matches, team_name, round, .keep_all = TRUE)
+  
+  return(tidy_matches)
 }
 
 matches <- convertMatchesToTidy(matches)
-matches <- 
-  matches %>%
-  distinct(home_away, team_name, round)
 
 # Merge matches and data frames to compute home and away scores
 data <- left_join(data, matches, 
-                  by = c("rodada" = "round", "team" = "team_name"))
+                   by = c("team" = "team_name",
+                          "rodada" = "round"))
+
 
 # Create scouts with mean
 scouts.mean <- 
@@ -182,7 +186,7 @@ scouts.mean <-
 
 names(scouts.mean)[3:15] <- paste0(names(scouts.mean)[3:15], "_mean") 
 
-data <- left_join(data, scouts.mean, by = c("rodada", "atleta.id"))
+data <- left_join(x = data, y = scouts.mean, by = c("rodada", "atleta.id"))
 
 # Create home and away features
 createHomeAndAwayScouts <- function(){
@@ -208,10 +212,6 @@ createHomeAndAwayScouts <- function(){
                             col = "var",
                             "vars", "home_away",
                             sep = ".")
-  
-  scouts.home.away <- distinct(scouts.home.away, 
-                    atleta.id, var, rodada, 
-                    .keep_all = TRUE)
   
   scouts.home.away <- tidyr::spread(scouts.home.away,
                              key = var,
@@ -268,7 +268,7 @@ df.cartola.2019 <-
          PE_mean, A_mean, I_mean, 
          FS_mean, FF_mean, G_mean,
          DD_mean, DP_mean,
-         atletas.status_id.x, atletas.variacao_num, pontuacao)
+         atletas.status_id, atletas.variacao_num, pontuacao)
 
 names(df.cartola.2019) <- c("player_slug", "player_id", "player_nickname",
                             "player_team", "player_position", "price_cartoletas",

@@ -81,5 +81,5 @@ data <- fetchMatchDetail(round_number)
 data <- subset(data, data$round <= round_number)
 
 # Temp
-#data <- subset(data, data$date <= as.Date("2019-08-20"))
+data <- filter(data, !(home_team == 276 & round == 15))
 write.csv(data, "data/2019/2019_partidas.csv", row.names = FALSE)

@@ -94,7 +94,7 @@ deaggregateScouts <- function(data) {
   
   scouts <- rbind(deaggragate_scouts, first_round_stats)
   scouts <- arrange(scouts, atletas.atleta_id, atletas.rodada_id)
-  scouts <- select(scouts, -atletas.status_id)
+  scouts <- dplyr::select(scouts, -atletas.status_id)
   scouts <- as.data.frame(scouts)
   return(scouts)
   

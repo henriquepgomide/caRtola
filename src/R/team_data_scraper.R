@@ -76,9 +76,10 @@ fetchMatchDetail <- function(round) {
 }
 
 # Write csv
-round_number <- 17
+round_number <- 18
 data <- fetchMatchDetail(round_number)
 data <- subset(data, data$round <= round_number)
+data <- subset(data, data$date < "2019-09-10")
 
 # Temp
 data <- filter(data, !(home_team == 276 & round == 15))

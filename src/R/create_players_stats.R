@@ -5,7 +5,6 @@ library(zoo)
 setwd("~/caRtola")
 source("~/caRtola/src/R/utils.R")
 
-
 # 0. Dataprep -------------------------------------------------------------
 data <- readCsvInsideFolder("~/caRtola/data/2019/",
                             "rodada",
@@ -35,9 +34,10 @@ mapTeamNames <- function(var) {
 data$atletas.clube.id.full.name <-  mapTeamNames(data$atletas.clube.id.full.name)
 
 # Create column to flag players who really got into the game
-is_column_NA    <- sapply(data[, 16:33],  function(x) is.na(x))
-data$has.played <- apply(is_column_NA, 1, function(x) any(x == FALSE))
-rm(is_column_NA)
+#is_column_NA    <- sapply(data[, 16:33],  function(x) is.na(x))
+#data$has.played <- apply(is_column_NA, 1, function(x) any(x == FALSE))
+data$has.played <- ifelse(data$atletas.variacao_num == 0, FALSE, TRUE)
+#rm(is_column_NA)
 
 # Subset data
 data <- 
@@ -56,7 +56,6 @@ player_info <-
 # Deaggregate scouts
 deaggregateScouts <- function(data) {
   # Deaggregate scouts from Cartola Data - which is aggregated from the API
-  
   # Helper function to lag over columns 
   lagScouts <- function(x) {
     return(x - lag(x, 1, default = NA))
@@ -194,8 +193,8 @@ createHomeAndAwayScouts <- function(){
     data %>%
     dplyr::group_by(atleta.id, home_away) %>%
     dplyr::arrange(rodadaF) %>%
-    dplyr::mutate_at(.vars = c("score.no.cleansheets","pontuacao"), 
-              .funs = cummean) %>%
+    dplyr::mutate_at(.vars = c("score.no.cleansheets", "pontuacao"), 
+                     .funs = cummean) %>%
     dplyr::select("atleta.id", "home_away", "rodada", 
                   "score.no.cleansheets","pontuacao") 
   

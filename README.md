@@ -9,6 +9,7 @@ Para ter acesso a todo o histórico de dados do _Cartola FC_ é só acessar a pa
 
 ## Tutoriais
 
+* [Analisando os atacantes do primeiro turno com Affinity Propagation](https://medium.com/@hpgomide/cartola-pfc-analisando-os-atacantes-do-primeiro-turno-com-affinity-propagation-89df6304b4e4)
 * [Como montar defesas no Cartola usando regressão de Poisson?](https://medium.com/@hpgomide/como-montamos-defesas-no-cartolafc-com-estatística-e-modelagem-de-dados-6f5d58ac1034)
 * [Algoritmo de valorização dos Jogadores do Cartola PFC](https://github.com/henriquepgomide/caRtola/blob/master/src/python/desafio_valorizacao/Desafio%20da%20Valorização.ipynb)
 * [Estudo sobre algoritmo de valorizaço dos jogadores do Cartola, parte I](https://github.com/henriquepgomide/caRtola/blob/master/src/python/desafio_valorizacao/%23%20Descobrindo%20o%20algoritmo%20de%20valorização%20do%20Cartola%20FC%20-%20Parte%20I.ipynb)
@@ -34,7 +35,6 @@ Sinta-se à vontade para submeter um Pull Request ou abrir uma issue! Nós vamos
 :bust_in_silhouette: __Henrique Gomide__:
 
 * henriquepgomide@gmail.com
-* [Github](https://github.com/henriquepgomide)
 * [Twitter](https://twitter.com/hpgomide)
 * [Linkedin](https://www.linkedin.com/in/hpgomide/)
 * [Lattes](http://lattes.cnpq.br/6230665865154742)

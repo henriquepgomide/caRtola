@@ -76,8 +76,10 @@ fetchMatchDetail <- function(round) {
 }
 
 # Write csv
-round_number <- 20
+round_number <- 21
 data <- fetchMatchDetail(round_number)
+
+data$round <- ifelse(data$round == 22, 21, data$round)
 data <- subset(data, data$round <= round_number)
 #data <- subset(data, data$date < "2019-09-10")
 

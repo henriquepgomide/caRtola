@@ -1,6 +1,5 @@
 ---
-title: Cartola PFC - Análise do primeiro turno. Analisando os atacantes do Cartola
-  FC.
+title: Cartola PFC - Análise do primeiro turno. Analisando os atacantes do Cartola FC.
 author: "Henrique Gomide, Ph.D."
 date: "9/21/2019"
 output:

@@ -8,7 +8,7 @@
 Para ter acesso a todo o histórico de dados do _Cartola FC_ é só acessar a pasta [data](data/). Lá você encontra os dados organizados por ano e ainda um arquivo com os dados agregados de todos os anos. Está tudo disponível em arquivos separados por vírgulas. Até o Excel abre. :wink:
 
 ## Tutoriais
-
+* [Quais meias escalar: Defensivos ou ofensivos?](https://medium.com/@hpgomide/cartola-pfc-quais-meias-escalar-no-cartola-ofensivos-ou-defensivos-abe8d7db121d)
 * [Analisando os atacantes do primeiro turno com Affinity Propagation](https://medium.com/@hpgomide/cartola-pfc-analisando-os-atacantes-do-primeiro-turno-com-affinity-propagation-89df6304b4e4)
 * [Como montar defesas no Cartola usando regressão de Poisson?](https://medium.com/@hpgomide/como-montamos-defesas-no-cartolafc-com-estatística-e-modelagem-de-dados-6f5d58ac1034)
 * [Algoritmo de valorização dos Jogadores do Cartola PFC](https://github.com/henriquepgomide/caRtola/blob/master/src/python/desafio_valorizacao/Desafio%20da%20Valorização.ipynb)

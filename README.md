@@ -8,9 +8,15 @@
 Para ter acesso a todo o histórico de dados do _Cartola FC_ é só acessar a pasta [data](data/). Lá você encontra os dados organizados por ano e ainda um arquivo com os dados agregados de todos os anos. Está tudo disponível em arquivos separados por vírgulas. Até o Excel abre. :wink:
 
 ## Tutoriais
-* [Quais meias escalar: Defensivos ou ofensivos?](https://medium.com/@hpgomide/cartola-pfc-quais-meias-escalar-no-cartola-ofensivos-ou-defensivos-abe8d7db121d)
-* [Analisando os atacantes do primeiro turno com Affinity Propagation](https://medium.com/@hpgomide/cartola-pfc-analisando-os-atacantes-do-primeiro-turno-com-affinity-propagation-89df6304b4e4)
+### R
+#### Análise de agrupamentos
+* [Parte I - Analisando os atacantes do primeiro turno com Affinity Propagation](https://medium.com/@hpgomide/cartola-pfc-analisando-os-atacantes-do-primeiro-turno-com-affinity-propagation-89df6304b4e4)
+* [Parte II - Quais meias escalar: Defensivos ou ofensivos?](https://medium.com/@hpgomide/cartola-pfc-quais-meias-escalar-no-cartola-ofensivos-ou-defensivos-abe8d7db121d)
+* [Parte III - Analisando jogadores de defesa com Affinity Propagation](https://medium.com/@hpgomide/cartola-pfc-analisando-jogadores-de-defesa-com-affinity-propagation-parte-iii-4b3c35df2c0c)
+#### Regressão
 * [Como montar defesas no Cartola usando regressão de Poisson?](https://medium.com/@hpgomide/como-montamos-defesas-no-cartolafc-com-estatística-e-modelagem-de-dados-6f5d58ac1034)
+
+### Python
 * [Algoritmo de valorização dos Jogadores do Cartola PFC](https://github.com/henriquepgomide/caRtola/blob/master/src/python/desafio_valorizacao/Desafio%20da%20Valorização.ipynb)
 * [Estudo sobre algoritmo de valorizaço dos jogadores do Cartola, parte I](https://github.com/henriquepgomide/caRtola/blob/master/src/python/desafio_valorizacao/%23%20Descobrindo%20o%20algoritmo%20de%20valorização%20do%20Cartola%20FC%20-%20Parte%20I.ipynb)
 

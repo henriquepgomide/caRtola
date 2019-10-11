@@ -1,0 +1,74 @@
+# Create team features based on player performance
+# Author: @henriquepgomide
+# License: MIT
+
+library(tidyverse)
+
+# Get and process data
+source("src/R/create_players_stats.R")
+
+
+matches_19 <- read.csv("~/caRtola/data/2019/2019_partidas.csv",
+                       stringsAsFactors = FALSE) 
+matches_19 <- 
+  matches_19 %>%
+  select(home_team, away_team, round) %>%
+  mutate(match_number = 1:nrow(matches_19))
+
+teste <- gather(matches_19, 
+                       key = home_team,
+                       value = value,
+                       -id, -home.away)
+
+# Select variables for scouts
+data <- 
+  df.model %>%
+  select(slug, team, rodadaF, posicao, 
+         pontuacao, score.no.cleansheets,
+         FC, FS, 
+         PE, RB, SG, 
+         shotsX, faltas, G, 
+         GS, A, CA,
+         CV,  home_away)
+pontos <- 
+  data %>%
+  dplyr::group_by(team) %>%
+  dplyr::summarize(pontuacao = sum(pontuacao) / max(as.integer(rodadaF)))
+
+pontos_homeaway_f <- 
+  data %>%
+  dplyr::group_by(team, home_away, rodadaF) %>%
+  dplyr::arrange(team, home_away, rodadaF) %>%
+  dplyr::summarize(pontuacao = sum(pontuacao)) %>%
+  dplyr::mutate(pontuacao_mean = cummean(pontuacao))
+  
+matches$round <- factor(matches$round, ordered = TRUE)
+test <- 
+  left_join(matches, pontos_homeaway_f, 
+            by = c("home_away" = "home_away",
+                   "team_name" = "team",
+                   "round"     = "rodadaF")) %>%
+  select(home_away, team_name, round, 
+         pontuacao, pontuacao_mean)
+
+left_join(matches_19, test,
+          by = c("home_team" = "home_team",
+                 "round" = "round")) %>% head()
+
+# EDA ---------------------------------------------------------------------
+
+# Check how points from a given team stay around the mean and are quite stable
+# Therefore, we can model and try to predict matches
+
+ggplot(pontos_homeaway_f, 
+       aes(x = rodadaF, y = pontuacao_mean, color = home_away, group = team)) + 
+  geom_point() + 
+  geom_smooth(aes(color = home_away, group = team)) + 
+  facet_wrap(home_away ~ team)
+
+
+# TODO --------------------------------------------------------------------
+
+# 1. Create team features using cummean
+# 2. Try to predict scores from a given round 
+#    based on team features

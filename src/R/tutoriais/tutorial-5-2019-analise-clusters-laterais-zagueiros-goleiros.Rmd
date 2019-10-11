@@ -59,12 +59,6 @@ gol <-
            player_position %in% c("gol"))
 ```
 
-### Quais scouts estão associados com melhores médias?
-
-De maneira simples, vamos tentar responder "Vale mais a pena escalar meias 
-que roubam bola ou aqueles que estão preocupados no ataque?"
-
-
 ```{r}
 # Selecionar variáveis de interesse para análise de agrupamento
 gol_nickname <- gol$player_nickname
@@ -115,7 +109,7 @@ ggscatter(mds,
           label = gol_nickname,
           color = "cluster",
           palette = "lancet",
-          font.label = c(9, "plain", "black"),
+          font.label = c(12, "plain", "black"),
           size = 1,
           ellipse = TRUE,
           ellipse.type = "convex",
@@ -224,7 +218,7 @@ ggscatter(mds,
           label = def_nickname,
           color = "cluster",
           palette = "lancet",
-          font.label = c(9, "plain", "black"),
+          font.label = c(12, "plain", "black"),
           size = 1,
           ellipse = TRUE,
           ellipse.type = "convex",
@@ -327,7 +321,7 @@ ggscatter(mds,
           label = def_nickname,
           color = "cluster",
           palette = "lancet",
-          font.label = c(9, "plain", "black"),
+          font.label = c(12, "plain", "black"),
           size = 1,
           ellipse = TRUE,
           ellipse.type = "convex",

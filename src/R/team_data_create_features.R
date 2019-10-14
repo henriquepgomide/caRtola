@@ -41,11 +41,11 @@ createTeamRanks <- function(matches){
   
   date_range <- 
     matches %>%
-    filter(year == 2019) %>%
-    group_by(round) %>%
-    summarise(min.date = min(date, na.rm = TRUE),
+    dplyr::filter(year == 2019) %>%
+    dplyr::group_by(round) %>%
+    dplyr::summarise(min.date = min(date, na.rm = TRUE),
               max.date = max(date, na.rm = TRUE)) %>%
-    filter(round == max(round))
+    dplyr::filter(round == max(round))
   
   team_features <- rank.teams(scores          = matches, 
                               family          = "poisson",

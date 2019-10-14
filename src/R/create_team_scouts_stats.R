@@ -7,7 +7,6 @@ library(tidyverse)
 # Get and process data
 source("src/R/create_players_stats.R")
 
-
 matches_19 <- read.csv("~/caRtola/data/2019/2019_partidas.csv",
                        stringsAsFactors = FALSE) 
 matches_19 <- 
@@ -15,10 +14,12 @@ matches_19 <-
   select(home_team, away_team, round) %>%
   mutate(match_number = 1:nrow(matches_19))
 
-teste <- gather(matches_19, 
-                       key = home_team,
-                       value = value,
-                       -id, -home.away)
+matches_19g <- gather(matches_19, 
+                       key = home_away,
+                       value = team,
+                       -round, -match_number)
+matches_19g$round <- factor(matches_19g$round, ordered = TRUE)
+matches_19g$team <- as.character(matches_19g$team)
 
 # Select variables for scouts
 data <- 
@@ -35,25 +36,6 @@ pontos <-
   dplyr::group_by(team) %>%
   dplyr::summarize(pontuacao = sum(pontuacao) / max(as.integer(rodadaF)))
 
-pontos_homeaway_f <- 
-  data %>%
-  dplyr::group_by(team, home_away, rodadaF) %>%
-  dplyr::arrange(team, home_away, rodadaF) %>%
-  dplyr::summarize(pontuacao = sum(pontuacao)) %>%
-  dplyr::mutate(pontuacao_mean = cummean(pontuacao))
-  
-matches$round <- factor(matches$round, ordered = TRUE)
-test <- 
-  left_join(matches, pontos_homeaway_f, 
-            by = c("home_away" = "home_away",
-                   "team_name" = "team",
-                   "round"     = "rodadaF")) %>%
-  select(home_away, team_name, round, 
-         pontuacao, pontuacao_mean)
-
-left_join(matches_19, test,
-          by = c("home_team" = "home_team",
-                 "round" = "round")) %>% head()
 
 # EDA ---------------------------------------------------------------------
 
@@ -70,5 +52,20 @@ ggplot(pontos_homeaway_f,
 # TODO --------------------------------------------------------------------
 
 # 1. Create team features using cummean
+pontos_homeaway_f <- 
+  data %>%
+  dplyr::group_by(team, home_away, rodadaF) %>%
+  dplyr::arrange(team, home_away, rodadaF) %>%
+  dplyr::summarize(pontuacao = sum(pontuacao)) %>%
+  dplyr::mutate(pontuacao_mean = cummean(pontuacao))
+  
+test <- 
+  left_join(matches_19g, pontos_homeaway_f, 
+            by = c("home_away" = "home_away",
+                   "team"      = "team",
+                   "round"     = "rodadaF"))
+
+
+
 # 2. Try to predict scores from a given round 
 #    based on team features

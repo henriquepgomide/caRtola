@@ -76,8 +76,9 @@ fetchMatchDetail <- function(round) {
 }
 
 # Write csv
-round_number <- 33
+round_number <- 34
 data <- fetchMatchDetail(round_number)
+table(data$round)
 
 # Just to fix 21 round data
 data <- subset(data, data$round <= round_number)
@@ -86,3 +87,4 @@ data <- subset(data, data$round <= round_number)
 # Temp
 data <- filter(data, !(home_team == 276 & round == 15))
 write.csv(data, "data/2019/2019_partidas.csv", row.names = FALSE)
+

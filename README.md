@@ -2,12 +2,15 @@
 
 # :tophat: caRtola :tophat:
 
-> Este repositório tem como objetivo disponibilizar todos os dados do *Cartola FC* desde sua criação em 2014. Nós também tentamos prever a pontuação de cada jogador no Brasileirão e descobrir o algoritmo de valorização dos jogadores.
+> Este repositório tem como objetivo disponibilizar todos os dados do *Cartola FC* desde sua criação em 2014 até 2019.
 
 ## Dados :memo:
 Para ter acesso a todo o histórico de dados do _Cartola FC_ é só acessar a pasta [data](data/). Lá você encontra os dados organizados por ano e ainda um arquivo com os dados agregados de todos os anos. Está tudo disponível em arquivos separados por vírgulas. Até o Excel abre. :wink:
 
 ## Tutoriais
+
+Estes são alguns tutoriais que escrevemos. Contribuições são sempre bem vindas!
+
 ### R
 #### Análise de agrupamentos
 * [Parte I - Analisando os atacantes do primeiro turno com Affinity Propagation](https://medium.com/@hpgomide/cartola-pfc-analisando-os-atacantes-do-primeiro-turno-com-affinity-propagation-89df6304b4e4)
@@ -22,7 +25,7 @@ Para ter acesso a todo o histórico de dados do _Cartola FC_ é só acessar a pa
 
 ## Previsões :dart:
 
-Você pode conferir o resultado das previsões do nosso modelo preditivo em 2017 [nessa planilha](https://docs.google.com/spreadsheets/d/1knS8pE-JtIaeilUcjI_grIKBeox94QWAuMGKlfCfQSk/edit?usp=sharing). Nela, você vai encontrar os jogadores que o nosso modelo previu que iam fazer boas predições e a pontuação real do jogador naquela rodada. __Você acha que o modelo mandou bem? Foi ruim?__ [Vem resenhar com a gente, parça!](https://github.com/henriquepgomide/caRtola/issues/33)  :speech_balloon:
+Tem um modelo preditivo? Ajude-nos a montar um. Você pode conferir o resultado das previsões do nosso modelo preditivo em 2017 [nessa planilha](https://docs.google.com/spreadsheets/d/1knS8pE-JtIaeilUcjI_grIKBeox94QWAuMGKlfCfQSk/edit?usp=sharing). Nela, você vai encontrar os jogadores que o nosso modelo previu que iam fazer boas predições e a pontuação real do jogador naquela rodada. __Você acha que o modelo mandou bem? Foi ruim?__ [Vem resenhar com a gente, parça!](https://github.com/henriquepgomide/caRtola/issues/33)  :speech_balloon:
 
 Ah, o nosso modelo preditivo é de domínio público também! Quer saber como ele foi treinado e como você pode utilizá-lo? [Confira aqui](src/python/Análise%20dos%20Dados.ipynb).
 
@@ -43,7 +46,6 @@ Sinta-se à vontade para submeter um Pull Request ou abrir uma issue! Nós vamos
 * henriquepgomide@gmail.com
 * [Twitter](https://twitter.com/hpgomide)
 * [Linkedin](https://www.linkedin.com/in/hpgomide/)
-* [Lattes](http://lattes.cnpq.br/6230665865154742)
 
 :bust_in_silhouette: __Arnaldo Gualberto__:
 

@@ -2,6 +2,7 @@ Dentro dessa pasta, você vai encontrar os seguintes arquivos:
 
 - **Análise dos Dados.ipynb**: contém toda as etapas de importação dos dados, limpeza, criação das amostras e treinamento do modelo. Tudo bem organizado e explicadinho para qualquer um entender.
 - **cartola.yml**: dependências python para rodar o código desse repositório.
+- **markov chain lpp**: escalador de times com base em previsões feitas usando Markov Chains e programação linear.
 
 Na pasta __models__, você encontra os modelos de Rede Neural treinados por nós para fazer as predições. Lá, há dois modelos:
 

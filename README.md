@@ -20,6 +20,7 @@ Estes são alguns tutoriais que escrevemos. Contribuições são sempre bem vind
 * [Como montar defesas no Cartola usando regressão de Poisson?](https://medium.com/@hpgomide/como-montamos-defesas-no-cartolafc-com-estatística-e-modelagem-de-dados-6f5d58ac1034)
 
 ### Python
+* [Seleção automática de jogadores feita com Markov Chain e programação linear](https://github.com/henriquepgomide/caRtola/blob/master/src/python/markov-chain-lpp.ipynb)
 * [Algoritmo de valorização dos Jogadores do Cartola PFC](https://github.com/henriquepgomide/caRtola/blob/master/src/python/desafio_valorizacao/Desafio%20da%20Valorização.ipynb)
 * [Estudo sobre algoritmo de valorizaço dos jogadores do Cartola, parte I](https://github.com/henriquepgomide/caRtola/blob/master/src/python/desafio_valorizacao/%23%20Descobrindo%20o%20algoritmo%20de%20valorização%20do%20Cartola%20FC%20-%20Parte%20I.ipynb)
 
@@ -42,8 +43,7 @@ Sinta-se à vontade para submeter um Pull Request ou abrir uma issue! Nós vamos
 ### Autores :busts_in_silhouette:
 
 :bust_in_silhouette: __Henrique Gomide__:
-
-* henriquepgomide@gmail.com
+* [Site Pessoal](http://henriquepgomide.github.io)
 * [Twitter](https://twitter.com/hpgomide)
 * [Linkedin](https://www.linkedin.com/in/hpgomide/)
 
@@ -52,3 +52,9 @@ Sinta-se à vontade para submeter um Pull Request ou abrir uma issue! Nós vamos
 * arnaldo.g12@gmail.com
 * [Github](https://github.com/arnaldog12)
 * [Site Pessoal](http://arnaldogualberto.com)
+
+:bust_in_silhouette: __Julio Oliveira__:
+* [Site pessoal](https://jcalvesoliveira.github.io)
+* [Github](https://github.com/jcalvesoliveira)
+* [Linkedin](https://www.linkedin.com/in/jcalvesoliveira/)
+

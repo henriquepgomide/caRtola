@@ -30,6 +30,12 @@ Tem um modelo preditivo? Ajude-nos a montar um. Você pode conferir o resultado 
 
 Ah, o nosso modelo preditivo é de domínio público também! Quer saber como ele foi treinado e como você pode utilizá-lo? [Confira aqui](src/python/Análise%20dos%20Dados.ipynb).
 
+## Jogo Cartola - Super PFC
+<a href="https://henriquepgomide.github.io/cartola-supertrunfo/"><img src="https://henriquepgomide.github.io/cartola-supertrunfo/img/pfc-logo.7412844e.png" alt="drawing" width="200"/></a>
+
+Criamos [um jogo de cartas](https://henriquepgomide.github.io/cartola-supertrunfo/) com base nos dados (em VueJS). Detalhe: também é de código-aberto! 
+Link para repositório: [https://henriquepgomide.github.io/cartola-supertrunfo/](https://github.com/henriquepgomide/cartola-supertrunfo)
+
 ## Contribuições :octocat:
 
 O repositório __caRtola__ é totalmente aberto a novas contribuições. Quer ajudar a gente, mas não sabe como? A gente te dá algumas ideias:

@@ -20,10 +20,11 @@ library(httr)
 library(rjson)
 library(jsonlite)
 library(plyr)
+library(tidyverse)
 
 # Set working directory
 # Setar diretório de trabalho. No Windows é um pouco diferente.
-setwd("~/caRtola/")
+setwd("~/github_repos//caRtola/")
 
 ###################
 # Fetch Player Data 
@@ -32,9 +33,9 @@ setwd("~/caRtola/")
 
 # Get data from Cartola API
 json_athletes <- "https://api.cartolafc.globo.com/atletas/mercado"
-athletes <- fromJSON(paste(readLines(json_athletes), collapse = "")) 
+athletes <- jsonlite::fromJSON(json_athletes)
 df_1 <- data.frame(athletes[1]) # Convert List format into DataFrame
-df_1 <- df_1[, 1:13] # Select useful vars
+df_1 <- df_1 %>% select(-atletas.scout) # Select useful vars
 
 # Label variable atletas.posicao_id 
 df_3 <- athletes$posicoes
@@ -76,5 +77,5 @@ df_1 <- cbind(df_1, athletes$atletas$scout)
 rm(df_2,df_3, athletes, json_athletes)
 
 # Store data frame
-write.csv(df_1, paste0("data/2019/rodada-", df_1$atletas.rodada_id[1],".csv"))
+write.csv(df_1, paste0("data/2020/rodada-", df_1$atletas.rodada_id[1],".csv"))
 rm(df_1)

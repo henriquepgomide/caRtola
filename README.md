@@ -2,7 +2,7 @@
 
 # :tophat: caRtola :tophat:
 
-> Este repositório tem como objetivo disponibilizar todos os dados do *Cartola FC* desde sua criação em 2014 até 2019. Estaremos na área em 2020!
+> Este repositório tem como objetivo disponibilizar todos os dados do *Cartola FC* desde sua criação em 2014 até 2019. Estamos na área em 2020!
 
 ## Dados :memo:
 Para ter acesso a todo o histórico de dados do _Cartola FC_ é só acessar a pasta [data](data/). Lá você encontra os dados organizados por ano e ainda um arquivo com os dados agregados de todos os anos. Está tudo disponível em arquivos separados por vírgulas. Até o Excel abre. :wink:

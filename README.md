@@ -50,11 +50,11 @@ Sinta-se à vontade para submeter um Pull Request ou abrir uma issue! Nós vamos
 
 ### Trabalhos acadêmicos que usaram os dados do repositório
 
-[1]E. Mota, D. Coimbra, and M. Peixoto, “Cartola FC Data Analysis: A simulation, analysis, and visualization tool based on Cartola FC Fantasy Game,” in Proceedings of the XIV Brazilian Symposium on Information Systems, Caxias do Sul, Brazil, Jun. 2018, pp. 1–8, doi: 10.1145/3229345.3229366.
+* E. Mota, D. Coimbra, and M. Peixoto, “Cartola FC Data Analysis: A simulation, analysis, and visualization tool based on Cartola FC Fantasy Game,” in Proceedings of the XIV Brazilian Symposium on Information Systems, Caxias do Sul, Brazil, Jun. 2018, pp. 1–8, doi: 10.1145/3229345.3229366.
 
-[2]L. E. da S. Ribeiro, “Predição de escalações para o jogo CartolaFC utilizando aprendizado de máquina e otimização,” Prediction of escalations for CartolaFC fantasy game using machine learning and optimization, Jul. 2019, Accessed: Jul. 23, 2020. [Online]. Available: https://repositorio.ufu.br/handle/123456789/26681.
+* L. E. da S. Ribeiro, “Predição de escalações para o jogo CartolaFC utilizando aprendizado de máquina e otimização,” Prediction of escalations for CartolaFC fantasy game using machine learning and optimization, Jul. 2019, Accessed: Jul. 23, 2020. [Online]. Available: https://repositorio.ufu.br/handle/123456789/26681.
 
-[3]E. F. Vernier, R. Garcia, I. P. da Silva, J. L. D. Comba, and A. C. Telea, “Quantitative Evaluation of Time-Dependent Multidimensional Projection Techniques,” arXiv:2002.07481 [cs], Feb. 2020, Accessed: Jul. 23, 2020. [Online]. Available: http://arxiv.org/abs/2002.07481.
+* E. F. Vernier, R. Garcia, I. P. da Silva, J. L. D. Comba, and A. C. Telea, “Quantitative Evaluation of Time-Dependent Multidimensional Projection Techniques,” arXiv:2002.07481 [cs], Feb. 2020, Accessed: Jul. 23, 2020. [Online]. Available: http://arxiv.org/abs/2002.07481.
 
 Está faltando o seu? Envie para gente e colocamos aqui.
 

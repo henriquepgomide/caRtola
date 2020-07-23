@@ -1,5 +1,5 @@
 <div>
-<a href="https://henriquepgomide.github.io/cartola-supertrunfo/"><img src="https://henriquepgomide.github.io/cartola-supertrunfo/img/pfc-logo.7412844e.png" alt="drawing" width="150"</a>
+<img src="https://henriquepgomide.github.io/cartola-supertrunfo/img/pfc-logo.7412844e.png" alt="drawing" width="150"
 </div>
 
 #  CaRtola: Ciência de Dados e Futebol desde 2014.

@@ -1,8 +1,10 @@
-[![Gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg)](https://gitter.im/caRtola-R/Lobby?utm_source=share-link&utm_medium=link&utm_campaign=share-link) | [README in English](README.en.md)
+<div>
+<a href="https://henriquepgomide.github.io/cartola-supertrunfo/"><img src="https://henriquepgomide.github.io/cartola-supertrunfo/img/pfc-logo.7412844e.png" alt="drawing" width="150"</a>
+</div>
 
-# :tophat: caRtola :tophat:
+#  caRtola 2020:
 
-> Este repositório tem como objetivo disponibilizar todos os dados do *Cartola FC* desde sua criação em 2014 até 2019. Estamos na área em 2020!
+> Este repositório tem como objetivo disponibilizar todos os dados do *Cartola FC* desde sua criação em 2014. Já estamos na área em 2020!
 
 ## Dados :memo:
 Para ter acesso a todo o histórico de dados do _Cartola FC_ é só acessar a pasta [data](data/). Lá você encontra os dados organizados por ano e ainda um arquivo com os dados agregados de todos os anos. Está tudo disponível em arquivos separados por vírgulas. Até o Excel abre. :wink:
@@ -31,7 +33,6 @@ Tem um modelo preditivo? Ajude-nos a montar um. Você pode conferir o resultado 
 Ah, o nosso modelo preditivo é de domínio público também! Quer saber como ele foi treinado e como você pode utilizá-lo? [Confira aqui](src/python/Análise%20dos%20Dados.ipynb).
 
 ## Jogo Cartola - Super PFC
-<a href="https://henriquepgomide.github.io/cartola-supertrunfo/"><img src="https://henriquepgomide.github.io/cartola-supertrunfo/img/pfc-logo.7412844e.png" alt="drawing" width="150"</a>
 
 Criamos [um jogo de cartas](https://henriquepgomide.github.io/cartola-supertrunfo/) com base nos dados (em VueJS). Detalhe: também é de código-aberto! 
 Link para repositório: [https://henriquepgomide.github.io/cartola-supertrunfo/](https://github.com/henriquepgomide/cartola-supertrunfo)

@@ -4,7 +4,7 @@
 
 #  CaRtola: Ciência de Dados e Futebol desde 2014.
 
-> Este repositório tem como objetivo disponibilizar todos os dados do *Cartola FC* desde sua criação em 2014 até 2020 e contando...
+> Felizmente, existe um repositório no GitHub chamado caRtola, no qual toda a parte de obtenção e tratamento dos dados do jogo já foi realizada. (Ribeiro, 2019) 
 
 ## Dados :memo:
 Para ter acesso a todo o histórico de dados do _Cartola FC_ é só acessar a pasta [data](data/). Lá você encontra os dados organizados por ano e ainda um arquivo com os dados agregados de todos os anos. Está tudo disponível em arquivos separados por vírgulas. Até o Excel abre. :wink:
@@ -46,6 +46,19 @@ O repositório __caRtola__ é totalmente aberto a novas contribuições. Quer aj
 - Ou simplesmente você viu um erro nos nossos dados/análises?
 
 Sinta-se à vontade para submeter um Pull Request ou abrir uma issue! Nós vamos adorar ter isso no __caRtola__! :v:
+
+
+### Trabalhos acadêmicos que usaram os dados do repositório
+
+[1]E. Mota, D. Coimbra, and M. Peixoto, “Cartola FC Data Analysis: A simulation, analysis, and visualization tool based on Cartola FC Fantasy Game,” in Proceedings of the XIV Brazilian Symposium on Information Systems, Caxias do Sul, Brazil, Jun. 2018, pp. 1–8, doi: 10.1145/3229345.3229366.
+
+[2]L. E. da S. Ribeiro, “Predição de escalações para o jogo CartolaFC utilizando aprendizado de máquina e otimização,” Prediction of escalations for CartolaFC fantasy game using machine learning and optimization, Jul. 2019, Accessed: Jul. 23, 2020. [Online]. Available: https://repositorio.ufu.br/handle/123456789/26681.
+
+[3]E. F. Vernier, R. Garcia, I. P. da Silva, J. L. D. Comba, and A. C. Telea, “Quantitative Evaluation of Time-Dependent Multidimensional Projection Techniques,” arXiv:2002.07481 [cs], Feb. 2020, Accessed: Jul. 23, 2020. [Online]. Available: http://arxiv.org/abs/2002.07481.
+
+Está faltando o seu? Envie para gente e colocamos aqui.
+
+
 
 ### Autores :busts_in_silhouette:
 

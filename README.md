@@ -2,7 +2,7 @@
 <a href="https://henriquepgomide.github.io/cartola-supertrunfo/"><img src="https://henriquepgomide.github.io/cartola-supertrunfo/img/pfc-logo.7412844e.png" alt="drawing" width="150"</a>
 </div>
 
-#  caRtola 2020:
+#  caRtola 2020: Dados e estatísticas
 
 > Este repositório tem como objetivo disponibilizar todos os dados do *Cartola FC* desde sua criação em 2014. Já estamos na área em 2020!
 

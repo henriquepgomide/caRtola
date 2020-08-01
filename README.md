@@ -13,6 +13,12 @@ Para ter acesso a todo o histórico de dados do _Cartola FC_ é só acessar a pa
 
 Estes são alguns tutoriais que escrevemos. Contribuições são sempre bem vindas!
 
+### Python
+* [Como ler todos os arquivos das rodadas deste repositório com Python?](https://github.com/henriquepgomide/caRtola/blob/master/caRtola_como_ler_repositório_do_github_com_BeautifulSoup_e_Pandas.ipynb)
+* [Seleção automática de jogadores feita com Markov Chain e programação linear](https://github.com/henriquepgomide/caRtola/blob/master/src/python/markov-chain-lpp.ipynb)
+* [Algoritmo de valorização dos Jogadores do Cartola PFC](https://github.com/henriquepgomide/caRtola/blob/master/src/python/desafio_valorizacao/Desafio%20da%20Valorização.ipynb)
+* [Estudo sobre algoritmo de valorizaço dos jogadores do Cartola, parte I](https://github.com/henriquepgomide/caRtola/blob/master/src/python/desafio_valorizacao/%23%20Descobrindo%20o%20algoritmo%20de%20valorização%20do%20Cartola%20FC%20-%20Parte%20I.ipynb)
+
 ### R
 #### Análise de agrupamentos
 * [Parte I - Analisando os atacantes do primeiro turno com Affinity Propagation](https://medium.com/@hpgomide/cartola-pfc-analisando-os-atacantes-do-primeiro-turno-com-affinity-propagation-89df6304b4e4)
@@ -21,10 +27,7 @@ Estes são alguns tutoriais que escrevemos. Contribuições são sempre bem vind
 #### Regressão
 * [Como montar defesas no Cartola usando regressão de Poisson?](https://medium.com/@hpgomide/como-montamos-defesas-no-cartolafc-com-estatística-e-modelagem-de-dados-6f5d58ac1034)
 
-### Python
-* [Seleção automática de jogadores feita com Markov Chain e programação linear](https://github.com/henriquepgomide/caRtola/blob/master/src/python/markov-chain-lpp.ipynb)
-* [Algoritmo de valorização dos Jogadores do Cartola PFC](https://github.com/henriquepgomide/caRtola/blob/master/src/python/desafio_valorizacao/Desafio%20da%20Valorização.ipynb)
-* [Estudo sobre algoritmo de valorizaço dos jogadores do Cartola, parte I](https://github.com/henriquepgomide/caRtola/blob/master/src/python/desafio_valorizacao/%23%20Descobrindo%20o%20algoritmo%20de%20valorização%20do%20Cartola%20FC%20-%20Parte%20I.ipynb)
+
 
 ## Previsões :dart:
 

@@ -1,14 +1,14 @@
 # What? ----------------------------------------------
 # Retrieve data from Cartola and store as a csv file
 # Every round, you need to gather and store data into
-# data/2019 folder
+# data/2020 folder
 # ----------------------------------------------------
 
 # Objetivo--------------------------------------------
 # Recuperar os dados da API do cartola e salvar num
 # em csv. Toda rodada, é necessário executar
 # o script. Os dados são armazenados em um arquivo
-# csv na pasta data/2019.
+# csv na pasta data/2020.
 # ----------------------------------------------------
 
 # Remind yourself to install packages before loading them
@@ -24,7 +24,7 @@ library(tidyverse)
 
 # Set working directory
 # Setar diretório de trabalho. No Windows é um pouco diferente.
-setwd("~/github_repos//caRtola/")
+setwd("~/github_repos/caRtola/")
 
 ###################
 # Fetch Player Data 

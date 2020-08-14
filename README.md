@@ -62,6 +62,24 @@ Sinta-se à vontade para submeter um Pull Request ou abrir uma issue! Nós vamos
 Está faltando o seu? Envie para gente e colocamos aqui.
 
 
+### Como citar?
+
+Por favor, cite-nos.
+
+
+[1]H. Gomide e A. Gualberto, CaRtola: Extração de dados da API do CartolaFC, análise exploratória dos dados e modelos preditivos em R e Python. https://github.com/henriquepgomide/caRtola/. 2020.
+
+```
+ @book{
+     title={CaRtola: Extração de dados da API do CartolaFC, análise exploratória dos dados e modelos preditivos em R e Python}, 
+     url={https://github.com/henriquepgomide/caRtola}, 
+     abstractNote={Extração de dados da API do CartolaFC, análise exploratória dos dados e modelos preditivos em R e Python}, 
+     author={Gomide, Henrique and Gualberto, Arnaldo}, 
+     year={2020}
+}
+```
+
+
 
 ### Autores :busts_in_silhouette:
 

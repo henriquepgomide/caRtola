@@ -50,8 +50,11 @@ O repositório __caRtola__ é totalmente aberto a novas contribuições. Quer aj
 
 Sinta-se à vontade para submeter um Pull Request ou abrir uma issue! Nós vamos adorar ter isso no __caRtola__! :v:
 
+### Na mídia
 
-### Trabalhos acadêmicos que usaram os dados do repositório
+* Marchesini, L. [Cartola FC - Saiba como a pandemia pode influenciar os times mandantes](https://www.metropoles.com/esportes/cartola-fc-saiba-como-a-pandemia-pode-influenciar-os-times-mandantes) 2020.
+
+### Em trabalhos acadêmicos
 
 * E. Mota, D. Coimbra, and M. Peixoto, “Cartola FC Data Analysis: A simulation, analysis, and visualization tool based on Cartola FC Fantasy Game,” in Proceedings of the XIV Brazilian Symposium on Information Systems, Caxias do Sul, Brazil, Jun. 2018, pp. 1–8, doi: 10.1145/3229345.3229366.
 

@@ -1,0 +1,39 @@
+name: cartola-data
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+
+jobs:
+  update-data:
+    runs-on: macOS-latest
+    steps:
+      - name: check out source code
+        uses: actions/checkout@master
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
+      - name: setup R
+        uses: r-lib/actions/setup-r@master
+        with:
+          r-version: '4.0.2'
+
+      - name: install packages
+        run: |
+          install.packages(c("httr", "rjson", "jsonlite", "plyr", "tidyverse"), dependencies=TRUE)
+        shell: Rscript {0}
+
+      - name: download data
+        run: Rscript src/R/cartola_fetch.R
+
+      - name: commit files
+        run: |
+          git config --local user.email "arnaldo.g12@gmail.com"
+          git config --local user.name "Arnaldo Gualberto"
+          git diff --quiet && git diff --staged --quiet || git commit -am 'update cartola data'
+
+      - name: push
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}

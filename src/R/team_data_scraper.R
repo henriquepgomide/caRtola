@@ -76,7 +76,7 @@ fetchMatchDetail <- function(round) {
 }
 
 # Write csv
-round_number <- 2
+round_number <- 3
 data <- fetchMatchDetail(round_number)
 table(data$round)
 

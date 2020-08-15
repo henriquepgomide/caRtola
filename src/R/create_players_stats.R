@@ -2,13 +2,12 @@
 library(tidyverse)
 library(zoo)
 
-setwd("~/caRtola")
-source("~/caRtola/src/R/utils.R")
+source("src/R/utils.R")
 
 # 0. Dataprep -------------------------------------------------------------
-data <- readCsvInsideFolder("~/caRtola/data/2019/",
+data <- readCsvInsideFolder("data/2020/",
                             "rodada",
-                            "2019")
+                            "2020")
 
 # Fix encoding
 data$atletas.nome               <- fixEncodingIssues(data$atletas.nome)
@@ -23,7 +22,7 @@ data$atletas.rodada_id  <- factor(data$atletas.rodada_id,
 # Convert team names with universal team ids
 mapTeamNames <- function(var) {
   # Map team names using all year dictionary
-  temp1 <- read.csv("~/caRtola/data/times_ids.csv", stringsAsFactors = FALSE)
+  temp1 <- read.csv("data/times_ids.csv", stringsAsFactors = FALSE)
   var <- plyr::mapvalues(var, 
                          from = as.vector(temp1$nome.cartola), 
                          to = as.vector(temp1$id))
@@ -138,7 +137,7 @@ names(data)[1:6] <- c("slug", "atleta.id", "team",
 
 data$rodada <- as.integer(data$rodadaF)
 
-matches <- read.csv("~/caRtola/data/2019/2019_partidas.csv", 
+matches <- read.csv("~/caRtola/data/2020/2020_partidas.csv", 
                     check.names = FALSE,
                     stringsAsFactors = FALSE)
 
@@ -257,7 +256,7 @@ df.agg <-
   dplyr::group_by(atleta.id) %>%
   dplyr::filter(rodadaF == max(rodadaF))
 
-df.cartola.2019 <- 
+df.cartola.2020 <- 
   df.agg %>%
   dplyr::select(slug, atleta.id, atletas.apelido, 
          team, posicao, atletas.preco_num, 
@@ -269,7 +268,7 @@ df.cartola.2019 <-
          DD_mean, DP_mean,
          atletas.status_id, atletas.variacao_num, pontuacao)
 
-names(df.cartola.2019) <- c("player_slug", "player_id", "player_nickname",
+names(df.cartola.2020) <- c("player_slug", "player_id", "player_nickname",
                             "player_team", "player_position", "price_cartoletas",
                             "score_mean", "score_no_cleansheets_mean", 
                             "diff_home_away_s", "n_games",
@@ -280,7 +279,7 @@ names(df.cartola.2019) <- c("player_slug", "player_id", "player_nickname",
                             "G_mean", "DD_mean", "DP_mean",
                             "status", "price_diff", "last_points")
 
-write.csv(df.cartola.2019,
-          "~/caRtola/data/2019/2019-medias-jogadores.csv", 
+write.csv(df.cartola.2020,
+          "data/2020/2020-medias-jogadores.csv", 
           row.names = FALSE,
           na = "0")

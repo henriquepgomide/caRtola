@@ -79,6 +79,6 @@ df_1 <- cbind(df_1, athletes$atletas$scout)
 rm(df_2,df_3, athletes, json_athletes)
 
 # Store data frame
-if ( file.exists(paste0("data/2020/rodada-", df_1$atletas.rodada_id[1],".csv")) )
+if ( file.exists(paste0("data/2020/rodada-", df_1$atletas.rodada_id[1],".csv")) == FALSE)
     write.csv(df_1, paste0("data/2020/rodada-", df_1$atletas.rodada_id[1],".csv"))
 rm(df_1)

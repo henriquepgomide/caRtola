@@ -1,6 +1,5 @@
 # Create team features based on previous matches
 # Author - Henrique Gomide Copyright
-
 library(tidyverse)
 library(fbRanks)
 library(lubridate)

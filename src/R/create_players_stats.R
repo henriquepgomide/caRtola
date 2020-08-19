@@ -68,20 +68,20 @@ deaggregateScouts <- function(data) {
            atletas.rodada_id, atletas.atleta_id, 
            CA, FC, 
            FS, GC, I,
-           PE, RB, SG,
+           PI, DS, SG,
            FF, FD, G, 
            DD, GS, A,
-           FT, CV, DP,
+           FT, CV,# DP,
            PP) 
   
-  scouts[,4:21] <- sapply(scouts[,4:21], function(x) ifelse(is.na(x), 0, x))
+  scouts[,4:20] <- sapply(scouts[,4:20], function(x) ifelse(is.na(x), 0, x))
   
-  col_names <- names(scouts)[4:21]
+  col_names <- names(scouts)[4:20]
   
   deaggragate_scouts <- 
     scouts %>%
     group_by(atletas.atleta_id) %>%
-    mutate_at(.vars = col_names, .funs = lagScouts) %>%
+    mutate_at(.vars = all_of(col_names), .funs = lagScouts) %>%
     fill(col_names, .direction = "up") %>%
     filter(atletas.rodada_id != min(atletas.rodada_id))
   
@@ -119,12 +119,12 @@ data <- left_join(player_info, scouts,
 # 1. Feature Engineering ---------------------------------------------------
 # 2. Remove clean sheet bonus
 data$score.no.cleansheets <- 
-   (data$CA * -2) + (data$FC * -0.5) + (data$RB * 1.5) +
+   (data$CA * -2) + (data$FC * -0.5) + (data$DS * 1) +
    (data$GC * -5) + (data$CV * -5)   + #(data$SG * 5) +
-   (data$FS * .5) + (data$PE * -.3)  + (data$A * 5)  +
+   (data$FS * .5) + (data$PI * -.1)  + (data$A * 5)  +
    (data$FT * 3)  + (data$FD * 1.2)  + (data$FF * .8) +
    (data$G * 8)   + (data$I * -.5)   + (data$PP * -4) +
-   (data$DD * 3)  + (data$DP * 7)    + (data$GS * -2)
+   (data$DD * 4)  + (data$GS * -2) # + (data$DP * 7)   
 
 # Compute fouls for each round
 data$faltas <- data$FC + data$CA + data$CV
@@ -137,7 +137,7 @@ names(data)[1:6] <- c("slug", "atleta.id", "team",
 
 data$rodada <- as.integer(data$rodadaF)
 
-matches <- read.csv("~/caRtola/data/2020/2020_partidas.csv", 
+matches <- read.csv("data/2020/2020_partidas.csv", 
                     check.names = FALSE,
                     stringsAsFactors = FALSE)
 
@@ -168,21 +168,21 @@ scouts.mean <-
   data %>%
   dplyr::group_by(atleta.id) %>% 
   dplyr::arrange(rodadaF) %>%
-  dplyr::mutate_at(.vars = c("shotsX", "faltas", "RB", 
-                      "PE", "A", "I",
+  dplyr::mutate_at(.vars = c("shotsX", "faltas", "DS", 
+                      "PI", "A", "I",
                       "FS", "FF", "G",
-                      "DD", "DP", 
+                      "DD", #"DP", 
                       "score.no.cleansheets",
                       "pontuacao"), .funs = cummean) %>%
   dplyr::select(c("atleta.id", "rodada",
-                  "shotsX", "faltas", "RB", 
-                  "PE", "A", "I",
+                  "shotsX", "faltas", "DS", 
+                  "PI", "A", "I",
                   "FS", "FF", "G",
-                  "DD", "DP",
+                  "DD", #"DP",
                   "score.no.cleansheets",
                   "pontuacao"))
 
-names(scouts.mean)[3:15] <- paste0(names(scouts.mean)[3:15], "_mean") 
+names(scouts.mean)[3:14] <- paste0(names(scouts.mean)[3:14], "_mean") 
 
 data <- left_join(x = data, y = scouts.mean, by = c("rodada", "atleta.id"))
 
@@ -262,10 +262,10 @@ df.cartola.2020 <-
          team, posicao, atletas.preco_num, 
          pontuacao_mean, score.no.cleansheets_mean, diff.home.away.scalled, n.jogos,
          pontuacao.mean.home, pontuacao.mean.away,
-         shotsX_mean, faltas_mean, RB_mean,
-         PE_mean, A_mean, I_mean, 
+         shotsX_mean, faltas_mean, DS_mean,
+         PI_mean, A_mean, I_mean, 
          FS_mean, FF_mean, G_mean,
-         DD_mean, DP_mean,
+         DD_mean, #DP_mean,
          atletas.status_id, atletas.variacao_num, pontuacao)
 
 names(df.cartola.2020) <- c("player_slug", "player_id", "player_nickname",
@@ -274,9 +274,9 @@ names(df.cartola.2020) <- c("player_slug", "player_id", "player_nickname",
                             "diff_home_away_s", "n_games",
                             "score_mean_home", "score_mean_away",
                             "shots_x_mean", "fouls_mean",
-                            "RB_mean", "PE_mean", "A_mean",
+                            "DS_mean", "PI_mean", "A_mean",
                             "I_mean", "FS_mean", "FF_mean",
-                            "G_mean", "DD_mean", "DP_mean",
+                            "G_mean", "DD_mean", #"DP_mean",
                             "status", "price_diff", "last_points")
 
 write.csv(df.cartola.2020,

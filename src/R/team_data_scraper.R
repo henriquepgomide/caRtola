@@ -76,9 +76,9 @@ fetchMatchDetail <- function(round) {
 }
 
 # Write csv
-round_number <- 4
+round_number <- 5
 data <- fetchMatchDetail(round_number)
-table(data$round)
+data <- filter(data, round <= round_number)
 
 # Temp
 write.csv(data, "data/2020/2020_partidas.csv", row.names = FALSE)

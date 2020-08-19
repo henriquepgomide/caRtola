@@ -26,7 +26,6 @@ library(tidyverse)
 # Set working directory
 # Setar diretório de trabalho. No Windows é um pouco diferente.
 # setwd("~/github_repos/caRtola/")
-print(getwd())
 
 ###################
 # Fetch Player Data 
@@ -79,6 +78,12 @@ df_1 <- cbind(df_1, athletes$atletas$scout)
 rm(df_2,df_3, athletes, json_athletes)
 
 # Store data frame
-if (file.exists(paste0("data/2020/rodada-", df_1$atletas.rodada_id[1],".csv")) == FALSE)
-    write.csv(df_1, paste0("data/2020/rodada-", df_1$atletas.rodada_id[1],".csv"))
+file_round <- paste0("data/2020/rodada-", df_1$atletas.rodada_id[1], ".csv")
+if (file.exists(file_round)){
+    print(paste0("file already exists: ", file_round))
+} else {
+    print(paste0("new data available: ", file_round))
+    write.csv(df_1, file_round)
+}
+
 rm(df_1)

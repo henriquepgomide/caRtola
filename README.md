@@ -12,6 +12,7 @@ Estes são alguns tutoriais que escrevemos. Contribuições são sempre bem vind
 ### Python
 * [Como ler todos os arquivos das rodadas deste repositório com Python?](https://github.com/henriquepgomide/caRtola/blob/master/src/python/colabs/caRtola_como_ler_repositório_do_github_com_BeautifulSoup_e_Pandas.ipynb)
 * [Seleção automática de jogadores feita com Markov Chain e programação linear](https://github.com/henriquepgomide/caRtola/blob/master/src/python/markov-chain-lpp.ipynb)
+* [Média global ou média com mando de campo? O que usar para escalar seus jogadores](https://github.com/henriquepgomide/caRtola/blob/master/src/python/colabs/caRtola_media_media_movel_media_casa_ou_fora_o_que_usar.ipynb)
 * [Algoritmo de valorização dos Jogadores do Cartola PFC](https://github.com/henriquepgomide/caRtola/blob/master/src/python/desafio_valorizacao/Desafio%20da%20Valorização.ipynb)
 * [Estudo sobre algoritmo de valorizaço dos jogadores do Cartola, parte I](https://github.com/henriquepgomide/caRtola/blob/master/src/python/desafio_valorizacao/%23%20Descobrindo%20o%20algoritmo%20de%20valorização%20do%20Cartola%20FC%20-%20Parte%20I.ipynb)
 

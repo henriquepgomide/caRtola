@@ -6,8 +6,6 @@
 # and writes it down to file tabela-times.csv
 # Author: Henrique Gomide
 
-setwd("~/caRtola")
-
 library(jsonlite)
 library(lubridate)
 library(tidyverse)
@@ -76,7 +74,7 @@ fetchMatchDetail <- function(round) {
 }
 
 # Write csv
-round_number <- 8
+round_number <- 9
 data <- fetchMatchDetail(round_number)
 data <- filter(data, round <= round_number)
 

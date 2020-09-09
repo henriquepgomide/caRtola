@@ -14,7 +14,7 @@ readCsvInsideFolder <- function(path,
     df_list[[i]] <- data
   }
   
-  df <- ldply(df_list, data.frame)
+  df <- bind_rows(df_list, data.frame)
   return(df)
 }
 

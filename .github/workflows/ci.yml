@@ -21,7 +21,7 @@ jobs:
 
       - name: install packages
         run: |
-          install.packages(c("httr", "rjson", "jsonlite", "plyr", "tidyverse"), dependencies=TRUE)
+          install.packages(c("httr", "rjson", "jsonlite", "plyr", "tidyverse", "stringi"), dependencies=TRUE)
         shell: Rscript {0}
 
       - name: download data

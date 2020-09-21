@@ -13,7 +13,7 @@ getTeamResults <- function(vector_teams, round, path){
   # You can loop over the function too to get multiple rounds info at once:
   # for (i in 1:25){getTeamResults(c("id1", "id2"), i, "~/caRtola/data")}
 
-  url <- "https://api.cartolafc.globo.com/time/id/%s/%s"
+url <- "https://api.cartolafc.globo.com/time/id/%s/%s"
   team_ids_vector <- sapply(vector_teams, function(x) sprintf(url,x,round))
   
   team_round_info <- list()

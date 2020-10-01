@@ -25,6 +25,10 @@ Estes são alguns tutoriais que escrevemos. Contribuições são sempre bem vind
 * [Como montar defesas no Cartola usando regressão de Poisson?](https://medium.com/@hpgomide/como-montamos-defesas-no-cartolafc-com-estatística-e-modelagem-de-dados-6f5d58ac1034)
 
 
+### C++
+* [Fórmula do algoritmo de valorização do Cartola FC](https://medium.com/cartolaanalitico/a-f%C3%B3rmula-de-valoriza%C3%A7%C3%A3o-8064b82b0f0). Solução pelo cientista de primeira categoria, João B Coelho. Implementação em [C++](https://github.com/joaoabcoelho/ModeloCartoletas).
+
+
 
 ## Previsões :dart:
 

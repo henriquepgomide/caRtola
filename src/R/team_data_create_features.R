@@ -75,7 +75,8 @@ predictCleanSheets <- function(team_features){
   
   date_range <- 
     matches %>%
-    dplyr::filter(year == last(year) & round == last(round))
+    dplyr::filter(year == last(year) & round == last(round) &
+                    is.na(home.score))
  
   teamPredictions <- predict.fbRanks(team_ranks, 
                                      newdata  = matches_to_predict[, c(2,3)],
@@ -85,10 +86,10 @@ predictCleanSheets <- function(team_features){
   
   home.team.names   <- names(teamPredictions$home.score)
   away.team.names   <- names(teamPredictions$away.score)
-  home.goals.vector <- rep(NA,10)
-  away.goals.vector <- rep(NA,10)
+  home.goals.vector <- rep(NA,nrow(date_range))
+  away.goals.vector <- rep(NA,nrow(date_range))
   
-  for (i in 1:10) {
+  for (i in 1:nrow(date_range)) {
     home.goals.vector[i] <- round(prop.table(table(teamPredictions$home.goals[i,] > 0))[2],2)
     away.goals.vector[i] <- round(prop.table(table(teamPredictions$away.goals[i,] > 0))[2],2)
   }
@@ -106,6 +107,7 @@ predictCleanSheets <- function(team_features){
 
 # Open and merge data -----------------------------------------------------
 ## Open '18, '19 and '20 datasets
+
 matches_18 <- read.csv("data/2018/2018_partidas.csv",
                        stringsAsFactors = FALSE)
 matches_18 <- process2018Matches(matches_18)
@@ -133,7 +135,8 @@ names(matches) <- c("date", "home.team", "away.team",
 matches_to_predict <- 
   matches %>%
   filter(year == max(year)) %>%
-  filter(round == max(round))
+  filter(round == max(round) & 
+           is.na(home.score))
 
 team_ranks      <- createTeamRanks(matches)
 df_ranks        <- createRanksDataFrame(team_ranks)
@@ -144,6 +147,7 @@ df_clean_sheets <- predictCleanSheets(team_ranks)
 
 df_matches <- 
   matches_to_predict %>%
+  dplyr::filter(is.na(home.score)) %>% 
   dplyr::select(round, home.team, away.team)
 
 df_matches$id <- seq.int(nrow(df_matches))

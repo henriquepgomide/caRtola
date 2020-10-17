@@ -102,7 +102,8 @@ deaggregateScouts <- function(data) {
 scouts <- deaggregateScouts(data)
 
 data <- left_join(player_info, scouts, 
-                  by = c("atletas.atleta_id", "atletas.rodada_id"))
+                  by = c("atletas.atleta_id", "atletas.rodada_id")) %>% 
+  distinct()
 
 # Validation  - Compute scores
 #data$computed.score <- 

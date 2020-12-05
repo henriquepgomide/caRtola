@@ -63,6 +63,10 @@ Sinta-se à vontade para submeter um Pull Request ou abrir uma issue! Nós vamos
 
 * E. F. Vernier, R. Garcia, I. P. da Silva, J. L. D. Comba, and A. C. Telea, “Quantitative Evaluation of Time-Dependent Multidimensional Projection Techniques,” arXiv:2002.07481 [cs], Feb. 2020, Accessed: Jul. 23, 2020. [Online]. Available: http://arxiv.org/abs/2002.07481.
 
+* BARBOSA, D. A. C. Should he stay or should he go? head coaches turnover in brazilian football 2014-2019. Rio de Janeiro: Pontifícia Universidade Católica do Rio de Janeiro, 2020.
+
+
+
 Está faltando o seu? Envie para gente e colocamos aqui.
 
 

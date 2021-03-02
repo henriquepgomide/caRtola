@@ -3,5 +3,7 @@
 .RData
 .Rproj
 .Rproj.RData
+env/
+.pdf
 
 src/python/.ipynb_checkpoints/*

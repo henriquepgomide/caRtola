@@ -148,35 +148,41 @@ df_clean_sheets <- predictCleanSheets(team_ranks)
 df_matches <- 
   matches_to_predict %>%
   dplyr::filter(is.na(home.score)) %>% 
-  dplyr::select(round, home.team, away.team)
+  dplyr::select(round, home.team, away.team) %>% 
+  dplyr::mutate(id = seq.int(nrow(matches_to_predict)))
 
-df_matches$id <- seq.int(nrow(df_matches))
+df_matches <- gather(df_matches, `home.team`, `away.team`,
+                     key = "home.away",
+                     value = "team_name")
 
-df_matches <- gather(df_matches, `home.team`, `away.team`, key = "home.away", value = "team_name")
 df_matches$home.away <- gsub("\\.team", "", df_matches$home.away)
 
 df_to_export <- left_join(df_matches, df_ranks, by = "team_name")
 df_to_export <- left_join(df_to_export, df_clean_sheets, by = c("team_name" = "team.names"))
-df_to_export <- dplyr::select(df_to_export, -n_games, -round)
+df_to_export <- dplyr::select(df_to_export, -n_games)
 
 df_to_export <- gather(df_to_export, 
                        key = vars,
                        value = value,
-                       -id, -home.away)
+                       -id, -home.away, -round)
+
 
 df_to_export <- unite(df_to_export, 
                       col = "vars",
-                      "home.away","vars", 
+                      "home.away","vars", "round", 
                       sep = "_")
+
 
 df_to_export <- spread(df_to_export,
                        key = vars,
                        value = value)
 
+
 df_to_export <- dplyr::select(df_to_export, 
                               away_defense, away_attack, away_strength, 
                               away_team_name, away_scoring.odds, home_scoring.odds,
                               home_team_name, home_strength, home_attack, home_defense)
+
 
 names(df_to_export)[c(5,6)] <- c("away_scoring_odds", "home_scoring_odds")
 

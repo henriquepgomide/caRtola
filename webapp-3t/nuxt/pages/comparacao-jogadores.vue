@@ -5,29 +5,6 @@
         <h1>Comparação Jogadores</h1>
       </div>
     </v-container>
-    {{ playerstats[1] }}
-    <v-card cols="12">
-      <v-img :src="'players/' + playerstats[1].player_id + '.webp'"></v-img>
-      <v-card-title>
-        <v-img
-          :src="addTeamLogo(parseInt(playerstats[1].player_team))"
-          max-width="40"
-        ></v-img>
-        {{ playerstats[1].player_slug.toUpperCase() }}</v-card-title
-      >
-      <v-simple-table>
-        <thead>
-          <th>Estatística</th>
-          <th>Valor</th>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Preço</td>
-            <td>Média</td>
-          </tr>
-        </tbody>
-      </v-simple-table>
-    </v-card>
     <v-container>
       <v-col cols="12" sm="6" md="6">
         <v-autocomplete
@@ -39,15 +16,43 @@
         <div v-if="!!filteredResult">
           <v-card>
             <v-img
-              :src="'players/' + filteredResult[0].player_id + '.png'"
+              :src="'players/' + filteredResult[0].player_id + '.webp'"
             ></v-img>
             <v-card-title>
               <v-img
                 :src="addTeamLogo(parseInt(filteredResult[0].player_team))"
-                max-width="40"
+                max-width="50"
               ></v-img>
-              {{ filteredResult[0].player_slug.toUpperCase() }}</v-card-title
+              <h1>
+                {{ fixPlayerName(filteredResult[0].player_slug) }}
+                {{ filteredResult[0].player_position.toUpperCase() }}
+              </h1></v-card-title
             >
+
+            <v-simple-table>
+              <thead>
+                <th></th>
+                <th></th>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Preço</td>
+                  <td>{{ roundStats(filteredResult[0].price_cartoletas) }}</td>
+                </tr>
+                <tr>
+                  <td>Média</td>
+                  <td>{{ roundStats(filteredResult[0].score_mean) }}</td>
+                </tr>
+                <tr>
+                  <td>Chutes experados (xG)</td>
+                  <td>{{ roundStats(filteredResult[0].shots_x_mean) }}</td>
+                </tr>
+                <tr>
+                  <td>Última pontuação</td>
+                  <td>{{ roundStats(filteredResult[0].last_points) }}</td>
+                </tr>
+              </tbody>
+            </v-simple-table>
           </v-card>
         </div>
       </v-col>
@@ -65,19 +70,25 @@ export default {
       playerstats,
       searchBoxA: '',
       searchBoxB: '',
-      filteredResult: null,
-      listOfValues: [1, 2, 3, 4, 5],
     }
   },
   methods: {
     computeMean(myArray) {
       return ss.mean(myArray)
     },
+
+    fixPlayerName(name) {
+      const string = name.replace('-', ' ')
+      return string.replace(/\b\w/g, (l) => l.toUpperCase())
+    },
     filterPlayerA() {
       const query = this.playerstats.filter(
         (name) => name.player_nickname === this.searchBoxA
       )
       this.filteredResult = query
+    },
+    roundStats(stat) {
+      return Math.round(stat * 100) / 100
     },
     addTeamLogo(id) {
       switch (id) {

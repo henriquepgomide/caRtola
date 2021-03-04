@@ -74,7 +74,7 @@ fetchMatchDetail <- function(round) {
 }
 
 # Write csv
-round_number <- 21
+round_number <- 38 
 data <- fetchMatchDetail(round_number)
 data <- filter(data, round <= round_number)
 

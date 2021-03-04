@@ -11,9 +11,10 @@
 
 *. Coletar informações dos jogadores de todas as rodadas do campeonato brasileiro dentro do repositório caRtola
 *. Gerar métricas dos jogadores:
-    - Estimar média casa vs. média fora
+    - Estimar número de jogos por jogador - total - OK
+    - Estimar média casa vs. média fora - Ok
+    - Estimar média dos scouts. - OK
     - Estimar desvio padrão e normalizar
-    - Estimar média dos scouts.
 *. Salvar banco de dados em formato JSON
 . Preparar visualização dos dados usando vue.js
 

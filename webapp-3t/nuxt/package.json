@@ -19,8 +19,10 @@
     "@nuxtjs/sitemap": "^2.4.0",
     "@nuxtjs/vuetify": "^1.11.2",
     "buttercms": "^1.2.3",
+    "chart.js": "^2.9.4",
     "nuxt": "^2.14.0",
-    "simple-statistics": "^7.3.0"
+    "simple-statistics": "^7.3.0",
+    "vue-chartjs": "^3.5.1"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^3.1.0",

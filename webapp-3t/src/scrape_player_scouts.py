@@ -1,9 +1,10 @@
 # python3
 
-import re 
-import requests
+import re
+
 from bs4 import BeautifulSoup
 import pandas as pd
+import requests
 
 
 def read_cartola_data(year):

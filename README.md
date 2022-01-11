@@ -1,6 +1,4 @@
-#  CaRtola FC: Ciência de Dados e Futebol desde 2014.
-
-**Novidade, dados das rodadas do Cartola FC 2021 incluídos no repositório**
+#  CaRtola FC: Ciência de Dados e Futebol desde 2014 até 2021.
 
 > Felizmente, existe um repositório no GitHub chamado caRtola, no qual toda a parte de obtenção e tratamento dos dados do jogo já foi realizada. (Ribeiro, 2019) 
 

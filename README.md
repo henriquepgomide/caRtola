@@ -75,7 +75,7 @@ Está faltando o seu? Envie para gente e colocamos aqui.
 Por favor, cite-nos.
 
 
-[1]H. Gomide e A. Gualberto, CaRtola: Extração de dados da API do CartolaFC, análise exploratória dos dados e modelos preditivos em R e Python. https://github.com/henriquepgomide/caRtola/. 2020.
+[1]H. Gomide e A. Gualberto, CaRtola: Extração de dados da API do CartolaFC, análise exploratória dos dados e modelos preditivos em R e Python. https://github.com/henriquepgomide/caRtola/. 2021.
 
 ```
  @book{

@@ -1,4 +1,4 @@
-#  CaRtola FC: Ciência de Dados e Futebol desde 2014.
+#  CaRtola FC: Ciência de Dados e Futebol desde 2014 até 2021.
 
 > Felizmente, existe um repositório no GitHub chamado caRtola, no qual toda a parte de obtenção e tratamento dos dados do jogo já foi realizada. (Ribeiro, 2019) 
 
@@ -75,15 +75,15 @@ Está faltando o seu? Envie para gente e colocamos aqui.
 Por favor, cite-nos.
 
 
-[1]H. Gomide e A. Gualberto, CaRtola: Extração de dados da API do CartolaFC, análise exploratória dos dados e modelos preditivos em R e Python. https://github.com/henriquepgomide/caRtola/. 2020.
+[1]H. Gomide e A. Gualberto, CaRtola: Extração de dados da API do CartolaFC, análise exploratória dos dados e modelos preditivos em R e Python. https://github.com/henriquepgomide/caRtola/. 2021.
 
-```
+```{latex}
  @book{
      title={CaRtola: Extração de dados da API do CartolaFC, análise exploratória dos dados e modelos preditivos em R e Python}, 
      url={https://github.com/henriquepgomide/caRtola}, 
      abstractNote={Extração de dados da API do CartolaFC, análise exploratória dos dados e modelos preditivos em R e Python}, 
      author={Gomide, Henrique and Gualberto, Arnaldo}, 
-     year={2020}
+     year={2022}
 }
 ```
 

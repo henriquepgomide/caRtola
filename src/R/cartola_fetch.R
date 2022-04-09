@@ -1,14 +1,14 @@
 # What? ----------------------------------------------
 # Retrieve data from Cartola and store as a csv file
 # Every round, you need to gather and store data into
-# data/2020 folder
+# data/2022 folder
 # ----------------------------------------------------
 
 # Objetivo--------------------------------------------
 # Recuperar os dados da API do cartola e salvar num
 # em csv. Toda rodada, é necessário executar
 # o script. Os dados são armazenados em um arquivo
-# csv na pasta data/2020.
+# csv na pasta data/2022.
 # ----------------------------------------------------
 
 # Remind yourself to install packages before loading them
@@ -35,7 +35,7 @@ library(tidyverse)
 # Get data from Cartola API
 json_athletes <- "https://api.cartolafc.globo.com/atletas/mercado"
 athletes <- jsonlite::fromJSON(json_athletes)
-df_1 <- data.frame(athletes[1]) # Convert List format into DataFrame
+df_1 <- data.frame(athletes[4]) # Convert List format into DataFrame
 df_1 <- df_1 %>% select(-atletas.scout) # Select useful vars
 
 # Label variable atletas.posicao_id 
@@ -61,11 +61,11 @@ df_1$atletas.status_id <- mapvalues(df_1$atletas.status_id,
 rm(temp1)
 
 # Label team
-teams <- athletes[2]
-temp1 <- t(matrix(unlist(teams),8,20))
+teams <- athletes$clubes
+temp1 <- t(matrix(unlist(teams),7,20))
 temp1 <- data.frame(temp1, stringsAsFactors = FALSE)
 temp1 <- temp1[,1:4]
-colnames(temp1) <- c("Cod", "nome.completo","nome","pos")
+colnames(temp1) <- c("Cod", "nome.completo","nome","badge")
 temp1$Cod <- as.integer(temp1$Cod)
 df_1$atletas.clube.id.full.name <- mapvalues(df_1$atletas.clube_id,
                                              from = as.vector(temp1$Cod),
@@ -78,7 +78,7 @@ df_1 <- cbind(df_1, athletes$atletas$scout)
 rm(df_2,df_3, athletes, json_athletes)
 
 # Store data frame
-file_round <- paste0("data/2020/rodada-", df_1$atletas.rodada_id[1], ".csv")
+file_round <- paste0("../../data/2022/rodada-", df_1$atletas.rodada_id[1], ".csv")
 if (file.exists(file_round)){
     print(paste0("file already exists: ", file_round))
 } else {

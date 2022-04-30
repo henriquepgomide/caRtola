@@ -42,3 +42,5 @@ Feel free to submit a Pull Request or open an issue! We'll love to have it here 
 * arnaldo.g12@gmail.com
 * [Github](https://github.com/arnaldog12)
 * [Site Pessoal](http://arnaldogualberto.com)
+
+> In Memoriam de Mário Guilherme (Von Marius)

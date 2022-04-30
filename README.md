@@ -107,3 +107,5 @@ Por favor, cite-nos.
 * [Github](https://github.com/jcalvesoliveira)
 * [Linkedin](https://www.linkedin.com/in/jcalvesoliveira/)
 
+
+> In Memoriam de Mário Guilherme (Von Marius)

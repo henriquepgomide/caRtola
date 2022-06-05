@@ -2,8 +2,14 @@
 
 > Felizmente, existe um repositório no GitHub chamado caRtola, no qual toda a parte de obtenção e tratamento dos dados do jogo já foi realizada. (Ribeiro, 2019) 
 
+
+## NOVO: Servidor Discord
+Entre no canal para trocar experiências sobre projetos e do uso de estatísticas no Cartola FC. [Convite para Discord](https://discord.gg/YVAzA2unMB)
+
+
 ## Dados :memo:
 Para ter acesso a todo o histórico de dados do _Cartola FC_ é só acessar a pasta [data](data/). Lá você encontra os dados organizados por ano e ainda um arquivo com os dados agregados de todos os anos. Está tudo disponível em arquivos separados por vírgulas. Você pode usar nosso [tutorial de python](https://github.com/henriquepgomide/caRtola/blob/master/src/python/colabs/caRtola_como_ler_repositório_do_github_com_BeautifulSoup_e_Pandas.ipynb), mas até o Excel abre. :wink:
+
 
 ## Tutoriais
 

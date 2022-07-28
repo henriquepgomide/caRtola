@@ -159,5 +159,33 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 
+#########################
+# KEDRO PROJECT
+
+# ignore all local configuration
+conf/local/**
+!conf/local/.gitkeep
+
+# ignore potentially sensitive credentials files
+conf/**/*credentials*
+
+# ignore everything in the following folders
+**/data/**/*
+**/logs/**/*
+
+# keep empty data folders 
+!**/data/*
+!**/data/**/.gitkeep
+!**/logs/*
+!**/logs/**/.gitkeep
+
+# also keep the example dataset
+!**/data/01_raw/iris.csv
+!**/data/01_raw/boston.csv
+
+# also keep all .gitkeep files
+!.gitkeep
+
+
 # custom
 logs/

@@ -2,6 +2,7 @@
 from typing import Dict
 
 from kedro.pipeline import Pipeline, pipeline
+from cartola.pipelines import preprocessing_2022 as prep2022
 
 
 def register_pipelines() -> Dict[str, Pipeline]:
@@ -10,4 +11,5 @@ def register_pipelines() -> Dict[str, Pipeline]:
     Returns:
         A mapping from a pipeline name to a ``Pipeline`` object.
     """
-    return {"__default__": pipeline([])}
+    pipe_2022 = prep2022.create_pipeline()
+    return {"__default__": pipe_2022}

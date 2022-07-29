@@ -10,3 +10,10 @@ raw_2022:
     load_args:
       index_col: 0
   filename_suffix: .csv
+
+
+concat_2022:
+  type: pandas.CSVDataSet
+  filepath: data/02_intermediate/concat_2022.csv
+  save_args:
+    index: False

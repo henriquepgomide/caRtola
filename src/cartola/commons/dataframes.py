@@ -2,7 +2,11 @@ from typing import Dict
 import pandas as pd
 
 
-def concat_partitioned_datasets(partitioned_dataset: Dict[str, pd.DataFrame]):
+def drop_duplicated_rows(df: pd.DataFrame) -> pd.DataFrame:
+    return df.drop_duplicates(ignore_index=True)
+
+
+def concat_partitioned_datasets(partitioned_dataset: Dict[str, pd.DataFrame]) -> pd.DataFrame:
     df_concat = pd.DataFrame()
     for _, partition_load_func in partitioned_dataset.items():
         partition_data = partition_load_func()

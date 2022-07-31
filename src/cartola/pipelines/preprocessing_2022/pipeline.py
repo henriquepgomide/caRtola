@@ -4,7 +4,7 @@ generated using Kedro 0.18.2
 """
 
 from kedro.pipeline import Pipeline, node, pipeline
-from cartola.commons.dataframes import concat_partitioned_datasets
+from cartola.commons.dataframes import concat_partitioned_datasets, drop_duplicated_rows
 from cartola.commons.cartola import fill_scouts_with_zeros, fill_empty_slugs
 
 
@@ -18,8 +18,14 @@ def create_pipeline(**kwargs) -> Pipeline:
                 tags=["preprocessing"],
             ),
             node(
+                drop_duplicated_rows,
+                inputs="concat_2022",
+                outputs="df_not_duplicated",
+                tags=["preprocessing"],
+            ),
+            node(
                 fill_scouts_with_zeros,
-                inputs=["concat_2022", "params:scouts_2022"],
+                inputs=["df_not_duplicated", "params:scouts_2022"],
                 outputs="df_filled_scouts",
                 tags=["preprocessing"],
             ),

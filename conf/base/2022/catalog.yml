@@ -17,3 +17,10 @@ concat_2022:
   filepath: data/02_intermediate/concat_2022.csv
   save_args:
     index: False
+
+
+preprocessed_2022:
+  type: pandas.CSVDataSet
+  filepath: data/03_primary/preprocessed_2022.csv
+  save_args:
+    index: False

@@ -9,7 +9,7 @@ from cartola.commons.dataframes import (
     drop_duplicated_rows,
     rename_cols,
 )
-from cartola.commons.cartola import fill_scouts_with_zeros, fill_empty_slugs
+from .nodes import fill_scouts_with_zeros, fill_empty_slugs
 
 
 def create_pipeline(**kwargs) -> Pipeline:

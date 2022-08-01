@@ -4,7 +4,11 @@ generated using Kedro 0.18.2
 """
 
 from kedro.pipeline import Pipeline, node, pipeline
-from cartola.commons.dataframes import concat_partitioned_datasets, drop_duplicated_rows, rename_cols
+from cartola.commons.dataframes import (
+    concat_partitioned_datasets,
+    drop_duplicated_rows,
+    rename_cols,
+)
 from cartola.commons.cartola import fill_scouts_with_zeros, fill_empty_slugs
 
 
@@ -18,10 +22,10 @@ def create_pipeline(**kwargs) -> Pipeline:
                 tags=["preprocessing"],
             ),
             node(
-              rename_cols,
-              inputs=["concat_2022", "params:map_col_names"],
-              outputs="df_renamed",
-              tags=["preprocessing"],  
+                rename_cols,
+                inputs=["concat_2022", "params:map_col_names"],
+                outputs="df_renamed",
+                tags=["preprocessing"],
             ),
             node(
                 drop_duplicated_rows,

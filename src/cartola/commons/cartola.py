@@ -9,8 +9,8 @@ def fill_scouts_with_zeros(df: pd.DataFrame, scouts: Dict[str, float]):
     return df
 
 
-def fill_empty_slugs(df: pd.DataFrame, slug_col: str, nickname_col: str):
+def fill_empty_slugs(df: pd.DataFrame):
     slug_norm = lambda apelido: unidecode(apelido.lower().replace(" ", "-"))
-    empty_slugs = df[slug_col].isna()
-    df.loc[empty_slugs, slug_col] = df.loc[empty_slugs, nickname_col].apply(slug_norm)
+    empty_slugs = df["slug"].isna()
+    df.loc[empty_slugs, "slug"] = df.loc[empty_slugs, "apelido"].apply(slug_norm)
     return df

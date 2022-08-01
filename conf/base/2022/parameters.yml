@@ -16,7 +16,7 @@ scouts_2022:
   PS: 1.0   # Pênalti Sofrido
   PP: -4.0  # Pênalti Perdido
   I: -0.1   # Impedimento
-  PI: -0.1  # Passe Incompleto**
+  PI: -0.1  # Passe Incompleto **
   # defesa
   SG: 5.0   # jogo sem Sofrer Gols (somente defensores)
   CV: -3.0  # Cartão Vermelho
@@ -31,7 +31,3 @@ scouts_2022:
 
 # * exclusivo de goleiro
 # ** não válido para goleiros
-
-
-slug_col: atletas.slug
-nickname_col: atletas.apelido

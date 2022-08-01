@@ -13,3 +13,7 @@ def concat_partitioned_datasets(partitioned_dataset: Dict[str, pd.DataFrame]) ->
         df_concat = pd.concat([df_concat, partition_data], ignore_index=True)
 
     return df_concat.reset_index(drop=True)
+
+
+def rename_cols(df: pd.DataFrame, map_col_names: Dict[str, str]) -> pd.DataFrame:
+    return df.rename(columns=map_col_names)

@@ -9,7 +9,7 @@ from cartola.commons.dataframes import (
     drop_duplicated_rows,
     rename_cols,
 )
-from .nodes import fill_scouts_with_zeros, fill_empty_slugs
+from .nodes import fill_scouts_with_zeros, fill_empty_slugs, map_status_id_to_string
 
 
 def create_pipeline(**kwargs) -> Pipeline:
@@ -34,8 +34,14 @@ def create_pipeline(**kwargs) -> Pipeline:
                 tags=["preprocessing"],
             ),
             node(
+                map_status_id_to_string,
+                inputs=["df_not_duplicated", "params:map_status_id_to_str"],
+                outputs="df_status",
+                tags=["preprocessing"],
+            ),
+            node(
                 fill_scouts_with_zeros,
-                inputs=["df_not_duplicated", "params:scouts_2022"],
+                inputs=["df_status", "params:scouts_2022"],
                 outputs="df_filled_scouts",
                 tags=["preprocessing"],
             ),

@@ -16,3 +16,11 @@ map_col_names:
   atletas.nome: nome
   atletas.foto: foto
   atletas.clube.id.full.name: nome_clube
+
+
+map_status_id_to_str:
+  2: Dúvida
+  3: Suspenso
+  5: Contundido
+  6: Nulo
+  7: Provável

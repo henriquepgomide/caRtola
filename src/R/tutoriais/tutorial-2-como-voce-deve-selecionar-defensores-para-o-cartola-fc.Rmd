@@ -1,0 +1,103 @@
+---
+title: "Tutorial 2 - Como você deve selecionar seus laterais para o Cartola F.C.?"
+author: "Henrique Gomide, Ph.D."
+date: "September 20, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(ggcorrplot)
+library(ggthemes)
+```
+
+# Como escolher defensores?
+
+Você sabia que aproximadamente 50% de todos os pontos dos zagueiros e laterais vêm do saldo de gols? Nós já apresentamos este método de avaliar as chances de saldo de gols (clean sheets) baseado num clássico modelo estatístico no [post anterior](https://medium.com/@hpgomide/como-montamos-defesas-no-cartolafc-com-estatística-e-modelagem-de-dados-6f5d58ac1034). 
+
+Agora é a vez de atacarmos os outros 50%.
+
+```{r}
+cartola <- read.csv("~/caRtola/src/R/tutoriais/tutorial-2-data.csv", stringsAsFactors = FALSE)
+```
+
+Nossos dados cobrem a média dos jogadores até a 25 rodada de 2018. Alguns detalhes:
+
+1. Escolhemos somente defensores - laterais e zagueiros - que jogaram no mínimo 10 jogos na temporada.
+2. Calculamos as médias dos scouts separados até a rodada em questão
+3. Calculamos a média de pontos dos jogadores retirando o saldo de gols. 
+4. Criamos o scout faltas, que é a soma de cartões amarelos e cartões vermelhos.
+5. Criamos o scout shotsX, que é a soma das finalizações para fora, defendidas, na trave e gols.
+
+## Como a média dos scouts sem saldo de gols se distribui?
+
+```{r}
+ggplot(data = cartola, aes(x = score.no.cleansheets_mean, fill = posicao)) + 
+  geom_density(alpha = .7) + 
+  labs(title = "CartolaFC - Comparação por Posição",
+       subtitle = "Média sem saldo de gols entre Zagueiros e Laterais",
+       caption = "Dados de defensores com no mínimo 10 partidas em 2018.") +
+  scale_fill_brewer(type = "qual") +
+  theme_fivethirtyeight() + 
+  theme(legend.position = c(.8, .8))
+```
+
+Pelo gráfico acima, podemos observar que nesta temporada os laterais possuem melhores médias que zagueiros.
+
+## Quais scouts estão ligados à media sem SG dos jogadores?
+
+Para responder esta questão, vamos avaliar a associação entre as médias dos scouts e a média de pontos sem SG na temporada.
+
+```{r}
+m <- cor(cartola[, c("score.no.cleansheets_mean", "RB_mean", "G_mean", "A_mean", "shotsX_mean", "PE_mean", "faltas_mean")])
+ggcorrplot(m, hc.order = TRUE, type = "lower", 
+           outline.col = "white", ggtheme = theme_minimal,
+           colors = brewer.pal(3, "GnBu"),
+           lab = TRUE,
+           title = "Correlação entre scouts e pontuação sem SG")
+```
+
+Vamos avaliar a última linha do gráfico acima. O que podemos concluir?
+
+1. Roubadas de bola estão mais associadas com a pontuação sem SG dos jogadores do que qualquer outro scout.
+2. Gols e Gols ajustados (shotsX_mean) também estão associados.
+3. Assistências também estão associadas.
+4. Curiosamente, passes errados também estão associados.
+
+Vamos ver como roubadas de bola se associam a pontuação.
+
+```{r}
+cartola <- mutate(cartola, top_player = ifelse(score.no.cleansheets_mean > 4, "Yes", "No"))
+ggplot(data = cartola,
+       aes(x = RB_mean, y = score.no.cleansheets_mean, col = top_player)) +
+  geom_point(size = 3) +
+  scale_color_brewer(type = "qual") +
+  theme_minimal() + 
+  theme(legend.position = "none") + 
+  labs(title = "Roubadas de bola e Pontuação sem SG") +
+  ylab("Pontuação") +
+  xlab("Roubadas de Bola") +
+  annotate("text", x = c(1.4, 1.6), y = c(6.6, 5.8), label = c("Yago Pikachu", "Thiago Carleto"), size = 4)
+```
+
+Os pontos em roxo são jogadores que possuem média sem SG superior a 4.5 pontos. Repare que de maneira geral, os jogadores que possuem maior média são aqueles que possuem maior média de roubadas de bola. Duas exceções são observadas: Thiago Carleto do Atlético PR e Yago Pikachu, ambos jogadores atuam fora da posição original de lateral. Lembre-se sempre destes jogadores para escalação. 
+
+# Análise de Regressão
+
+```{r}
+cartola <- filter(cartola, !slug  %in% c("yago-pikachu", "thiago-carleto"))
+
+model <- lm(data = cartola,
+            score.no.cleansheets_mean ~ RB_mean + G_mean + A_mean + shotsX_mean + PE_mean + faltas_mean)
+
+
+```
+
+
+# Resumindo
+
+1. Laterais possuem pontuação melhor que Zagueiros. Prefira formações com ambas posições.
+2. 
+
+

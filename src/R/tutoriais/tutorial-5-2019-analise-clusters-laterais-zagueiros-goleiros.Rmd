@@ -1,0 +1,381 @@
+---
+title: Cartola PFC - Análise de clusters no Cartola FC. Goleiros, Zagueiros e Laterais
+author: "Henrique Gomide, Ph.D."
+date: "10/09/2019"
+output:
+  html_document: default
+  word_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(RCurl)
+library(tidyverse)
+library(GGally)
+library(cluster)
+library(ggpubr)
+library(RColorBrewer)
+library(spatstat)
+library(apcluster)
+library(sjPlot)
+```
+
+Direto ao ponto. Vamos analisar jogadores de defesa do Cartola FC dando sequência
+a [apresentação da técnica e análise dos atacantes](https://medium.com/ensina-ai/cartola-pfc-analisando-os-atacantes-do-primeiro-turno-com-affinity-propagation-89df6304b4e4) e 
+a [análise dos meias](https://medium.com/ensina-ai/cartola-pfc-quais-meias-escalar-no-cartola-ofensivos-ou-defensivos-abe8d7db121d).
+
+Os dados são obtidos da sempre atualizada base de dados com as médias acumuladas
+no repositório [caRtola](https://github.com/henriquepgomide/caRtola).
+
+De maneira geral, seguiremos os seguintes procedimentos para análise dos dados:
+1) limpeza dos dados; 2) [escalonamento multidimensional](https://datascience.insper.edu.br/escalonamento-multidimensional.html) 
+e 3) [affinity propagation](https://science.sciencemag.org/content/315/5814/972.full).
+
+Uma breve descrição do banco de dados. Temos apelido, código do time, e as médias acumuladas
+para quase todos os scouts do Cartola FC. Além disso, temos a média acumulada em casa/fora, 
+a diferença entre as médias casa/fora padronizadas (diff_home_away_s), número de jogos 
+na temporada entre outros.
+
+Antes de iniciar de aplicar as técnicas de agrupamento, vamos preparar um pouco
+o banco de dados para conduzir as análises. A limpeza inclui: selecionar jogadores
+por posição com um mínimo de jogos. Em algumas posições tiraremos jogadores que 
+possuem média baixa na temporada.
+
+
+```{r}
+data_url <- "https://raw.githubusercontent.com/henriquepgomide/caRtola/master/data/2019/2019-medias-jogadores.csv"
+cartola <- read.csv(data_url,
+                    stringsAsFactors = FALSE)
+glimpse(cartola)
+```
+
+
+## Goleiros
+
+```{r}
+gol <- 
+  cartola %>%
+  filter(n_games >= 08 &
+           player_position %in% c("gol"))
+```
+
+```{r}
+# Selecionar variáveis de interesse para análise de agrupamento
+gol_nickname <- gol$player_nickname
+gol <- gol[, c("score_mean", "score_no_cleansheets_mean", 
+               "diff_home_away_s", "score_mean_home",
+               "score_mean_away", "DD_mean", "DP_mean")]
+names(gol) <- gsub("_mean", "", names(gol))
+gol <- dummify(gol)
+
+
+# Plotar matriz de correlação
+ggcorr(gol, geom = "blank", label = TRUE, hjust = 0.75) +
+  geom_point(size = 10, aes(color = coefficient > 0, alpha = abs(coefficient) > 0.5)) +
+  scale_alpha_manual(values = c("TRUE" = 0.25, "FALSE" = 0)) +
+  guides(color = FALSE, alpha = FALSE)
+```
+
+Esta análise de correlação pode nos ajudar a começar a entender quais atributos
+estão mais associados ao desempenho dos goleiros. Defesas difíceis devem ser olhadas
+para escalar goleiros. Estão correlacionadas de maneira moderada com o a média acumulada
+de pontos. Não parece haver diferença entre pontuação médias dentro e fora quando
+descontado o saldo de gols.
+
+### Análise de agrupamentos
+
+```{r, echo=TRUE, results='hide', warning=FALSE, message=FALSE}
+# Criar matriz com escalonamento multidimensional
+mds <- 
+  gol %>%
+  dist() %>%
+  cmdscale() %>%
+  as_tibble(.name_repair = "unique")
+colnames(mds) <- c("Dim.1", "Dim.2")
+
+# Preparar dados para algoritmo de propagação por afinidade.
+datacluster <- dist(gol) 
+datacluster <- as.matrix(datacluster)  
+apmodel     <- apcluster(negDistMat(r = 2), datacluster)
+mds$cluster <- as.factor(apcluster::labels(apmodel, type = "enum"))
+gol$cluster <- as.factor(apcluster::labels(apmodel, type = "enum"))
+```
+
+```{r}
+# Plotar scatter 
+ggscatter(mds, 
+          x = "Dim.1", 
+          y = "Dim.2",
+          label = gol_nickname,
+          color = "cluster",
+          palette = "lancet",
+          font.label = c(12, "plain", "black"),
+          size = 1,
+          ellipse = TRUE,
+          ellipse.type = "convex",
+          repel = TRUE) +
+  theme(legend.position = "none")
+```
+
+Ao analisar a figura acima, que os goleiros podem ser agrupados em 5 clusters. No cluster
+azul escuro temos Éverson, Victor, Felipe Alves e Diego Alves, goleiros que têm como característica
+médias fora de casa melhores que dentro de casa. Embora Diego Alves possua média de pontos melhor
+que os demais, esta média depende do saldo de gols do Flamengo.
+
+O segundo cluster que merece nossa atenção é o dos goleiros de primeira ordem, 
+que são: Jordi, Douglas Friedrich, Tadeu e Muriel. Eles compartilham algumas métricas em comum
+tais como boas médias fora de casa. Também são goleiros que apresentam médias maiores de defesas
+difíceis e portanto médias quando descontados os saldo de gols. Jordi se desgarra do grupo
+por ser único goleiro que possui média em casa maior que fora de casa.
+
+```{r}
+tb <- 
+  cartola %>%
+  filter(player_slug %in% c("jordi", "tadeu", "douglas-friedrich", "muriel")) %>%
+  select(player_slug, score_mean, diff_home_away_s, 
+         score_mean_home, score_mean_away, score_no_cleansheets_mean,
+         DD_mean)
+plot <- tb[, -1]
+row.names(plot) <- tb$player_slug
+
+ggballoonplot(plot, fill = "value") + 
+  gradient_fill(c(brewer.pal(n = 3, name = "YlGnBu")))
+```
+
+Por fim, vamos analisar o terceiro cluster. Nele estão Fábio, Weverton, Tiepo, 
+Marcelo Lomba, Santos e Cássio. O que estes goleiros têm em comum? São goleiros
+caseiros com pontuação melhor em casa do que fora. Além disso, possuem pontuação
+que vêm do saldo de gols e não necessariamente da produção em defesas difíceis.
+Se Santos foi convocado, com certeza não foi pelas estatísticas do campeonato 
+brasileiro.
+
+
+## Laterais
+
+Hora de analisar laterais e tentar achar padrões para maximizarmos
+retorno sobre investimento.
+
+```{r}
+defenders <- 
+  cartola %>%
+  filter(n_games >= 8 &
+           player_position %in% c("lat")) %>%
+  filter(score_no_cleansheets_mean > quantile(score_no_cleansheets_mean, 
+                                              probs = .3))
+```
+
+Vamos começar com uma matriz de correlação para facilitar nossa interpretação.
+
+```{r}
+# Selecionar variáveis de interesse para análise de agrupamento
+def_nickname <- defenders$player_nickname
+defenders    <- defenders[, c("score_mean", "score_no_cleansheets_mean", 
+               "diff_home_away_s", "score_mean_home",
+               "score_mean_away", "RB_mean", "A_mean",
+               "G_mean", "shots_x_mean", "PE_mean", "fouls_mean")]
+names(defenders) <- gsub("_mean", "", names(defenders))
+defenders <- dummify(defenders)
+
+
+# Plotar matriz de correlação
+ggcorr(defenders, geom = "blank", label = TRUE, hjust = 0.75) +
+  geom_point(size = 10, aes(color = coefficient > 0, alpha = abs(coefficient) > 0.5)) +
+  scale_alpha_manual(values = c("TRUE" = 0.25, "FALSE" = 0)) +
+  guides(color = FALSE, alpha = FALSE)
+```
+
+Diferente dos meias, em que vimos que roubadas de bola não apresentam valor para a
+pontuação final (no caso dos meias, estão associadas as faltas), médias de roubadas
+de bola estão associadas com pontuações para os laterais. Além disso, chutes a gol
+podem e dever ser observados na escolha deste tipo de jogadores. Novamente, 
+conseguimos perceber que o fator mando de campo influencia a pontuação sem saldo
+de gols.
+
+### Análise de agrupamentos
+
+```{r, echo=TRUE, results='hide', warning=FALSE, message=FALSE}
+# Criar matriz com escalonamento multidimensional
+mds <- 
+  defenders %>%
+  dist() %>%
+  cmdscale() %>%
+  as_tibble(.name_repair = "unique")
+colnames(mds) <- c("Dim.1", "Dim.2")
+
+# Preparar dados para algoritmo de propagação por afinidade.
+datacluster <- dist(defenders) 
+datacluster <- as.matrix(datacluster)  
+apmodel     <- apcluster(negDistMat(r = 2), datacluster)
+mds$cluster <- as.factor(apcluster::labels(apmodel, type = "enum"))
+defenders$cluster <- as.factor(apcluster::labels(apmodel, type = "enum"))
+```
+
+```{r}
+# Plotar scatter 
+ggscatter(mds, 
+          x = "Dim.1", 
+          y = "Dim.2",
+          label = def_nickname,
+          color = "cluster",
+          palette = "lancet",
+          font.label = c(12, "plain", "black"),
+          size = 1,
+          ellipse = TRUE,
+          ellipse.type = "convex",
+          repel = TRUE) +
+  theme(legend.position = "none")
+```
+
+Temos quatro agrupamentos de laterais. Vamos olhar para o que mais nos interessa,
+laterais de primeiro escalação, identificados em vermelho. Embora possuam boa 
+pontuação média, este grupo possui jogadores com características distintas. Jorge,
+o melhor lateral é o cão chupando manga fora de casa; enquanto Moisés apresenta 
+pontuação fora de casa superior do que quando joga em casa. Alguns laterais possuem
+estatísticas muito semelhantes como Fagner, Diogo Barbosa e Rafael Galhardo, 
+jogadores que dependem de SG para terem a pontuação. Reinaldo e Filipe Luis possuem
+características muito semelhantes.
+
+```{r}
+tb <- 
+  cartola %>%
+  filter(player_position == "lat") %>%
+  filter(player_slug %in% c("moises", "jorge", "filipe-luis", "reinaldo", 
+                            "fagner", "diogo-barbosa", "marcos-rocha", 
+                            "rafael-galhardo")) %>%
+  select(player_slug, score_mean, diff_home_away_s, 
+         score_mean_home, score_mean_away, score_no_cleansheets_mean,
+         RB_mean, G_mean, A_mean)
+plot <- tb[, -1]
+row.names(plot) <- tb$player_slug
+
+ggballoonplot(plot, fill = "value") + 
+  gradient_fill(c(brewer.pal(n = 3, name = "YlGnBu")))
+```
+
+Já no grupo superior (azul claro), temos jogadores que apresentam médias fora de 
+casa muito maiores do que em casa. No grupo verde, jogadores que não possuem tanta
+flutuação dentro e fora de casa.
+
+## Zagueiros
+
+Pronto. Chegou a hora de analisar os defensores. Seguiremos com o mesmo código
+e analisaremos a matriz de correlação.
+
+```{r}
+defenders <- 
+  cartola %>%
+  filter(n_games >= 8 &
+           player_position %in% c("zag")) %>%
+  filter(score_no_cleansheets_mean > quantile(score_no_cleansheets_mean, 
+                                              probs = .3))
+```
+
+Vamos começar com uma matriz de correlação para facilitar nossa interpretação.
+
+```{r}
+# Selecionar variáveis de interesse para análise de agrupamento
+def_nickname <- defenders$player_nickname
+defenders    <- defenders[, c("score_mean", "score_no_cleansheets_mean", 
+               "diff_home_away_s", "score_mean_home",
+               "score_mean_away", "RB_mean", "A_mean",
+               "G_mean", "shots_x_mean", "PE_mean", "fouls_mean")]
+names(defenders) <- gsub("_mean", "", names(defenders))
+defenders <- dummify(defenders)
+
+
+# Plotar matriz de correlação
+ggcorr(defenders, geom = "blank", label = TRUE, hjust = 0.75) +
+  geom_point(size = 10, aes(color = coefficient > 0, alpha = abs(coefficient) > 0.5)) +
+  scale_alpha_manual(values = c("TRUE" = 0.25, "FALSE" = 0)) +
+  guides(color = FALSE, alpha = FALSE)
+```
+
+Não há grande surpresa na escalação dos zagueiros. Pontuações, desconsiderando o
+saldo de gols, estão associadas fortemente com roubadas de bola e com a pontuação dentro
+de casa. Outra curiosidade é o fato da média de gols estar muito mais associada
+do que com os laterais.
+
+### Análise de agrupamentos
+```{r, echo=TRUE, results='hide', warning=FALSE, message=FALSE}
+# Criar matriz com escalonamento multidimensional
+mds <- 
+  defenders %>%
+  dist() %>%
+  cmdscale() %>%
+  as_tibble(.name_repair = "unique")
+colnames(mds) <- c("Dim.1", "Dim.2")
+
+# Preparar dados para algoritmo de propagação por afinidade.
+datacluster <- dist(defenders) 
+datacluster <- as.matrix(datacluster)  
+apmodel     <- apcluster(negDistMat(r = 2), datacluster)
+mds$cluster <- as.factor(apcluster::labels(apmodel, type = "enum"))
+defenders$cluster <- as.factor(apcluster::labels(apmodel, type = "enum"))
+```
+
+```{r}
+# Plotar scatter 
+ggscatter(mds, 
+          x = "Dim.1", 
+          y = "Dim.2",
+          label = def_nickname,
+          color = "cluster",
+          palette = "lancet",
+          font.label = c(12, "plain", "black"),
+          size = 1,
+          ellipse = TRUE,
+          ellipse.type = "convex",
+          repel = TRUE) +
+  theme(legend.position = "none")
+```
+
+Geromito e o resto. Não entrarei em detalhes sobre o Geromito. Vamos falar dos
+mortais apenas. No primeiro agrupamento mais a direita (em azul piscina), temos Dedé, Rafael Vaz e 
+Cuesta. Victor Cuesta e Rafael Vaz apresentam médias em casa e fora muito semelhantes,
+enquanto o pobre Dedé apresenta resultados melhores dentro de casa. Pablo Marí e Kannemann
+são os jogadores que mais representam as características do grupo verde, que
+apresenta médias superiores fora de casa do que quando mandantes. Veja a figura abaixo
+para maiores detalhes.
+
+```{r}
+tb <- 
+  cartola %>%
+  filter(player_position == "zag") %>%
+  filter(player_slug %in% c("pedro-geromel", "dede", "rafael-vaz",
+                            "victor-cuesta", "david-braz", "pablo-mari",
+                            "gustavo-gomez", "rodrigo-caio", "lucas-verissimo")) %>%
+  select(player_slug, score_mean, diff_home_away_s, 
+         score_mean_home, score_mean_away, score_no_cleansheets_mean,
+         RB_mean, G_mean, A_mean)
+plot <- tb[, -1]
+row.names(plot) <- tb$player_slug
+
+ggballoonplot(plot, fill = "value") + 
+  gradient_fill(c(brewer.pal(n = 3, name = "YlGnBu")))
+```
+
+
+## Conclusões
+
+Vamos as conclusões. Conseguimos através da análise de agrupamentos identificar
+jogadores de defesa com características semelhantes, o que pode ser útil na escalação.
+
+Quanto aos goleiros, percebemos que o processo de escalação deve envolver a análise
+das médias de defesas difíceis e da análise das chances de saldo de gols. Num futuro
+tutorial iremos analisar o impacto de um determinado goleiro enfrentar times que 
+chutam muito a gol.
+
+Quanto aos laterais, conseguimos também classificar os grupos com maior média e
+que possuem diferenças entre ter desempenho em casa e fora. A média acumulada de 
+roubada de bola também precisa ser olhada - não se esqueça de escolher aqueles
+que também têm alguma chance de fazer gols e assistências.
+
+Por fim, mas não por último, temos os zagueiros. Percebemos que Pedro Geromel está
+acima do bem e do mal e há grupos distintos de zagueiros; alguns caseiros e outros 
+que jogam melhor fora de casa. Saber destes detalhes pode ser útil para tomar 
+decisões para escalar os jogadores.
+
+Quer ter acesso a estas análises durante todo o campeonato? Mande um e-mail para:
+cartolapfclube@gmail.com
+
+H.G.

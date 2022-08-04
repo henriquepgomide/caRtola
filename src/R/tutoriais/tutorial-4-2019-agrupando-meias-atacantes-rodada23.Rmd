@@ -1,0 +1,222 @@
+---
+title: Cartola PFC - Quais meias escalar no Cartola? Ofensivos ou defensivos?
+author: "Henrique Gomide, Ph.D."
+date: "10/04/2019"
+output:
+  html_document: default
+  word_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(RCurl)
+library(tidyverse)
+library(GGally)
+library(cluster)
+library(ggpubr)
+library(RColorBrewer)
+library(spatstat)
+library(apcluster)
+library(sjPlot)
+```
+
+Já usamos a técnica de agrupamento Affinity Propagation no [post anterior](https://medium.com/ensina-ai/cartola-pfc-analisando-os-atacantes-do-primeiro-turno-com-affinity-propagation-89df6304b4e4)
+sobre os  atacantes do CartolaFC. Hora de analisar os meiocampistas. Escalar jogadores 
+no Cartola é maximizar sua probabilidade de vencer. De quebra, tentaremos 
+responder a uma pergunta que divide opinião de cartoleiros.
+
+> Devo escalar meias defensivos ou ofensivos?
+
+## Metodologia
+
+Usaremos nesta análise os mesmos procedimentos de análise do post anterior:
+1) limpeza dos dados; 2) [escalonamento multidimensional](https://datascience.insper.edu.br/escalonamento-multidimensional.html) 
+e 3) [affinity propagation](https://science.sciencemag.org/content/315/5814/972.full).
+
+## Análise de agrupamentos
+
+Vamos pegar as estatísticas agregadas mais uma vez do repositório do Github 
+[caRtola](https://github.com/henriquepgomide/caRtola). A base é atualizada
+toda rodada.
+
+```{r}
+data_url <- "https://raw.githubusercontent.com/henriquepgomide/caRtola/master/data/2019/2019-medias-jogadores.csv"
+cartola <- read.csv(data_url,
+                    stringsAsFactors = FALSE)
+glimpse(cartola)
+```
+
+Uma breve descrição do banco de dados. Temos apelido, código do time, e as médias acumuladas
+para quase todos os scouts do Cartola FC. Além disso, temos a média acumulada em casa/fora, 
+a diferença entre as médias casa/fora padronizadas (diff_home_away_s), número de jogos 
+na temporada entre outros.
+
+Antes de iniciar de aplicar as técnicas de agrupamento, vamos preparar um pouco
+o banco de dados para conduzir as análises. A limpeza inclui: selecionar jogadores 
+com no mínimo 12 jogos na temporada (estamos na 23 rodada no momento deste tutorial) 
+e com média superior a 2. 
+
+
+```{r}
+cartola <- 
+  cartola %>%
+  filter(n_games >= 12 &
+           player_position %in% c("mei") &
+           cartola$score_mean >= 2)
+```
+
+### Quais scouts estão associados com melhores médias?
+
+De maneira simples, vamos tentar responder "Vale mais a pena escalar meias 
+que roubam bola ou aqueles que estão preocupados no ataque?"
+
+
+```{r}
+# Selecionar variáveis de interesse para análise de agrupamento
+data <-  cartola[, c("score_mean", "diff_home_away_s", "score_mean_home",
+                     "score_mean_away",  "shots_x_mean", "fouls_mean", "G_mean",
+                     "RB_mean",  "PE_mean", "A_mean", "I_mean", "FS_mean")]
+names(data) <- gsub("_mean", "", names(data))
+data <- dummify(data)
+
+# Plotar matriz de correlação
+ggcorr(data, geom = "blank", label = TRUE, hjust = 0.75) +
+  geom_point(size = 10, aes(color = coefficient > 0, alpha = abs(coefficient) > 0.5)) +
+  scale_alpha_manual(values = c("TRUE" = 0.25, "FALSE" = 0)) +
+  guides(color = FALSE, alpha = FALSE)
+```
+
+Esta análise de correlação pode nos ajudar. Vamos começar com o geral - observe a 
+última linha da figura acima. As variáveis mais associadas a média de pontos são: 
+as médias de gol (0,8), assistência (0,7), chutes a gol (0,5) e faltas sofridas
+(0,4). Onde estão as roubadas de bola?
+
+Boa pergunta. A associação é muito fraca (0,1), o que mostra que, de maneira geral,
+meias que roubam muitas bolas não necessariamente apresentam boa pontuação no cartola.
+Por quê? Duas outras variáveis nos ajudam a explicar porque os meias que roubam
+bolas não possuem boa pontuação. Primeiro, geralmente ladrões de bola fazem mais faltas,
+e o algoritmo do Cartola pune quem comete faltas. Segundo, roubadas de bola possuem associação
+negativa (-0,6) com chutes a gol. Isto é jogadores que roubam bolas precisam gastar
+mais energia na defesa.
+
+Estes resultados convergem com as intuições dos cartoleiros experientes.
+É o que @mario_gomide do [Cartola PFC](https://www.cartolapfc.com.br) diz. Mario 
+acompanha há dois anos as escalações de influenciadores de mais de 100 canais do Youtube.
+Ele disse que aproximadamente 1/4 apenas dos melhores cartoleiros influenciadores
+gostam de escalar jogadores que roubam bolas no meio de campo. Quando os cartoleiros
+mais experientes escalam um ladrão, também fazem questão que este tenha funções 
+ofensivas como por exemplo, o Zé Rafael, antigo Bahia e agora Palmeiras. Na temporada
+passada, Zé Rafael era um mito no Cartola e com a mudança de função no Palmeiras, 
+acabou desaparecendo das escalações. Vamos agora analisar os grupos de jogadores e 
+tentar definir jogadores que possuem características semelhantes.
+
+
+### Análise de agrupamentos
+
+```{r, echo=TRUE, results='hide', warning=FALSE, message=FALSE}
+# Criar matriz com escalonamento multidimensional
+mds <- 
+  data %>%
+  dist() %>%
+  cmdscale() %>%
+  as_tibble(.name_repair = "unique")
+colnames(mds) <- c("Dim.1", "Dim.2")
+
+# Preparar dados para algoritmo de propagação por afinidade.
+datacluster <- dist(data) 
+datacluster <- as.matrix(datacluster)  
+apmodel     <- apcluster(negDistMat(r = 2), datacluster)
+mds$cluster <- as.factor(apcluster::labels(apmodel, type = "enum"))
+cartola$cluster <- as.factor(apcluster::labels(apmodel, type = "enum"))
+
+```
+
+```{r}
+# Plotar scatter 
+ggscatter(mds, 
+          x = "Dim.1", 
+          y = "Dim.2",
+          label = cartola$player_nickname,
+          color = "cluster",
+          palette = "lancet",
+          font.label = c(9, "plain", "black"),
+          size = 1,
+          ellipse = TRUE,
+          ellipse.type = "convex",
+          repel = TRUE) +
+  theme(legend.position = "none")
+```
+
+
+## Análise
+
+### Temos um Deus; Ele fala espanhol.
+
+Ao analisar a figura acima, podemos perceber os agrupamentos criados pelo algoritmo.
+Temos ao total 8 agrupamentos de jogadores. Arrascaeta constitui um agrupamento porque
+vive num diferente planeta de pontuação no Cartola. A média de pontuação do uruguaio
+é de 11,7; 5,4 pontos distantes do segundo melhor meiocampo! Surreal.
+
+Deixando Deus de lado, vamos tentar identificar interpretar as dimensões do gráfico. 
+Para isso vamos comparar os dados abaixo e a figura acima.
+
+```{r}
+tb <- 
+  cartola %>%
+  filter(player_slug %in% c("bruno-henrique", "arrascaeta", "gustavo-campanharo") &
+           score_mean > 2) %>%
+  select(player_slug, score_mean, diff_home_away_s, 
+         score_mean_home, score_mean_away, shots_x_mean,
+         A_mean, RB_mean, fouls_mean, G_mean)
+plot <- tb[, -1]
+row.names(plot) <- tb$player_slug
+
+ggballoonplot(plot, fill = "value") + 
+  gradient_fill(c(brewer.pal(n = 3, name = "YlGnBu")))
+```
+
+Eixo X está fortemente composto pela média de pontos e Y pela média de pontos dentro
+de casa.
+
+### Interpretação dos agrupamentos
+
+Enquanto Carlos Sanchéz, Rodrigo Lindoso e Thiago Garlhado (em roxo) constituem o grupo
+de mortais com melhor desempenho no Cartola, no agrupamento azul, temos meias que
+pontuam bem em casa. Neste mesmo agrupamento azul, temos jogadores de características
+distintas tais como: Ralf e Thiago Neves. A observação deste agrupamento nos ajuda
+a entender que ladrõesw, fazem mais faltas e tendem a chutar menos, ilustrando o 
+fênomeno que identificamos na matriz de correlação.
+
+Por fim, no agrupamento cinza claro, temos meias que não possuem tanta variação de 
+desempenho quando jogam em casa ou fora.
+
+
+```{r}
+tb <- 
+  cartola %>%
+  filter(cluster == 1) %>%
+  select(player_slug, diff_home_away_s, 
+         shots_x_mean, fouls_mean, RB_mean,
+         G_mean, A_mean) %>%
+  arrange(desc(RB_mean))
+
+plot <- tb[, -1]
+row.names(plot) <- tb$player_slug
+ggballoonplot(plot, fill = "value") + 
+  gradient_fill(c(brewer.pal(n = 3, name = "YlGnBu")))
+```
+
+
+## Conclusões
+
+Serei curto e breve:
+
+1. Volantes podem ganhar um campeonato, mas não o Cartola. Prefira meias que possuem 
+estatísticas de ataque. 
+2. Analise os confrontos da rodada (quem joga em casa, fora) para escolher atletas.
+
+Deixe seu aplauso para que eu escrever a próxima e última análise. Laterais, Zagueiros
+e Goleiros.
+
+H.G.
+:)

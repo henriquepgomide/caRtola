@@ -1,0 +1,237 @@
+---
+title: Cartola PFC - Análise do primeiro turno. Analisando os atacantes do Cartola FC.
+author: "Henrique Gomide, Ph.D."
+date: "9/21/2019"
+output:
+  html_document: default
+  word_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(RCurl)
+library(tidyverse)
+library(GGally)
+library(cluster)
+library(ggpubr)
+library(RColorBrewer)
+library(spatstat)
+library(apcluster)
+library(sjPlot)
+```
+
+Acabou o primeiro turno do Brasileirão deste ano. Com isso temos dados de 19
+rodadas para analisar o desempenho dos atletas. Escalar jogadores no Cartola é
+sempre um desafio de minimizar os riscos. 
+
+Cartoleiros letrados e numerados sempre começam olhando para as médias da temporada,
+probabilidade de vitória nos confrontos. Cartoleiros estudiosos também olham 
+métricas mais refinadas tais como média em casa / fora, quantidade de chutes a gol, 
+impedimentos, número de faltas...
+
+Tentar classificar jogadores passa a ser então um problema bastante difícil de ser 
+feito através da observação sistemática do atletas. Certo?
+
+Neste tutorial, iremos tentar responder a pergunta usando um conjunto de técnicas bastante
+utilizadas entre cientistas de dados para tentar responder a seguinte questão.
+
+> É possível agrupar jogadores com estatísticas semelhantes no Cartola?
+
+## Metodologia
+Para responder a esta questão, usaremos uma técnica de agrupamento conhecida por
+[escalonamento multidimensional](https://datascience.insper.edu.br/escalonamento-multidimensional.html). 
+De maneira resumida, iremos representar objetos com atributos multidimensionais 
+numa  matriz de dimensões reduzidas. Objetos com características mais semelhantes,
+estarão mais próximos. Isto é, combinar várias estatísticas dos jogadores do 
+cartola num gráfico com dois eixos apenas e aqueles jogadores que possuírem 
+características mais próximas estarão mais próximos uns dos outros.
+
+Além de agrupar os jogadores com métricas similares, aplicaremos um algoritmo de 
+agrupamento conhecido como Agrupamento por Propagação de Afinidade (do inglês, 
+_Affinity Propagation_). Diferente de métodos clássicos de agrupamento como k-médias
+e k-medoides, o algoritmo de propagação por afinidade não requer que o número de
+clusteres seja definido de antemão pelo analista. Este algoritmo foi publicado 
+na revista [Science em 2007](https://science.sciencemag.org/content/315/5814/972.full). 
+Olhe as referências para satisfazer sua
+curiosidade.
+
+## Análise de agrupamentos
+
+Bem, primeiro vamos aos dados do Cartola. Em parceria com Arnaldo, eu organizo
+estatísticas do Cartola no repositório do Github [caRtola](https://github.com/henriquepgomide/caRtola).
+Nele você encontrará dados e estatísticas de 2014 até 2019. Vamos aproveitar uma 
+base de 2019 que é atualizada toda rodada. :)
+
+Vamos aproveitar a leitura e ver quais dados o arquivo nos fornece.
+
+```{r}
+data_url <- "https://raw.githubusercontent.com/henriquepgomide/caRtola/master/data/2019/2019-medias-jogadores.csv"
+cartola <- read.csv(data_url,
+                    stringsAsFactors = FALSE)
+view_df(cartola)
+```
+
+Uma breve descrição das métricas. Temos apelido, código do time, e as médias acumuladas
+para quase todos os scouts do Cartola. Além disso, temos a média acumulada em casa/fora, 
+a diferença entre as médias casa/fora padronizadas (diff_home_away_s), número de jogos 
+na temporada entre outros.
+
+Antes de iniciar de aplicar as técnicas de agrupamento, vamos preparar um pouco
+o banco de dados para conduzir as análise. A limpeza incluí: selecionar jogadores 
+com no mínimo 10 jogos na temporada (estamos na 19 rodada no momento deste tutorial). 
+Também, iremos nos concentrar apenas nos atacantes.  Nos próximos posts iremos 
+nos debruçar sobre os dados de outras posições.
+
+```{r}
+cartola <- 
+  cartola %>%
+  filter(n_games >= 10 &
+           player_position %in% c("ata"))
+```
+
+### Quais scouts estão associados com melhores médias?
+
+Antes de começar nossa análise de agrupamentos, nada melhor que conhecer nossos 
+dados um pouco melhor. O que será que está mais correlacionado com a pontuação 
+dos meias e atacantes?
+
+```{r}
+# Selecionar variáveis de interesse para análise de agrupamento
+data <-  cartola[, c("score_mean", "diff_home_away_s", "score_mean_home",
+                     "score_mean_away",  "shots_x_mean", "fouls_mean", "G_mean",
+                     "RB_mean",  "PE_mean", "A_mean", "I_mean", "FS_mean")]
+names(data) <- gsub("_mean", "", names(data))
+data <- dummify(data)
+
+# Plotar matriz de correlação
+ggcorr(data, geom = "blank", label = TRUE, hjust = 0.75) +
+  geom_point(size = 10, aes(color = coefficient > 0, alpha = abs(coefficient) > 0.5)) +
+  scale_alpha_manual(values = c("TRUE" = 0.25, "FALSE" = 0)) +
+  guides(color = FALSE, alpha = FALSE)
+```
+
+Percebemos que as variáveis mais associadas à pontuação são: média de pontos
+em casa, média fora, média de gols e média de chutes esperados. 
+As outras métricas possuem associação fraca. 
+
+### Análise de agrupamentos
+
+```{r, echo=TRUE, results='hide', warning=FALSE, message=FALSE}
+# Criar matriz com escalonamento multidimensional
+mds <- 
+  data %>%
+  dist() %>%
+  cmdscale() %>%
+  as_tibble(.name_repair = "unique")
+colnames(mds) <- c("Dim.1", "Dim.2")
+
+# Preparar dados para algoritmo de propagação por afinidade.
+datacluster <- dist(data) 
+datacluster <- as.matrix(datacluster)  
+apmodel     <- apcluster(negDistMat(r = 2), datacluster)
+mds$cluster <- as.factor(apcluster::labels(apmodel, type = "enum"))
+```
+
+```{r}
+# Plotar scatter 
+ggscatter(mds, 
+          x = "Dim.1", 
+          y = "Dim.2",
+          label = cartola$player_nickname,
+          color = "cluster",
+          palette = "lancet",
+          font.label = c(7, "plain", "black"),
+          size = 1,
+          ellipse = TRUE,
+          ellipse.type = "convex",
+          repel = TRUE) +
+  theme(legend.position = "none")
+```
+
+
+## Análise
+
+### Hoje tem gol. Sabe de quem?
+
+Ao analisar a figura acima, podemos perceber os agrupamentos criados pelo algoritmo.
+Temos ao total 9 agrupamentos de atacantes. O mais distante de todos, possui apenas
+uma observação. Gabigol é o nome da fera. As estatísticas do atacante de gol são 
+semelhantes a dupla CR7 e Messi.
+
+Deixando nosso outlier de lado, vamos aproveitar para interpretar o que seriam estas
+duas dimensões. Se Gabigol está distante, já podemos concluir que a primeira dimensão
+está ligada à pontuação do cartola. Vamos aproveitar e tentar identificar o que 
+faz Bruno Henrique (Flamengo), Pedro (Fluminense) e Wellignton Silva estarem em extremos 
+na segunda dimensão.
+
+```{r}
+tb <- 
+  cartola %>%
+  filter(player_slug %in% c("bruno-henrique", "pedro", "wellington-silva") &
+           score_mean > 2) %>%
+  select(player_slug, score_mean, diff_home_away_s, 
+         score_mean_home, score_mean_away, shots_x_mean,
+         G_mean)
+plot <- tb[, -1]
+row.names(plot) <- tb$player_slug
+
+ggballoonplot(plot, fill = "value") + 
+  gradient_fill(c(brewer.pal(n = 3, name = "YlGnBu")))
+```
+
+Aparentemente já conseguimos entender as duas dimensões. Enquanto o eixo 'x' é
+ligado à quantidade de pontos, o 'y' está ligado a diferência da pontuação entre
+a média dentro e fora de casa. Pedro e Wellington Silva estão no topo e são jogadores
+que possuem média maior fora de casa do que dentro. Bruno Henrique, embora seja um 
+grande pontuador dentro de casa, tem um desempenho ruim fora. Por isso fica na parte
+inferior do gráfico.
+
+### Interpretando os grupos de jogadores
+
+Próximo passo? Identificar características comuns entre agrupamentos de jogadores.
+Da direita em direção à esquerda, depois do ponto fora da curva temo (em cinza claro):
+Gilberto, Sasha, Everton, Bruno Henrique e Everaldo. Vamos olhar as características 
+de cada um e tentar identificar porque Sasha e Everton estão tão próximos. 
+
+```{r}
+tb <- 
+  cartola %>%
+  filter(player_slug %in% c("eduardo-sasha", "gilberto", "everton", 
+                            "pedro", "bruno-henrique", "everaldo") &
+           score_mean > 4) %>%
+  select(player_slug, diff_home_away_s, 
+         shots_x_mean, fouls_mean, RB_mean,
+         G_mean, A_mean) %>%
+  arrange(desc(RB_mean))
+
+plot <- tb[, -1]
+row.names(plot) <- tb$player_slug
+ggballoonplot(plot, fill = "value") + 
+  gradient_fill(c(brewer.pal(n = 3, name = "YlGnBu")))
+```
+
+Neste primeiro agrupamento é possível observar que os jogadores possuem como 
+característica comum a média de pontos do cartola. Pedro distoa do grupo por ser
+um jogador que possui média fora de casa maior que dentro (diff_home_away < 0)).
+Sasha e Everton possuem métricas semelhantes na quantidade de pontos, quantidade 
+de chutes, roubadas de bola e médias de gols. 
+
+## E o Kiko?
+
+E o que você pode fazer com isso tudo de informação? Talvez ainda não esteja claro, 
+mas esse tipo de análise pode ser útil para escalar jogadores. Só ao olhar o gráfico,
+já temos noção de alguns grupos de jogadores que possuem pontuação distinta. Por enquanto,
+é tentar escalar Gabigol e escolher jogadores dos agrupamentos que possuem confrontos
+mais fáceis e considerar se os jogos serão em casa ou fora. 
+
+Times de futebol, podem usar estratégias semelhantes para encontrar jogadores 
+características semelhantes em caso de venda ou compra dos jogadores para reduzir
+o risco do investimento em novos talentos. Naturalmente, as métricas devem ser mais
+elaboradas e fogem do escopo dos dados do cartola.
+
+Quer ver uma análise semelhante para outras posições?
+Comente aqui.
+
+H.G.
+:)
+

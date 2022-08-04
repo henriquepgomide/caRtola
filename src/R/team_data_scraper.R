@@ -79,4 +79,4 @@ data <- fetchMatchDetail(round_number)
 data <- filter(data, round <= round_number)
 
 # Temp
-write.csv(data, "data/2020/2020_partidas.csv", row.names = FALSE)
+write.csv(data, "data/01_raw/2020/2020_partidas.csv", row.names = FALSE)

@@ -17,23 +17,20 @@ Você encontra os dados raw do *Cartola FC* desde 2014 na pasta [data/01_raw][fo
 Estes são alguns tutoriais que escrevemos. Contribuições são sempre bem vindas!
 
 ### Python
-* [Como ler todos os arquivos das rodadas deste repositório com Python?](https://github.com/henriquepgomide/caRtola/blob/master/src/python/colabs/caRtola_como_ler_repositório_do_github_com_BeautifulSoup_e_Pandas.ipynb)
-* [Seleção automática de jogadores feita com Markov Chain e programação linear](https://github.com/henriquepgomide/caRtola/blob/master/src/python/markov-chain-lpp.ipynb)
-* [Média global ou média com mando de campo? O que usar para escalar seus jogadores](https://github.com/henriquepgomide/caRtola/blob/master/src/python/colabs/caRtola_media_media_movel_media_casa_ou_fora_o_que_usar.ipynb)
-* [Algoritmo de valorização dos Jogadores do Cartola PFC](https://github.com/henriquepgomide/caRtola/blob/master/src/python/desafio_valorizacao/Desafio%20da%20Valorização.ipynb)
-* [Estudo sobre algoritmo de valorizaço dos jogadores do Cartola, parte I](https://github.com/henriquepgomide/caRtola/blob/master/src/python/desafio_valorizacao/%23%20Descobrindo%20o%20algoritmo%20de%20valorização%20do%20Cartola%20FC%20-%20Parte%20I.ipynb)
+* [Como ler todos os arquivos das rodadas deste repositório com Python?][tutorial-py-1]
+* [Seleção automática de jogadores feita com Markov Chain e programação linear][tutorial-py-2]
+* [Média global ou média com mando de campo? O que usar para escalar seus jogadores][tutorial-py-3]
+* [Algoritmo de valorização dos Jogadores do Cartola PFC][tutorial-py-4]
+* [Estudo sobre algoritmo de valorizaço dos jogadores do Cartola, parte I][tutorial-py-5]
 
 ### R
-#### Análise de agrupamentos
-* [Parte I - Analisando os atacantes do primeiro turno com Affinity Propagation](https://medium.com/@hpgomide/cartola-pfc-analisando-os-atacantes-do-primeiro-turno-com-affinity-propagation-89df6304b4e4)
-* [Parte II - Quais meias escalar: Defensivos ou ofensivos?](https://medium.com/@hpgomide/cartola-pfc-quais-meias-escalar-no-cartola-ofensivos-ou-defensivos-abe8d7db121d)
-* [Parte III - Analisando jogadores de defesa com Affinity Propagation](https://medium.com/@hpgomide/cartola-pfc-analisando-jogadores-de-defesa-com-affinity-propagation-parte-iii-4b3c35df2c0c)
-#### Regressão
-* [Como montar defesas no Cartola usando regressão de Poisson?](https://medium.com/@hpgomide/como-montamos-defesas-no-cartolafc-com-estatística-e-modelagem-de-dados-6f5d58ac1034)
-
+* [Parte I - Analisando os atacantes do primeiro turno com Affinity Propagation][tutorial-r-1]
+* [Parte II - Quais meias escalar: Defensivos ou ofensivos?][tutorial-r-2]
+* [Parte III - Analisando jogadores de defesa com Affinity Propagation][tutorial-r-3]
+* [Como montar defesas no Cartola usando regressão de Poisson?][tutorial-r-4]x
 
 ### C++
-* [Fórmula do algoritmo de valorização do Cartola FC](https://medium.com/cartolaanalitico/a-f%C3%B3rmula-de-valoriza%C3%A7%C3%A3o-8064b82b0f0). Solução pelo cientista de primeira categoria, João B Coelho. Implementação em [C++](https://github.com/joaoabcoelho/ModeloCartoletas).
+* [Fórmula do algoritmo de valorização do Cartola FC][tutorial-cpp-1]
 
 ## 🃏 Jogo Cartola - Super PFC
 
@@ -70,12 +67,10 @@ Está faltando o seu? Envie para gente e colocamos aqui.
 
 Por favor, cite-nos.
 
-```
 H. Gomide e A. Gualberto, CaRtola: Extração de dados da API do CartolaFC, análise exploratória dos dados e modelos preditivos em R e Python. https://github.com/henriquepgomide/caRtola/. 2022.
-```
 
 ```{latex}
- @book{
+@book{
      title={CaRtola: Extração de dados da API do CartolaFC, análise exploratória dos dados e modelos preditivos em R e Python}, 
      url={https://github.com/henriquepgomide/caRtola}, 
      abstractNote={Extração de dados da API do CartolaFC, análise exploratória dos dados e modelos preditivos em R e Python}, 
@@ -83,8 +78,6 @@ H. Gomide e A. Gualberto, CaRtola: Extração de dados da API do CartolaFC, aná
      year={2022}
 }
 ```
-
-
 
 ## 👥 Autores
 
@@ -107,6 +100,16 @@ H. Gomide e A. Gualberto, CaRtola: Extração de dados da API do CartolaFC, aná
 
 [discord]: https://discord.gg/YVAzA2unMB
 [folder_data]: data/01_raw/
+[metropoles]: https://www.metropoles.com/esportes/cartola-fc-saiba-como-a-pandemia-pode-influenciar-os-times-mandantes
 [supertrunfo-site]: https://henriquepgomide.github.io/cartola-supertrunfo/
 [supertrunfo-repo]: https://github.com/henriquepgomide/cartola-supertrunfo
-[metropoles]: https://www.metropoles.com/esportes/cartola-fc-saiba-como-a-pandemia-pode-influenciar-os-times-mandantes
+[tutorial-py-1]: https://github.com/henriquepgomide/caRtola/blob/master/src/python/colabs/caRtola_como_ler_repositório_do_github_com_BeautifulSoup_e_Pandas.ipynb
+[tutorial-py-2]: https://github.com/henriquepgomide/caRtola/blob/master/src/python/markov-chain-lpp.ipynb
+[tutorial-py-3]: https://github.com/henriquepgomide/caRtola/blob/master/src/python/colabs/caRtola_media_media_movel_media_casa_ou_fora_o_que_usar.ipynb
+[tutorial-py-4]: https://github.com/henriquepgomide/caRtola/blob/master/src/python/desafio_valorizacao/Desafio%20da%20Valorização.ipynb
+[tutorial-py-5]: https://github.com/henriquepgomide/caRtola/blob/master/src/python/desafio_valorizacao/%23%20Descobrindo%20o%20algoritmo%20de%20valorização%20do%20Cartola%20FC%20-%20Parte%20I.ipynb
+[tutorial-r-1]: https://medium.com/@hpgomide/cartola-pfc-analisando-os-atacantes-do-primeiro-turno-com-affinity-propagation-89df6304b4e4
+[tutorial-r-2]: https://medium.com/@hpgomide/cartola-pfc-quais-meias-escalar-no-cartola-ofensivos-ou-defensivos-abe8d7db121d
+[tutorial-r-3]: https://medium.com/@hpgomide/cartola-pfc-analisando-jogadores-de-defesa-com-affinity-propagation-parte-iii-4b3c35df2c0c
+[tutorial-r-4]: https://medium.com/@hpgomide/como-montamos-defesas-no-cartolafc-com-estatística-e-modelagem-de-dados-6f5d58ac1034
+[tutorial-cpp-1]: https://medium.com/cartolaanalitico/a-f%C3%B3rmula-de-valoriza%C3%A7%C3%A3o-8064b82b0f0

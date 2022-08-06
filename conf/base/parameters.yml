@@ -1,4 +1,14 @@
 preprocessing.map_col_names:
+  atleta_id: id_atleta
+  rodada_id: rodada
+  clube_id: id_clube
+  posicao_id: posicao
+  status_id: status
+  pontos_num: pontuacao
+  preco_num: preco
+  variacao_num: variacao
+  media_num: media
+  jogos_num: num_jogos
   atletas.atleta_id: id_atleta
   atletas.rodada_id: rodada
   atletas.clube_id: id_clube

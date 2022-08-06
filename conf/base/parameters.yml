@@ -1,4 +1,4 @@
-map_col_names:
+preprocessing.map_col_names:
   atletas.atleta_id: id_atleta
   atletas.rodada_id: rodada
   atletas.clube_id: id_clube
@@ -18,7 +18,7 @@ map_col_names:
   atletas.clube.id.full.name: nome_clube
 
 
-map_status_id_to_str:
+preprocessing.map_status_id_to_str:
   2: Dúvida
   3: Suspenso
   5: Contundido

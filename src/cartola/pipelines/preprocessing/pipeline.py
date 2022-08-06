@@ -1,5 +1,5 @@
 """
-This is a boilerplate pipeline 'preprocessing_2022'
+This is a boilerplate pipeline 'preprocessing'
 generated using Kedro 0.18.2
 """
 
@@ -17,39 +17,35 @@ def create_pipeline(**kwargs) -> Pipeline:
         [
             node(
                 concat_partitioned_datasets,
-                inputs="raw_2022",
-                outputs="concat_2022",
-                tags=["preprocessing"],
+                inputs="raw",
+                outputs="concat",
             ),
             node(
                 rename_cols,
-                inputs=["concat_2022", "params:map_col_names"],
+                inputs=["concat", "params:map_col_names"],
                 outputs="df_renamed",
-                tags=["preprocessing"],
             ),
             node(
                 drop_duplicated_rows,
                 inputs="df_renamed",
                 outputs="df_not_duplicated",
-                tags=["preprocessing"],
             ),
             node(
                 map_status_id_to_string,
                 inputs=["df_not_duplicated", "params:map_status_id_to_str"],
                 outputs="df_status",
-                tags=["preprocessing"],
             ),
             node(
                 fill_scouts_with_zeros,
-                inputs=["df_status", "params:scouts_2022"],
+                inputs=["df_status", "params:scouts"],
                 outputs="df_filled_scouts",
-                tags=["preprocessing"],
             ),
             node(
                 fill_empty_slugs,
                 inputs=["df_filled_scouts"],
-                outputs="preprocessed_2022",
-                tags=["preprocessing"],
+                outputs="preprocessed",
             ),
         ],
+        namespace="preprocessing",
+        tags=["preprocessing"],
     )

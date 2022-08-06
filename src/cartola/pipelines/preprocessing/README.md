@@ -1,4 +1,4 @@
-# Pipeline preprocessing_2022
+# Pipeline preprocessing
 
 > *Note:* This is a `README.md` boilerplate generated using `Kedro 0.18.2`.
 

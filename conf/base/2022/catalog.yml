@@ -19,7 +19,7 @@
     index: False
 
 
-2022.preprocessing.preprocessed_2022:
+2022.preprocessing.preprocessed:
   type: pandas.CSVDataSet
   filepath: data/03_primary/preprocessed_2022.csv
   save_args:

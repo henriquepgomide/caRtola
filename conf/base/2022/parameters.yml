@@ -25,7 +25,7 @@
   PC: -1.0  # Pênalti Cometido
   GC: -3.0  # Gol Contra
   DP: 7.0   # Defesa de Pênalti
-  DS: 1.2   # DeSarme 
+  DS: 1.2   # DeSarme
   DE: 1.0   # DEfesa *
 
 # * exclusivo de goleiro

@@ -5,7 +5,7 @@
 2022.preprocessing.raw:
   type: PartitionedDataSet
   path: data/01_raw/2022
-  dataset: 
+  dataset:
     type: pandas.CSVDataSet
     load_args:
       index_col: 0

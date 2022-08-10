@@ -1,0 +1,381 @@
+game,round,date,home_team,score,away_team,arena
+1,1,14/04/2018 - 16:00,Cruzeiro - MG,0 x 1,Grêmio - RS,Mineirão - Belo Horizonte - MG
+2,1,15/04/2018 - 19:00,Atlético - PR,5 x 1,Chapecoense - SC,Arena da Baixada - Curitiba - PR
+3,1,15/04/2018 - 11:00,América - MG,3 x 0,Sport - PE,Independência - Belo Horizonte - MG
+4,1,14/04/2018 - 19:00,Vitória - BA,2 x 2,Flamengo - RJ,Manoel Barradas - Salvador - BA
+5,1,15/04/2018 - 16:00,Vasco da Gama - RJ,2 x 1,Atlético - MG,São Januário - Rio de Janeiro - RJ
+6,1,16/04/2018 - 20:00,Botafogo - RJ,1 x 1,Palmeiras - SP,Nilton Santos - Rio de Janeiro - RJ
+7,1,16/04/2018 - 20:00,São Paulo - SP,1 x 0,Paraná - PR,Morumbi - Sao Paulo - SP
+8,1,14/04/2018 - 21:00,Santos - SP,2 x 0,Ceará - CE,Pacaembu - Sao Paulo - SP
+9,1,15/04/2018 - 16:00,Corinthians - SP,2 x 1,Fluminense - RJ,Arena Corinthians - Sao Paulo - SP
+10,1,15/04/2018 - 16:00,Internacional - RS,2 x 0,Bahia - BA,Beira-Rio - Porto Alegre - RS
+11,2,22/04/2018 - 16:00,Atlético - MG,2 x 1,Vitória - BA,Independência - Belo Horizonte - MG
+12,2,22/04/2018 - 11:00,Paraná - PR,0 x 4,Corinthians - SP,Durival Britto - Curitiba - PR
+13,2,22/04/2018 - 16:00,Chapecoense - SC,1 x 1,Vasco da Gama - RJ,Arena Condá - Chapeco - SC
+14,2,21/04/2018 - 16:00,Bahia - BA,1 x 0,Santos - SP,Arena Fonte Nova - Salvador - BA
+15,2,22/04/2018 - 16:00,Fluminense - RJ,1 x 0,Cruzeiro - MG,Maracanã - Rio de Janeiro - RJ
+16,2,21/04/2018 - 19:00,Flamengo - RJ,2 x 0,América - MG,Maracanã - Rio de Janeiro - RJ
+17,2,22/04/2018 - 16:00,Ceará - CE,0 x 0,São Paulo - SP,Castelão - Fortaleza - CE
+18,2,23/04/2018 - 20:00,Sport - PE,1 x 1,Botafogo - RJ,Ilha do Retiro - Recife - PE
+19,2,22/04/2018 - 16:00,Palmeiras - SP,1 x 0,Internacional - RS,Pacaembu - Sao Paulo - SP
+20,2,22/04/2018 - 19:00,Grêmio - RS,0 x 0,Atlético - PR,Arena do Grêmio - Porto Alegre - RS
+21,3,29/04/2018 - 16:00,Atlético - MG,1 x 0,Corinthians - SP,Independência - Belo Horizonte - MG
+22,3,29/04/2018 - 16:00,Paraná - PR,1 x 2,Sport - PE,Durival Britto - Curitiba - PR
+23,3,30/04/2018 - 20:00,América - MG,2 x 1,Vitória - BA,Independência - Belo Horizonte - MG
+24,3,29/04/2018 - 16:00,Bahia - BA,0 x 0,Atlético - PR,Arena Fonte Nova - Salvador - BA
+25,3,29/04/2018 - 16:00,Fluminense - RJ,1 x 1,São Paulo - SP,Maracanã - Rio de Janeiro - RJ
+26,3,28/04/2018 - 16:00,Botafogo - RJ,2 x 1,Grêmio - RS,Nilton Santos - Rio de Janeiro - RJ
+27,3,29/04/2018 - 16:00,Ceará - CE,0 x 3,Flamengo - RJ,Castelão - Fortaleza - CE
+28,3,27/09/2018 - 16:00,Santos - SP,1 x 1,Vasco da Gama - RJ,Pacaembu - Sao Paulo - SP
+29,3,29/04/2018 - 16:00,Palmeiras - SP,0 x 0,Chapecoense - SC,Allianz Parque - Sao Paulo - SP
+30,3,29/04/2018 - 19:00,Internacional - RS,0 x 0,Cruzeiro - MG,Beira-Rio - Porto Alegre - RS
+31,4,06/05/2018 - 16:00,Cruzeiro - MG,1 x 0,Botafogo - RJ,Mineirão - Belo Horizonte - MG
+32,4,06/05/2018 - 16:00,Atlético - PR,1 x 3,Palmeiras - SP,Arena da Baixada - Curitiba - PR
+33,4,07/05/2018 - 20:00,Chapecoense - SC,1 x 1,Paraná - PR,Arena Condá - Chapeco - SC
+34,4,06/05/2018 - 16:00,Vitória - BA,1 x 2,Fluminense - RJ,Manoel Barradas - Salvador - BA
+35,4,05/05/2018 - 19:00,Vasco da Gama - RJ,4 x 1,América - MG,São Januário - Rio de Janeiro - RJ
+36,4,06/05/2018 - 16:00,Flamengo - RJ,2 x 0,Internacional - RS,Maracanã - Rio de Janeiro - RJ
+37,4,05/05/2018 - 19:00,São Paulo - SP,2 x 2,Atlético - MG,Morumbi - Sao Paulo - SP
+38,4,06/05/2018 - 19:00,Sport - PE,2 x 0,Bahia - BA,Ilha do Retiro - Recife - PE
+39,4,06/05/2018 - 11:00,Corinthians - SP,1 x 1,Ceará - CE,Arena Corinthians - Sao Paulo - SP
+40,4,06/05/2018 - 19:00,Grêmio - RS,5 x 1,Santos - SP,Arena do Grêmio - Porto Alegre - RS
+41,5,13/05/2018 - 11:00,Cruzeiro - MG,2 x 0,Sport - PE,Mineirão - Belo Horizonte - MG
+42,5,13/05/2018 - 16:00,Atlético - PR,1 x 2,Atlético - MG,Arena da Baixada - Curitiba - PR
+43,5,13/05/2018 - 16:00,Chapecoense - SC,3 x 2,Flamengo - RJ,Arena Condá - Chapeco - SC
+44,5,13/05/2018 - 16:00,Bahia - BA,2 x 2,São Paulo - SP,Arena Fonte Nova - Salvador - BA
+45,5,13/05/2018 - 16:00,Vasco da Gama - RJ,2 x 3,Vitória - BA,São Januário - Rio de Janeiro - RJ
+46,5,14/05/2018 - 20:00,Botafogo - RJ,2 x 1,Fluminense - RJ,Nilton Santos - Rio de Janeiro - RJ
+47,5,14/05/2018 - 20:00,Ceará - CE,2 x 2,América - MG,Castelão - Fortaleza - CE
+48,5,13/05/2018 - 19:00,Santos - SP,3 x 1,Paraná - PR,Vila Belmiro - Santos - SP
+49,5,13/05/2018 - 16:00,Corinthians - SP,1 x 0,Palmeiras - SP,Arena Corinthians - Sao Paulo - SP
+50,5,12/05/2018 - 16:00,Grêmio - RS,0 x 0,Internacional - RS,Arena do Grêmio - Porto Alegre - RS
+51,6,19/05/2018 - 16:00,Atlético - MG,1 x 0,Cruzeiro - MG,Independência - Belo Horizonte - MG
+52,6,20/05/2018 - 16:00,Paraná - PR,0 x 0,Grêmio - RS,Durival Britto - Curitiba - PR
+53,6,20/05/2018 - 16:00,América - MG,1 x 0,Botafogo - RJ,Independência - Belo Horizonte - MG
+54,6,20/05/2018 - 11:00,Vitória - BA,2 x 1,Ceará - CE,Manoel Barradas - Salvador - BA
+55,6,20/05/2018 - 19:00,Fluminense - RJ,2 x 0,Atlético - PR,Maracanã - Rio de Janeiro - RJ
+56,6,19/05/2018 - 19:00,Flamengo - RJ,1 x 1,Vasco da Gama - RJ,Maracanã - Rio de Janeiro - RJ
+57,6,20/05/2018 - 16:00,São Paulo - SP,1 x 0,Santos - SP,Morumbi - Sao Paulo - SP
+58,6,20/05/2018 - 16:00,Sport - PE,1 x 1,Corinthians - SP,Arena Pernambuco - São Lourenço da Mata - PE
+59,6,19/05/2018 - 21:00,Palmeiras - SP,3 x 0,Bahia - BA,Allianz Parque - Sao Paulo - SP
+60,6,21/05/2018 - 20:00,Internacional - RS,3 x 0,Chapecoense - SC,Beira-Rio - Porto Alegre - RS
+61,7,26/05/2018 - 21:00,Atlético - MG,0 x 1,Flamengo - RJ,Independência - Belo Horizonte - MG
+62,7,27/05/2018 - 11:00,Paraná - PR,0 x 0,Atlético - PR,Durival Britto - Curitiba - PR
+63,7,27/05/2018 - 19:00,América - MG,1 x 3,São Paulo - SP,Independência - Belo Horizonte - MG
+64,7,27/05/2018 - 16:00,Bahia - BA,3 x 0,Vasco da Gama - RJ,Arena Fonte Nova - Salvador - BA
+65,7,26/05/2018 - 16:00,Fluminense - RJ,3 x 1,Chapecoense - SC,Maracanã - Rio de Janeiro - RJ
+66,7,27/05/2018 - 16:00,Botafogo - RJ,1 x 1,Vitória - BA,Nilton Santos - Rio de Janeiro - RJ
+67,7,27/05/2018 - 19:00,Ceará - CE,0 x 1,Grêmio - RS,Castelão - Fortaleza - CE
+68,7,27/05/2018 - 16:00,Santos - SP,0 x 1,Cruzeiro - MG,Pacaembu - Sao Paulo - SP
+69,7,26/05/2018 - 19:00,Palmeiras - SP,2 x 3,Sport - PE,Allianz Parque - Sao Paulo - SP
+70,7,27/05/2018 - 16:00,Internacional - RS,2 x 1,Corinthians - SP,Beira-Rio - Porto Alegre - RS
+71,8,30/05/2018 - 21:45,Cruzeiro - MG,1 x 0,Palmeiras - SP,Mineirão - Belo Horizonte - MG
+72,8,31/05/2018 - 21:00,Atlético - PR,2 x 0,Santos - SP,Arena da Baixada - Curitiba - PR
+73,8,30/05/2018 - 21:00,Chapecoense - SC,2 x 0,Ceará - CE,Arena Condá - Chapeco - SC
+74,8,30/05/2018 - 19:30,Vitória - BA,2 x 3,Internacional - RS,Manoel Barradas - Salvador - BA
+75,8,30/05/2018 - 19:30,Vasco da Gama - RJ,1 x 0,Paraná - PR,São Januário - Rio de Janeiro - RJ
+76,8,31/05/2018 - 16:00,Flamengo - RJ,2 x 0,Bahia - BA,Luso Brasileiro - Rio de Janeiro - RJ
+77,8,30/05/2018 - 21:00,São Paulo - SP,3 x 2,Botafogo - RJ,Morumbi - Sao Paulo - SP
+78,8,30/05/2018 - 19:30,Sport - PE,3 x 2,Atlético - MG,Ilha do Retiro - Recife - PE
+79,8,31/05/2018 - 18:00,Corinthians - SP,1 x 0,América - MG,Arena Corinthians - Sao Paulo - SP
+80,8,30/05/2018 - 21:45,Grêmio - RS,0 x 0,Fluminense - RJ,Arena do Grêmio - Porto Alegre - RS
+81,9,02/06/2018 - 16:00,Atlético - MG,3 x 3,Chapecoense - SC,Independência - Belo Horizonte - MG
+82,9,04/06/2018 - 20:00,Paraná - PR,2 x 1,Fluminense - RJ,Durival Britto - Curitiba - PR
+83,9,03/06/2018 - 16:00,América - MG,3 x 1,Atlético - PR,Independência - Belo Horizonte - MG
+84,9,03/06/2018 - 16:00,Bahia - BA,0 x 2,Grêmio - RS,Arena Fonte Nova - Salvador - BA
+85,9,02/06/2018 - 19:00,Vasco da Gama - RJ,1 x 2,Botafogo - RJ,São Januário - Rio de Janeiro - RJ
+86,9,03/06/2018 - 16:00,Flamengo - RJ,1 x 0,Corinthians - SP,Luso Brasileiro - Rio de Janeiro - RJ
+87,9,03/06/2018 - 19:00,Ceará - CE,0 x 1,Cruzeiro - MG,Castelão - Fortaleza - CE
+88,9,03/06/2018 - 16:00,Santos - SP,5 x 2,Vitória - BA,Vila Belmiro - Santos - SP
+89,9,02/06/2018 - 21:00,Palmeiras - SP,3 x 1,São Paulo - SP,Allianz Parque - Sao Paulo - SP
+90,9,02/06/2018 - 16:00,Internacional - RS,0 x 0,Sport - PE,Beira-Rio - Porto Alegre - RS
+91,10,06/06/2018 - 21:45,Cruzeiro - MG,1 x 1,Vasco da Gama - RJ,Mineirão - Belo Horizonte - MG
+92,10,07/06/2018 - 20:00,Paraná - PR,1 x 0,Bahia - BA,Durival Britto - Curitiba - PR
+93,10,07/06/2018 - 21:00,América - MG,1 x 3,Atlético - MG,Independência - Belo Horizonte - MG
+94,10,06/06/2018 - 19:30,Vitória - BA,1 x 0,Chapecoense - SC,Manoel Barradas - Salvador - BA
+95,10,07/06/2018 - 20:00,Fluminense - RJ,0 x 2,Flamengo - RJ,Maracanã - Rio de Janeiro - RJ
+96,10,06/06/2018 - 19:30,Botafogo - RJ,0 x 0,Ceará - CE,Nilton Santos - Rio de Janeiro - RJ
+97,10,05/06/2018 - 21:30,São Paulo - SP,0 x 0,Internacional - RS,Morumbi - Sao Paulo - SP
+98,10,06/06/2018 - 21:00,Sport - PE,1 x 0,Atlético - PR,Ilha do Retiro - Recife - PE
+99,10,06/06/2018 - 21:00,Corinthians - SP,1 x 1,Santos - SP,Arena Corinthians - Sao Paulo - SP
+100,10,06/06/2018 - 21:45,Grêmio - RS,0 x 2,Palmeiras - SP,Arena do Grêmio - Porto Alegre - RS
+101,11,10/06/2018 - 16:00,Atlético - MG,5 x 2,Fluminense - RJ,Independência - Belo Horizonte - MG
+102,11,09/06/2018 - 16:00,Atlético - PR,0 x 1,São Paulo - SP,Arena da Baixada - Curitiba - PR
+103,11,09/06/2018 - 19:00,Chapecoense - SC,2 x 0,Cruzeiro - MG,Arena Condá - Chapeco - SC
+104,11,10/06/2018 - 16:00,Bahia - BA,3 x 3,Botafogo - RJ,Arena Fonte Nova - Salvador - BA
+105,11,09/06/2018 - 19:00,Vasco da Gama - RJ,3 x 2,Sport - PE,São Januário - Rio de Janeiro - RJ
+106,11,10/06/2018 - 19:00,Flamengo - RJ,2 x 0,Paraná - PR,Luso Brasileiro - Rio de Janeiro - RJ
+107,11,10/06/2018 - 16:00,Ceará - CE,2 x 2,Palmeiras - SP,Castelão - Fortaleza - CE
+108,11,10/06/2018 - 19:00,Santos - SP,1 x 2,Internacional - RS,Vila Belmiro - Santos - SP
+109,11,09/06/2018 - 21:00,Corinthians - SP,0 x 0,Vitória - BA,Arena Corinthians - Sao Paulo - SP
+110,11,10/06/2018 - 16:00,Grêmio - RS,1 x 0,América - MG,Arena do Grêmio - Porto Alegre - RS
+111,12,13/06/2018 - 21:45,Atlético - MG,2 x 1,Ceará - CE,Independência - Belo Horizonte - MG
+112,12,13/06/2018 - 19:30,Paraná - PR,1 x 1,Cruzeiro - MG,Durival Britto - Curitiba - PR
+113,12,13/06/2018 - 16:00,América - MG,0 x 0,Chapecoense - SC,Independência - Belo Horizonte - MG
+114,12,13/06/2018 - 21:45,Bahia - BA,1 x 0,Corinthians - SP,Arena Fonte Nova - Salvador - BA
+115,12,13/06/2018 - 19:00,Fluminense - RJ,0 x 1,Santos - SP,Maracanã - Rio de Janeiro - RJ
+116,12,13/06/2018 - 21:00,Botafogo - RJ,2 x 0,Atlético - PR,Nilton Santos - Rio de Janeiro - RJ
+117,12,12/06/2018 - 21:30,São Paulo - SP,3 x 0,Vitória - BA,Morumbi - Sao Paulo - SP
+118,12,13/06/2018 - 19:30,Sport - PE,0 x 0,Grêmio - RS,Ilha do Retiro - Recife - PE
+119,12,13/06/2018 - 21:00,Palmeiras - SP,1 x 1,Flamengo - RJ,Allianz Parque - Sao Paulo - SP
+120,12,13/06/2018 - 21:45,Internacional - RS,3 x 1,Vasco da Gama - RJ,Beira-Rio - Porto Alegre - RS
+121,13,18/07/2018 - 21:45,Cruzeiro - MG,3 x 1,América - MG,Datas aproximadas
+122,13,18/07/2018 - 21:45,Atlético - PR,2 x 2,Internacional - RS,Datas aproximadas
+123,13,18/07/2018 - 21:45,Chapecoense - SC,1 x 1,Bahia - BA,Datas aproximadas
+124,13,18/07/2018 - 21:45,Vitória - BA,1 x 0,Paraná - PR,Datas aproximadas
+125,13,18/07/2018 - 21:45,Vasco da Gama - RJ,1 x 1 ,Fluminense - RJ,Datas aproximadas
+126,13,18/07/2018 - 21:45,Flamengo - RJ,0 x 1,São Paulo - SP,Datas aproximadas
+127,13,18/07/2018 - 21:45,Ceará - CE,1 x 0,Sport - PE,Datas aproximadas
+128,13,18/07/2018 - 21:45,Santos - SP,1 x 1,Palmeiras - SP,Datas aproximadas
+129,13,18/07/2018 - 21:45,Corinthians - SP,2 x 0,Botafogo - RJ,Datas aproximadas
+130,13,18/07/2018 - 21:45,Grêmio - RS,2 x 0,Atlético - MG,Datas aproximadas
+131,14,21/07/2018 - 21:45,Cruzeiro - MG,2 x 1,Atlético - PR,Datas aproximadas
+132,14,21/07/2018 - 21:45,Paraná - PR,1 x 0,América - MG,Datas aproximadas
+133,14,21/07/2018 - 21:45,Chapecoense - SC,0 x 0,Santos - SP,Datas aproximadas
+134,14,21/07/2018 - 21:45,Bahia - BA,4 x 1,Vitória - BA,Datas aproximadas
+135,14,21/07/2018 - 21:45,Vasco da Gama - RJ,1 x 0,Grêmio - RS,Datas aproximadas
+136,14,21/07/2018 - 21:45,Flamengo - RJ,2 x 0,Botafogo - RJ,Datas aproximadas
+137,14,21/07/2018 - 21:45,São Paulo - SP,3 x 1,Corinthians - SP,Datas aproximadas
+138,14,21/07/2018 - 21:45,Sport - PE,1 x 2,Fluminense - RJ,Datas aproximadas
+139,14,21/07/2018 - 21:45,Palmeiras - SP,3 x 2,Atlético - MG,Datas aproximadas
+140,14,21/07/2018 - 21:45,Internacional - RS,1 x 0,Ceará - CE,Datas aproximadas
+141,15,25/07/2018 - 21:45,Atlético - MG,2 x 0,Paraná - PR,Datas aproximadas
+142,15,25/07/2018 - 21:45,Atlético - PR,1 x 0,Vasco da Gama - RJ,Datas aproximadas
+143,15,25/07/2018 - 21:45,América - MG,2 x 1,Internacional - RS,Datas aproximadas
+144,15,25/07/2018 - 21:45,Vitória - BA,1 x 0,Sport - PE,Datas aproximadas
+145,15,25/07/2018 - 21:45,Fluminense - RJ,1 x 0,Palmeiras - SP,Datas aproximadas
+146,15,25/07/2018 - 21:45,Botafogo - RJ,1 x 0,Chapecoense - SC,Datas aproximadas
+147,15,29/08/2018 - 19:30,Ceará - CE,0 x 2,Bahia - BA,Datas aproximadas
+148,15,25/07/2018 - 21:45,Santos - SP,1 x 1,Flamengo - RJ,Datas aproximadas
+149,15,25/07/2018 - 21:45,Corinthians - SP,2 x 0,Cruzeiro - MG,Datas aproximadas
+150,15,25/07/2018 - 21:45,Grêmio - RS,2 x 1,São Paulo - SP,Datas aproximadas
+151,16,28/07/2018 - 21:45,Cruzeiro - MG,0 x 2,São Paulo - SP,Datas aproximadas
+152,16,28/07/2018 - 21:45,Atlético - PR,4 x 0,Vitória - BA,Datas aproximadas
+153,16,28/07/2018 - 21:45,Chapecoense - SC,1 x 1,Grêmio - RS,Datas aproximadas
+154,16,28/07/2018 - 21:45,Bahia - BA,2 x 2,Atlético - MG,Datas aproximadas
+155,16,28/07/2018 - 21:45,Vasco da Gama - RJ,1 x 4,Corinthians - SP,Datas aproximadas
+156,16,28/07/2018 - 21:45,Flamengo - RJ,4 x 1,Sport - PE,Datas aproximadas
+157,16,28/07/2018 - 21:45,Ceará - CE,1 x 0,Fluminense - RJ,Datas aproximadas
+158,16,28/07/2018 - 21:45,Santos - SP,0 x 1,América - MG,Datas aproximadas
+159,16,28/07/2018 - 21:45,Palmeiras - SP,3 x 0,Paraná - PR,Datas aproximadas
+160,16,28/07/2018 - 21:45,Internacional - RS,3 x 0,Botafogo - RJ,Datas aproximadas
+161,17,05/08/2018 - 21:45,Atlético - MG,0 x 1,Internacional - RS,Datas aproximadas
+162,17,05/08/2018 - 21:45,Paraná - PR,0 x 1,Ceará - CE,Datas aproximadas
+163,17,05/08/2018 - 21:45,América - MG,0 x 0,Palmeiras - SP,Datas aproximadas
+164,17,05/08/2018 - 21:45,Vitória - BA,1 x 1,Cruzeiro - MG,Datas aproximadas
+165,17,05/08/2018 - 21:45,Fluminense - RJ,1 x 1,Bahia - BA,Datas aproximadas
+166,17,05/08/2018 - 21:45,Botafogo - RJ,0 x 0,Santos - SP,Datas aproximadas
+167,17,05/08/2018 - 21:45,São Paulo - SP,2 x 1,Vasco da Gama - RJ,Datas aproximadas
+168,17,05/08/2018 - 21:45,Sport - PE,1 x 1,Chapecoense - SC,Datas aproximadas
+169,17,05/08/2018 - 21:45,Corinthians - SP,0 x 0,Atlético - PR,Datas aproximadas
+170,17,05/08/2018 - 21:45,Grêmio - RS,2 x 0,Flamengo - RJ,Datas aproximadas
+171,18,12/08/2018 - 21:45,Atlético - MG,3 x 0,Santos - SP,Datas aproximadas
+172,18,12/08/2018 - 21:45,Paraná - PR,1 x 1 ,Botafogo - RJ,Datas aproximadas
+173,18,12/08/2018 - 21:45,Chapecoense - SC,2 x 1,Corinthians - SP,Datas aproximadas
+174,18,12/08/2018 - 21:45,Bahia - BA,1 x 0,América - MG,Datas aproximadas
+175,18,12/08/2018 - 21:45,Fluminense - RJ,0 x 3,Internacional - RS,Datas aproximadas
+176,18,12/08/2018 - 21:45,Flamengo - RJ,1 x 0,Cruzeiro - MG,Datas aproximadas
+177,18,12/08/2018 - 21:45,Ceará - CE,0 x 0,Atlético - PR,Datas aproximadas
+178,18,12/08/2018 - 21:45,Sport - PE,1 x 3,São Paulo - SP,Datas aproximadas
+179,18,12/08/2018 - 21:45,Palmeiras - SP,1 x 0,Vasco da Gama - RJ,Datas aproximadas
+180,18,12/08/2018 - 21:45,Grêmio - RS,4 x 0,Vitória - BA,Datas aproximadas
+181,19,19/08/2018 - 21:45,Cruzeiro - MG,1 x 1,Bahia - BA,Datas aproximadas
+182,19,19/08/2018 - 21:45,Atlético - PR,3 x 0,Flamengo - RJ,Datas aproximadas
+183,19,19/08/2018 - 21:45,América - MG,0 x 0,Fluminense - RJ,Datas aproximadas
+184,19,19/08/2018 - 21:45,Vitória - BA,0 x 3,Palmeiras - SP,Datas aproximadas
+185,19,19/08/2018 - 21:45,Vasco da Gama - RJ,1 x 1,Ceará - CE,Datas aproximadas
+186,19,19/08/2018 - 21:45,Botafogo - RJ,0 x 3,Atlético - MG,Datas aproximadas
+187,19,19/08/2018 - 21:45,São Paulo - SP,2 x 0,Chapecoense - SC,Datas aproximadas
+188,19,19/08/2018 - 21:45,Santos - SP,3 x 0,Sport - PE,Datas aproximadas
+189,19,19/08/2018 - 21:45,Corinthians - SP,0 x 1,Grêmio - RS,Datas aproximadas
+190,19,19/08/2018 - 21:45,Internacional - RS,1 x 0,Paraná - PR,Datas aproximadas
+191,20,08/08/2018 - 19:30,Ceará - CE,1 x 1,Santos - SP,Datas aproximadas
+192,20,22/08/2018 - 21:00,Bahia - BA,0 x 1,Internacional - RS,Datas aproximadas
+193,20,22/08/2018 - 21:00,Paraná - PR,1 x 1,São Paulo - SP,Datas aproximadas
+194,20,22/08/2018 - 21:00,Palmeiras - SP,2 x 0,Botafogo - RJ,Datas aproximadas
+195,20,22/08/2018 - 21:00,Sport - PE,0 x 2,América - MG,Datas aproximadas
+196,20,22/08/2018 - 21:00,Grêmio - RS,1 x 1,Cruzeiro - MG,Datas aproximadas
+197,20,22/08/2018 - 21:00,Fluminense - RJ,1 x 0,Corinthians - SP,Datas aproximadas
+198,20,22/08/2018 - 21:00,Flamengo - RJ,1 x 0,Vitória - BA,Datas aproximadas
+199,20,22/08/2018 - 21:00,Atlético - MG,0 x 0,Vasco da Gama - RJ,Datas aproximadas
+200,20,13/09/2018 - 20:00,Chapecoense - SC,2 x 1,Atlético - PR,Datas aproximadas
+201,21,25/08/2018 - 16:00,Santos - SP,2 x 0 ,Bahia - BA,Correto
+202,21,25/08/2018 - 19:00,Atlético - PR,2 x 1 ,Grêmio - RS,Correto
+203,21,25/08/2018 - 19:00,Corinthians - SP,1 x 0 ,Paraná - PR,Correto
+204,21,25/08/2018 - 21:00,Cruzeiro - MG,2 x 1,Fluminense - RJ,Correto
+205,21,25/08/2018 - 21:00,Botafogo - RJ,2 x 0,Sport - PE,Correto
+206,21,26/08/2018 - 11:00,São Paulo - SP,1 x 0,Ceará - CE,Correto
+207,21,27/08/2018 - 16:00,América - MG,2 x 2,Flamengo - RJ,Correto
+208,21,27/08/2018 - 16:00,Vitória - BA,1 x 0 ,Atlético - MG,Correto
+209,21,27/08/2018 - 19:00,Internacional - RS,0 x 0 ,Palmeiras - SP,Correto
+210,21,27/08/2018 - 19:00,Vasco da Gama - RJ,3 x 1,Chapecoense - SC,Correto
+211,22,01/09/2018 - 16:00,Vitória - BA,1 x 0,América - MG,Correto
+212,22,01/09/2018 - 16:00,Grêmio - RS,4 x 0,Botafogo - RJ,Correto
+213,22,01/09/2018 - 19:00,Vasco da Gama - RJ,0 x 3,Santos - SP,Correto
+214,22,01/09/2018 - 21:00,Corinthians - SP,1 x 1,Atlético - MG,Correto
+215,22,02/09/2018 - 11:00,Flamengo - RJ,1 x 1,Ceará - CE,Correto
+216,22,02/09/2018 - 16:00,Atlético - PR,2 x 0,Bahia - BA,Correto
+217,22,02/09/2018 - 16:00,São Paulo - SP,1 x 1,Fluminense - RJ,Correto
+218,22,02/09/2018 - 16:00,Sport - PE,1 x 0,Paraná - PR,Correto
+219,22,02/09/2018 - 19:00,Cruzeiro - MG,0 x 0,Internacional - RS,Correto
+220,22,02/09/2018 - 19:00,Chapecoense - SC,1 x 2,Palmeiras - SP,Correto
+221,23,05/09/2018 - 19:30,Bahia - BA,2 x 0,Sport - PE,Correto
+222,23,05/09/2018 - 19:30,Botafogo - RJ,1 x 1,Cruzeiro - MG,Correto
+223,23,05/09/2018 - 20:00,Ceará - CE,2 x 1,Corinthians - SP,Correto
+224,23,05/09/2018 - 21:00,Paraná - PR,1 x 1,Chapecoense - SC,Correto
+225,23,05/09/2018 - 21:00,Palmeiras - SP,2 x 0,Atlético - PR,Correto
+226,23,05/09/2018 - 21:45,Atlético - MG,1 x 0,São Paulo - SP,Correto
+227,23,05/09/2018 - 21:45,Internacional - RS,2 x 1,Flamengo - RJ,Correto
+228,23,06/09/2018 - 19:00,Fluminense - RJ,0 x 0,Vitória - BA,Correto
+229,23,06/09/2018 - 19:00,Santos - SP,0 x 0,Grêmio - RS,Correto
+230,23,06/09/2018 - 20:00,América - MG,2 x 1,Vasco da Gama - RJ,Correto
+231,24,08/09/2018 - 16:00,Sport - PE,0 x 0,Cruzeiro - MG,Correto
+232,24,08/09/2018 - 19:00,São Paulo - SP,1 x 0,Bahia - BA,Correto
+233,24,08/09/2018 - 21:00,Flamengo - RJ,2 x 0,Chapecoense - SC,Correto
+234,24,09/09/2018 - 16:00,América - MG,0 x 0,Ceará - CE,Correto
+235,24,09/09/2018 - 16:00,Fluminense - RJ,1 x 0 ,Botafogo - RJ,Correto
+236,24,09/09/2018 - 16:00,Palmeiras - SP,1 x 0 ,Corinthians - SP,Correto
+237,24,09/09/2018 - 16:00,Internacional - RS,1 x 0,Grêmio - RS,Correto
+238,24,09/09/2018 - 19:00,Paraná - PR,0 x 2,Santos - SP,Correto
+239,24,09/09/2018 - 19:00,Vitória - BA,1 x 0,Vasco da Gama - RJ,Correto
+240,24,10/09/2018 - 20:00,Atlético - MG,3 x 1,Atlético - PR,Correto
+241,25,15/09/2018 - 16:00,Ceará - CE,2 x 0,Vitória - BA,Correto
+242,25,15/09/2018 - 16:00,Grêmio - RS,2 x 0,Paraná - PR,Correto
+243,25,15/09/2018 - 19:00,Vasco da Gama - RJ,1 x 1,Flamengo - RJ,Correto
+244,25,16/09/2018 - 11:00,Botafogo - RJ,1 x 0,América - MG,Correto
+245,25,16/09/2018 - 16:00,Cruzeiro - MG,0 x 0,Atlético - MG,Correto
+246,25,16/09/2018 - 16:00,Atlético - PR,3 x 1,Fluminense - RJ,Correto
+247,25,16/09/2018 - 16:00,Bahia - BA,1 x 1,Palmeiras - SP,Correto
+248,25,16/09/2018 - 16:00,Santos - SP,0 x 0,São Paulo - SP,Correto
+249,25,16/09/2018 - 19:00,Corinthians - SP,2 x 1,Sport - PE,Correto
+250,25,17/09/2018 - 20:00,Chapecoense - SC,2 x 1,Internacional - RS,Correto
+251,26,22/09/2018 - 16:00,São Paulo - SP,1 x 1,América - MG,Correto
+252,26,23/09/2018 - 11:00,Grêmio - RS,3 x 2,Ceará - CE,Correto
+253,26,23/09/2018 - 16:00,Atlético - PR,3 x 0,Paraná - PR,Correto
+254,26,23/09/2018 - 16:00,Flamengo - RJ,2 x 1,Atlético - MG,Correto
+255,26,23/09/2018 - 16:00,Corinthians - SP,1 x 1,Internacional - RS,Correto
+256,26,23/09/2018 - 10:00,Vitória - BA,3 x 4,Botafogo - RJ,Correto
+257,26,23/09/2018 - 10:00,Sport - PE,0 x 1,Palmeiras - SP,Correto
+258,26,23/09/2018 - 19:00,Cruzeiro - MG,2 x 1,Santos - SP,Correto
+259,26,24/09/2018 - 20:00,Chapecoense - SC,1 x 2,Fluminense - RJ,Correto
+260,26,24/09/2018 - 20:00,Vasco da Gama - RJ,2 x 1,Bahia - BA,Correto
+261,27,29/09/2018 - 16:00,Fluminense - RJ,0 x 1,Grêmio - RS,Correto
+262,27,29/09/2018 - 19:00,América - MG,0 x 0,Corinthians - SP,Correto
+263,27,29/09/2018 - 21:00,Bahia - BA,0 x 0,Flamengo - RJ,Correto
+264,27,30/09/2018 - 11:00,Palmeiras - SP,3 x 1,Cruzeiro - MG,Correto
+265,27,30/09/2018 - 16:00,Atlético - MG,5 x 2,Sport - PE,Correto
+266,27,30/09/2018 - 16:00,Botafogo - RJ,2 x 2,São Paulo - SP,Correto
+267,27,30/09/2018 - 16:00,Santos - SP,1 x 0,Atlético - PR,Correto
+268,27,30/09/2018 - 16:00,Internacional - RS,2 x 1,Vitória - BA,Correto
+269,27,30/09/2018 - 19:00,Ceará - CE,3 x 1,Chapecoense - SC,Correto
+270,27,01/10/2018 - 20:00,Paraná - PR,1 x 1,Vasco da Gama - RJ,Correto
+271,28,24/10/2018 - 19:30,Cruzeiro - MG,0 x 2,Ceará - CE,Correto
+272,28,05/10/2018 - 19:00,Sport - PE,2 x 1,Internacional - RS,Correto
+273,28,05/10/2018 - 21:00,Corinthians - SP,0 x 3,Flamengo - RJ,Correto
+274,28,05/10/2018 - 21:50,Vitória - BA,0 x 1,Santos - SP,Correto
+275,28,06/10/2018 - 10:00,Atlético - PR,4 x 0,América - MG,Correto
+276,28,06/10/2018 - 10:00,Chapecoense - SC,1 x 0,Atlético - MG,Correto
+277,28,06/10/2018 - 10:00,São Paulo - SP,0 x 2,Palmeiras - SP,Correto
+278,28,06/10/2018 - 21:00,Grêmio - RS,2 x 2,Bahia - BA,Correto
+279,28,08/10/2018 - 20:00,Fluminense - RJ,4 x 0,Paraná - PR,Correto
+280,28,08/10/2018 - 21:00,Botafogo - RJ,1 x 1,Vasco da Gama - RJ,Correto
+281,29,13/10/2018 - 17:00,Flamengo - RJ,3 x 0,Fluminense - RJ,Correto
+282,29,13/10/2018 - 19:00,Santos - SP,1 x 0,Corinthians - SP,Correto
+283,29,13/10/2018 - 21:00,Bahia - BA,2 x 0,Paraná - PR,Correto
+284,29,14/10/2018 - 11:00,Chapecoense - SC,0 x 1,Vitória - BA,Correto
+285,29,14/10/2018 - 16:00,Vasco da Gama - RJ,2 x 0,Cruzeiro - MG,Correto
+286,29,14/10/2018 - 16:00,Palmeiras - SP,2 x 0,Grêmio - RS,Correto
+287,29,14/10/2018 - 16:00,Internacional - RS,3 x 1,São Paulo - SP,Correto
+288,29,14/10/2018 - 19:00,Atlético - MG,0 x 0,América - MG,Correto
+289,29,14/10/2018 - 19:00,Atlético - PR,4 x 0,Sport - PE,Correto
+290,29,15/10/2018 - 20:00,Ceará - CE,0 x 0,Botafogo - RJ,Correto
+291,30,20/10/2018 - 16:00,América - MG,1 x 1,Grêmio - RS,Correto
+292,30,20/10/2018 - 16:00,Botafogo - RJ,0 x 1,Bahia - BA,Correto
+293,30,20/10/2018 - 19:00,São Paulo - SP,0 x 0,Atlético - PR,Correto
+294,30,20/10/2018 - 19:00,Sport - PE,2 x 1,Vasco da Gama - RJ,Correto
+295,30,21/10/2018 - 16:00,Vitória - BA,2 x 2 ,Corinthians - SP,Correto
+296,30,21/10/2018 - 16:00,Fluminense - RJ,1 x 0,Atlético - MG,Correto
+297,30,21/10/2018 - 16:00,Palmeiras - SP,2 x 1,Ceará - CE,Correto
+298,30,21/10/2018 - 19:00,Cruzeiro - MG,3 x 0,Chapecoense - SC,Correto
+299,30,21/10/2018 - 19:00,Paraná - PR,0 x 4,Flamengo - RJ,Correto
+300,30,22/10/2018 - 20:00,Internacional - RS,2 x 2,Santos - SP,Correto
+301,31,26/10/2018 - 19:30,Vitória - BA,0 x 1,São Paulo - SP,Correto
+302,31,26/10/2018 - 21:30,Vasco da Gama - RJ,1 x 1,Internacional - RS,Correto
+303,31,27/10/2018 - 16:30,Santos - SP,3 x 0,Fluminense - RJ,Correto
+304,31,27/10/2018 - 16:30,Grêmio - RS,3 x 4,Sport - PE,Correto
+305,31,27/10/2018 - 19:00,Corinthians - SP,2 x 1,Bahia - BA,Correto
+306,31,27/10/2018 - 19:00,Flamengo - RJ,1 x 1,Palmeiras - SP,Correto
+307,31,27/10/2018 - 19:00,Chapecoense - SC,1 x 0,América - MG,Correto
+308,31,27/10/2018 - 21:00,Cruzeiro - MG,3 x 1,Paraná - PR,Correto
+309,31,27/10/2018 - 21:00,Atlético - PR,2 x 1,Botafogo - RJ,Correto
+310,31,28/10/2018 - 20:00,Ceará - CE,2 x 1,Atlético - MG,Correto
+311,32,03/11/2018 - 17:00,Atlético - MG,0 x 1,Grêmio - RS,Correto
+312,32,03/11/2018 - 17:00,Fluminense - RJ,0 x 1,Vasco da Gama - RJ,Correto
+313,32,03/11/2018 - 19:00,Palmeiras - SP,3 x 2,Santos - SP,Correto
+314,32,04/11/2018 - 17:00,Paraná - PR,1 x 1,Vitória - BA,Correto
+315,32,04/11/2018 - 17:00,América - MG,1 x 2,Cruzeiro - MG,Correto
+316,32,04/11/2018 - 17:00,Botafogo - RJ,1 x 0,Corinthians - SP,Correto
+317,32,04/11/2018 - 17:00,São Paulo - SP,2 x 2,Flamengo - RJ,Correto
+318,32,04/11/2018 - 19:00,Bahia - BA,1 x 0,Chapecoense - SC,Correto
+319,32,04/11/2018 - 19:00,Internacional - RS,2 x 1,Atlético - PR,Correto
+320,32,05/11/2018 - 20:00,Sport - PE,1 x 0,Ceará - CE,Correto
+321,33,10/11/2018 - 17:00,Corinthians - SP,1 x 1,São Paulo - SP,Correto
+322,33,10/11/2018 - 19:00,Atlético - PR,2 x 0,Cruzeiro - MG,Correto
+323,33,10/11/2018 - 19:00,Botafogo - RJ,0 x 2,Flamengo - RJ,Correto
+324,33,10/11/2018 - 21:00,América - MG,1 x 1,Paraná - PR,Correto
+325,33,11/11/2018 - 17:00,Atlético - MG,1 x 1,Palmeiras - SP,Correto
+326,33,11/11/2018 - 17:00,Vitória - BA,2 x 2,Bahia - BA,Correto
+327,33,11/11/2018 - 17:00,Ceará - CE,1 x 1,Internacional - RS,Correto
+328,33,11/11/2018 - 17:00,Grêmio - RS,2 x 1,Vasco da Gama - RJ,Correto
+329,33,11/11/2018 - 19:00,Fluminense - RJ,0 x 0,Sport - PE,Correto
+330,33,12/11/2018 - 20:00,Santos - SP,0 x 1,Chapecoense - SC,Correto
+331,34,14/11/2018 - 19:30,Vasco da Gama - RJ,1 x 1,Atlético - PR,Correto
+332,34,14/11/2018 - 21:00,Paraná - PR,0 x 1,Atlético - MG,Correto
+333,34,14/11/2018 - 21:00,Bahia - BA,2 x 1,Ceará - CE,Correto
+334,34,14/11/2018 - 21:00,Cruzeiro - MG,1 x 0 ,Corinthians - SP,Correto
+335,34,14/11/2018 - 21:45,Sport - PE,0 x 0,Vitória - BA,Correto
+336,34,14/11/2018 - 21:45,Palmeiras - SP,3 x 0,Fluminense - RJ,Correto
+337,34,15/11/2018 - 17:00,Chapecoense - SC,0 x 1,Botafogo - RJ,Correto
+338,34,15/11/2018 - 17:00,Flamengo - RJ,1 x 0,Santos - SP,Correto
+339,34,15/11/2018 - 19:00,São Paulo - SP,1 x 1,Grêmio - RS,Correto
+340,34,15/11/2018 - 21:00,Internacional - RS,2 x 0,América - MG,Correto
+341,35,17/11/2018 - 19:00,Vitória - BA,1 x 2,Atlético - PR,Correto
+342,35,17/11/2018 - 19:00,Corinthians - SP,1 x 0,Vasco da Gama - RJ,Correto
+343,35,17/11/2018 - 21:00,Atlético - MG,1 x 0,Bahia - BA,Correto
+344,35,18/11/2018 - 17:00,Paraná - PR,1 x 1,Palmeiras - SP,Correto
+345,35,18/11/2018 - 17:00,América - MG,2 x 1,Santos - SP,Correto
+346,35,18/11/2018 - 17:00,Botafogo - RJ,1 x 0,Internacional - RS,Correto
+347,35,18/11/2018 - 17:00,Sport - PE,0 x 1,Flamengo - RJ,Correto
+348,35,18/11/2018 - 19:00,São Paulo - SP,1 x 0,Cruzeiro - MG,Correto
+349,35,18/11/2018 - 19:00,Grêmio - RS,2 x 0,Chapecoense - SC,Correto
+350,35,19/11/2018 - 21:00,Fluminense - RJ,0 x 0,Ceará - CE,Correto
+351,36,21/11/2018 - 19:30,Internacional - RS,1 x 2,Atlético - MG,Correto
+352,36,21/11/2018 - 21:00,Santos - SP,1 x 1,Botafogo - RJ,Correto
+353,36,21/11/2018 - 21:45,Cruzeiro - MG,3 x 0,Vitória - BA,Correto
+354,36,21/11/2018 - 21:45,Atlético - PR,1 x 0,Corinthians - SP,Correto
+355,36,21/11/2018 - 21:45,Flamengo - RJ,2 x 0,Grêmio - RS,Correto
+356,36,21/11/2018 - 21:45,Palmeiras - SP,4 x 0,América - MG,Correto
+357,36,22/11/2018 - 20:00,Vasco da Gama - RJ,2 x 0,São Paulo - SP,Correto
+358,36,22/11/2018 - 21:00,Chapecoense - SC,2 x 1,Sport - PE,Correto
+359,36,22/11/2018 - 21:00,Bahia - BA,2 x 0,Fluminense - RJ,Correto
+360,36,22/11/2018 - 21:00,Ceará - CE,1 x 0,Paraná - PR,Correto
+361,37,24/11/2018 - 20:00,Santos - SP,3 x 2,Atlético - MG,Correto
+362,37,25/11/2018 - 17:00,Cruzeiro - MG,0 x 2,Flamengo - RJ,Correto
+363,37,25/11/2018 - 17:00,Atlético - PR,2 x 2 ,Ceará - CE,Correto
+364,37,25/11/2018 - 17:00,Vitória - BA,0 x 0,Grêmio - RS,Correto
+365,37,25/11/2018 - 17:00,Vasco da Gama - RJ,0 x 1 ,Palmeiras - SP,Correto
+366,37,25/11/2018 - 19:00,América - MG,1 x 0 ,Bahia - BA,Correto
+367,37,25/11/2018 - 19:00,Corinthians - SP,0 x 0,Chapecoense - SC,Correto
+368,37,25/11/2018 - 19:00,Internacional - RS,2 x 0,Fluminense - RJ,Correto
+369,37,26/11/2018 - 20:00,Botafogo - RJ,2 x 1,Paraná - PR,Correto
+370,37,26/11/2018 - 20:00,São Paulo - SP,0 x 0,Sport - PE,Correto
+371,38,01/12/2018 - 19:00,Atlético - MG,1 x 0,Botafogo - RJ,Correto
+372,38,01/12/2018 - 19:00,Flamengo - RJ,1 x 2,Atlético - PR,Correto
+373,38,02/12/2018 - 17:00,Paraná - PR,1 x 1,Internacional - RS,Correto
+374,38,02/12/2018 - 17:00,Chapecoense - SC,1 x 0,São Paulo - SP,Correto
+375,38,02/12/2018 - 17:00,Bahia - BA,0 x 0,Cruzeiro - MG,Correto
+376,38,02/12/2018 - 17:00,Fluminense - RJ,1 x 0,América - MG,Correto
+377,38,02/12/2018 - 17:00,Ceará - CE,0 x 0,Vasco da Gama - RJ,Correto
+378,38,02/12/2018 - 17:00,Sport - PE,2 x 1,Santos - SP,Correto
+379,38,02/12/2018 - 17:00,Palmeiras - SP,3 x 2,Vitória - BA,Correto
+380,38,02/12/2018 - 17:00,Grêmio - RS,1 x 0,Corinthians - SP,Correto

@@ -78,7 +78,7 @@ df_1 <- cbind(df_1, athletes$atletas$scout)
 rm(df_2,df_3, athletes, json_athletes)
 
 # Store data frame
-file_round <- paste0("data/2022/rodada-", df_1$atletas.rodada_id[1], ".csv")
+file_round <- paste0("data/01_raw/2022/rodada-", df_1$atletas.rodada_id[1], ".csv")
 if (file.exists(file_round)){
     print(paste0("file already exists: ", file_round))
 } else {

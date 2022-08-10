@@ -1,0 +1,752 @@
+AtletaID,Apelido,ClubeID,PosicaoID
+36540,Juan,262,3
+36612,Zé Roberto,275,2
+36940,Oswaldo de Oliveira,282,6
+36943,Paulo Autuori,293,6
+37245,Guto Ferreira,315,6
+37246,Ney Franco,294,6
+37281,Mano Menezes,283,6
+37306,Gilson Kleina,303,6
+37604,Paulo André,293,3
+37607,Michel Bastos,275,4
+37608,Cristian,284,4
+37623,Rafael Marques,267,3
+37644,Rodrigo,303,3
+37646,Betão,314,3
+37652,Carlos Alberto,293,4
+37653,Nilmar,277,5
+37655,Rafael Moura,282,5
+37656,Fábio,283,1
+37657,Edu Dracena,275,3
+37662,Jonathan,293,2
+37673,Alecsandro,294,5
+37674,Wagner,267,4
+37688,Cícero,276,4
+37694,Henrique,283,4
+37701,Léo Moura,284,2
+37705,Juan,314,4
+37718,Arouca,275,4
+37770,Marcelo Grohe,284,1
+37792,Edinho,294,4
+37798,Rafael Sobis,283,5
+37840,Gustavo,314,3
+37851,Maicosuel,276,4
+37919,Luis Fabiano,267,5
+37934,Roger Bernardo,282,4
+37984,Aranha,303,1
+38001,Anderson,265,1
+38021,Wendel,303,4
+38062,Lugano,276,3
+38067,Danilo,264,4
+38100,Durval,292,3
+38109,Jefferson,263,1
+38138,Jô,264,5
+38140,Fernando Prass,275,1
+38150,Marquinhos,314,4
+38162,Fred,282,5
+38196,Maicon,284,4
+38225,Muriqui,267,5
+38229,Fábio Santos,282,2
+38230,Grafite,293,5
+38246,Robinho,282,5
+38277,Thiago Neves,283,4
+38279,Wellington Paulista,315,5
+38287,Roger,263,5
+38311,Márcio Araújo,262,4
+38315,Jadson,264,4
+38394,Thiago Heleno,293,3
+38400,Vinícius Pacheco,314,4
+38421,Rafinha,283,4
+38431,Diego Cavalieri,266,1
+38440,Pierre,266,4
+38508,Eder Luis,267,5
+38509,Diego Alves,262,1
+38523,Edílson,284,2
+38530,Cleiton Xavier,287,4
+38545,Felipe Melo,275,4
+38617,Danilinho,287,5
+38632,Matheus Ferraz,292,3
+38648,Hernanes,276,4
+38748,Maicon,314,2
+38768,Andrezinho,267,4
+38852,Anderson,294,4
+38908,Renato,277,4
+38909,Diego,262,4
+38910,Ricardo Oliveira,277,5
+38913,Nenê,267,4
+38928,Dudu Cearense,263,4
+38957,Rafael Marques,283,5
+39355,Carpegiani,265,6
+39572,Renato,266,2
+39850,Vagner Mancini,315,6
+40006,Abel Braga,266,6
+40025,Levir Culpi,277,6
+40179,Kleber,294,5
+40990,Dorival Júnior,277,6
+41218,Magrão,292,1
+41327,Vanderlei Luxemburgo,292,6
+41363,Alexandre Gallo,287,6
+41929,Renato Gaúcho,284,6
+42116,Willian,275,5
+42140,Felipe Santana,282,3
+42145,Egídio,275,2
+42213,Fernando Bob,303,4
+42222,Osvaldo,292,5
+42232,Amaral,315,4
+42234,Cássio,264,1
+42330,Felipe Garcia,373,1
+42411,Cuca,275,6
+42499,Bruno,276,2
+42500,Fagner,264,2
+42501,Rhodolfo,262,3
+49673,Júlio César,266,1
+49674,Fabrício,293,2
+50284,Wilson,294,1
+50294,Guilherme,293,4
+50301,Everton,262,4
+50307,Adilson,282,4
+50313,Elicarlos,315,4
+50317,David Braz,277,3
+50324,Hudson,283,4
+50328,Marcelo Oliveira,284,2
+50348,Conca,262,4
+50362,Lucas,266,2
+50369,Carlos Eduardo,287,4
+50402,Kayke,277,5
+50407,Marquinho,266,4
+50408,Breno,267,3
+50421,Wesley,276,4
+50427,Kadu,303,3
+50459,Léo,283,3
+50645,Eduardo,265,2
+50856,Henrique,266,3
+50880,Keirrison,294,5
+51042,Apodi,315,2
+51299,Emerson Silva,263,3
+51318,Leandro Donizete,277,4
+51319,Renato Cajá,303,4
+51413,Walter,264,1
+51415,Roger Carvalho,373,3
+51700,Thiago Carleto,294,2
+51705,Bruno Rodrigo,284,3
+51772,Éverton Ribeiro,262,4
+51792,Kanu,287,3
+51905,Leandro Salino,287,2
+52253,Réver,262,3
+52618,Anderson Martins,267,3
+52674,Gilson,263,2
+52950,Victor,282,1
+53669,Lins,303,5
+53865,Léo Gamalho,303,5
+54395,Elias,282,4
+54797,Túlio de Melo,315,5
+55348,Luis Ricardo,263,2
+55594,Xuxa,303,4
+56102,João Paulo,294,4
+60780,Vinícius Eutrópio,315,6
+60784,Rafael Carioca,282,4
+60787,Willians,314,5
+60788,Marquinhos,292,5
+60802,Bruno Gallo,267,4
+60819,Dedé,283,3
+60859,Jael,284,5
+60969,Patric,287,2
+61033,Rodriguinho,264,4
+61149,Lucca,303,5
+61188,Gilberto,276,5
+61211,Carlos Cesar,282,2
+61985,Airton,263,4
+62009,Camilo,263,4
+62024,Edimar,276,2
+62047,Jean,275,2
+62069,Maikon Leite,265,5
+62086,Pará,262,2
+62104,Robinho,283,4
+62121,Vanderlei,277,1
+62128,Walter,373,5
+62129,Wellington,267,4
+62130,William Matheus,294,2
+62136,Marcelo Oliveira,294,6
+62974,Werley,294,3
+62997,João Paulo,314,2
+63000,Victor Ramos,315,3
+63013,Marcos Rocha,282,2
+63058,Willian Farias,287,4
+63110,Alan Ruschel,315,2
+63119,Juninho,287,2
+63128,Douglas,276,3
+63158,Moisés,275,4
+63172,Paulão,267,3
+63177,Júnior Viçosa,373,5
+63219,Luan,282,5
+63422,Jucilei,276,4
+68690,André,292,5
+68693,Armero,265,2
+68698,Bruno Silva,263,4
+68725,Diego Renan,315,2
+68744,Emerson Sheik,303,5
+68745,Vecchio,277,4
+68749,Everton Heleno,373,4
+68758,Fernandinho,284,5
+68770,Camacho,264,4
+68773,Henrique Almeida,294,5
+68784,Júnior Dutra,314,5
+68807,Neto Berola,294,5
+68808,Nino Paraíba,303,2
+68821,Rafael Galhardo,283,2
+68827,Renato Chaves,266,3
+68834,Rithely,292,4
+68873,Paulo Victor,284,1
+68884,Klever,373,1
+68886,Digão,283,3
+68887,Gum,266,3
+68893,André Lima,287,5
+68895,Wellington Silva,266,5
+68896,Ramon,267,2
+68901,Rodrigo Pimpão,263,5
+68910,Anselmo,292,4
+68911,Diego Souza,292,4
+68920,Dudu,275,5
+68925,Leonardo Silva,282,3
+68928,Rafael,283,1
+68929,Thiago Ribeiro,277,5
+68930,Kieza,287,5
+68932,Renan Ribeiro,276,1
+68938,Giovanni Augusto,264,4
+68950,Ronaldo Alves,292,3
+68953,Leandro Damião,262,5
+68954,Marquinhos Gabriel,264,4
+68958,Wallace Reis ,287,3
+68979,Giovanni,282,1
+68995,Régis Souza,265,2
+69010,João Carlos,303,1
+69012,Santos,293,1
+69014,Manoel,283,3
+69016,Paulinho,373,4
+69018,Deivid,293,4
+69036,Eduardo,373,2
+69047,Paulo Roberto,264,4
+69095,Montillo,263,4
+69138,Pablo,293,5
+69160,Gastón Fernández,284,4
+69165,Pablo,264,3
+69177,Léo,294,2
+69249,Martín Silva,267,1
+69282,Lucas Barrios,284,5
+69486,Reinaldo Rueda,262,6
+69705,Nikão,293,4
+70009,Romulo,262,4
+70046,Victor Ferraz,277,2
+70058,Tiago Real,294,4
+70116,Fellipe Bastos,264,4
+70132,Alan Santos,294,4
+70173,Ederson,262,4
+70222,Sidão,276,1
+70323,Jorginho,265,6
+70526,Rogério Micale,282,6
+70581,Fillipe Soutto,287,4
+70666,Marllon,303,3
+70696,Fábio Carille,264,6
+70742,Seijas,315,4
+70916,Diogo Barbosa,283,2
+70929,Negueba,303,5
+70944,Bruno Henrique,275,4
+70986,Léo Cittadini,277,4
+70987,Pablo Diogo,282,5
+71066,Mancuello,262,4
+71116,Roberto,315,2
+71123,Thiago Mendes,276,4
+71162,Vinícius,265,4
+71227,Maicon,276,3
+71389,Baumjohann,294,4
+71479,Lucho González,293,4
+71549,Kelvin,267,5
+71571,Fernando Miguel,287,1
+71631,Weverton,293,1
+71704,Manga Escobar,267,5
+71709,Cuéllar,262,4
+71719,Elton,303,4
+71724,Agenor,292,1
+71818,Bruno Grassi,284,1
+71920,Michel ,284,4
+71927,Diego Rosa,373,4
+71937,Juninho,265,4
+72007,Uillian Correia,287,4
+72037,Renan Fonseca,263,3
+72079,Bruno Cortez,284,2
+72150,Fernandinho,303,2
+72168,João Paulo,263,4
+72290,Jailson,275,1
+72297,Airton ,314,3
+72362,Rodrigo Lindoso,263,4
+72376,Cléber,277,3
+72386,Hernane,265,5
+72490,Fred,287,3
+72491,Bressan,284,3
+72565,Luan,314,4
+72595,Mauricio Kozlinski,314,1
+72745,Escudero,267,4
+72879,Vladimir Hernández,277,5
+72893,Eduardo da Silva,293,5
+73144,Jorge Mendoza,303,4
+73281,Renê Júnior,265,4
+73340,Getterson,294,5
+73384,Samuel Xavier,292,2
+73421,Rafael Vaz,262,3
+73446,Éderson,293,5
+73513,Maranhão,266,5
+73515,Gabriel,262,5
+73540,Rogério,292,5
+73619,Wellington Nem,276,5
+73620,Bruno Alves,276,3
+73635,Rildo,294,5
+73649,Lucas Pratto,276,5
+73721,Marcos Vinícius,263,4
+73800,Rodrigo Caio,276,3
+73869,Lennon,283,2
+73876,Jomar,267,3
+73896,Geuvânio,262,5
+73918,Canteros,315,4
+73974,Alison,277,4
+73978,René,287,3
+73991,Walisson Maia,294,3
+73992,Rodinei,262,2
+74060,Luiz Antonio ,315,4
+74061,Gatito Fernández,263,1
+74081,Guilherme Costa,267,4
+74134,Arroyo,284,5
+74140,Élber,283,4
+74213,Alejandro Guerra,275,4
+74271,Edigar Junio,265,5
+75295,Paolo Guerrero,262,5
+77500,Yago,303,3
+77529,Leandro Silva,314,2
+77544,Jorginho,373,4
+77551,Thomás,292,4
+77556,Bruno Brígido,294,1
+77777,João Schmidt ,276,4
+77959,Copete,277,5
+77967,Mena,292,2
+78077,Madson,267,2
+78086,César,262,1
+78117,Everaldo,373,5
+78248,Gustavo Henrique,277,3
+78371,Miller Bolaños,284,5
+78407,Douglas Grolli,315,3
+78445,Renê,262,2
+78464,Fábio Braga,303,4
+78478,Willian Arão,262,4
+78495,Marcos,373,1
+78497,Arnaldo,263,2
+78548,Jean Mota,277,4
+78578,Paulinho,287,5
+78584,Douglas Friedrich,314,1
+78605,Gabriel,264,4
+78632,Bryan,283,2
+78715,Ramiro,284,4
+78840,Pedro Castro,314,4
+78850,Reinaldo,315,2
+78855,Thiago Santos,275,4
+78856,Marcão Silva,373,4
+78891,Petros,276,4
+78897,Naldo,303,4
+78968,Leandro Pereira,292,5
+78991,Moisés Ribeiro,315,4
+78994,Eduardo Henrique,293,4
+79032,William Alves,373,3
+79035,Luiz Felipe,277,3
+79041,Thomaz,276,4
+79042,Tiago ,265,3
+79066,Alex Muralha,262,1
+79193,Abuda,373,4
+79334,Ricardo Silva,373,3
+79343,Doriva,373,6
+79437,Roger Machado ,282,6
+79578,Sassá,283,5
+79701,Lucas Silva,283,4
+79702,Antônio Carlos ,275,3
+79887,Fabiano,275,2
+79892,Nenén,315,4
+79973,Helton Leite,263,1
+80080,Brenner,263,5
+80124,Matheus Mancini,282,3
+80129,Jadson,303,4
+80140,Nadson,315,4
+80188,Marcos Junior,266,5
+80189,Lucas Fonseca,265,3
+80196,Yago Pikachu,267,2
+80281,Cleberson,293,3
+80313,Gilberto ,267,2
+80318,Ezequiel ,283,2
+80337,Arthur ,315,5
+80363,Ariel Cabral,283,4
+80370,Edson,265,4
+80583,Lucas Lima,277,4
+80692,Luan,275,3
+80853,Pedro Geromel,284,3
+80944,Marlone,282,4
+81150,Mayke,275,2
+81219,Thallyson,287,2
+81223,Erazo,282,3
+81241,Oswaldo Henríquez,292,3
+81682,Cazares,282,4
+81684,Andrés Ríos,267,5
+81770,Clayton,264,5
+81798,Rossi,315,5
+81845,Alisson,283,4
+81898,Osman,315,5
+81903,Wellington Simião,314,4
+81905,Henrique Dourado,266,5
+82411,Cueva,276,4
+82455,Zé Rafael ,265,4
+82463,Otávio ,293,4
+82469,Douglas Coutinho ,293,5
+82515,Reginaldo,266,3
+82567,Moisés,315,4
+82613,Alan Costa,287,3
+82625,Maurinho,314,5
+82627,Luiz Araújo,276,5
+82634,Matheus Galdezani,294,4
+82644,Léo Artur,303,4
+82647,Régis,265,4
+82754,André Castro,373,4
+82773,Gilvan,373,3
+82787,Joel,314,5
+82817,Tomas Bastos,294,4
+82943,Matheus Ribeiro,277,2
+83004,Otero,282,4
+83048,Rafael Thyere,284,3
+83263,Yuri,265,4
+83266,Marcos Guilherme ,276,4
+83433,Patrick,292,4
+83522,Fagner Alemão,314,2
+83615,Thiago Martins,265,3
+83683,Andrei Girotto,315,4
+83772,Neilton,287,5
+83786,Neris,292,3
+83813,Júlio César ,315,5
+83817,Clayson,264,5
+83869,Diego Tavares,314,2
+84313,Feijão,265,4
+84382,Danilo Barcelos,282,4
+84523,Romarinho,266,5
+84554,Lucão,276,3
+84558,Lucas Romero,283,4
+84585,Allione,265,4
+84691,Judson,314,4
+84703,Niltinho,315,5
+84718,Denilson,276,5
+84761,Claudinei Oliveira,314,6
+84847,Luan Peres ,303,3
+84848,Erik,275,5
+84855,Raul Prata,292,2
+84861,Alex Silva,282,2
+84863,Alberto Valentim,275,6
+84890,Euller ,287,2
+84893,Henrique,267,2
+84896,Lucas Otávio ,314,4
+84917,Jeferson,303,2
+84925,Elder Santana,282,5
+84926,Yago,282,4
+84927,Dodô,315,4
+85040,Gabriel Xavier,287,4
+85121,Robert ,266,4
+85149,Ronaldo,292,4
+85211,Thalles,267,5
+85241,Yerry Mina,275,3
+85300,Berrío ,262,5
+85423,Valdívia,282,4
+85425,João Paulo,277,1
+85586,Jonas,294,4
+85626,Léo,266,2
+85629,Daniel,294,4
+85931,Hyoran,275,4
+86120,Borja,275,5
+86143,Wanderson,293,3
+86323,Walterson,373,5
+86410,Victor Luis,263,2
+86411,Breno Lopes,373,2
+86485,Keno,275,5
+86486,Milton Mendes,267,6
+86508,Jandrei,315,1
+86519,Everton Felipe,292,4
+86686,Tchê Tchê,275,4
+86711,Richard,266,4
+86713,Jonathan,373,2
+86724,Luizão,294,3
+86740,João Lucas,303,2
+86757,Everton,284,5
+86759,Luan,284,5
+86764,Sidcley,293,2
+86765,Bruno Mota,293,4
+86766,Matheus Rossetto,293,4
+86776,Jordi,267,1
+86797,Raniel,283,5
+86859,José Welison,287,4
+86863,Luiz Otávio ,315,3
+86874,Capa,314,2
+86932,Gustavo,265,5
+86935,Rodrigo,292,4
+86970,Eduardo Gabriel,373,3
+86972,Emerson Santos,263,3
+86973,Léo Gomes,284,2
+86974,Caio César,314,4
+87008,Léo,284,1
+87028,Beto da Silva,284,5
+87192,Zeca,277,2
+87211,Eduardo Baptista,293,6
+87225,Pedro Henrique,264,3
+87228,Guilherme Arana,264,2
+87267,Marcão,293,3
+87342,Kannemann,284,3
+87350,Buffarini,276,2
+87393,Gabriel,282,3
+87398,Rodrigão,282,3
+87437,Caíque Sá,287,2
+87486,Matheus Reis,265,2
+87552,Vitor Bueno,277,4
+87679,Tréllez,287,5
+87742,Neto Moura,292,4
+87747,Yago,287,4
+87833,Luis Caicedo,283,3
+87863,Arrascaeta,283,4
+87864,Felipe Gedoz ,293,4
+87872,Fernando Guerrero,315,4
+87874,Orejuela,266,4
+87877,Sornoza,266,4
+87887,Balbuena,264,3
+87946,Todinho,287,5
+87999,Gustavo Scarpa,266,4
+88002,Serginho,277,4
+88087,Ramon,287,3
+88225,Daniel Guedes ,277,2
+88323,Ángel Romero,264,5
+88379,Jean Patrick,303,2
+88417,Iago,294,5
+88597,Lucas Crispim,277,4
+88651,Vinícius Tanque,263,5
+88667,Igor,292,3
+88933,Bruno Paulista,267,4
+89150,Jean,267,4
+89156,Nathan,315,3
+89190,Judivan ,283,5
+89227,Balbino,284,4
+89273,João Pedro ,315,2
+89285,Matheus Sales,265,4
+89341,Nicolas Careca,284,5
+89342,Caju,277,2
+89343,Júnior Tavares,276,2
+89492,Saulo,263,1
+89493,Igor Rabello,263,3
+89637,Thiago Maia,277,4
+89693,Leonan,282,2
+89695,Iury,314,5
+89696,Romulo,314,5
+89815,Gustavo Ferrareis,265,4
+89839,Andres Chavez,276,5
+89871,Pisculichi,287,4
+89885,Leandrinho,263,4
+89898,Róger Guedes,275,5
+89930,Andrigo,373,4
+89976,Geferson,287,2
+90031,Mendoza,265,5
+90061,Bruno Pacheco,373,2
+90285,Bruno Henrique,277,5
+90290,Jailson,284,4
+90302,Pedro Rocha,284,5
+90303,Lincoln,284,4
+90309,David,287,5
+90366,Luiz Fernando ,266,4
+90399,Fernandes,263,4
+90444,Moisés,264,2
+90455,Jefferson Nem,373,5
+90532,Arthur,284,4
+90535,Alex,283,4
+90566,Rafael Longuine,277,4
+90569,Yuri,277,4
+90587,Cascardo,293,2
+90634,Lucas Mineiro,315,4
+90651,Rodrigão,277,5
+90715,Luiz Fernando ,373,4
+90768,Fabrício Bruno,315,3
+90899,Lucas Fernandes,266,5
+90933,Jean,265,1
+90959,Esteban Pavez,293,4
+91001,Evandro,292,2
+91094,Ábila,283,5
+91102,Flávio,287,4
+91156,Jesiel,282,3
+91191,Gustavo Blanco,282,4
+91194,Thiago,262,1
+91201,Pepê,284,5
+91203,Éder ,265,3
+91264,Matheus Sávio,262,4
+91318,João Paulo Sanches,373,6
+91359,Bruno Bispo,287,3
+91388,Rodrigo Ramos,294,2
+91508,Leonardo Valencia,263,4
+91519,Kazim,264,5
+91573,Arboleda,276,3
+91687,João Pedro,293,4
+91706,Marlon,266,2
+91714,Marciel,264,4
+91808,Caíque França,264,1
+91815,Nogueira,266,3
+91866,Zé Ivaldo,293,3
+91917,Silva,373,4
+91929,Everson,265,3
+91972,João Paulo,265,5
+91973,Lucas Marques,315,4
+92057,Gabriel Félix,267,1
+92081,Richarlison ,266,5
+92180,Jair Ventura,263,6
+92182,Juninho,275,3
+92191,Léo Jabá,264,5
+92193,Ravanelli,303,4
+92207,Caíque,287,1
+92497,Douglas,266,4
+92504,Batista,284,5
+92574,Kaio,284,4
+92614,Rafaelson,287,5
+92622,Jonata,283,5
+92630,Claudinho,303,5
+92702,Daniel Paulista,292,6
+92708,Deyverson,275,5
+92981,Ronaldo,373,4
+93108,Mateus Pet,267,4
+93153,Pachequinho,294,6
+93296,Aderllan Santos,276,3
+93368,Lucas Veríssimo,277,3
+93369,Rodrigo Becão,265,3
+93414,Joel Carli,263,3
+93551,Igor,373,4
+93739,Peu,266,5
+93746,Lenis,292,5
+93785,Alan Cardoso,267,2
+93787,Andrey,267,4
+93788,Evander,267,4
+93789,Caio Monteiro,267,5
+93790,Marlon Freitas,266,4
+93806,Alison,373,5
+93882,Cleiton,282,1
+94067,Matheus Fernandes,263,4
+94068,Ribamar,293,5
+94119,Lucas Rocha,267,3
+94138,Felipe Vizeu,262,5
+94144,Thallyson,292,4
+94154,Maycon,264,4
+94207,Guilherme,263,5
+94214,Léo Duarte,262,3
+94249,Lourency,315,5
+94286,Perotti,315,5
+94336,Mateus Norton,266,4
+94445,Juninho,292,5
+94509,Raphael Veiga,275,4
+94583,Pedro,266,5
+94765,Léo Principe,264,2
+94857,Jonatan Gomez,276,4
+94894,Capixaba,282,5
+94930,Lucas Paquetá,262,4
+94931,Lucas Fernandes,276,4
+94968,Juninho Capixaba,265,2
+94985,Dodô,294,2
+95022,Thalis ,282,4
+95126,Yago,293,5
+95127,Nicolas,293,2
+95180,Índio,292,5
+95263,Luquinhas,266,4
+95288,Bruno Xavier,292,4
+95332,Marcinho,276,5
+95335,Matheus Jesus,277,4
+95539,Fabrício,292,4
+95542,Orinho,277,2
+95543,Renan Gorne,263,5
+95550,Pedro,373,5
+95562,Messidoro,283,4
+95638,Marcelo,263,3
+95660,Araruna,276,4
+95738,Trauco,262,2
+95780,Zé Ricardo,262,6
+95820,Léo Santos,264,3
+95830,Emerson Cris,315,6
+95837,Fabián Noguera,277,3
+95843,Sander,292,2
+95876,Douglas,267,4
+96055,Yan,294,4
+96089,Machado,284,4
+96328,Matheus Oliveira,277,4
+96340,Lima,284,4
+96433,Ralph,282,4
+96524,Victor Lindenberg,263,2
+96831,Carlinhos,264,5
+96832,Rodrigo Figueiredo,264,4
+96870,Emerson,303,2
+96966,Arthur Gomes,277,5
+97315,Mantuan,264,4
+97322,Gabriel Furtado,275,4
+97341,Rogério Ceni,276,6
+97352,Pachu,263,5
+97443,Romercio,294,3
+97445,Matheus Iacovelli,275,5
+97448,Thalisson Kelven,294,3
+97449,Vitor Carvalho,294,4
+97452,Marcos Calazans,266,5
+97502,Filigrana,294,5
+97520,Shaylon,276,4
+97527,Matheus Alessandro,266,5
+97528,Frazan,266,3
+97532,Jean Pineda,287,5
+97538,Marcio,294,3
+97653,Murilo,283,3
+97769,Yuri,303,5
+97856,Nonoca,283,4
+97863,Jhemerson,287,4
+97879,Matheus Anjos,293,4
+98184,Rodrigo Pelezinho,315,5
+98352,Bruno Guimarães,293,4
+98402,Wendel,266,4
+98706,Pedrinho,264,5
+98765,Marquinho,282,4
+98832,Jean Pyerre,284,4
+98952,Léo Natel,276,5
+99032,Lourenço,314,5
+99424,Éder Militão,276,4
+99474,Wenderson,263,4
+99535,Vinicius Júnior,262,5
+99574,Robinho,266,5
+99588,Paulo Vitor,267,5
+99615,Bruno Cosendey,267,4
+99616,Felipe Saraiva,303,4
+99625,Conrado,284,4
+99630,Preto Casagrande,265,6
+99669,Elano,277,6
+99670,Arthur,283,3
+99721,Mascarenhas,266,2
+99789,Brenner,276,5
+99817,Bremer,282,3
+99818,Paulinho,267,5
+99824,Douglas,265,5
+99834,Dionathã,284,5
+99882,Fabiano Soares,293,6
+99883,Penilla,315,5
+99892,Luis Ali,303,5
+99894,Junior Brumado,265,5
+99900,Luan Pereira,314,4
+99903,Lucas Campos,263,5
+99915,Ezequiel,263,4
+99918,Patrick,284,4
+99959,Lucas Formiga,303,5
+100065,Lincoln,262,5
+100132,Lucas Poletto,284,5
+100648,John Kleber,303,5
+100651,Rodrygo,277,5
+100652,Yuri Alberto,277,5
+100695,Fernando,275,5
+100742,Matheuzinho,284,4
+100762,Bissoli,276,5
+100763,Gabriel,276,4
+100800,Emerson Barbosa,277,2
+100839,Ericson,284,3
+100840,Emanuel,284,3
+100842,Ruan,284,3
+100843,Felipe,284,2

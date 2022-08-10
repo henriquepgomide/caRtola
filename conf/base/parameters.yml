@@ -1,0 +1,26 @@
+map_col_names:
+  atletas.atleta_id: id_atleta
+  atletas.rodada_id: rodada
+  atletas.clube_id: id_clube
+  atletas.posicao_id: posicao
+  atletas.status_id: status
+  atletas.pontos_num: pontuacao
+  atletas.preco_num: preco
+  atletas.variacao_num: variacao
+  atletas.media_num: media
+  atletas.jogos_num: num_jogos
+  atletas.minimo_para_valorizar: minimo_para_valorizar
+  atletas.slug: slug
+  atletas.apelido: apelido
+  atletas.apelido_abreviado: apelido_abreviado
+  atletas.nome: nome
+  atletas.foto: foto
+  atletas.clube.id.full.name: nome_clube
+
+
+map_status_id_to_str:
+  2: Dúvida
+  3: Suspenso
+  5: Contundido
+  6: Nulo
+  7: Provável

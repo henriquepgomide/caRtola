@@ -14,40 +14,19 @@
   FS: 0.5   # Falta Sofrida
   PS: 1.0   # Pênalti Sofrido
   PP: -4.0  # Pênalti Perdido
-  I: -0.1   # Impedimento
+  I: -0.5   # Impedimento
   PI: -0.1  # Passe Incompleto **
   # defesa
   SG: 5.0   # jogo sem Sofrer Gols (somente defensores)
-  CV: -3.0  # Cartão Vermelho
-  CA: -1.0  # Cartão Amarelo
+  CV: -5.0  # Cartão Vermelho
+  CA: -2.0  # Cartão Amarelo
   GS: -1.0  # Gol Sofrido
-  FC: -0.3  # Falta Cometida
+  FC: -0.5  # Falta Cometida
   PC: -1.0  # Pênalti Cometido
-  GC: -3.0  # Gol Contra
+  GC: -5.0  # Gol Contra
   DP: 7.0   # Defesa de Pênalti
-  DS: 1.2   # DeSarme 
+  DS: 1.0   # DeSarme 
   DE: 1.0   # DEfesa *
 
 # * exclusivo de goleiro
 # ** não válido para goleiros
-
-# A
-# CA
-# DS
-# FC
-# FD
-# FF
-# FS
-# I
-# PI
-# G
-# FT
-# SG
-# DE
-# GS
-# PP
-# PS
-# CV
-# PC
-# DP
-# GC

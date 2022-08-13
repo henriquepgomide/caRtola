@@ -13,6 +13,13 @@ def register_pipelines() -> Dict[str, Pipeline]:
         A mapping from a pipeline name to a ``Pipeline`` object.
     """
     params_preprocessing = ["params:preprocessing.map_col_names", "params:preprocessing.map_status_id_to_str"]
+    pipe_2020 = pipeline(
+        pipe=preprocessing.create_pipeline(),
+        inputs=None,
+        namespace="2020",
+        parameters=params_preprocessing,
+    )
+
     pipe_2021 = pipeline(
         pipe=preprocessing.create_pipeline(),
         inputs=None,
@@ -27,4 +34,4 @@ def register_pipelines() -> Dict[str, Pipeline]:
         parameters=params_preprocessing,
     )
 
-    return {"__default__": pipe_2021 + pipe_2022, "2021": pipe_2021, "2022": pipe_2022}
+    return {"__default__": pipe_2020 + pipe_2021 + pipe_2022, "2020": pipe_2020, "2021": pipe_2021, "2022": pipe_2022}

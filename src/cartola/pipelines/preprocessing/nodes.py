@@ -3,8 +3,9 @@ This is a boilerplate pipeline 'preprocessing'
 generated using Kedro 0.18.2
 """
 from typing import Dict
-from unidecode import unidecode
+
 import pandas as pd
+from unidecode import unidecode
 
 
 def fill_scouts_with_zeros(df: pd.DataFrame, dict_scouts: Dict[str, float]) -> pd.DataFrame:

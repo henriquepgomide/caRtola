@@ -4,7 +4,7 @@
 # Documentation for this file format can be found in "Parameters"
 # Link: https://kedro.readthedocs.io/en/0.18.2/kedro_project_setup/configuration.html#parameters
 
-2020.preprocessing.scouts:
+2019.preprocessing.scouts:
   # ataque
   G: 8.0    # Gol marcado
   A: 5.0    # Assistência
@@ -14,7 +14,7 @@
   FS: 0.5   # Falta Sofrida
   PP: -4.0  # Pênalti Perdido
   I: -0.5   # Impedimento
-  PI: -0.1  # Passe Incompleto ** (antigo Passe Errado - PE)
+  PE: -0.3  # Passe Errado
   # defesa
   SG: 5.0   # jogo sem Sofrer Gols (somente defensores)
   CV: -5.0  # Cartão Vermelho
@@ -23,9 +23,8 @@
   FC: -0.5  # Falta Cometida
   GC: -5.0  # Gol Contra
   DP: 7.0   # Defesa de Pênalti
-  DS: 1.0   # DeSarme (antigo Roubada de Bola - RB)
-  DD: 4.0   # Defesa Difícil
+  RB: 1.5   # Roubada de Bola
+  DD: 3.0   # Defesa Difícil
 
 # * exclusivo de goleiro
 # ** não válido para goleiros
-# Fonte: https://ge.globo.com/cartola-fc/noticia/cartola-fc-2020-veja-as-pontuacoes-de-todos-os-scouts.ghtml

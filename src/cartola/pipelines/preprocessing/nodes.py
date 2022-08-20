@@ -25,5 +25,8 @@ def fill_empty_slugs(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def map_status_id_to_string(df: pd.DataFrame, dict_status_to_str: Dict[int, str]) -> pd.DataFrame:
+    if "status" not in df.columns:
+        return df
+
     df.status.replace(dict_status_to_str, inplace=True)
     return df

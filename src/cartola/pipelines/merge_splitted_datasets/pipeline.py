@@ -15,4 +15,5 @@ def create_pipeline(**kwargs) -> Pipeline:
         ],
         namespace="merge",
         tags=["merge"],
+        outputs=dict(concat="preprocessing.raw"),
     )

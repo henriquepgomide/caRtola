@@ -19,28 +19,14 @@
     index: False
 
 
-2016.merge.concat:
-  type: pandas.CSVDataSet
-  filepath: data/02_intermediate/concat_2016.csv
-  save_args:
-    index: False
-
-
 2016.preprocessing.raw:
   type: PartitionedDataSet
   path: data/02_intermediate
   dataset:
     type: pandas.CSVDataSet
-    load_args:
-      index_col: 0
-  filename_suffix: concat_2016.csv
-
-
-2016.preprocessing.concat:
-  type: pandas.CSVDataSet
-  filepath: data/02_intermediate/concat_2016.csv
-  save_args:
-    index: False
+    save_args:
+      index: False
+  filename_suffix: _2016.csv
 
 
 2016.preprocessing.preprocessed:

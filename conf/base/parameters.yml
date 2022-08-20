@@ -12,6 +12,7 @@ merge.map_col_names:
   PosicaoID: posicao
   ClubeNome: nome_clube
 
+
 preprocessing.map_col_names:
   atleta_id: id_atleta
   rodada_id: rodada

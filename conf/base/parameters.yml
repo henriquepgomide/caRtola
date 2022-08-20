@@ -1,46 +1,43 @@
-merge.map_col_names:
-  Nome: nome_clube
-  Rodada: rodada
-  ClubeID: id_clube
+preprocessing.map_col_names:
+  Apelido: apelido
+  atleta_id: id_atleta
   AtletaID: id_atleta
+  atletas.apelido_abreviado: apelido_abreviado
+  atletas.apelido: apelido
+  atletas.atleta_id: id_atleta
+  atletas.clube_id: id_clube
+  atletas.clube.id.full.name: nome_clube
+  atletas.foto: foto
+  atletas.jogos_num: num_jogos
+  atletas.media_num: media
+  atletas.minimo_para_valorizar: minimo_para_valorizar
+  atletas.nome: nome
+  atletas.pontos_num: pontuacao
+  atletas.posicao_id: posicao
+  atletas.preco_num: preco
+  atletas.rodada_id: rodada
+  atletas.slug: slug
+  atletas.status_id: status
+  atletas.variacao_num: variacao
+  clube_id: id_clube
+  ClubeID: id_clube
+  ClubeNome: nome_clube
+  jogos_num: num_jogos
+  media_num: media
+  Nome: nome_clube
   Participou: participou
+  pontos_num: pontuacao
   Pontos: pontos_num
   PontosMedia: media
+  posicao_id: posicao
+  PosicaoID: posicao
+  preco_num: preco
   Preco: preco
   PrecoVariacao: variacao
-  Apelido: apelido
-  PosicaoID: posicao
-  ClubeNome: nome_clube
-
-
-preprocessing.map_col_names:
-  atleta_id: id_atleta
   rodada_id: rodada
-  clube_id: id_clube
-  posicao_id: posicao
+  Rodada: rodada
   status_id: status
-  pontos_num: pontuacao
-  preco_num: preco
   variacao_num: variacao
-  media_num: media
-  jogos_num: num_jogos
-  atletas.atleta_id: id_atleta
-  atletas.rodada_id: rodada
-  atletas.clube_id: id_clube
-  atletas.posicao_id: posicao
-  atletas.status_id: status
-  atletas.pontos_num: pontuacao
-  atletas.preco_num: preco
-  atletas.variacao_num: variacao
-  atletas.media_num: media
-  atletas.jogos_num: num_jogos
-  atletas.minimo_para_valorizar: minimo_para_valorizar
-  atletas.slug: slug
-  atletas.apelido: apelido
-  atletas.apelido_abreviado: apelido_abreviado
-  atletas.nome: nome
-  atletas.foto: foto
-  atletas.clube.id.full.name: nome_clube
 
 
 preprocessing.map_status_id_to_str:

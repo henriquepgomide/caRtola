@@ -1,3 +1,17 @@
+merge.map_col_names:
+  Nome: nome_clube
+  Rodada: rodada
+  ClubeID: id_clube
+  AtletaID: id_atleta
+  Participou: participou
+  Pontos: pontos_num
+  PontosMedia: media
+  Preco: preco
+  PrecoVariacao: variacao
+  Apelido: apelido
+  PosicaoID: posicao
+  ClubeNome: nome_clube
+
 preprocessing.map_col_names:
   atleta_id: id_atleta
   rodada_id: rodada

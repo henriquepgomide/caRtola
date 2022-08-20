@@ -12,14 +12,13 @@ def register_pipelines() -> Dict[str, Pipeline]:
     Returns:
         A mapping from a pipeline name to a ``Pipeline`` object.
     """
-    params_merge = ["params:merge.map_col_names"]
     params_preprocessing = ["params:preprocessing.map_col_names", "params:preprocessing.map_status_id_to_str"]
 
     pipe_2016 = pipeline(
         pipe=merge_splitted_datasets.create_pipeline() + preprocessing.create_pipeline(),
         inputs=None,
         namespace="2016",
-        parameters=params_merge + params_preprocessing,
+        parameters=params_preprocessing,
     )
 
     pipe_2017 = pipeline(

@@ -14,6 +14,13 @@ def register_pipelines() -> Dict[str, Pipeline]:
     """
     params_preprocessing = ["params:preprocessing.map_col_names", "params:preprocessing.map_status_id_to_str"]
 
+    pipe_2015 = pipeline(
+        pipe=merge_splitted_datasets.create_pipeline() + preprocessing.create_pipeline(),
+        inputs=None,
+        namespace="2015",
+        parameters=params_preprocessing,
+    )
+
     pipe_2016 = pipeline(
         pipe=merge_splitted_datasets.create_pipeline() + preprocessing.create_pipeline(),
         inputs=None,
@@ -64,7 +71,8 @@ def register_pipelines() -> Dict[str, Pipeline]:
     )
 
     return {
-        "__default__": pipe_2016 + pipe_2017 + pipe_2018 + pipe_2019 + pipe_2020 + pipe_2021 + pipe_2022,
+        "__default__": pipe_2015 + pipe_2016 + pipe_2017 + pipe_2018 + pipe_2019 + pipe_2020 + pipe_2021 + pipe_2022,
+        "2015": pipe_2015,
         "2016": pipe_2016,
         "2017": pipe_2017,
         "2018": pipe_2018,

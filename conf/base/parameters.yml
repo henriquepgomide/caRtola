@@ -1,24 +1,46 @@
-map_col_names:
-  atletas.atleta_id: id_atleta
-  atletas.rodada_id: rodada
-  atletas.clube_id: id_clube
-  atletas.posicao_id: posicao
-  atletas.status_id: status
-  atletas.pontos_num: pontuacao
-  atletas.preco_num: preco
-  atletas.variacao_num: variacao
-  atletas.media_num: media
-  atletas.jogos_num: num_jogos
-  atletas.minimo_para_valorizar: minimo_para_valorizar
-  atletas.slug: slug
-  atletas.apelido: apelido
+preprocessing.map_col_names:
+  Apelido: apelido
+  atleta_id: id_atleta
+  AtletaID: id_atleta
   atletas.apelido_abreviado: apelido_abreviado
-  atletas.nome: nome
-  atletas.foto: foto
+  atletas.apelido: apelido
+  atletas.atleta_id: id_atleta
+  atletas.clube_id: id_clube
   atletas.clube.id.full.name: nome_clube
+  atletas.foto: foto
+  atletas.jogos_num: num_jogos
+  atletas.media_num: media
+  atletas.minimo_para_valorizar: minimo_para_valorizar
+  atletas.nome: nome
+  atletas.pontos_num: pontuacao
+  atletas.posicao_id: posicao
+  atletas.preco_num: preco
+  atletas.rodada_id: rodada
+  atletas.slug: slug
+  atletas.status_id: status
+  atletas.variacao_num: variacao
+  clube_id: id_clube
+  ClubeID: id_clube
+  ClubeNome: nome_clube
+  jogos_num: num_jogos
+  media_num: media
+  Nome: nome_clube
+  Participou: participou
+  pontos_num: pontuacao
+  Pontos: pontos_num
+  PontosMedia: media
+  posicao_id: posicao
+  PosicaoID: posicao
+  preco_num: preco
+  Preco: preco
+  PrecoVariacao: variacao
+  rodada_id: rodada
+  Rodada: rodada
+  status_id: status
+  variacao_num: variacao
 
 
-map_status_id_to_str:
+preprocessing.map_status_id_to_str:
   2: Dúvida
   3: Suspenso
   5: Contundido

@@ -26,7 +26,7 @@ jobs:
         run: pip install -r .github/workflows/requirements-ci.txt
 
       - name: download data
-        run: python cartola/src/download_data.py
+        run: python src/cartola/download_data.py
 
       # - name: commit files
       #   run: |

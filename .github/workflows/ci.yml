@@ -18,6 +18,8 @@ jobs:
         with:
           python-version: '3.10.5'
           cache: 'pip'
+
+      - name: install dependencies
         run: pip install -r .github/workflows/requirements-ci.txt
 
       - name: download data

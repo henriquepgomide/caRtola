@@ -1,6 +1,8 @@
-name: cartola-data
+name: cartola-data-py
 
-on: workflow_dispatch
+on: 
+  workflow_dispatch:
+  push:
   # schedule:
     # - cron: "0 13 * * *"
 

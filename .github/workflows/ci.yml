@@ -6,7 +6,6 @@ on:
 
 jobs:
   update-data:
-    runs-on: macOS-latest
     steps:
       - name: check out source code
         uses: actions/checkout@master
@@ -14,18 +13,15 @@ jobs:
           persist-credentials: false
           fetch-depth: 0
 
-      - name: setup R
-        uses: r-lib/actions/setup-r@master
+      - name: install python
+        uses: actions/setup-python@v4
         with:
-          r-version: '4.0.2'
-
-      - name: install packages
-        run: |
-          install.packages(c("httr", "rjson", "jsonlite", "plyr", "tidyverse", "stringi"), dependencies=TRUE)
-        shell: Rscript {0}
+          python-version: '3.10.5'
+          cache: 'pip'
+        run: pip install -r .github/workflows/requirements-ci.txt
 
       - name: download data
-        run: Rscript src/R/cartola_fetch.R
+        run: python cartola/src/download_data.py
 
       - name: commit files
         run: |

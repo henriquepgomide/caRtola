@@ -21,6 +21,7 @@ df_merge = df_atletas.merge(df_clubes, how="left", on="atletas.clube_id")
 rodada = df_merge.loc[0, "atletas.rodada_id"].astype(str)
 year = date.today().year
 file = join("data", "01_raw", str(year), f"rodada-{rodada}.csv")
+print(file)
 
-df_merge.to_csv(file, index=False)
+df_merge.to_csv(file)
 # json.dump(data_json, open(file.replace(".csv", ".json"), "w", encoding="utf-8"), indent=2, ensure_ascii=False)

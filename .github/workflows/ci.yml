@@ -1,12 +1,12 @@
-name: cartola-data
+name: cartola-data-py
 
-on:
+on: 
   schedule:
     - cron: "0 13 * * *"
 
 jobs:
   update-data:
-    runs-on: macOS-latest
+    runs-on: ubuntu-latest
     steps:
       - name: check out source code
         uses: actions/checkout@master
@@ -14,18 +14,17 @@ jobs:
           persist-credentials: false
           fetch-depth: 0
 
-      - name: setup R
-        uses: r-lib/actions/setup-r@master
+      - name: install python
+        uses: actions/setup-python@v4
         with:
-          r-version: '4.0.2'
+          python-version: '3.10.5'
+          cache: 'pip'
 
-      - name: install packages
-        run: |
-          install.packages(c("httr", "rjson", "jsonlite", "plyr", "tidyverse", "stringi"), dependencies=TRUE)
-        shell: Rscript {0}
+      - name: install dependencies
+        run: pip install -r .github/workflows/requirements-ci.txt
 
       - name: download data
-        run: Rscript src/R/cartola_fetch.R
+        run: python src/cartola/download_data.py
 
       - name: commit files
         run: |

@@ -1,0 +1,25 @@
+repos:
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v4.3.0
+  hooks:
+  - id: check-yaml
+  - id: check-merge-conflict
+  - id: check-toml
+  - id: fix-byte-order-marker
+  - id: requirements-txt-fixer
+
+- repo: https://github.com/pycqa/isort
+  rev: 5.10.1
+  hooks:
+    - id: isort
+
+- repo: https://github.com/python/black
+  rev: 22.3.0
+  hooks:
+    - id: black
+
+- repo: https://github.com/fsouza/autoflake8
+  rev: v0.2.2
+  hooks:
+    - id: autoflake8
+      args: ['--recursive', '--in-place']

@@ -52,6 +52,8 @@ certifi==2022.6.15
     # via requests
 cffi==1.15.1
     # via argon2-cffi-bindings
+cfgv==3.3.1
+    # via pre-commit
 chardet==4.0.0
     # via
     #   binaryornot
@@ -83,6 +85,8 @@ decorator==5.1.1
     # via ipython
 defusedxml==0.7.1
     # via nbconvert
+distlib==0.3.6
+    # via virtualenv
 dynaconf==3.1.9
     # via kedro
 entrypoints==0.4
@@ -93,6 +97,8 @@ fastapi==0.66.1
     # via kedro-viz
 fastjsonschema==2.16.1
     # via nbformat
+filelock==3.8.0
+    # via virtualenv
 flake8==4.0.1
     # via -r C:\Users\arnal\Documents\GitHub\caRtola\src\requirements.txt
 fsspec==2022.1.0
@@ -109,6 +115,8 @@ h11==0.13.0
     # via uvicorn
 httptools==0.4.0
     # via uvicorn
+identify==2.5.3
+    # via pre-commit
 idna==2.10
     # via
     #   anyio
@@ -254,6 +262,8 @@ nest-asyncio==1.5.5
     #   notebook
 networkx==2.8.5
     # via kedro-viz
+nodeenv==1.7.0
+    # via pre-commit
 notebook==6.4.12
     # via
     #   jupyter
@@ -288,13 +298,17 @@ pickleshare==0.7.5
 pip-tools==6.8.0
     # via kedro
 platformdirs==2.5.2
-    # via black
+    # via
+    #   black
+    #   virtualenv
 plotly==5.9.0
     # via kedro-viz
 pluggy==1.0.0
     # via
     #   kedro
     #   pytest
+pre-commit==2.20.0
+    # via -r C:\Users\arnal\Documents\GitHub\caRtola\src\requirements.txt
 prometheus-client==0.14.1
     # via
     #   jupyter-server
@@ -365,6 +379,7 @@ pyyaml==6.0
     # via
     #   cookiecutter
     #   kedro
+    #   pre-commit
     #   uvicorn
 pyzmq==23.2.0
     # via
@@ -425,6 +440,7 @@ tinycss2==1.1.1
 toml==0.10.2
     # via
     #   kedro
+    #   pre-commit
     #   pytest
 tomli==2.0.1
     # via
@@ -466,6 +482,8 @@ urllib3==1.26.11
     # via requests
 uvicorn[standard]==0.17.6
     # via kedro-viz
+virtualenv==20.16.4
+    # via pre-commit
 watchgod==0.8.2
     # via
     #   kedro-viz

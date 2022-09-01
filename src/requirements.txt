@@ -8,6 +8,7 @@ kedro~=0.18.2
 kedro-viz==4.7.1
 kedro-telemetry~=0.2.0
 nbstripout~=0.4
+pre-commit>=2.0, <3.0
 pytest-cov~=3.0
 pytest-mock>=1.7.1, <2.0
 pytest~=6.2

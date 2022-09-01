@@ -7,7 +7,9 @@
 aiofiles==0.6.0
     # via kedro-viz
 anyconfig==0.10.1
-    # via kedro
+    # via
+    #   kedro
+    #   kedro-docker
 anyio==3.6.1
     # via
     #   jupyter-server
@@ -205,8 +207,11 @@ jupyterlab-widgets==1.1.1
 kedro==0.18.2
     # via
     #   -r C:\Users\arnal\Documents\GitHub\caRtola\src\requirements.txt
+    #   kedro-docker
     #   kedro-telemetry
     #   kedro-viz
+kedro-docker==0.3.0
+    # via -r C:\Users\arnal\Documents\GitHub\caRtola\src\requirements.txt
 kedro-telemetry==0.2.1
     # via -r C:\Users\arnal\Documents\GitHub\caRtola\src\requirements.txt
 kedro-viz==4.7.1
@@ -388,7 +393,9 @@ rich==12.5.1
 rope==0.21.1
     # via kedro
 semver==2.13.0
-    # via kedro-viz
+    # via
+    #   kedro-docker
+    #   kedro-viz
 send2trash==1.8.0
     # via
     #   jupyter-server

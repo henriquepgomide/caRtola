@@ -226,8 +226,12 @@ mccabe==0.6.1
     # via flake8
 mistune==2.0.4
     # via nbconvert
+mypy==0.971
+    # via -r /Users/arnaldo/Documents/github/caRtola/src/requirements.txt
 mypy-extensions==0.4.3
-    # via black
+    # via
+    #   black
+    #   mypy
 nbclassic==0.4.3
     # via jupyterlab
 nbclient==0.6.7
@@ -294,7 +298,9 @@ pickleshare==0.7.5
 pip-tools==6.8.0
     # via kedro
 platformdirs==2.5.2
-    # via black
+    # via
+    #   black
+    #   virtualenv
 plotly==5.10.0
     # via kedro-viz
 pluggy==1.0.0
@@ -302,7 +308,7 @@ pluggy==1.0.0
     #   kedro
     #   pytest
 pre-commit==2.20.0
-    # via -r C:\Users\arnal\Documents\GitHub\caRtola\src\requirements.txt
+    # via -r /Users/arnaldo/Documents/github/caRtola/src/requirements.txt
 prometheus-client==0.14.1
     # via
     #   jupyter-server
@@ -441,6 +447,7 @@ tomli==2.0.1
     #   black
     #   build
     #   coverage
+    #   mypy
     #   pep517
 toposort==1.7
     # via kedro
@@ -470,6 +477,7 @@ traitlets==5.3.0
     #   qtconsole
 typing-extensions==4.3.0
     # via
+    #   mypy
     #   pydantic
     #   strawberry-graphql
 unidecode==1.3.4
@@ -480,6 +488,8 @@ uvicorn[standard]==0.17.6
     # via kedro-viz
 uvloop==0.16.0
     # via uvicorn
+virtualenv==20.16.4
+    # via pre-commit
 watchgod==0.8.2
     # via
     #   kedro-viz

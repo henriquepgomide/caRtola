@@ -6,11 +6,10 @@ generated using Kedro 0.18.2
 from kedro.pipeline import Pipeline, node, pipeline
 
 from cartola.commons.dataframes import concat_partitioned_datasets, drop_duplicated_rows, rename_cols
+from cartola.pipelines.preprocessing.nodes import fill_empty_slugs, fill_scouts_with_zeros, map_status_id_to_string
 
-from .nodes import fill_empty_slugs, fill_scouts_with_zeros, map_status_id_to_string
 
-
-def create_pipeline(**kwargs) -> Pipeline:
+def create_pipeline() -> Pipeline:
     return pipeline(
         [
             node(

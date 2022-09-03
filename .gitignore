@@ -176,7 +176,7 @@ conf/**/*credentials*
 **/data/**/*
 **/logs/**/*
 
-# keep empty data folders 
+# keep empty data folders
 !**/data/*
 !**/data/**/.gitkeep
 !**/logs/*

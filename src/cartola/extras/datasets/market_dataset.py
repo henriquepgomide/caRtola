@@ -1,14 +1,14 @@
-from typing import Any, Dict
-import fsspec
 import json
 from pathlib import PurePosixPath
+from typing import Any, Dict
 
+import fsspec
 import pandas as pd
 from kedro.io import AbstractDataSet
 from kedro.io.core import get_filepath_str, get_protocol_and_path
 
 
-class MarketDataSet(AbstractDataSet):
+class MarketDataSet(AbstractDataSet[pd.DataFrame, pd.DataFrame]):
     """A custom dataset to load marked data of 2021 (data/01_raw/2021) as pandas DataFrames."""
 
     def __init__(self, filepath: str):
@@ -20,7 +20,6 @@ class MarketDataSet(AbstractDataSet):
         self._protocol = protocol
         self._filepath = PurePosixPath(path)
         self._fs = fsspec.filesystem(self._protocol)
-    
 
     def _load(self) -> pd.DataFrame:
         """Loads data from the json file.
@@ -31,7 +30,7 @@ class MarketDataSet(AbstractDataSet):
         load_path = get_filepath_str(self._filepath, self._protocol)
         dict_json = json.load(open(load_path, "r", encoding="latin-1"))
         df = pd.DataFrame(dict_json["atletas"])
-        return df.join(pd.DataFrame(df.pop('scout').values.tolist()))
+        return df.join(pd.DataFrame(df.pop("scout").values.tolist()))
 
     def _save(self, data: pd.DataFrame) -> None:
         """Saves data to the specified filepath"""

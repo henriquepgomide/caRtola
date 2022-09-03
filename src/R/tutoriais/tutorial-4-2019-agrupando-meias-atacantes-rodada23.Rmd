@@ -1,3 +1,4 @@
+<!-- markdownlint-disable -->
 ---
 title: Cartola PFC - Quais meias escalar no Cartola? Ofensivos ou defensivos?
 author: "Henrique Gomide, Ph.D."

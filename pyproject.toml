@@ -23,3 +23,10 @@ addopts = """
 fail_under = 0
 show_missing = true
 exclude_lines = ["pragma: no cover", "raise NotImplementedError"]
+
+
+[tool.vulture]
+paths = ["src/cartola"]
+min_confidence = 80
+sort_by_size = true
+verbose = true

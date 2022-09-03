@@ -5,7 +5,8 @@ generated using Kedro 0.18.2
 from typing import Dict
 
 import pandas as pd
-from unidecode import unidecode
+
+from cartola.commons.features import compute_slug
 
 
 def fill_scouts_with_zeros(df: pd.DataFrame, dict_scouts: Dict[str, float]) -> pd.DataFrame:
@@ -18,9 +19,8 @@ def fill_empty_slugs(df: pd.DataFrame) -> pd.DataFrame:
     if "slug" not in df.columns:
         df["slug"] = None
 
-    slug_norm = lambda apelido: unidecode(apelido.lower().replace(" ", "-"))
     empty_slugs = df["slug"].isna()
-    df.loc[empty_slugs, "slug"] = df.loc[empty_slugs, "apelido"].apply(slug_norm)
+    df.loc[empty_slugs, "slug"] = df.loc[empty_slugs, "apelido"].apply(compute_slug)
     return df
 
 

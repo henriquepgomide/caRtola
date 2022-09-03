@@ -6,8 +6,8 @@ jupyter~=1.0
 jupyterlab~=3.0
 kedro>=0.18.0
 kedro-docker~=0.3.0
-kedro-viz==4.7.1
 kedro-telemetry~=0.2.0
+kedro-viz==4.7.1
 kedro-viz==4.7.1
 nbstripout~=0.4
 pre-commit>=2.0, <3.0

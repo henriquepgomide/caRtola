@@ -1,3 +1,4 @@
+<!-- markdownlint-disable -->
 Texto corrigido em 04/09/2018. Lista de correções: 1) cálculo das
 estimativas das chances dos times fazerem gols; 2) Interpretação dos
 resultados da última tabela e 3) Pequenos erros de ortografia.

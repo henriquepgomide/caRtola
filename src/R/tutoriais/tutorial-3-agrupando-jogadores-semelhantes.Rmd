@@ -1,3 +1,4 @@
+<!-- markdownlint-disable -->
 ---
 title: Cartola PFC - Análise do primeiro turno. Analisando os atacantes do Cartola FC.
 author: "Henrique Gomide, Ph.D."

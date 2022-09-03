@@ -1,3 +1,4 @@
+<!-- markdownlint-disable -->
 ---
 title: "Como montamos defesas no CartolaFC? Com estatística e modelagem de dados"
 author: "Henrique Gomide"

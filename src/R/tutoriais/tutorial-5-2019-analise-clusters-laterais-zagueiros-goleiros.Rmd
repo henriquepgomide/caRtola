@@ -1,3 +1,4 @@
+<!-- markdownlint-disable -->
 ---
 title: Cartola PFC - Análise de clusters no Cartola FC. Goleiros, Zagueiros e Laterais
 author: "Henrique Gomide, Ph.D."

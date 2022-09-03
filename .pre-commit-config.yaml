@@ -8,6 +8,11 @@ repos:
   - id: fix-byte-order-marker
   - id: requirements-txt-fixer
 
+- repo: https://github.com/dannysepler/rm_unneeded_f_str
+  rev: v0.1.0
+  hooks:
+  - id: rm-unneeded-f-str
+
 - repo: https://github.com/MarcoGorelli/absolufy-imports
   rev: v0.3.1
   hooks:
@@ -33,3 +38,8 @@ repos:
   rev: 3.9.2
   hooks:
     - id: flake8
+
+- repo: https://github.com/jendrikseipp/vulture
+  rev: v2.3
+  hooks:
+    - id: vulture

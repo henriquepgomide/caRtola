@@ -29,7 +29,7 @@ Estes são alguns tutoriais que escrevemos. Contribuições são sempre bem vind
 - [Parte I - Analisando os atacantes do primeiro turno com Affinity Propagation][tutorial-r-1]
 - [Parte II - Quais meias escalar: Defensivos ou ofensivos?][tutorial-r-2]
 - [Parte III - Analisando jogadores de defesa com Affinity Propagation][tutorial-r-3]
-- [Como montar defesas no Cartola usando regressão de Poisson?][tutorial-r-4]x
+- [Como montar defesas no Cartola usando regressão de Poisson?][tutorial-r-4]
 
 ### C++
 

@@ -6,7 +6,13 @@ repos:
   - id: check-merge-conflict
   - id: check-toml
   - id: fix-byte-order-marker
+  - id: mixed-line-ending
   - id: requirements-txt-fixer
+
+- repo: https://github.com/igorshubovych/markdownlint-cli
+  rev: v0.32.2
+  hooks:
+  - id: markdownlint-fix
 
 - repo: https://github.com/dannysepler/rm_unneeded_f_str
   rev: v0.1.0

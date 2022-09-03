@@ -9,7 +9,7 @@ from cartola.commons.dataframes import concat_partitioned_datasets, drop_duplica
 from cartola.pipelines.preprocessing.nodes import fill_empty_slugs, fill_scouts_with_zeros, map_status_id_to_string
 
 
-def create_pipeline(**kwargs) -> Pipeline:
+def create_pipeline() -> Pipeline:
     return pipeline(
         [
             node(

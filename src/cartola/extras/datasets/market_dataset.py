@@ -8,7 +8,7 @@ from kedro.io import AbstractDataSet
 from kedro.io.core import get_filepath_str, get_protocol_and_path
 
 
-class MarketDataSet(AbstractDataSet):
+class MarketDataSet(AbstractDataSet[pd.DataFrame, pd.DataFrame]):
     """A custom dataset to load marked data of 2021 (data/01_raw/2021) as pandas DataFrames."""
 
     def __init__(self, filepath: str):

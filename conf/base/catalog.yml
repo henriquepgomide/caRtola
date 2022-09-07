@@ -2,3 +2,15 @@
 #
 # Documentation for this file format can be found in "The Data Catalog"
 # Link: https://kedro.readthedocs.io/en/stable/data/data_catalog.html
+aggregated.primary:
+  type: PartitionedDataSet
+  path: data/03_primary
+  dataset:
+    type: pandas.CSVDataSet
+  filename_suffix: .csv
+
+aggregated.concatenated:
+  type: pandas.CSVDataSet
+  filepath: data/04_feature/aggregated.csv
+  save_args:
+    index: False

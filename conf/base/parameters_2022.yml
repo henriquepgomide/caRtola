@@ -4,6 +4,8 @@
 # Documentation for this file format can be found in "Parameters"
 # Link: https://kedro.readthedocs.io/en/0.18.2/kedro_project_setup/configuration.html#parameters
 
+2022.preprocessing.year: 2022
+
 2022.preprocessing.scouts:
   # ataque
   G: 8.0    # Gol marcado

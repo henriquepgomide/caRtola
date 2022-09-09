@@ -72,7 +72,16 @@ def register_pipelines() -> Dict[str, Pipeline]:
 
     return {
         "__default__": (
-            pipe_2014 + pipe_2015 + pipe_2016 + pipe_2017 + pipe_2018 + pipe_2019 + pipe_2020 + pipe_2021 + pipe_2022
+            pipe_2014
+            + pipe_2015
+            + pipe_2016
+            + pipe_2017
+            + pipe_2018
+            + pipe_2019
+            + pipe_2020
+            + pipe_2021
+            + pipe_2022
+            + pipe_aggregate
         ),
         "2014": pipe_2014,
         "2015": pipe_2015,

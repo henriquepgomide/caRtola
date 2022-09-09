@@ -40,6 +40,39 @@ preprocessing.map_col_names:
   variacao_num: variacao
 
 
+preprocessing.map_clube_to_id_clube:
+  AME: 327
+  ATL: 
+  AVA: 314
+  BAH: 265
+  BOT: 263
+  CAM: 282
+  CAP: 293
+  CEA: 
+  CFC: 294
+  CHA: 315
+  COR: 264
+  CRI: 288
+  CRU: 283
+  FIG: 316
+  FLA: 262
+  FLU: 266
+  GOI: 290
+  GRE: 284
+  INT: 285
+  JEC: 317
+  PAL: 275
+  PAR: 
+  PON: 303
+  SAN: 277
+  SAO: 276
+  SCZ: 344
+  SPO: 292
+  SPT: 292
+  VAS: 267
+  VIT: 287
+
+
 preprocessing.map_status_id_to_str:
   2: Dúvida
   3: Suspenso

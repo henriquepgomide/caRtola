@@ -14,12 +14,14 @@ RUN chown -R kedro:${KEDRO_GID} /home/kedro
 USER kedro
 RUN chmod -R a+w /home/kedro
 
-# install poetry
-RUN curl -sSL https://install.python-poetry.org | python3 -
-
 EXPOSE 8888
 
+# install poetry
+RUN curl -sSL https://install.python-poetry.org | python3 -
 ENV PATH=/home/kedro/.local/bin:$PATH
-RUN poetry install
+
+RUN pip install -U pip
+RUN poetry export -f requirements.txt --without-hashes > requirements_from_poetry.txt
+RUN pip install -r requirements_from_poetry.txt
 
 CMD ["poetry", "run", "kedro", "run"]

@@ -1,8 +1,7 @@
 name: cartola-data
 
-on: 
-  schedule:
-    - cron: "0 13 * * *"
+on: workflow_dispatch
+    # - cron: "0 13 * * *"
 
 jobs:
   update-data:
@@ -21,7 +20,7 @@ jobs:
           cache: 'pip'
 
       - name: install dependencies
-        run: pip install -r .github/workflows/requirements-ci.txt
+        run: pip install -r .github/workflows/requirements.txt
 
       - name: download data
         run: python src/cartola/download_data.py

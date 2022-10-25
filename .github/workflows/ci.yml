@@ -1,7 +1,8 @@
 name: cartola-data
 
-on: workflow_dispatch
-    # - cron: "0 13 * * *"
+on: 
+  schedule:
+    - cron: "0 13 * * *"
 
 jobs:
   update-data:

@@ -1,0 +1,688 @@
+,atletas.apelido,atletas.variacao_num,atletas.clube_id,atletas.pontos_num,atletas.minimo_para_valorizar,atletas.jogos_num,atletas.preco_num,atletas.posicao_id,atletas.media_num,atletas.atleta_id,atletas.clube.id.full.name,atletas.slug,atletas.apelido_abreviado,atletas.foto,atletas.rodada_id,atletas.nome,atletas.status_id
+0,Mano Menezes,0,285,0,7.04,0,12,6,0,37281,Internacional,mano-menezes,M. Menezes,https://s.sde.globo.com/media/person_role/2023/03/13/photo_FORMATO.png,1,Luis Antônio Venker de Menezes,7
+1,Fábio,0,266,0,7.62,0,13,1,0,37656,Fluminense,fabio,Fábio,https://s.sde.globo.com/media/person_role/2022/04/20/aeae67450f0c19a81c7d356b86382594_FORMATO.png,1,Fábio Deivson Lopes Maciel,7
+2,Bruno Mezenga,0,277,0,,0,4,5,0,37865,Santos,bruno-mezenga,B. Mezenga,https://s.sde.globo.com/media/person_role/2023/04/12/photo_220x220_sVYVxtF.png,1,Bruno Ferreira Mombra Rosa,6
+3,Rafinha,0,276,0,3.52,0,6,2,0,38144,São Paulo,rafinha,Rafinha,https://s.sde.globo.com/media/person_role/2022/03/01/de7df71bb9091a8547f8d8bd0212b549_FORMATO.png,1,Márcio Rafael Ferreira de Souza,2
+4,Fábio Santos,0,264,0,4.69,0,8,2,0,38229,Corinthians,fabio-santos,F. Santos,https://s.sde.globo.com/media/person_role/2023/03/02/photo_FORMATO_1yAQVb2.png,1,Fábio Santos Romeu,7
+5,Wellington Paulista,0,327,0,3.52,0,6,5,0,38279,América-MG,wellington-paulista,W. Paulista,https://s.sde.globo.com/media/person_role/2023/03/08/photo_FORMATO_8mUcFok.png,1,Wellington Pereira do Nascimento,6
+6,Thiago Heleno,0,293,0,4.11,0,7,3,0,38394,Athlético-PR,thiago-heleno,T. Heleno,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_msFDFpI.png,1,Thiago Heleno Henrique Ferreira,7
+7,Renato Augusto,0,264,0,11.14,0,19,4,0,38398,Corinthians,renato-augusto,R. Augusto,https://s.sde.globo.com/media/person_role/2023/03/02/photo_FORMATO_tP0yBkY.png,1,Renato Soares de Oliveira Augusto,5
+8,Marcelo,0,266,0,11.14,0,19,2,0,38402,Fluminense,marcelo,Marcelo,https://s.sde.globo.com/media/person_role/2023/02/27/photo_FORMATO_cKnKiav.png,1,Marcelo Vieira da Silva Júnior,7
+9,Felipe Melo,0,266,0,2.93,0,5,4,0,38545,Fluminense,felipe-melo,F. Melo,https://s.sde.globo.com/media/person_role/2023/02/27/photo_FORMATO_vO8uTh1.png,1,Felipe Melo de Carvalho,7
+10,Filipe Luís,0,262,0,4.69,0,8,2,0,38750,Flamengo,filipe-luis,F. Luís,https://s.sde.globo.com/media/person_role/2023/04/11/photo_FORMATO_1mrsipC.png,1,Filipe Luís Kasmirski,6
+11,Mariano,0,282,0,4.69,0,8,2,0,38877,Atlético-MG,mariano,Mariano,https://s.sde.globo.com/media/person_role/2023/03/01/photo_FORMATO_JIN8fSy.png,1,Mariano Ferreira Filho,2
+12,Hulk,0,282,0,9.38,0,16,5,0,39148,Atlético-MG,hulk,Hulk,https://s.sde.globo.com/media/person_role/2023/03/31/photo_FORMATO_VrWmS3u.png,1,Givanildo Vieira de Souza,7
+13,Vagner Mancini,0,327,0,3.52,0,6,6,0,39850,América-MG,vagner-mancini,V. Mancini,https://s.sde.globo.com/media/person_role/2021/04/28/5745220dd2c869e1f9de357e41902989_FORMATO.png,1,Vagner Carmo Mancini,7
+14,Renato Gaúcho,0,284,0,6.45,0,11,6,0,41929,Grêmio,renato-gaucho,R. Gaúcho,https://s.sde.globo.com/media/person_role/2021/07/12/a1f0a8f108ede4bf4ca2033148bcb547_FORMATO.png,1,Renato Portaluppi,7
+15,Willian,0,293,0,3.52,0,6,5,0,42116,Athlético-PR,willian,Willian,https://s.sde.globo.com/media/person_role/2023/03/29/photo_FORMATO.png,1,Willian Gomes de Siqueira,6
+16,Cássio,0,264,0,10.56,0,18,1,0,42234,Corinthians,cassio,Cássio,https://s.sde.globo.com/media/person_role/2023/03/02/photo_FORMATO_uEoWXC8.png,1,Cássio Roberto Ramos,7
+17,Fagner,0,264,0,5.28,0,9,2,0,42500,Corinthians,fagner,Fagner,https://s.sde.globo.com/media/person_role/2023/03/02/photo_FORMATO_T3I37Ma.png,1,Fagner Conserva Lemos,7
+18,David Braz,0,266,0,2.93,0,5,3,0,50317,Fluminense,david-braz,D. Braz,https://s.sde.globo.com/media/person_role/2022/04/20/2787635c960a396f6aca8c8ff11b00d3_FORMATO.png,1,David Braz de Oliveira Filho,6
+19,Alan Kardec,0,282,0,3.52,0,6,5,0,50347,Atlético-MG,alan-kardec,A. Kardec,https://s.sde.globo.com/media/person_role/2023/03/01/photo_FORMATO_CFMe31N.png,1,Alan Kardec de Sousa Pereira Júnior,6
+20,Titi,0,356,0,3.52,0,6,3,0,50353,Fortaleza,titi,Titi,https://s.sde.globo.com/media/person_role/2022/05/12/534ed4edd303b71622c53c102254193d_FORMATO.png,1,Christian Chagas Tarouco,7
+21,Emerson Ávila,0,290,0,,0,4,6,0,50456,Goiás,emerson-avila,E. Ávila,https://s.sde.globo.com/media/person_role/2023/04/10/photo_220x220_yhlPBJo.png,1,Emerson Rodrigues Ávila,7
+22,Henrique,0,294,0,2.35,0,4,3,0,50856,Coritiba,henrique,Henrique,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_nAVtfcZ.png,1,Henrique Adriano Buss,6
+23,Apodi,0,290,0,2.93,0,5,2,0,51042,Goiás,apodi,Apodi,https://s.sde.globo.com/media/person_role/2023/03/11/photo_FORMATO_B149DKg.png,1,Luiz Diallison de Souza Alves,7
+24,Walter,0,1371,0,4.69,0,8,1,0,51413,Cuiabá,walter,Walter,https://s.sde.globo.com/media/person_role/2023/03/06/photo_FORMATO_byoeISo.png,1,Walter Leandro Capeloza Artune,7
+25,Giuliano,0,264,0,3.52,0,6,4,0,51548,Corinthians,giuliano,Giuliano,https://s.sde.globo.com/media/person_role/2023/03/02/photo_FORMATO_ir8HBOO.png,1,Giuliano Victor de Paula,2
+26,Everton Ribeiro,0,262,0,8.21,0,14,4,0,51772,Flamengo,everton-ribeiro,E. Ribeiro,https://s.sde.globo.com/media/person_role/2023/04/11/photo_FORMATO_SWdtKkm.png,1,Everton Augusto de Barros Ribeiro,7
+27,Réver,0,282,0,3.52,0,6,3,0,52253,Atlético-MG,rever,Réver,https://s.sde.globo.com/media/person_role/2023/03/01/photo_FORMATO_TbZoSBd.png,1,Réver Humberto Alves Araújo,6
+28,David Luiz,0,262,0,4.69,0,8,3,0,52827,Flamengo,david-luiz,D. Luiz,https://s.sde.globo.com/media/person_role/2023/04/11/photo_FORMATO_8l0cfjh.png,1,David Luiz Moreira Marinho,2
+29,Alex Teixeira,0,267,0,4.69,0,8,4,0,60793,Vasco,alex-teixeira,A. Teixeira,https://s.sde.globo.com/media/person_role/2023/03/14/photo_FORMATO_95Ip8xR.png,1,Alex Teixeira Santos,7
+30,Felipe Azevedo,0,327,0,4.11,0,7,5,0,60825,América-MG,felipe-azevedo,F. Azevedo,https://s.sde.globo.com/media/person_role/2022/02/25/32fc5d9f18e690ed6ef80d16faae95cc_FORMATO.png,1,Felipe Azevedo dos Santos,7
+31,Uendel,0,1371,0,2.35,0,4,2,0,60852,Cuiabá,uendel,Uendel,https://s.sde.globo.com/media/person_role/2022/02/23/80aa17d4669a6357c0620eb0988e839e_FORMATO.png,1,Uendel Pereira Gonçalves,6
+32,Cicinho,0,265,0,2.35,0,4,2,0,61106,Bahia,cicinho,Cicinho,https://s.sde.globo.com/media/person_role/2023/02/27/photo_FORMATO_o4R14ec.png,1,Neuciano de Jesus Gusmão,6
+33,Gilberto,0,283,0,6.45,0,11,5,0,61188,Cruzeiro,gilberto,Gilberto,https://s.sde.globo.com/media/person_role/2023/03/01/photo_FORMATO_JtLzuBr.png,1,Gilberto Oliveira Souza Júnior,7
+34,Edimar,0,267,0,2.35,0,4,2,0,62024,Vasco,edimar,Edimar,https://s.sde.globo.com/media/person_role/2023/03/14/photo_FORMATO_mbf9VnM.png,1,Edimar Curitiba Fraga,6
+35,Alan,0,266,0,2.35,0,4,5,0,62969,Fluminense,alan,Alan,https://s.sde.globo.com/media/person_role/2023/02/27/photo_FORMATO_DUu9QkT.png,1,Alan Douglas Borges de Carvalho,6
+36,Ganso,0,266,0,5.86,0,10,4,0,62977,Fluminense,ganso,Ganso,https://s.sde.globo.com/media/person_role/2022/04/20/509250387f7c9402d22e9aa33a52de97_FORMATO.png,1,Paulo Henrique Chagas de Lima,7
+37,Marcos Rocha,0,275,0,2.93,0,5,2,0,63013,Palmeiras,marcos-rocha,M. Rocha,https://s.sde.globo.com/media/person_role/2023/03/15/photo_FORMATO_OnxH8aq.png,1,Marcos Luis Rocha Aquino,7
+38,Willian Farias,0,294,0,2.35,0,4,4,0,63058,Coritiba,willian-farias,W. Farias,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_FaZq8Ny.png,1,Willian Roberto Farias,6
+39,Edenílson,0,282,0,4.69,0,8,4,0,63289,Atlético-MG,edenilson,Edenílson,https://s.sde.globo.com/media/person_role/2023/03/31/photo_FORMATO_Nf8iNxS.png,1,Edenílson Andrade dos Santos,2
+40,Rodrigo Moledo,0,285,0,2.93,0,5,3,0,63354,Internacional,rodrigo-moledo,R. Moledo,https://s.sde.globo.com/media/person_role/2023/03/07/photo_FORMATO_oiE27eL.png,1,Rodrigo Modesto da Silva Moledo,6
+41,Alan Patrick,0,285,0,6.45,0,11,4,0,68685,Internacional,alan-patrick,A. Patrick,https://s.sde.globo.com/media/person_role/2023/03/07/photo_FORMATO_M6Icp8o.png,1,Alan Patrick Lourenço,7
+42,Eduardo,0,263,0,5.28,0,9,4,0,68708,Botafogo,eduardo,Eduardo,https://s.sde.globo.com/media/person_role/2023/03/07/photo_FORMATO_5IMT6Pl.png,1,Carlos Eduardo de Oliveira Alves,7
+43,Dodô,0,282,0,2.93,0,5,2,0,68727,Atlético-MG,dodo,Dodô,https://s.sde.globo.com/media/person_role/2023/03/01/photo_FORMATO_qpaSZSL.png,1,José Rodolfo Pires Ribeiro,6
+44,Camacho,0,277,0,2.93,0,5,4,0,68770,Santos,camacho,Camacho,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_F7E95Uy.png,1,Guilherme de Aguiar Camacho,7
+45,Henrique Almeida,0,327,0,2.93,0,5,5,0,68773,América-MG,henrique-almeida,H. Almeida,https://s.sde.globo.com/media/person_role/2022/02/25/f952435e80bcd6628e6480a7ad0ed047_FORMATO.png,1,Henrique Almeida Caixeta Nascentes,6
+46,Mário Fernandes,0,285,0,4.11,0,7,2,0,68804,Internacional,mario-fernandes,M. Fernandes,https://s.sde.globo.com/media/person_role/2023/03/07/photo_FORMATO_m0WICMh.png,1,Mário Figueira Fernandes,6
+47,Nino Paraíba,0,327,0,4.69,0,8,2,0,68808,América-MG,nino-paraiba,N. Paraíba,https://s.sde.globo.com/media/person_role/2023/03/08/photo_FORMATO_LO6uOVK.png,1,Severino do Ramo Clementino da Silva,6
+48,Ricardo Goulart,0,265,0,4.69,0,8,5,0,68833,Bahia,ricardo-goulart,R. Goulart,https://s.sde.globo.com/media/person_role/2023/02/27/photo_FORMATO_EXWSoml.png,1,Ricardo Goulart Pereira,6
+49,Marcelo Lomba,0,275,0,4.69,0,8,1,0,68872,Palmeiras,marcelo-lomba,M. Lomba,https://s.sde.globo.com/media/person_role/2023/03/15/photo_FORMATO_3F3hUdw.png,1,Marcelo Lomba do Nascimento,6
+50,Wellington Silva,0,1371,0,2.93,0,5,5,0,68895,Cuiabá,wellington-silva,W. Silva,https://s.sde.globo.com/media/person_role/2023/03/06/photo_FORMATO_blUyoXI.png,1,Wellington Alves da Silva,7
+51,Diego Souza,0,284,0,4.11,0,7,5,0,68911,Grêmio,diego-souza,D. Souza,https://s.sde.globo.com/media/person_role/2023/03/08/photo_FORMATO_rWsMyzy.png,1,Diego Souza de Andrade,5
+52,Vinicius,0,290,0,2.93,0,5,5,0,68917,Goiás,vinicius,Vinicius,https://s.sde.globo.com/media/person_role/2023/03/11/photo_FORMATO_ARVnYib.png,1,Vinicius Santos Silva,7
+53,Dudu,0,275,0,9.38,0,16,5,0,68920,Palmeiras,dudu,Dudu,https://s.sde.globo.com/media/person_role/2023/03/15/photo_FORMATO_dKDb4Xe.png,1,Eduardo Pereira Rodrigues,7
+54,Gil,0,264,0,4.69,0,8,3,0,68923,Corinthians,gil,Gil,https://s.sde.globo.com/media/person_role/2023/03/02/photo_FORMATO_qHWEwAj.png,1,Carlos Gilberto do Nascimento Silva,7
+55,Rafael,0,276,0,4.69,0,8,1,0,68928,São Paulo,rafael,Rafael,https://s.sde.globo.com/media/person_role/2023/03/08/photo_FORMATO_5tYCknN.png,1,Rafael Pires Monteiro,7
+56,Rafael Cabral,0,283,0,4.69,0,8,1,0,68940,Cruzeiro,rafael-cabral,R. Cabral,https://s.sde.globo.com/media/person_role/2023/03/01/photo_FORMATO_tTstlht.png,1,Rafael Cabral Barbosa,7
+57,Luciano Castán,0,283,0,2.35,0,4,3,0,68942,Cruzeiro,luciano-castan,L. Castán,https://s.sde.globo.com/media/person_role/2023/03/22/photo_220x220.png,1,Luciano Castán da Silva,7
+58,Marinho,0,262,0,4.11,0,7,5,0,68952,Flamengo,marinho,Marinho,https://s.sde.globo.com/media/person_role/2023/04/11/photo_FORMATO_eiyBkCZ.png,1,Mário Sérgio Santos Costa,6
+59,Lucas Sasha,0,356,0,4.11,0,7,4,0,68991,Fortaleza,lucas-sasha,L. Sasha,https://s.sde.globo.com/media/person_role/2022/07/16/d91654c9e126e6f3f17fd09b816eedf5_FORMATO.png,1,Lucas Pacheco Affini,7
+60,João Carlos,0,1371,0,1.76,0,3,1,0,69010,Cuiabá,joao-carlos,J. Carlos,https://s.sde.globo.com/media/person_role/2023/03/06/photo_FORMATO_uMDsJVm.png,1,João Carlos Heidemann,6
+61,Santos,0,262,0,6.45,0,11,1,0,69012,Flamengo,santos,Santos,https://s.sde.globo.com/media/person_role/2023/04/11/photo_FORMATO_4U42mWk.png,1,Aderbar Melo dos Santos Neto,7
+62,Manoel,0,266,0,4.69,0,8,3,0,69014,Fluminense,manoel,Manoel,https://s.sde.globo.com/media/person_role/2022/04/20/2ee72152c5a2da89ec05cb252df58e2b_FORMATO.png,1,Manoel Messias Silva Carvalho,6
+63,Marcelo Cirino,0,293,0,2.93,0,5,5,0,69022,Athlético-PR,marcelo-cirino,M. Cirino,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_7POtFfh.png,1,Marcelo Cirino da Silva,5
+64,Paulinho,0,264,0,3.52,0,6,4,0,69034,Corinthians,paulinho,Paulinho,https://s.sde.globo.com/media/person_role/2023/03/02/photo_FORMATO_6LHiiMD.png,1,José Paulo Bezerra Maciel Júnior,2
+65,Vladimir,0,277,0,2.35,0,4,1,0,69040,Santos,vladimir,Vladimir,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_nxWv2qc.png,1,Vladimir Orlando Cardoso de Araújo Filho,6
+66,Danilo Fernandes,0,265,0,2.93,0,5,1,0,69051,Bahia,danilo-fernandes,D. Fernandes,https://s.sde.globo.com/media/person_role/2023/02/27/photo_FORMATO_JIPzPHq.png,1,Danilo Fernandes Batista,6
+67,Vargas,0,282,0,4.69,0,8,5,0,69102,Atlético-MG,vargas,Vargas,https://s.sde.globo.com/media/person_role/2023/03/01/photo_FORMATO_yFYmdoD.png,1,Eduardo Jesús Vargas Rojas,5
+68,Pablo,0,293,0,4.11,0,7,5,0,69138,Athlético-PR,pablo,Pablo,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_jLJg754.png,1,Pablo Felipe Teixeira,2
+69,Pablo,0,262,0,2.93,0,5,3,0,69165,Flamengo,pablo,Pablo,https://s.sde.globo.com/media/person_role/2023/04/11/photo_FORMATO_PlvYQAE.png,1,Pablo Nascimento Castro,6
+70,Sidimar,0,290,0,1.76,0,3,3,0,69189,Goiás,sidimar,Sidimar,https://s.sde.globo.com/media/person_role/2023/03/11/photo_FORMATO_o9GWoGq.png,1,Sidimar Fernando Cigolini,6
+71,Luis Suárez,0,284,0,13.49,0,23,5,0,69318,Grêmio,luis-suarez,L. Suárez,https://s.sde.globo.com/media/person_role/2023/03/08/photo_FORMATO_f8gCuyP.png,1,Luis Alberto Suárez Díaz,7
+72,Aránguiz,0,285,0,5.86,0,10,4,0,69325,Internacional,aranguiz,Aránguiz,https://s.sde.globo.com/media/person_role/2023/04/02/photo_220x220_AyFyEWO.png,1,Charles Mariano Aránguiz Sandoval,5
+73,Vidal,0,262,0,4.69,0,8,4,0,69375,Flamengo,vidal,Vidal,https://s.sde.globo.com/media/person_role/2023/04/11/photo_FORMATO_dBcN4Gz.png,1,Arturo Erasmo Vidal Pardo,6
+74,Nikão,0,283,0,7.04,0,12,4,0,69705,Cruzeiro,nikao,Nikão,https://s.sde.globo.com/media/person_role/2023/03/01/photo_FORMATO_k90QI3t.png,1,Maycon Vinícius Ferreira da Cruz,6
+75,Fellipe Bastos,0,290,0,2.93,0,5,4,0,70116,Goiás,fellipe-bastos,F. Bastos,https://s.sde.globo.com/media/person_role/2023/03/11/photo_FORMATO_2gvVYzL.png,1,Fellipe Ramos Ignez Bastos,2
+76,Rafael,0,263,0,2.93,0,5,2,0,70171,Botafogo,rafael,Rafael,https://s.sde.globo.com/media/person_role/2023/03/07/photo_FORMATO_yi6UvNz.png,1,Rafael Pereira da Silva,2
+77,Fábio,0,284,0,2.93,0,5,2,0,70172,Grêmio,fabio,Fábio,https://s.sde.globo.com/media/person_role/2023/03/08/photo_FORMATO_ZWCqzu8.png,1,Fábio Pereira da Silva,6
+78,Bruno Uvini,0,284,0,2.35,0,4,3,0,70221,Grêmio,bruno-uvini,B. Uvini,https://s.sde.globo.com/media/person_role/2023/03/08/photo_FORMATO_Lz9yPNA.png,1,Bruno Uvini,6
+79,Eduardo Sasha,0,280,0,2.93,0,5,5,0,70360,Bragantino,eduardo-sasha,E. Sasha,https://s.sde.globo.com/media/person_role/2023/03/31/photo_FORMATO_c4X4NEA.png,1,Eduardo Colcenti Antunes,6
+80,Gabriel,0,294,0,2.93,0,5,1,0,70449,Coritiba,gabriel,Gabriel,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_ovYbvXA.png,1,Gabriel Vasconcelos Ferreira - Vasconcellos,7
+81,Marllon,0,1371,0,2.93,0,5,3,0,70666,Cuiabá,marllon,Marllon,https://s.sde.globo.com/media/person_role/2022/02/23/8d45db89a011dd77410922983889ff15_FORMATO.png,1,Marllon Gonçalves Jerônimo Borges,7
+82,Diogo Barbosa,0,284,0,2.93,0,5,2,0,70916,Grêmio,diogo-barbosa,D. Barbosa,https://s.sde.globo.com/media/person_role/2023/03/08/photo_FORMATO_hD7TNLn.png,1,Diogo Barbosa Mendanha,7
+83,Léo Cittadini,0,293,0,2.93,0,5,4,0,70986,Athlético-PR,leo-cittadini,L. Cittadini,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_iZBbl8l.png,1,Leonardo Cittadini,6
+84,Vina,0,284,0,5.28,0,9,4,0,71162,Grêmio,vina,Vina,https://s.sde.globo.com/media/person_role/2023/03/08/photo_FORMATO_q8oUM9e.png,1,Vinícius Goes Barbosa de Souza,7
+85,Maicon,0,277,0,4.11,0,7,3,0,71227,Santos,maicon,Maicon,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_NcXdUCj.png,1,Maicon Pereira Roque,6
+86,Fernando Miguel,0,356,0,5.86,0,10,1,0,71571,Fortaleza,fernando-miguel,F. Miguel,https://s.sde.globo.com/media/person_role/2023/03/07/photo_FORMATO_LYpf6Gz.png,1,Fernando Miguel Kaufmann,7
+87,Weverton,0,275,0,11.14,0,19,1,0,71631,Palmeiras,weverton,Weverton,https://s.sde.globo.com/media/person_role/2023/03/15/photo_FORMATO_PN9nfV7.png,1,Weverton Pereira da Silva,7
+88,Gustavo Gómez,0,275,0,10.56,0,18,3,0,71684,Palmeiras,gustavo-gomez,G. Gómez,https://s.sde.globo.com/media/person_role/2023/03/15/photo_FORMATO_WsvPa3o.png,1,Gustavo Raúl Gómez Portillo,7
+89,Júnior Urso,0,294,0,2.93,0,5,4,0,71829,Coritiba,junior-urso,J. Urso,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_7ft8zu4.png,1,Ocimar de Almeida Júnior,6
+90,Thiago Galhardo,0,356,0,6.45,0,11,5,0,71844,Fortaleza,thiago-galhardo,T. Galhardo,https://s.sde.globo.com/media/person_role/2022/07/16/27deb38ffaefdd66a10d7f246dcc678f_FORMATO.png,1,Thiago Galhardo do Nascimento Rocha,7
+91,Gabriel Pires,0,263,0,3.52,0,6,4,0,71898,Botafogo,gabriel-pires,G. Pires,https://s.sde.globo.com/media/person_role/2023/03/07/photo_FORMATO_wzlbP45.png,1,Gabriel Appelt Pires,2
+92,Danilo Avelar,0,327,0,2.35,0,4,3,0,72142,América-MG,danilo-avelar,D. Avelar,https://s.sde.globo.com/media/person_role/2022/04/12/2a7b85e6015605e0770fe393faf72a9a_FORMATO.png,1,Danilo Fernando Avelar,6
+93,Everson,0,282,0,2.93,0,5,1,0,72294,Atlético-MG,everson,Everson,https://s.sde.globo.com/media/person_role/2023/03/01/photo_FORMATO_XhJDp6n.png,1,Everson Felipe Marques Pires,7
+94,Felipe Alves,0,276,0,3.52,0,6,1,0,72372,São Paulo,felipe-alves,F. Alves,https://s.sde.globo.com/media/person_role/2022/08/16/19b70a0ace7230f7a5033ad9270abf7e_FORMATO.png,1,Felipe Alves Raymundo,6
+95,Fernando Diniz,0,266,0,6.45,0,11,6,0,72391,Fluminense,fernando-diniz,F. Diniz,https://s.sde.globo.com/media/person_role/2023/03/01/photo_FORMATO_dcBENR5.png,1,Fernando Diniz Silva,7
+96,Gustavo Campanharo,0,285,0,3.52,0,6,4,0,72497,Internacional,gustavo-campanharo,G. Campanharo,https://s.sde.globo.com/media/person_role/2023/04/02/photo_FORMATO_Fbab3V0.png,1,Gustavo Campanharo,6
+97,Nicolas,0,290,0,4.11,0,7,5,0,72524,Goiás,nicolas,Nicolas,https://s.sde.globo.com/media/person_role/2023/03/11/photo_FORMATO_6JPuoS2.png,1,Nicolas Godinho Johann,7
+98,Maguinho,0,290,0,2.35,0,4,2,0,72532,Goiás,maguinho,Maguinho,https://s.sde.globo.com/media/person_role/2023/03/11/photo_FORMATO_r03QzyK.png,1,Magno José da Silva,6
+99,Matheus Cavichioli,0,327,0,4.69,0,8,1,0,72580,América-MG,matheus-cavichioli,M. Cavichioli,https://s.sde.globo.com/media/person_role/2021/06/04/4b9a4cd7759d0ef36a25a02c4b9cf8a8_FORMATO.png,1,Matheus Fernando Cavichioli,7
+100,Pedro Henrique,0,285,0,7.04,0,12,5,0,72583,Internacional,pedro-henrique,P. Henrique,https://s.sde.globo.com/media/person_role/2022/04/12/5422d339b6546dc0505e80e10b027269_FORMATO.png,1,Pedro Henrique Konzen Medina da Silva,2
+101,Maurício Kozlinski,0,356,0,2.93,0,5,1,0,72595,Fortaleza,mauricio-kozlinski,M. Kozlinski,https://s.sde.globo.com/media/person_role/2023/03/21/photo_FORMATO_1CFG8Id.png,1,Maurício Kozlinski,6
+102,Vitor Hugo,0,265,0,4.11,0,7,3,0,72605,Bahia,vitor-hugo,V. Hugo,https://s.sde.globo.com/media/person_role/2023/04/03/photo_220x220_vx6atD2.png,1,Vitor Hugo Franchescoli de Souza,6
+103,Ceppelini,0,1371,0,2.35,0,4,4,0,72762,Cuiabá,ceppelini,Ceppelini,https://s.sde.globo.com/media/person_role/2023/03/06/photo_FORMATO_l5sEyLV.png,1,Pablo Daniel Ceppelini Gatto,7
+104,Luiz Adriano,0,285,0,4.69,0,8,5,0,72772,Internacional,luiz-adriano,L. Adriano,https://s.sde.globo.com/media/person_role/2023/03/07/photo_FORMATO_SJwFoxe.png,1,Luiz Adriano de Souza da Silva,2
+105,Fernandinho,0,293,0,5.86,0,10,4,0,72775,Athlético-PR,fernandinho,Fernandinho,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_X6EpiKc.png,1,Fernando Luiz Rosa,7
+106,Mercado,0,285,0,3.52,0,6,3,0,72951,Internacional,mercado,Mercado,https://s.sde.globo.com/media/person_role/2023/03/07/photo_FORMATO_rOFNbA7.png,1,Gabriel Iván Mercado,7
+107,Daniel Borges,0,263,0,2.35,0,4,2,0,73318,Botafogo,daniel-borges,D. Borges,https://s.sde.globo.com/media/person_role/2023/03/07/photo_FORMATO_KcG4Ldd.png,1,Daniel Fortunato Borges,6
+108,Samuel Xavier,0,266,0,4.11,0,7,2,0,73384,Fluminense,samuel-xavier,S. Xavier,https://s.sde.globo.com/media/person_role/2022/04/20/ad95f595cd71bcb7d7b91177716e1d33_FORMATO.png,1,Samuel Xavier Brito,7
+109,Jean Dias,0,285,0,,0,3,5,0,73479,Internacional,jean-dias,J. Dias,https://s.sde.globo.com/media/person_role/2023/04/10/photo_FORMATO_UU1DWbN.png,1,Jean Dias da Costa,6
+110,Bruno Alves,0,284,0,4.69,0,8,3,0,73620,Grêmio,bruno-alves,B. Alves,https://s.sde.globo.com/media/person_role/2023/03/08/photo_FORMATO_QXt8Pw7.png,1,Bruno Fabiano Alves,7
+111,Rodrigo Caio,0,262,0,3.52,0,6,3,0,73800,Flamengo,rodrigo-caio,R. Caio,https://s.sde.globo.com/media/person_role/2023/04/11/photo_FORMATO_8nCiWcT.png,1,Rodrigo Caio Coquette Russo,6
+112,Aloísio,0,327,0,2.93,0,5,5,0,73850,América-MG,aloisio,Aloísio,https://s.sde.globo.com/media/person_role/2022/03/31/a411b722d7d0edc88f871c1a48191dc1_FORMATO.png,1,Aloísio dos Santos Gonçalves,6
+113,Alison,0,277,0,2.93,0,5,4,0,73974,Santos,alison,Alison,https://s.sde.globo.com/media/person_role/2021/05/04/83ae4938b05e0e1d67ad49af17785e89_FORMATO.png,1,Alison Lopes Ferreira,6
+114,Gatito Fernández,0,263,0,4.69,0,8,1,0,74061,Botafogo,gatito-fernandez,G. Fernández,https://s.sde.globo.com/media/person_role/2023/03/07/photo_FORMATO_zKZCWAI.png,1,Roberto Junior Fernández Torres,6
+115,Lucas Piazon,0,263,0,2.35,0,4,4,0,74084,Botafogo,lucas-piazon,L. Piazon,https://s.sde.globo.com/media/person_role/2023/03/07/photo_FORMATO_8iJQEr4.png,1,Gustavo Lucas Domingues Piazón,6
+116,William Pottker,0,294,0,2.93,0,5,5,0,77809,Coritiba,william-pottker,W. Pottker,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_yjb57GF.png,1,William de Oliveira Pottker,7
+117,Madson,0,293,0,3.52,0,6,2,0,78077,Athlético-PR,madson,Madson,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_UA5MZDv.png,1,Madson Ferreira dos Santos,6
+118,Everaldo,0,265,0,4.11,0,7,5,0,78117,Bahia,everaldo,Everaldo,https://s.sde.globo.com/media/person_role/2023/02/27/photo_FORMATO_8pHdjST.png,1,Everaldo Stum,7
+119,Renê,0,285,0,4.11,0,7,2,0,78445,Internacional,rene,Renê,https://s.sde.globo.com/media/person_role/2022/04/12/89131124e240b53f50f1fe351ceb880d_FORMATO.png,1,Renê Rodrigues Martins,7
+120,Jonathan Cafu,0,1371,0,2.35,0,4,5,0,78580,Cuiabá,jonathan-cafu,J. Cafu,https://s.sde.globo.com/media/person_role/2023/03/06/photo_FORMATO_7bHRcHm.png,1,Jonathan Renato Barbosa,7
+121,Gabriel,0,285,0,3.52,0,6,4,0,78605,Internacional,gabriel,Gabriel,https://s.sde.globo.com/media/person_role/2023/03/07/photo_FORMATO_GUlE7bV.png,1,Gabriel Girotto Franco,5
+122,Ramiro,0,283,0,2.93,0,5,4,0,78715,Cruzeiro,ramiro,Ramiro,https://s.sde.globo.com/media/person_role/2023/03/01/photo_FORMATO_Yl1MU4D.png,1,Ramiro Moschen Benetti,7
+123,Reinaldo,0,284,0,5.28,0,9,2,0,78850,Grêmio,reinaldo,Reinaldo,https://s.sde.globo.com/media/person_role/2023/03/08/photo_FORMATO_YOXKUlg.png,1,Reinaldo Manoel da Silva,5
+124,Thiago Santos,0,266,0,2.93,0,5,4,0,78855,Fluminense,thiago-santos,T. Santos,https://s.sde.globo.com/media/person_role/2023/03/31/photo_FORMATO_GtPn70k.png,1,Thiago dos Santos,6
+125,Rafael Gava,0,1371,0,2.35,0,4,4,0,78867,Cuiabá,rafael-gava,R. Gava,https://s.sde.globo.com/media/person_role/2022/02/23/16687c4ddc3ae72291f2729ad61ed092_FORMATO.png,1,Rafael Gustavo Meneghel Gava,6
+126,Douglas Borges,0,263,0,1.76,0,3,1,0,78893,Botafogo,douglas-borges,D. Borges,https://s.sde.globo.com/media/person_role/2023/03/07/photo_FORMATO_33D9G2h.png,1,Douglas Borges,6
+127,Luiz Felipe,0,277,0,1.76,0,3,3,0,79035,Santos,luiz-felipe,L. Felipe,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_aiqNBl6.png,1,Luiz Felipe do Nascimento dos Santos,6
+128,Víctor Cuesta,0,263,0,4.69,0,8,3,0,79113,Botafogo,victor-cuesta,V. Cuesta,https://s.sde.globo.com/media/person_role/2023/03/07/photo_FORMATO_iLUMfpx.png,1,Víctor Leandro Cuesta,7
+129,Silvio Romero,0,356,0,2.93,0,5,5,0,79188,Fortaleza,silvio-romero,S. Romero,https://s.sde.globo.com/media/person_role/2022/05/12/c5b6ac96aea31d2271156591230c8f4c_FORMATO.png,1,Silvio Ezequiel Romero,5
+130,Filipe Augusto,0,1371,0,1.17,0,2,4,0,79268,Cuiabá,filipe-augusto,F. Augusto,https://s.sde.globo.com/media/person_role/2023/03/06/photo_FORMATO_S95pz8G.png,1,Filipe Augusto Carvalho Souza,7
+131,Ricardo Silva,0,327,0,2.35,0,4,3,0,79334,América-MG,ricardo-silva,R. Silva,https://s.sde.globo.com/media/person_role/2021/06/04/a95541b4ee84849f6e060a780b86704d_FORMATO.png,1,Ricardo César Dantas da Silva,2
+132,Cano,0,266,0,12.9,0,22,5,0,79631,Fluminense,cano,Cano,https://s.sde.globo.com/media/person_role/2023/02/27/photo_FORMATO_zQfRwuQ.png,1,Germán Ezequiel Cano,7
+133,Lucas Silva,0,284,0,2.93,0,5,4,0,79701,Grêmio,lucas-silva,L. Silva,https://s.sde.globo.com/media/person_role/2023/03/08/photo_FORMATO_22BJorG.png,1,Lucas Silva Borges,6
+134,Zé Roberto,0,294,0,,0,5,5,0,80076,Coritiba,ze-roberto,Z. Roberto,https://s.sde.globo.com/media/person_role/2023/04/10/photo_220x220_Mzobxer.png,1,José Roberto Assunção de Araújo Filho,6
+135,Yago Pikachu,0,356,0,5.28,0,9,4,0,80196,Fortaleza,yago-pikachu,Y. Pikachu,https://s.sde.globo.com/media/person_role/2023/03/06/photo_FORMATO_ve69BvY.png,1,Glaybson Yago Souza Lisboa,6
+136,Luciano,0,276,0,7.62,0,13,5,0,80287,São Paulo,luciano,Luciano,https://s.sde.globo.com/media/person_role/2022/03/01/aeb1926a6ddb270206f4ceffcf701d4b_FORMATO.png,1,Luciano da Rocha Neves,2
+137,Lucas Lima,0,277,0,3.52,0,6,4,0,80583,Santos,lucas-lima,L. Lima,https://s.sde.globo.com/media/person_role/2023/03/14/photo_FORMATO_l0JerUa.png,1,Lucas Rafael Araújo Lima,7
+138,Luan,0,275,0,4.11,0,7,3,0,80692,Palmeiras,luan,Luan,https://s.sde.globo.com/media/person_role/2023/03/15/photo_FORMATO_cnIvHfj.png,1,Luan Garcia Teixeira,6
+139,Pedro Geromel,0,284,0,4.11,0,7,3,0,80853,Grêmio,pedro-geromel,P. Geromel,https://s.sde.globo.com/media/person_role/2023/03/08/photo_FORMATO_2mIyND1.png,1,Pedro Tonon Geromel,6
+140,Jair,0,267,0,5.28,0,9,4,0,81091,Vasco,jair,Jair,https://s.sde.globo.com/media/person_role/2023/03/14/photo_FORMATO_ut5p6cP.png,1,Jair Rodrigues Júnior,7
+141,Lucas Mugni,0,265,0,2.93,0,5,4,0,81121,Bahia,lucas-mugni,L. Mugni,https://s.sde.globo.com/media/person_role/2023/02/27/photo_FORMATO_t30cY72.png,1,Lucas Andrés Mugni,6
+142,Mayke,0,275,0,4.11,0,7,2,0,81150,Palmeiras,mayke,Mayke,https://s.sde.globo.com/media/person_role/2023/03/15/photo_FORMATO_VrbLrFd.png,1,Mayke Rocha de Oliveira,5
+143,Alisson,0,276,0,2.93,0,5,4,0,81845,São Paulo,alisson,Alisson,https://s.sde.globo.com/media/person_role/2022/03/01/14ebdbca4e280cd9dfdb9b7e2148afe0_FORMATO.png,1,Alisson Euler de Freitas Castro,6
+144,João Ricardo,0,356,0,4.11,0,7,1,0,81881,Fortaleza,joao-ricardo,J. Ricardo,https://s.sde.globo.com/media/person_role/2023/03/07/photo_FORMATO_jfXmbiI.png,1,João Ricardo Riedi,5
+145,Willian Oliveira,0,290,0,2.35,0,4,4,0,81952,Goiás,willian-oliveira,W. Oliveira,https://s.sde.globo.com/media/person_role/2023/03/11/photo_FORMATO_9raWzET.png,1,Willian Osmar de Oliveira Silva,7
+146,Juninho,0,327,0,4.69,0,8,4,0,82381,América-MG,juninho,Juninho,https://s.sde.globo.com/media/person_role/2023/03/08/photo_FORMATO_ek7YW7J.png,1,Adilson dos Anjos Oliveira,7
+147,Tadeu,0,290,0,7.04,0,12,1,0,82453,Goiás,tadeu,Tadeu,https://s.sde.globo.com/media/person_role/2023/03/11/photo_FORMATO_jSvkpAL.png,1,Tadeu Antônio Ferreira,7
+148,Zé Rafael,0,275,0,7.04,0,12,4,0,82455,Palmeiras,ze-rafael,Z. Rafael,https://s.sde.globo.com/media/person_role/2023/03/15/photo_FORMATO_XlK02hD.png,1,José Rafael Vivian,7
+149,Otávio,0,282,0,3.52,0,6,4,0,82463,Atlético-MG,otavio,Otávio,https://s.sde.globo.com/media/person_role/2023/03/31/photo_FORMATO_y7upQyC.png,1,Otávio Henrique Passos Santos,7
+150,Tinga,0,356,0,3.52,0,6,2,0,82628,Fortaleza,tinga,Tinga,https://s.sde.globo.com/media/person_role/2022/05/12/98abba841d176135f9ec02a557177a7f_FORMATO.png,1,Guilherme de Jesus da Silva,7
+151,Régis,0,294,0,2.93,0,5,4,0,82647,Coritiba,regis,Régis,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_dJgxnPE.png,1,Régis Augusto Salmazzo,6
+152,Marcelo Rangel,0,290,0,2.35,0,4,1,0,82730,Goiás,marcelo-rangel,M. Rangel,https://s.sde.globo.com/media/person_role/2023/03/11/photo_FORMATO_jsdA8Zf.png,1,Marcelo Rangel da Rosa,6
+153,Paulo Turra,0,293,0,2.93,0,5,6,0,82747,Athlético-PR,paulo-turra,P. Turra,https://s.sde.globo.com/media/person_role/2023/03/06/photo_FORMATO_L21KedQ.png,1,Paulo César Turra,7
+154,Wellington Rato,0,276,0,4.69,0,8,4,0,82766,São Paulo,wellington-rato,W. Rato,https://s.sde.globo.com/media/person_role/2023/03/08/photo_FORMATO_bPEXkEO.png,1,Wellington Soares da Silva,7
+155,Maurício Barbieri,0,267,0,4.69,0,8,6,0,82792,Vasco,mauricio-barbieri,M. Barbieri,https://s.sde.globo.com/media/person_role/2021/04/27/1cc4a56a4aefc5902e503c4834666651_FORMATO.png,1,Maurício Nogueira Barbieri,7
+156,Gabriel,0,262,0,11.73,0,20,5,0,83257,Flamengo,gabriel,Gabriel,https://s.sde.globo.com/media/person_role/2023/04/11/photo_FORMATO_mbchRWW.png,1,Gabriel Barbosa Almeida,7
+157,Patrick,0,282,0,5.86,0,10,4,0,83433,Atlético-MG,patrick,Patrick,https://s.sde.globo.com/media/person_role/2023/03/31/photo_FORMATO_TvGvJD9.png,1,Patrick Bezerra do Nascimento,6
+158,Léo Pereira,0,262,0,4.11,0,7,3,0,83528,Flamengo,leo-pereira,L. Pereira,https://s.sde.globo.com/media/person_role/2023/04/11/photo_FORMATO_Wclql1X.png,1,Leonardo Pereira,2
+159,Neris,0,283,0,1.76,0,3,3,0,83786,Cruzeiro,neris,Neris,https://s.sde.globo.com/media/person_role/2023/03/01/photo_FORMATO_U329TT2.png,1,Hueglo Neris dos Santos,6
+160,Tiquinho Soares,0,263,0,7.04,0,12,5,0,84042,Botafogo,tiquinho-soares,T. Soares,https://s.sde.globo.com/media/person_role/2023/03/07/photo_FORMATO_TbDAa67.png,1,Francisco das Chagas Soares dos Santos Meireles,7
+161,Jemerson,0,282,0,3.52,0,6,3,0,84263,Atlético-MG,jemerson,Jemerson,https://s.sde.globo.com/media/person_role/2023/03/31/photo_FORMATO_LiuUOj2.png,1,Jemerson de Jesus Nascimento,7
+162,Bruno Melo,0,290,0,3.52,0,6,3,0,84339,Goiás,bruno-melo,B. Melo,https://s.sde.globo.com/media/person_role/2023/03/11/photo_FORMATO_FEUiEbp.png,1,Bruno Ferreira Melo,7
+163,Fernando Sobral,0,1371,0,3.52,0,6,4,0,84428,Cuiabá,fernando-sobral,F. Sobral,https://s.sde.globo.com/media/person_role/2023/03/06/photo_FORMATO_DOXZ9Xn.png,1,Fernando Pereira do Nascimento,6
+164,Romarinho,0,356,0,2.93,0,5,5,0,84523,Fortaleza,romarinho,Romarinho,https://s.sde.globo.com/media/person_role/2022/05/12/ccaf4552cbd0363c0a3fceefa2bf00bf_FORMATO.png,1,José Romário Silva de Souza,6
+165,Lucas Evangelista,0,280,0,3.52,0,6,4,0,84674,Bragantino,lucas-evangelista,L. Evangelista,https://s.sde.globo.com/media/person_role/2022/05/05/175c2911cb392a7305aef49766feb459_FORMATO.png,1,Lucas Evangelista Santana de Oliveira,6
+166,Varela,0,262,0,2.93,0,5,2,0,84816,Flamengo,varela,Varela,https://s.sde.globo.com/media/person_role/2023/04/11/photo_FORMATO_M1z2XK5.png,1,Guillermo Varela Olivera,7
+167,Robson,0,294,0,4.11,0,7,5,0,84817,Coritiba,robson,Robson,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_wdF92Dr.png,1,Robson dos Santos Fernandes,6
+168,Marcos Felipe,0,265,0,3.52,0,6,1,0,85004,Bahia,marcos-felipe,M. Felipe,https://s.sde.globo.com/media/person_role/2023/02/27/photo_FORMATO_kJmHr1X.png,1,Marcos Felipe de Freitas Monteiro,7
+169,Vinicius Silvestre,0,275,0,1.76,0,3,1,0,85083,Palmeiras,vinicius-silvestre,V. Silvestre,https://s.sde.globo.com/media/person_role/2022/02/21/6b18b6e2028293647615790cb3edf11f_FORMATO.png,1,Vinicius Silvestre da Costa,6
+170,Cantillo,0,264,0,2.35,0,4,4,0,85315,Corinthians,cantillo,Cantillo,https://s.sde.globo.com/media/person_role/2023/03/02/photo_FORMATO_XLtLBFc.png,1,Víctor Danilo Cantillo Jiménez,2
+171,João Paulo,0,277,0,8.21,0,14,1,0,85425,Santos,joao-paulo,J. Paulo,https://s.sde.globo.com/media/person_role/2022/03/03/9edc82b201e12a2a0b8dba4d87004195_FORMATO.png,1,João Paulo Silva Martins,7
+172,Alex Santana,0,293,0,4.11,0,7,4,0,85465,Athlético-PR,alex-santana,A. Santana,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_9oyYdIt.png,1,Alex Paulo Menezes Santana,6
+173,Léo,0,267,0,4.69,0,8,3,0,85626,Vasco,leo,Léo,https://s.sde.globo.com/media/person_role/2023/03/14/photo_FORMATO_upcZmtB.png,1,Leonardo Pinheiro da Conceição,7
+174,Hyoran,0,282,0,4.11,0,7,4,0,85931,Atlético-MG,hyoran,Hyoran,https://s.sde.globo.com/media/person_role/2023/03/31/photo_FORMATO_we4xNWc.png,1,Hyoran Kaue Dalmoro,6
+175,Gustavo Sauer,0,263,0,2.35,0,4,5,0,85993,Botafogo,gustavo-sauer,G. Sauer,https://s.sde.globo.com/media/person_role/2023/03/07/photo_FORMATO_plrV8jg.png,1,Gustavo Affonso Sauerbeck,2
+176,Wanderson,0,327,0,2.35,0,4,3,0,86143,América-MG,wanderson,Wanderson,https://s.sde.globo.com/media/person_role/2023/03/10/photo_FORMATO_b5qzoWm.png,1,Wanderson Santos Pereira,6
+177,Alê,0,327,0,3.52,0,6,4,0,86388,América-MG,ale,Alê,https://s.sde.globo.com/media/person_role/2022/02/24/4b65fc3f258e926df6bf12c3abbfa9a0_FORMATO.png,1,Alexandre Egea,7
+178,Sander,0,290,0,4.11,0,7,2,0,86391,Goiás,sander,Sander,https://s.sde.globo.com/media/person_role/2023/03/11/photo_FORMATO_klsEyT2.png,1,Sander Henrique Bortolotto,7
+179,Victor Luis,0,294,0,2.35,0,4,2,0,86410,Coritiba,victor-luis,V. Luis,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_cjqZYOH.png,1,Victor Luis Chuab Zamblauskas,7
+180,Keno,0,266,0,5.28,0,9,5,0,86485,Fluminense,keno,Keno,https://s.sde.globo.com/media/person_role/2023/02/27/photo_FORMATO_0olNy9W.png,1,Marcos da Silva França,7
+181,Jandrei,0,276,0,2.93,0,5,1,0,86508,São Paulo,jandrei,Jandrei,https://s.sde.globo.com/media/person_role/2022/03/01/aea40f3f23e91096dde97a5b7a877640_FORMATO.png,1,Jandrei Chitolina Carniel,6
+182,Tchê Tchê,0,263,0,3.52,0,6,4,0,86686,Botafogo,tche-tche,T. Tchê,https://s.sde.globo.com/media/person_role/2023/03/07/photo_FORMATO_FytIYxJ.png,1,Danilo das Neves Pinheiro,7
+183,Richard Coelho,0,283,0,2.93,0,5,4,0,86711,Cruzeiro,richard-coelho,R. Coelho,https://s.sde.globo.com/media/person_role/2023/03/14/photo_220x220_hWLUIMn.png,1,Richard Cândido Coelho,6
+184,Everton,0,262,0,5.28,0,9,5,0,86757,Flamengo,everton,Everton,https://s.sde.globo.com/media/person_role/2023/04/11/photo_FORMATO_EcaScZP.png,1,Everton Sousa Soares,2
+185,Danilo Barbosa,0,263,0,1.76,0,3,4,0,86777,Botafogo,danilo-barbosa,D. Barbosa,https://s.sde.globo.com/media/person_role/2023/03/07/photo_FORMATO_6wIsdHM.png,1,Danilo Barbosa da Silva,6
+186,Rodrigo Pinho,0,294,0,2.35,0,4,5,0,86799,Coritiba,rodrigo-pinho,R. Pinho,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_28kb8HP.png,1,Rodrigo Cunha Pereira de Pinho,7
+187,Boschilia,0,294,0,2.93,0,5,4,0,86841,Coritiba,boschilia,Boschilia,https://s.sde.globo.com/media/person_role/2022/08/12/8bbade4dbabca44eb3eda2767deda745_FORMATO.png,1,Gabriel Boschilia,6
+188,José Welison,0,356,0,2.93,0,5,4,0,86859,Fortaleza,jose-welison,J. Welison,https://s.sde.globo.com/media/person_role/2022/05/12/32f4ef48713e5687dbe666e42316e4ad_FORMATO.png,1,José Welison da Silva,6
+189,Marlon,0,327,0,2.93,0,5,2,0,86864,América-MG,marlon,Marlon,https://s.sde.globo.com/media/person_role/2023/03/08/photo_FORMATO_9jhAK26.png,1,Marlon Matheus Lopes do Nascimento,6
+190,Eduardo Bauermann,0,277,0,3.52,0,6,3,0,86970,Santos,eduardo-bauermann,E. Bauermann,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_GWoHgvv.png,1,Eduardo Gabriel dos Santos Bauermann,7
+191,Léo Jardim,0,267,0,5.86,0,10,1,0,87008,Vasco,leo-jardim,L. Jardim,https://s.sde.globo.com/media/person_role/2023/03/14/photo_FORMATO_2NC7Cvz.png,1,Leonardo César Jardim,7
+192,Nathan,0,284,0,4.69,0,8,4,0,87009,Grêmio,nathan,Nathan,https://s.sde.globo.com/media/person_role/2023/04/12/photo_FORMATO_H5UIx66.png,1,Nathan Allan de Souza,6
+193,Matheus Peixoto,0,290,0,3.52,0,6,5,0,87098,Goiás,matheus-peixoto,M. Peixoto,https://s.sde.globo.com/media/person_role/2023/03/11/photo_FORMATO_FC0h7Wp.png,1,Matheus Vieira Campos Peixoto,6
+194,Pedro Henrique,0,293,0,2.93,0,5,3,0,87225,Athlético-PR,pedro-henrique,P. Henrique,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_Pmz9ta0.png,1,Pedro Henrique Ribeiro Gonçalves,6
+195,Guilherme Arana,0,282,0,7.62,0,13,2,0,87228,Atlético-MG,guilherme-arana,G. Arana,https://s.sde.globo.com/media/person_role/2023/03/31/photo_FORMATO_6cBmo9F.png,1,Guilherme Antonio Arana Lopes,5
+196,Carlos de Pena,0,285,0,8.21,0,14,4,0,87242,Internacional,carlos-de-pena,C. Pena,https://s.sde.globo.com/media/person_role/2022/04/02/d2010e9182e074fe4a26c1c6d39304dc_FORMATO.png,1,Carlos María de Pena Bonino,7
+197,Soteldo,0,277,0,7.04,0,12,5,0,87258,Santos,soteldo,Soteldo,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_xCE9nv8.png,1,Yeferson Julio Soteldo Martínez,6
+198,Kannemann,0,284,0,4.11,0,7,3,0,87342,Grêmio,kannemann,Kannemann,https://s.sde.globo.com/media/person_role/2023/03/08/photo_FORMATO_q2fTOjY.png,1,Walter Kannemann,7
+199,Messias,0,277,0,2.93,0,5,3,0,87402,Santos,messias,Messias,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_XWlumea.png,1,Messias Rodrigues da Silva Júnior,7
+200,Thaciano,0,265,0,2.93,0,5,4,0,87470,Bahia,thaciano,Thaciano,https://s.sde.globo.com/media/person_role/2023/03/31/photo_FORMATO_dQGg2S1.png,1,Thaciano Mickael da Silva,6
+201,Vitor Bueno,0,293,0,2.93,0,5,4,0,87552,Athlético-PR,vitor-bueno,V. Bueno,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_Vn5DBCR.png,1,Vitor Frezarin Bueno,7
+202,Neto Moura,0,283,0,2.35,0,4,4,0,87742,Cruzeiro,neto-moura,N. Moura,https://s.sde.globo.com/media/person_role/2023/03/01/photo_FORMATO_MSIx6c6.png,1,Antônio Francisco Moura Neto,6
+203,Yago Felipe,0,265,0,4.11,0,7,4,0,87747,Bahia,yago-felipe,Y. Felipe,https://s.sde.globo.com/media/person_role/2023/03/10/photo_FORMATO.png,1,Yago Felipe da Costa Rocha,2
+204,Philipe Sampaio,0,263,0,2.35,0,4,3,0,87808,Botafogo,philipe-sampaio,P. Sampaio,https://s.sde.globo.com/media/person_role/2023/03/07/photo_FORMATO_E29teNI.png,1,Philipe Sampaio Azevedo,6
+205,Mauricio Lemos,0,282,0,3.52,0,6,3,0,87853,Atlético-MG,mauricio-lemos,M. Lemos,https://s.sde.globo.com/media/person_role/2023/03/01/photo_FORMATO_oIj0aUq.png,1,Paolo Mauricio Lemos Merladett,7
+206,Arrascaeta,0,262,0,11.14,0,19,4,0,87863,Flamengo,arrascaeta,Arrascaeta,https://s.sde.globo.com/media/person_role/2023/04/11/photo_FORMATO_CaSgg7s.png,1,Giorgian Daniel de Arrascaeta Benedetti,5
+207,Balbuena,0,264,0,3.52,0,6,3,0,87887,Corinthians,balbuena,Balbuena,https://s.sde.globo.com/media/person_role/2023/03/02/photo_FORMATO_a0U2siY.png,1,Fabián Cornelio Balbuena González,6
+208,Alan Empereur,0,1371,0,2.93,0,5,3,0,88033,Cuiabá,alan-empereur,A. Empereur,https://s.sde.globo.com/media/person_role/2022/07/20/5db43ec8756f6951151160f78ec748cb_FORMATO.png,1,Alan Pereira Empereur,5
+209,Luís Castro,0,263,0,4.69,0,8,6,0,88037,Botafogo,luis-castro,L. Castro,https://s.sde.globo.com/media/person_role/2022/02/21/3d4eb55c672851b1407085b09c4dfbb4_FORMATO.png,1,Luís Manuel Ribeiro de Castro,7
+210,Jorge,0,266,0,2.35,0,4,2,0,88065,Fluminense,jorge,Jorge,https://s.sde.globo.com/media/person_role/2023/02/27/photo_FORMATO_UTM0WJt.png,1,Jorge Marco de Oliveira Moraes,5
+211,Ivan,0,267,0,2.93,0,5,1,0,88136,Vasco,ivan,Ivan,https://s.sde.globo.com/media/person_role/2023/03/11/photo_FORMATO_qStnmUz.png,1,Ivan Quaresma da Silva,6
+212,Ángel Romero,0,264,0,2.93,0,5,5,0,88323,Corinthians,angel-romero,Ã. Romero,https://s.sde.globo.com/media/person_role/2023/03/02/photo_FORMATO_CufTSrv.png,1,Ángel Rodrigo Romero Villamayor,6
+213,Gabriel Dias,0,267,0,1.76,0,3,2,0,88368,Vasco,gabriel-dias,G. Dias,https://s.sde.globo.com/media/person_role/2023/03/14/photo_FORMATO_SmDR7cT.png,1,Gabriel Dias de Oliveira,5
+214,Ayrton Lucas,0,262,0,6.45,0,11,2,0,88393,Flamengo,ayrton-lucas,A. Lucas,https://s.sde.globo.com/media/person_role/2023/04/11/photo_FORMATO_P9K1v1H.png,1,Ayrton Lucas Dantas de Medeiros,7
+215,Aderlan,0,280,0,3.52,0,6,2,0,88423,Bragantino,aderlan,Aderlan,https://s.sde.globo.com/media/person_role/2022/05/05/e0f91d593be16e959e72ad0d5fc131a0_FORMATO.png,1,Aderlan de Lima Silva,7
+216,Lucas Crispim,0,356,0,3.52,0,6,4,0,88597,Fortaleza,lucas-crispim,L. Crispim,https://s.sde.globo.com/media/person_role/2022/05/12/043b82cd8bbcab2108944aa3cf34372e_FORMATO.png,1,Lucas de Figueiredo Crispim,6
+217,Marcelino Moreno,0,294,0,2.35,0,4,4,0,88857,Coritiba,marcelino-moreno,M. Moreno,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_S4cMFFx.png,1,Damián Marcelino Moreno,6
+218,Luan Polli,0,294,0,2.35,0,4,1,0,88916,Coritiba,luan-polli,L. Polli,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_gZl1v6O.png,1,Luan Polli Gomes,6
+219,Iago Maidana,0,327,0,3.52,0,6,3,0,89226,América-MG,iago-maidana,I. Maidana,https://s.sde.globo.com/media/person_role/2022/02/24/ac60436f13f7ce52c62ccb9b8d4ac384_FORMATO.png,1,Iago Justen Maidana Martins,7
+220,Gerson,0,262,0,5.86,0,10,4,0,89256,Flamengo,gerson,Gerson,https://s.sde.globo.com/media/person_role/2023/04/11/photo_FORMATO_UpueHtq.png,1,Gerson Santos da Silva,7
+221,João Pedro,0,284,0,2.35,0,4,2,0,89273,Grêmio,joao-pedro,J. Pedro,https://s.sde.globo.com/media/person_role/2023/03/08/photo_FORMATO_ux7O1sm.png,1,João Pedro Maturano dos Santos,7
+222,William,0,283,0,3.52,0,6,2,0,89275,Cruzeiro,william,William,https://s.sde.globo.com/media/person_role/2023/03/01/photo_FORMATO_mkEok8F.png,1,Willian de Asevedo Furtado,7
+223,Igor Rabello,0,282,0,2.93,0,5,3,0,89493,Atlético-MG,igor-rabello,I. Rabello,https://s.sde.globo.com/media/person_role/2023/03/31/photo_FORMATO_JxE36o1.png,1,Igor Rabello da Costa,5
+224,Thiago Maia,0,262,0,4.11,0,7,4,0,89637,Flamengo,thiago-maia,T. Maia,https://s.sde.globo.com/media/person_role/2023/04/11/photo_FORMATO_yDq9MVW.png,1,Thiago Maia Alencar,7
+225,Iury Castilho,0,1371,0,2.35,0,4,5,0,89695,Cuiabá,iury-castilho,I. Castilho,https://s.sde.globo.com/media/person_role/2023/03/06/photo_FORMATO_WoJbpFR.png,1,Iury Lirio Freitas de Castilho,6
+226,Calleri,0,276,0,8.8,0,15,5,0,89840,São Paulo,calleri,Calleri,https://s.sde.globo.com/media/person_role/2022/03/01/3abaa943f1546750dd057d6cb3559ce5_FORMATO.png,1,Jonathan Calleri,7
+227,Cristaldo,0,284,0,4.69,0,8,4,0,89846,Grêmio,cristaldo,Cristaldo,https://s.sde.globo.com/media/person_role/2023/03/08/photo_FORMATO_Sywtl9T.png,1,Franco Cristaldo,7
+228,Dodi,0,277,0,3.52,0,6,4,0,89883,Santos,dodi,Dodi,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_a0W192c.png,1,Douglas Moreira Fagundes,7
+229,Róger Guedes,0,264,0,8.8,0,15,5,0,89898,Corinthians,roger-guedes,R. Guedes,https://s.sde.globo.com/media/person_role/2023/03/02/photo_FORMATO_39SGFR6.png,1,Róger Krug Guedes,7
+230,Everton Galdino,0,284,0,1.76,0,3,5,0,89918,Grêmio,everton-galdino,E. Galdino,https://s.sde.globo.com/media/person_role/2023/03/08/photo_FORMATO_TtRmr2d.png,1,Everton Galdino Moreira,6
+231,Mendoza,0,277,0,7.04,0,12,5,0,90031,Santos,mendoza,Mendoza,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_fdX9HMF.png,1,John Stiven Mendoza Valencia,6
+232,Bruno Pacheco,0,356,0,4.11,0,7,2,0,90061,Fortaleza,bruno-pacheco,B. Pacheco,https://s.sde.globo.com/media/person_role/2023/03/06/photo_FORMATO_b7qHVNZ.png,1,Bruno de Jesus Pacheco,7
+233,Raí Ramos,0,276,0,2.93,0,5,2,0,90232,São Paulo,rai-ramos,R. Ramos,https://s.sde.globo.com/media/person_role/2019/04/16/f5be15dd86e6b186b1dfae47f529eafa_220x220.jpeg,1,Raí dos Reis Ramos,2
+234,Bruno Henrique,0,262,0,7.62,0,13,5,0,90285,Flamengo,bruno-henrique,B. Henrique,https://s.sde.globo.com/media/person_role/2023/04/11/photo_FORMATO_PsLr2Kh.png,1,Bruno Henrique Pinto,6
+235,Jailson,0,275,0,3.52,0,6,4,0,90290,Palmeiras,jailson,Jailson,https://s.sde.globo.com/media/person_role/2023/03/15/photo_FORMATO_borikKg.png,1,Jaílson Marques Siqueira,6
+236,Pedro Rocha,0,356,0,2.93,0,5,5,0,90302,Fortaleza,pedro-rocha,P. Rocha,https://s.sde.globo.com/media/person_role/2022/09/28/photo_FORMATO_wjBokpm.png,1,Pedro Rocha Neves,5
+237,David,0,276,0,3.52,0,6,5,0,90309,São Paulo,david,David,https://s.sde.globo.com/media/person_role/2023/03/08/photo_FORMATO_zc5jjjt.png,1,David Correa da Fonseca,2
+238,Rezende,0,265,0,2.93,0,5,4,0,90449,Bahia,rezende,Rezende,https://s.sde.globo.com/media/person_role/2023/02/27/photo_FORMATO_ZCpbjlh.png,1,Júlio César Rezende de Miranda,7
+239,Diego Gonçalves,0,290,0,2.35,0,4,5,0,90540,Goiás,diego-goncalves,D. Gonçalves,https://s.sde.globo.com/media/person_role/2023/03/11/photo_FORMATO_eh2bZ7u.png,1,Diego Gonçalves,6
+240,Mateus Claus,0,265,0,1.76,0,3,1,0,90590,Bahia,mateus-claus,M. Claus,https://s.sde.globo.com/media/person_role/2023/02/27/photo_FORMATO_UPFwDzZ.png,1,Mateus Eduardo Claus,6
+241,Fabrício Bruno,0,262,0,4.11,0,7,3,0,90768,Flamengo,fabricio-bruno,F. Bruno,https://s.sde.globo.com/media/person_role/2023/04/11/photo_FORMATO_zrQ4flU.png,1,Fabrício Bruno Soares de Faria,7
+242,Everaldo,0,327,0,3.52,0,6,5,0,91151,América-MG,everaldo,Everaldo,https://s.sde.globo.com/media/person_role/2022/02/25/561f3ca4238e82e1b2e1479a1a66c551_FORMATO.png,1,Everaldo Silva do Nascimento,7
+243,Patric Calmon,0,1371,0,,0,3,2,0,91190,Cuiabá,patric-calmon,P. Calmon,https://s.sde.globo.com/media/person_role/2023/04/11/photo_220x220_kfJYHxI.png,1,Ítaro Patric Cardoso Calmon,6
+244,Éder,0,327,0,2.93,0,5,3,0,91203,América-MG,eder,Éder,https://s.sde.globo.com/media/person_role/2022/02/24/e0b5f4c6647fe1b42922ddb4458dade0_FORMATO.png,1,Éder Ferreira Graminho,2
+245,Carballo,0,284,0,3.52,0,6,4,0,91254,Grêmio,carballo,Carballo,https://s.sde.globo.com/media/person_role/2023/03/08/photo_FORMATO_NYg6Ymv.png,1,Felipe Ignacio Carballo Ares,7
+246,Lucas Perri,0,263,0,3.52,0,6,1,0,91260,Botafogo,lucas-perri,L. Perri,https://s.sde.globo.com/media/person_role/2023/03/07/photo_FORMATO_83wBpb6.png,1,Lucas Estella Perri,7
+247,Erick Pulgar,0,262,0,2.35,0,4,4,0,91473,Flamengo,erick-pulgar,E. Pulgar,https://s.sde.globo.com/media/person_role/2023/04/11/photo_FORMATO_xuM4Nls.png,1,Erick Antonio Pulgar Farfán,5
+248,Arboleda,0,276,0,6.45,0,11,3,0,91573,São Paulo,arboleda,Arboleda,https://s.sde.globo.com/media/person_role/2022/03/01/a2548066433583acdc68badc1f1e35bf_FORMATO.png,1,Robert Abel Arboleda Escobar,7
+249,Rony,0,275,0,8.8,0,15,5,0,91607,Palmeiras,rony,Rony,https://s.sde.globo.com/media/person_role/2023/03/15/photo_FORMATO_eJOedW8.png,1,Ronielson da Silva Barbosa,5
+250,Adryelson,0,263,0,4.11,0,7,3,0,91664,Botafogo,adryelson,Adryelson,https://s.sde.globo.com/media/person_role/2023/03/07/photo_FORMATO_3WVFnva.png,1,Adryelson Shawann Lima Silva,7
+251,Matheus Jussa,0,283,0,2.35,0,4,4,0,91689,Cruzeiro,matheus-jussa,M. Jussa,https://s.sde.globo.com/media/person_role/2023/03/01/photo_FORMATO_vMaiFUT.png,1,Matheus Isaías dos Santos,6
+252,Marlon,0,283,0,2.35,0,4,2,0,91706,Cruzeiro,marlon,Marlon,https://s.sde.globo.com/media/person_role/2023/03/13/photo_220x220_vrVAWB7.png,1,Marlon Rodrigues Xavier,7
+253,Nino,0,266,0,6.45,0,11,3,0,91708,Fluminense,nino,Nino,https://s.sde.globo.com/media/person_role/2022/04/20/983b87b8c957e991f5f30f85aa8009a1_FORMATO.png,1,Marcílio Florêncio Mota Filho,7
+254,Matheus Alves,0,290,0,1.17,0,2,1,0,91712,Goiás,matheus-alves,M. Alves,https://s.sde.globo.com/media/person_role/2023/03/11/photo_FORMATO_voSytVs.png,1,Matheus Alves da Silva Cardoso,6
+255,Felipe,0,290,0,2.35,0,4,4,0,91733,Goiás,felipe,Felipe,https://s.sde.globo.com/media/person_role/2023/03/11/photo_FORMATO_ITYlLkP.png,1,Luiz Antonio Ferreira Rodrigues,6
+256,David Duarte,0,265,0,2.35,0,4,3,0,91772,Bahia,david-duarte,D. Duarte,https://s.sde.globo.com/media/person_role/2023/02/27/photo_FORMATO_0ibQkD2.png,1,David de Duarte Macedo,6
+257,Zé Ivaldo,0,293,0,2.35,0,4,3,0,91866,Athlético-PR,ze-ivaldo,Z. Ivaldo,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_ZOxQ99E.png,1,José Ivaldo Almeida Silva,7
+258,Pavón,0,282,0,2.93,0,5,5,0,91908,Atlético-MG,pavon,Pavón,https://s.sde.globo.com/media/person_role/2023/03/31/photo_FORMATO_U1jXQaU.png,1,Cristian David Pavón,7
+259,Odair Hellmann,0,277,0,4.11,0,7,6,0,92273,Santos,odair-hellmann,O. Hellmann,https://s.sde.globo.com/media/person_role/2023/03/13/photo_FORMATO_TpUTE4E.png,1,Odair Hellmann,7
+260,Bruno Viana,0,294,0,1.76,0,3,3,0,92291,Coritiba,bruno-viana,B. Viana,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_kVhXG72.png,1,Bruno Viana Willemen da Silva,7
+261,Raul,0,280,0,2.93,0,5,4,0,92496,Bragantino,raul,Raul,https://s.sde.globo.com/media/person_role/2022/05/05/278a2f0c3cd97ace8138ffbe2f23d81d_FORMATO.png,1,Raul Lô Gonçalves,5
+262,Deyverson,0,1371,0,3.52,0,6,5,0,92708,Cuiabá,deyverson,Deyverson,https://s.sde.globo.com/media/person_role/2023/03/06/photo_FORMATO_AvLd8xm.png,1,Deyverson Brum Silva Acosta,7
+263,Bruno Rodrigues,0,283,0,2.93,0,5,5,0,92811,Cruzeiro,bruno-rodrigues,B. Rodrigues,https://s.sde.globo.com/media/person_role/2023/03/01/photo_FORMATO_xfgmkoy.png,1,Bruno Rafael Rodrigues do Nascimento,7
+264,Júnior Moraes,0,264,0,1.76,0,3,5,0,93014,Corinthians,junior-moraes,J. Moraes,https://s.sde.globo.com/media/person_role/2023/03/02/photo_FORMATO_ocUzKxZ.png,1,Aluísio Chaves Ribeiro Moraes Júnior,6
+265,Mateus Vital,0,283,0,2.35,0,4,4,0,93108,Cruzeiro,mateus-vital,M. Vital,https://s.sde.globo.com/media/person_role/2023/03/01/photo_FORMATO_CifS8My.png,1,Mateus da Silva Vital Assumpção,7
+266,Chancellor,0,294,0,2.35,0,4,3,0,93166,Coritiba,chancellor,Chancellor,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_ntiY1fN.png,1,Jhon Carlos Chancellor Cedeño,6
+267,Rafael Ramos,0,264,0,2.35,0,4,2,0,93236,Corinthians,rafael-ramos,R. Ramos,https://s.sde.globo.com/media/person_role/2023/03/02/photo_FORMATO_Tdjz7Nn.png,1,Rafael António Figueiredo Ramos,6
+268,Joel Carli,0,263,0,1.76,0,3,3,0,93414,Botafogo,joel-carli,J. Carli,https://s.sde.globo.com/media/person_role/2023/03/07/photo_FORMATO_bm3BBvm.png,1,Mauro Joel Carli,6
+269,Wanderson,0,285,0,4.11,0,7,5,0,93478,Internacional,wanderson,Wanderson,https://s.sde.globo.com/media/person_role/2023/03/07/photo_FORMATO_TAoUoam.png,1,Wanderson Maciel Sousa Campos,7
+270,Benítez,0,327,0,4.69,0,8,4,0,93550,América-MG,benitez,Benítez,https://s.sde.globo.com/media/person_role/2023/03/07/photo_FORMATO_wkFNeGE.png,1,Martín Nicolás Benítez,6
+271,Gabriel Inocêncio,0,277,0,,0,4,2,0,93702,Santos,gabriel-inocencio,G. Inocêncio,https://s.sde.globo.com/media/person_role/2023/04/12/photo_220x220_IDMMQex.png,1,Gabriel de Souza Inocêncio,6
+272,Paulo Henrique,0,267,0,2.35,0,4,2,0,93716,Vasco,paulo-henrique,P. Henrique,https://s.sde.globo.com/media/person_role/2023/03/14/photo_FORMATO_65yTkUA.png,1,Paulo Henrique de Oliveira Alves,6
+273,Andrey,0,294,0,4.11,0,7,4,0,93787,Coritiba,andrey,Andrey,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_qIjSxtN.png,1,Andrey Ramos do Nascimento,7
+274,Marlon Freitas,0,263,0,4.11,0,7,4,0,93790,Botafogo,marlon-freitas,M. Freitas,https://s.sde.globo.com/media/person_role/2023/03/07/photo_FORMATO_vbqyTPv.png,1,Marlon Rodrigues Freitas,2
+275,Daniel,0,265,0,2.93,0,5,4,0,93791,Bahia,daniel,Daniel,https://s.sde.globo.com/media/person_role/2023/02/27/photo_FORMATO_suhRZdC.png,1,Daniel Sampaio Simões,7
+276,Marcinho,0,327,0,,0,5,2,0,93797,América-MG,marcinho,Marcinho,https://s.sde.globo.com/media/person_role/2023/04/06/photo_FORMATO_awVXJNb.png,1,Márcio Almeida de Oliveira,6
+277,Keiller,0,285,0,4.11,0,7,1,0,93834,Internacional,keiller,Keiller,https://s.sde.globo.com/media/person_role/2023/03/07/photo_FORMATO_3ZKNMQH.png,1,Keiller da Silva Nunes,7
+278,Cleiton,0,280,0,4.11,0,7,1,0,93882,Bragantino,cleiton,Cleiton,https://s.sde.globo.com/media/person_role/2022/05/05/ec4a7cb649121dc08c2869bdcf6ef984_FORMATO.png,1,Cleiton Schwengber,6
+279,Matheusinho,0,327,0,2.93,0,5,4,0,93886,América-MG,matheusinho,Matheusinho,https://s.sde.globo.com/media/person_role/2022/02/24/d160f8f8c1464cbcc27b4195e6255175_FORMATO.png,1,Matheus Leonardo Sales Cardoso,6
+280,Breno Lopes,0,275,0,2.93,0,5,5,0,93988,Palmeiras,breno-lopes,B. Lopes,https://s.sde.globo.com/media/person_role/2023/03/15/photo_FORMATO_r2x2UOS.png,1,Breno Henrique Vasconcelos Lopes,6
+281,John Victor,0,285,0,2.93,0,5,1,0,94044,Internacional,john-victor,J. Victor,https://s.sde.globo.com/media/person_role/2023/03/07/photo_FORMATO_u4LssT8.png,1,John Victor Maciel Furtado,6
+282,Matheus Fernandes,0,280,0,3.52,0,6,4,0,94067,Bragantino,matheus-fernandes,M. Fernandes,https://s.sde.globo.com/media/person_role/2023/03/01/photo_FORMATO_ozKQngu.png,1,Matheus Fernandes Siqueira,7
+283,Maycon,0,264,0,3.52,0,6,4,0,94154,Corinthians,maycon,Maycon,https://s.sde.globo.com/media/person_role/2023/03/02/photo_FORMATO_R7Bbn2S.png,1,Maycon de Andrade Barberan,7
+284,Guilherme,0,356,0,2.93,0,5,5,0,94207,Fortaleza,guilherme,Guilherme,https://s.sde.globo.com/media/person_role/2023/03/08/photo_FORMATO_3PZjGEk.png,1,Guilherme Augusto Vieira dos Santos,5
+285,Dadá Belmonte,0,327,0,4.11,0,7,4,0,94263,América-MG,dada-belmonte,D. Belmonte,https://s.sde.globo.com/media/person_role/2023/03/06/photo_FORMATO_qwUFc0E.png,1,Adaílson Freire Pereira da Silva,6
+286,Raphael Veiga,0,275,0,12.32,0,21,4,0,94509,Palmeiras,raphael-veiga,R. Veiga,https://s.sde.globo.com/media/person_role/2023/03/15/photo_FORMATO_l1kSIXt.png,1,Raphael Cavalcante Veiga,5
+287,Oliveira,0,283,0,3.52,0,6,3,0,94514,Cruzeiro,oliveira,Oliveira,https://s.sde.globo.com/media/person_role/2023/03/01/photo_FORMATO_wQCfXVb.png,1,Lucas da Cruz Oliveira,7
+288,Pedro,0,262,0,11.14,0,19,5,0,94583,Flamengo,pedro,Pedro,https://s.sde.globo.com/media/person_role/2023/04/11/photo_FORMATO_BmbzG97.png,1,Pedro Guilherme Abreu dos Santos,7
+289,Jhegson Méndez,0,276,0,4.11,0,7,4,0,94786,São Paulo,jhegson-mendez,J. Méndez,https://s.sde.globo.com/media/person_role/2023/03/13/photo_FORMATO_PUzvx3f.png,1,Jhegson Sebastián Méndez Carabalí,2
+290,Battaglia,0,282,0,4.11,0,7,4,0,94845,Atlético-MG,battaglia,Battaglia,https://s.sde.globo.com/media/person_role/2023/04/01/photo_FORMATO_ZrRtOhW.png,1,Rodrigo Andrés Battaglia,6
+291,Eduardo Coudet,0,282,0,5.86,0,10,6,0,94853,Atlético-MG,eduardo-coudet,E. Coudet,https://s.sde.globo.com/media/person_role/2023/03/01/photo_FORMATO_K9oIOl5.png,1,Eduardo Germán Coudet,7
+292,Lucas Fernandes,0,263,0,4.11,0,7,4,0,94931,Botafogo,lucas-fernandes,L. Fernandes,https://s.sde.globo.com/media/person_role/2023/03/07/photo_FORMATO_qLLBtiS.png,1,Lucas Fernandes da Silva,2
+293,Juninho Capixaba,0,280,0,5.86,0,10,2,0,94968,Bragantino,juninho-capixaba,J. Capixaba,https://s.sde.globo.com/media/person_role/2023/03/01/photo_FORMATO_VYzv5cy.png,1,Luis Antônio da Rocha Júnior,7
+294,Nicolas,0,327,0,2.93,0,5,2,0,95127,América-MG,nicolas,Nicolas,https://s.sde.globo.com/media/person_role/2023/03/10/photo_FORMATO_tTV7wrP.png,1,Nicolas Vichiatto da Silva,7
+295,Orejuela,0,276,0,2.35,0,4,2,0,95352,São Paulo,orejuela,Orejuela,https://s.sde.globo.com/media/person_role/2023/03/08/photo_FORMATO_ReeiLCz.png,1,Luis Manuel Orejuela García,6
+296,Igor Vinícius,0,276,0,3.52,0,6,2,0,95466,São Paulo,igor-vinicius,I. Vinícius,https://s.sde.globo.com/media/person_role/2022/03/01/1896fe9a90e6307ac1586be9aafcb04e_FORMATO.png,1,Igor Vinícius de Souza,5
+297,Raniele,0,1371,0,3.52,0,6,4,0,95556,Cuiabá,raniele,Raniele,https://s.sde.globo.com/media/person_role/2023/03/31/photo_220x220_j6biYTV.png,1,Raniele Almeida Melo,6
+298,Marcelo Benevenuto,0,356,0,4.11,0,7,3,0,95638,Fortaleza,marcelo-benevenuto,M. Benevenuto,https://s.sde.globo.com/media/person_role/2022/05/12/5021e3ea5f8c3db816a9537e53808b5a_FORMATO.png,1,Marcelo da Conceição Benevenuto Malaquias,6
+299,Lucas Kal,0,327,0,3.52,0,6,4,0,95662,América-MG,lucas-kal,L. Kal,https://s.sde.globo.com/media/person_role/2022/02/24/38a9d99d34c06f3714df211deaf2bd0f_FORMATO.png,1,Lucas Kal Schenfeld Progioli,6
+300,Nathan Silva,0,282,0,2.93,0,5,3,0,95794,Atlético-MG,nathan-silva,N. Silva,https://s.sde.globo.com/media/person_role/2023/03/31/photo_FORMATO_wWDrucr.png,1,Nathanael Ananias da Silva,6
+301,Artur,0,275,0,4.11,0,7,5,0,95799,Palmeiras,artur,Artur,https://s.sde.globo.com/media/person_role/2023/03/31/photo_FORMATO_G1nE6cb.png,1,Artur Victor Guimarães,7
+302,Machado,0,283,0,2.35,0,4,4,0,96089,Cruzeiro,machado,Machado,https://s.sde.globo.com/media/person_role/2023/03/01/photo_FORMATO_a0C7bdd.png,1,Luiz Filipe da Rosa Machado - Felipe,7
+303,Lima,0,266,0,4.11,0,7,4,0,96340,Fluminense,lima,Lima,https://s.sde.globo.com/media/person_role/2023/02/27/photo_FORMATO_SbZCjV5.png,1,Vinicius Moreira de Lima,6
+304,Allan,0,282,0,5.28,0,9,4,0,96652,Atlético-MG,allan,Allan,https://s.sde.globo.com/media/person_role/2023/03/01/photo_FORMATO_AuDILu6.png,1,Allan Rodrigues de Souza,6
+305,Bustos,0,285,0,4.11,0,7,2,0,96678,Internacional,bustos,Bustos,https://s.sde.globo.com/media/person_role/2023/03/07/photo_FORMATO_8fg8wbo.png,1,Fabricio Tomás Bustos Sein,5
+306,Saravia,0,282,0,4.69,0,8,2,0,96725,Atlético-MG,saravia,Saravia,https://s.sde.globo.com/media/person_role/2023/03/01/photo_FORMATO_9Q6Ch0T.png,1,Renzo Saravia,2
+307,Atuesta,0,275,0,2.93,0,5,4,0,96754,Palmeiras,atuesta,Atuesta,https://s.sde.globo.com/media/person_role/2023/03/15/photo_FORMATO_haNtwOK.png,1,Eduard Andrés Atuesta Velasco,5
+308,Dudu,0,356,0,3.52,0,6,2,0,97133,Fortaleza,dudu,Dudu,https://s.sde.globo.com/media/person_role/2023/03/07/photo_FORMATO_mKqqGHb.png,1,Luís Eduardo Marques dos Santos,6
+309,Villasanti,0,284,0,2.35,0,4,4,0,97145,Grêmio,villasanti,Villasanti,https://s.sde.globo.com/media/person_role/2023/03/08/photo_FORMATO_K2Ovl0l.png,1,Mathías Adalberto Villasanti Rolón,7
+310,Alesson,0,290,0,1.76,0,3,5,0,97321,Goiás,alesson,Alesson,https://s.sde.globo.com/media/person_role/2023/03/11/photo_FORMATO_onOMJJv.png,1,Alesson dos Santos Batista,7
+311,Rogério Ceni,0,276,0,5.86,0,10,6,0,97341,São Paulo,rogerio-ceni,R. Ceni,https://s.sde.globo.com/media/person_role/2022/03/01/e6fac1f227854170a80b2cf3234bfa1d_FORMATO.png,1,Rogério Ceni,7
+312,Gustavo Mosquito,0,264,0,2.93,0,5,5,0,97450,Corinthians,gustavo-mosquito,G. Mosquito,https://s.sde.globo.com/media/person_role/2023/03/02/photo_FORMATO_odfm6XT.png,1,Gustavo Henric da Silva,5
+313,Jori,0,327,0,1.76,0,3,1,0,97453,América-MG,jori,Jori,https://s.sde.globo.com/media/person_role/2021/06/04/4b0b72b2d30e52cae1f658dbea101b5c_FORMATO.png,1,Joriwinnyson Santos dos Anjos Rodrigues,6
+314,Marçal,0,263,0,7.62,0,13,2,0,97468,Botafogo,marcal,Marçal,https://s.sde.globo.com/media/person_role/2023/03/07/photo_FORMATO_lpafgKV.png,1,Fernando Marçal de Oliveira,2
+315,Murilo,0,275,0,10.56,0,18,3,0,97653,Palmeiras,murilo,Murilo,https://s.sde.globo.com/media/person_role/2023/03/15/photo_FORMATO_gy90S45.png,1,Murilo Cerqueira Paim,7
+316,Reynaldo,0,283,0,2.35,0,4,3,0,97768,Cruzeiro,reynaldo,Reynaldo,https://s.sde.globo.com/media/person_role/2023/03/01/photo_FORMATO_9F3djKI.png,1,Reynaldo César Moraes,6
+317,Léo Ortiz,0,280,0,5.28,0,9,3,0,97867,Bragantino,leo-ortiz,L. Ortiz,https://s.sde.globo.com/media/person_role/2022/05/05/460445523b5ae74d45009ede8f2a5e89_FORMATO.png,1,Leonardo Rech Ortiz,5
+318,Matheus Bahia,0,265,0,2.93,0,5,2,0,97899,Bahia,matheus-bahia,M. Bahia,https://s.sde.globo.com/media/person_role/2023/02/27/photo_FORMATO_qXFqFQp.png,1,Matheus Bahia Santos,6
+319,Vitão,0,285,0,4.69,0,8,3,0,97900,Internacional,vitao,Vitão,https://s.sde.globo.com/media/person_role/2023/03/07/photo_FORMATO_SngcHBI.png,1,Vitor Eduardo da Silva Matos,7
+320,Jhonata Varela,0,284,0,1.76,0,3,4,0,97993,Grêmio,jhonata-varela,J. Varela,https://s.sde.globo.com/media/person_role/2023/03/14/photo_FORMATO_v7Qo23i.png,1,Jhonata Varela da Silva,5
+321,Erick,0,293,0,4.11,0,7,4,0,98022,Athlético-PR,erick,Erick,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_dIxm87A.png,1,Erick Luis Conrado de Carvalho,7
+322,Alemão,0,285,0,3.52,0,6,5,0,98219,Internacional,alemao,Alemão,https://s.sde.globo.com/media/person_role/2023/03/07/photo_FORMATO_Ymwr1lY.png,1,Alexandre Zurawski,6
+323,Pedro Raul,0,267,0,2.93,0,5,5,0,98225,Vasco,pedro-raul,P. Raul,https://s.sde.globo.com/media/person_role/2023/03/14/photo_FORMATO_IDn4App.png,1,Pedro Raul Garay da Silva,7
+324,Kanu,0,265,0,3.52,0,6,3,0,98484,Bahia,kanu,Kanu,https://s.sde.globo.com/media/person_role/2023/02/27/photo_FORMATO_BiEGphf.png,1,Victor Hugo Soares dos Santos,7
+325,Vinícius Barreta,0,1371,0,0.59,0,1,1,0,98496,Cuiabá,vinicius-barreta,V. Barreta,https://s.sde.globo.com/media/person_role/2023/03/06/photo_FORMATO_MHv5nkR.png,1,Vinícius Teodoro Barreta Melo,6
+326,Di Placido,0,263,0,3.52,0,6,2,0,98605,Botafogo,di-placido,D. Placido,https://s.sde.globo.com/media/person_role/2023/03/07/photo_FORMATO_5kmPtuv.png,1,Leonel Di Placido,7
+327,Kuscevic,0,294,0,3.52,0,6,3,0,98619,Coritiba,kuscevic,Kuscevic,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_qacVCwx.png,1,Benjamín Kuščević Jaramillo,7
+328,Pedrinho,0,282,0,4.69,0,8,4,0,98706,Atlético-MG,pedrinho,Pedrinho,https://s.sde.globo.com/media/person_role/2023/03/31/photo_FORMATO_QTjI0Vv.png,1,Pedro Victor Delmino da Silva,6
+329,Carabajal,0,277,0,2.93,0,5,4,0,98723,Santos,carabajal,Carabajal,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_LjFTqCZ.png,1,Horacio Gabriel Carabajal,6
+330,Cuello,0,293,0,2.35,0,4,5,0,98909,Athlético-PR,cuello,Cuello,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_xAXl7On.png,1,Tomás Esteban Cuello,6
+331,Gabriel,0,276,0,2.93,0,5,4,0,98976,São Paulo,gabriel,Gabriel,https://s.sde.globo.com/media/person_role/2022/03/01/adf4c737eb27b74c772b8985d18c9044_FORMATO.png,1,Gabriel Neves Perdomo,6
+332,Eduardo Thuram,0,290,0,1.76,0,3,3,0,98985,Goiás,eduardo-thuram,E. Thuram,https://s.sde.globo.com/media/person_role/2023/03/11/photo_FORMATO_CIswMeu.png,1,Eduardo Higino da Silva,6
+333,Lucas Braga,0,277,0,2.93,0,5,5,0,99119,Santos,lucas-braga,L. Braga,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_jbahd9z.png,1,Lucas Braga Ribeiro,6
+334,Puma Rodríguez,0,267,0,4.11,0,7,2,0,99213,Vasco,puma-rodriguez,P. Rodríguez,https://s.sde.globo.com/media/person_role/2023/03/14/photo_FORMATO_I6z9QfY.png,1,José Luis Rodríguez Bebanz,7
+335,Rodrigo Fernández,0,277,0,3.52,0,6,4,0,99214,Santos,rodrigo-fernandez,R. Fernández,https://s.sde.globo.com/media/person_role/2022/03/29/6fdde8730fb97a5d12a85b4ebd9d4e93_FORMATO.png,1,Rodrigo Fernández Cedrés,6
+336,Pochettino,0,356,0,3.52,0,6,4,0,99267,Fortaleza,pochettino,Pochettino,https://s.sde.globo.com/media/person_role/2023/03/07/photo_FORMATO_pDAkCEV.png,1,Tomás Pochettino,2
+337,Morelli,0,290,0,1.76,0,3,4,0,99412,Goiás,morelli,Morelli,https://s.sde.globo.com/media/person_role/2023/04/03/photo_FORMATO_fZnSxrr.png,1,Everton Morelli Casimiro,6
+338,Baralhas,0,285,0,2.93,0,5,4,0,99440,Internacional,baralhas,Baralhas,https://s.sde.globo.com/media/person_role/2023/03/07/photo_FORMATO_MqX5wf1.png,1,Gabriel Baralhas dos Santos,6
+339,Arias,0,266,0,8.21,0,14,4,0,99815,Fluminense,arias,Arias,https://s.sde.globo.com/media/person_role/2022/04/20/d97a4c4cc239d983ba72d755e77a671d_FORMATO.png,1,Jhon Adolfo Arias Andrade,7
+340,Paulinho,0,282,0,4.69,0,8,5,0,99818,Atlético-MG,paulinho,Paulinho,https://s.sde.globo.com/media/person_role/2023/03/31/photo_FORMATO_6AtAEsy.png,1,Paulo Henrique Sampaio Filho,7
+341,Alan Franco,0,276,0,3.52,0,6,3,0,99889,São Paulo,alan-franco,A. Franco,https://s.sde.globo.com/media/person_role/2023/03/14/photo_FORMATO_Nls7aQV.png,1,Alan Javier Franco,7
+342,Jhonny Lucas,0,290,0,1.17,0,2,4,0,99994,Goiás,jhonny-lucas,J. Lucas,https://s.sde.globo.com/media/person_role/2023/03/11/photo_FORMATO_KkK6lCf.png,1,Jhonny Lucas Flora Barboza,6
+343,Zaracho,0,282,0,7.04,0,12,4,0,100079,Atlético-MG,zaracho,Zaracho,https://s.sde.globo.com/media/person_role/2023/03/01/photo_FORMATO_d4nyoPf.png,1,Federico Matías Javier Zaracho,7
+344,Igor Gomes,0,282,0,4.11,0,7,4,0,100084,Atlético-MG,igor-gomes,I. Gomes,https://s.sde.globo.com/media/person_role/2023/03/31/photo_FORMATO_UzfIqe6.png,1,Igor Silveira Gomes,2
+345,Pedrinho,0,276,0,4.11,0,7,5,0,100103,São Paulo,pedrinho,Pedrinho,https://s.sde.globo.com/media/person_role/2023/02/16/photo_FORMATO.png,1,Pedro Gabriel Pereira Lopes,6
+346,Luis Segovia,0,263,0,2.93,0,5,3,0,100453,Botafogo,luis-segovia,L. Segovia,https://s.sde.globo.com/media/person_role/2023/03/07/photo_FORMATO_N5TAr8X.png,1,Luis Geovanny Segovia Vega,6
+347,Yuri Alberto,0,264,0,9.97,0,17,5,0,100652,Corinthians,yuri-alberto,Y. Alberto,https://s.sde.globo.com/media/person_role/2023/03/02/photo_FORMATO_QVzSGOZ.png,1,Yuri Alberto Monteiro da Silva,7
+348,Liziero,0,294,0,2.93,0,5,4,0,100761,Coritiba,liziero,Liziero,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_NUUHkjY.png,1,Igor Matheus Liziero Pereira,7
+349,Brenno,0,284,0,3.52,0,6,1,0,100830,Grêmio,brenno,Brenno,https://s.sde.globo.com/media/person_role/2023/03/08/photo_FORMATO_hWYsgxj.png,1,Brenno Oliveira Fraga Costa,6
+350,Lucas Esteves,0,356,0,1.76,0,3,2,0,100846,Fortaleza,lucas-esteves,L. Esteves,https://s.sde.globo.com/media/person_role/2023/03/07/photo_FORMATO_Ob9K3n3.png,1,Lucas Esteves de Souza,5
+351,Luan Cândido,0,280,0,5.86,0,10,2,0,100848,Bragantino,luan-candido,L. Cândido,https://s.sde.globo.com/media/person_role/2022/05/05/a09132195a9936adeadb1a61d65dad2e_FORMATO.png,1,Luan Cândido de Almeida,6
+352,Ronald Lopes,0,1371,0,2.35,0,4,4,0,100969,Cuiabá,ronald-lopes,R. Lopes,https://s.sde.globo.com/media/person_role/2023/03/06/photo_FORMATO_NG6iAvU.png,1,Ronald dos Santos Lopes,6
+353,Júnior Santos,0,263,0,2.93,0,5,5,0,101002,Botafogo,junior-santos,J. Santos,https://s.sde.globo.com/media/person_role/2023/03/31/photo_FORMATO_20JkUu3.png,1,José Antonio dos Santos Júnior,2
+354,Diego,0,290,0,2.35,0,4,4,0,101027,Goiás,diego,Diego,https://s.sde.globo.com/media/person_role/2023/03/11/photo_FORMATO_50P80kB.png,1,Jackson Diego Ibrahim Fagundes,2
+355,Vitor Jacaré,0,265,0,2.35,0,4,5,0,101201,Bahia,vitor-jacare,V. Jacaré,https://s.sde.globo.com/media/person_role/2023/02/27/photo_FORMATO_GdFbYPn.png,1,Francisco Vítor Silva Costa,7
+356,Alef Manga,0,294,0,7.04,0,12,5,0,101254,Coritiba,alef-manga,A. Manga,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_o07AeW3.png,1,Alef Mangueira Severino Pereira,7
+357,Ferreira,0,284,0,5.86,0,10,5,0,101290,Grêmio,ferreira,Ferreira,https://s.sde.globo.com/media/person_role/2021/04/29/c162773146af15b4d212ad3d8e81af03_FORMATO.png,1,Aldemir dos Santos Ferreira,5
+358,Ademir,0,265,0,3.52,0,6,5,0,101314,Bahia,ademir,Ademir,https://s.sde.globo.com/media/person_role/2023/04/02/photo_FORMATO.png,1,Ademir da Silva Santos Júnior,6
+359,Guga,0,266,0,3.52,0,6,2,0,101319,Fluminense,guga,Guga,https://s.sde.globo.com/media/person_role/2023/02/27/photo_FORMATO_Q2do66k.png,1,Cláudio Rodrigues Gomes,6
+360,Wallisson,0,283,0,2.35,0,4,4,0,101405,Cruzeiro,wallisson,Wallisson,https://s.sde.globo.com/media/person_role/2023/03/01/photo_FORMATO_htrMBar.png,1,Wallisson Luiz Alves Máximo,6
+361,Pepê,0,284,0,4.11,0,7,4,0,101573,Grêmio,pepe,Pepê,https://s.sde.globo.com/media/person_role/2023/03/08/photo_FORMATO_ey2Asrl.png,1,João Pedro Vilardi Pinto,6
+362,Hugo Souza,0,262,0,1.76,0,3,1,0,101574,Flamengo,hugo-souza,H. Souza,https://s.sde.globo.com/media/person_role/2023/04/11/photo_FORMATO_4hEknPp.png,1,Hugo de Souza Nogueira,6
+363,Robson Bambu,0,267,0,2.35,0,4,3,0,101579,Vasco,robson-bambu,R. Bambu,https://s.sde.globo.com/media/person_role/2023/03/14/photo_FORMATO_duKaGjT.png,1,Robson Alves de Barros,6
+364,Hugo Moura,0,293,0,2.93,0,5,4,0,101594,Athlético-PR,hugo-moura,H. Moura,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_xmqFuth.png,1,Hugo Moura Arruda da Silva,6
+365,Alex,0,277,0,1.76,0,3,3,0,101600,Santos,alex,Alex,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_cgyweD5.png,1,Alex de Oliveira Nascimento,6
+366,Philippe Costa,0,290,0,1.76,0,3,5,0,101684,Goiás,philippe-costa,P. Costa,https://s.sde.globo.com/media/person_role/2023/03/11/photo_FORMATO_kiizDTZ.png,1,Philippe Almeida Costa,6
+367,Felipe Jonatan,0,277,0,4.11,0,7,2,0,101708,Santos,felipe-jonatan,F. Jonatan,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_4Rn0gj2.png,1,Felipe Jonatan Rocha Andrade,7
+368,Alerrandro,0,280,0,4.11,0,7,5,0,101715,Bragantino,alerrandro,Alerrandro,https://s.sde.globo.com/media/person_role/2022/05/05/a190fc01a5c5880c8de5c5854ac2f555_FORMATO.png,1,Alerrandro Barra Mansa Realino de Souza,7
+369,Marrony,0,266,0,2.93,0,5,5,0,101717,Fluminense,marrony,Marrony,https://s.sde.globo.com/media/person_role/2022/07/07/cf3959cd704eeabb2140114fefee94eb_FORMATO.png,1,Marrony da Silva Liberato,6
+370,Miranda,0,267,0,1.76,0,3,3,0,101720,Vasco,miranda,Miranda,https://s.sde.globo.com/media/person_role/2023/03/14/photo_FORMATO_dT3P0NV.png,1,Matheus dos Santos Miranda,6
+371,Matheusinho,0,290,0,1.17,0,2,4,0,101725,Goiás,matheusinho,Matheusinho,https://s.sde.globo.com/media/person_role/2023/03/11/photo_FORMATO_OKVlOLy.png,1,Matheus Santos Soares,6
+372,Matheuzinho,0,262,0,3.52,0,6,2,0,101727,Flamengo,matheuzinho,Matheuzinho,https://s.sde.globo.com/media/person_role/2023/03/01/photo_FORMATO_wPSt5sW.png,1,Matheus França Silva,5
+373,Diego Costa,0,276,0,4.11,0,7,3,0,101728,São Paulo,diego-costa,D. Costa,https://s.sde.globo.com/media/person_role/2022/03/01/996cbc8d639a3e640cf55d5326393d6d_FORMATO.png,1,Diego Henrique Costa Barbosa,2
+374,Vitinho,0,280,0,3.52,0,6,5,0,101960,Bragantino,vitinho,Vitinho,https://s.sde.globo.com/media/person_role/2023/03/01/photo_FORMATO_Hob15WK.png,1,Vitor Hugo Naum dos Santos,5
+375,Brítez,0,356,0,3.52,0,6,3,0,101995,Fortaleza,britez,Brítez,https://s.sde.globo.com/media/person_role/2022/07/16/933d90afd9fed6c8f8426f4c450f232e_FORMATO.png,1,Emanuel Fermín Brítez,7
+376,Piquerez,0,275,0,6.45,0,11,2,0,102130,Palmeiras,piquerez,Piquerez,https://s.sde.globo.com/media/person_role/2023/03/15/photo_FORMATO_04Y9scz.png,1,Joaquín Piquerez Moreira,5
+377,Vitor Eudes,0,266,0,1.17,0,2,1,0,102137,Fluminense,vitor-eudes,V. Eudes,https://s.sde.globo.com/media/person_role/2023/02/27/photo_FORMATO_5o99xOU.png,1,Vitor Eudes de Souza Costa,6
+378,Lucas Halter,0,290,0,2.93,0,5,3,0,102253,Goiás,lucas-halter,L. Halter,https://s.sde.globo.com/media/person_role/2023/03/11/photo_FORMATO_DlFIoVh.png,1,Lucas Halter,7
+379,Mikael,0,327,0,2.35,0,4,5,0,102299,América-MG,mikael,Mikael,https://s.sde.globo.com/media/person_role/2023/03/10/photo_FORMATO_lQhctpS.png,1,Mikael Filipe Viana,6
+380,Matheus Felipe,0,293,0,1.76,0,3,3,0,102310,Athlético-PR,matheus-felipe,M. Felipe,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_e7P4JVL.png,1,Matheus Felipe Santos Nascimento,6
+381,Caio Paulista,0,276,0,2.93,0,5,2,0,102318,São Paulo,caio-paulista,C. Paulista,https://s.sde.globo.com/media/person_role/2023/01/27/photo_FORMATO_rRBJfVv.png,1,Caio Fernando de Oliveira,6
+382,Mastriani,0,327,0,2.35,0,4,5,0,102561,América-MG,mastriani,Mastriani,https://s.sde.globo.com/media/person_role/2022/08/10/2c133460f6f214aed522ba40302a5c33_FORMATO.png,1,Gonzalo Mathías Mastriani Borges,7
+383,Helinho,0,280,0,3.52,0,6,5,0,102598,Bragantino,helinho,Helinho,https://s.sde.globo.com/media/person_role/2022/05/05/d0de5e463c8123423e2713cdde571faf_FORMATO.png,1,Hélio Júnio Nunes de Castro,6
+384,Julimar,0,293,0,1.17,0,2,5,0,102796,Athlético-PR,julimar,Julimar,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_qjlY4KF.png,1,Julimar Silva Oliveira Júnior,6
+385,Terans,0,293,0,10.56,0,18,4,0,102878,Athlético-PR,terans,Terans,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_rzjzN6M.png,1,Miguel David Terans Pérez,7
+386,Anderson,0,283,0,1.76,0,3,1,0,102906,Cruzeiro,anderson,Anderson,https://s.sde.globo.com/media/person_role/2023/03/01/photo_FORMATO_Lvl4bA5.png,1,Anderson Silva da Paixão,6
+387,Matheus Teixeira,0,265,0,1.17,0,2,1,0,102907,Bahia,matheus-teixeira,M. Teixeira,https://s.sde.globo.com/media/person_role/2022/04/05/ff4149be4042453395add145d010bd49_FORMATO.png,1,Matheus Henrique Teixeira,6
+388,Luan,0,276,0,3.52,0,6,4,0,102909,São Paulo,luan,Luan,https://s.sde.globo.com/media/person_role/2022/03/01/6b4e62b423e7b34762e0c7f626ea5ebd_FORMATO.png,1,Luan Vinícius da Silva Santos ,2
+389,Zé Ricardo,0,290,0,1.17,0,2,4,0,102911,Goiás,ze-ricardo,Z. Ricardo,https://s.sde.globo.com/media/person_role/2023/03/11/photo_FORMATO_h43zEak.png,1,José Ricardo Araújo Fernandes,7
+390,Canobbio,0,293,0,2.93,0,5,5,0,102928,Athlético-PR,canobbio,Canobbio,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_VXCkQFM.png,1,Agustín Canobbio Graviz,7
+391,Laquintana,0,280,0,1.76,0,3,5,0,103014,Bragantino,laquintana,Laquintana,https://s.sde.globo.com/media/person_role/2023/04/04/photo_FORMATO_nThAMzX.png,1,Ignacio Jesús Laquintana Marsico,6
+392,Mateus Gonçalves,0,327,0,2.35,0,4,5,0,103076,América-MG,mateus-goncalves,M. Gonçalves,https://s.sde.globo.com/media/person_role/2023/03/08/photo_FORMATO_uVg3SyA.png,1,Mateus Gonçalves Martins,6
+393,Eric Ramires,0,280,0,2.35,0,4,4,0,103295,Bragantino,eric-ramires,E. Ramires,https://s.sde.globo.com/media/person_role/2022/05/05/68b240d886c54c37133d42e6dd5f8e41_FORMATO.png,1,Eric dos Santos Rodrigues,6
+394,Matheus Alexandre,0,1371,0,2.93,0,5,2,0,103347,Cuiabá,matheus-alexandre,M. Alexandre,https://s.sde.globo.com/media/person_role/2023/03/06/photo_FORMATO_4eKoeL1.png,1,Matheus Alexandre Anastácio de Souza,7
+395,Emmanuel Martínez,0,327,0,2.35,0,4,4,0,103388,América-MG,emmanuel-martinez,E. Martínez,https://s.sde.globo.com/media/person_role/2022/08/13/68f9c27625c8107e59119604bba5e322_FORMATO.png,1,Leandro Emmanuel Martínez,7
+396,Caetano,0,264,0,1.76,0,3,3,0,103575,Corinthians,caetano,Caetano,https://s.sde.globo.com/media/person_role/2023/03/02/photo_FORMATO_72Ycs9o.png,1,João Victor Andrade Caetano,6
+397,Rafael Bilu,0,283,0,1.17,0,2,5,0,103576,Cruzeiro,rafael-bilu,R. Bilu,https://s.sde.globo.com/media/person_role/2023/03/01/photo_FORMATO_L5qGZ0n.png,1,Rafael Bilu Mudesto,6
+398,Marcos Paulo,0,276,0,2.93,0,5,5,0,103645,São Paulo,marcos-paulo,M. Paulo,https://s.sde.globo.com/media/person_role/2023/03/08/photo_FORMATO_XopxIWU.png,1,Marcos Paulo Costa do Nascimento,6
+399,Kaíque Rocha,0,293,0,2.35,0,4,3,0,103684,Athlético-PR,kaique-rocha,K. Rocha,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_TAU79Yo.png,1,Kaíque Rocha Lima,6
+400,Jadsom Silva,0,280,0,2.35,0,4,4,0,103695,Bragantino,jadsom-silva,J. Silva,https://s.sde.globo.com/media/person_role/2022/05/05/9d601cb29909661ed2abc4800aab14b7_FORMATO.png,1,Jadsom Meemyas de Oliveira da Silva,7
+401,Bruno Méndez,0,264,0,3.52,0,6,3,0,103700,Corinthians,bruno-mendez,B. Méndez,https://s.sde.globo.com/media/person_role/2023/03/02/photo_FORMATO_VwEvkmY.png,1,Bruno Méndez Cittadini,7
+402,Gabriel Menino,0,275,0,4.69,0,8,4,0,103767,Palmeiras,gabriel-menino,G. Menino,https://s.sde.globo.com/media/person_role/2023/03/15/photo_FORMATO_a770SrF.png,1,Gabriel Vinícius Menino,7
+403,Maycon,0,280,0,1.76,0,3,1,0,104017,Bragantino,maycon,Maycon,https://s.sde.globo.com/media/person_role/2022/05/05/f39fcb967a674ffddbaec227105dae4a_FORMATO.png,1,Maycon Cleiton de Paula Azevedo,6
+404,João Fernando,0,263,0,1.17,0,2,1,0,104079,Botafogo,joao-fernando,J. Fernando,https://s.sde.globo.com/media/person_role/2023/03/07/photo_FORMATO_5Z0375l.png,1,João Fernando Monteiro Siqueira,6
+405,Carlos Miguel,0,264,0,1.17,0,2,1,0,104084,Corinthians,carlos-miguel,C. Miguel,https://s.sde.globo.com/media/person_role/2023/03/02/photo_FORMATO_ucZUimL.png,1,Carlos Miguel dos Santos Pereira,6
+406,Bruno Fuchs,0,282,0,2.93,0,5,3,0,104085,Atlético-MG,bruno-fuchs,B. Fuchs,https://s.sde.globo.com/media/person_role/2023/03/01/photo_FORMATO_qjyhb3e.png,1,Bruno de Lara Fuchs,6
+407,Ruan,0,264,0,1.17,0,2,4,0,104153,Corinthians,ruan,Ruan,https://s.sde.globo.com/media/person_role/2023/03/02/photo_FORMATO_Uq9B5Kn.png,1,Ruan de Oliveira Ferreira,6
+408,João Lucas,0,277,0,2.35,0,4,2,0,104257,Santos,joao-lucas,J. Lucas,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_tX8ABIy.png,1,João Lucas de Almeida Carvalho,6
+409,Matheus Mendes,0,282,0,1.76,0,3,1,0,104383,Atlético-MG,matheus-mendes,M. Mendes,https://s.sde.globo.com/media/person_role/2023/03/31/photo_FORMATO_xQ2S67t.png,1,Matheus Mendes Werneck de Oliveira,6
+410,Igor Gomes,0,285,0,1.76,0,3,3,0,104385,Internacional,igor-gomes,I. Gomes,https://s.sde.globo.com/media/person_role/2023/03/07/photo_FORMATO_I7Q1WEp.png,1,Igor Gomes Silva,7
+411,Vitor Mendes,0,266,0,1.76,0,3,3,0,104401,Fluminense,vitor-mendes,V. Mendes,https://s.sde.globo.com/media/person_role/2023/03/14/photo_FORMATO_5wjDOG6.png,1,Vitor Mendes Alves,6
+412,Christian,0,293,0,2.35,0,4,4,0,104502,Athlético-PR,christian,Christian,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_V2OPAxf.png,1,Christian Roberto Alves Cardoso,6
+413,Vinícius Zanocelo,0,356,0,3.52,0,6,4,0,104521,Fortaleza,vinicius-zanocelo,V. Zanocelo,https://s.sde.globo.com/media/person_role/2023/04/03/photo_FORMATO_wmE19yM.png,1,Vinícius Nelson de Souza Zanocelo,6
+414,Sandry,0,277,0,2.35,0,4,4,0,104580,Santos,sandry,Sandry,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_bbHXWKZ.png,1,Sandry Roberto Santos Goes,6
+415,Fabrício,0,280,0,0.59,0,1,1,0,104588,Bragantino,fabricio,Fabrício,https://s.sde.globo.com/media/person_role/2023/03/01/photo_FORMATO_AAId2Kq.png,1,Fabrício Oliveira de Souza,6
+416,Darlan,0,284,0,2.35,0,4,4,0,104593,Grêmio,darlan,Darlan,https://s.sde.globo.com/media/person_role/2023/03/08/photo_FORMATO_NzyHepN.png,1,Darlan Pereira Mendes,6
+417,Moisés,0,356,0,4.11,0,7,5,0,104666,Fortaleza,moises,Moisés,https://s.sde.globo.com/media/person_role/2022/05/12/f14daa299b1fbfb010af7e0468342ccd_FORMATO.png,1,Moisés Vieira da Veiga,7
+418,Juan Vojvoda,0,356,0,5.86,0,10,6,0,104754,Fortaleza,juan-vojvoda,J. Vojvoda,https://s.sde.globo.com/media/person_role/2023/03/07/photo_FORMATO_UIx1Yzg.png,1,Juan Pablo Vojvoda Rizzo,7
+419,Acevedo,0,265,0,2.35,0,4,4,0,104783,Bahia,acevedo,Acevedo,https://s.sde.globo.com/media/person_role/2023/02/27/photo_FORMATO_YfjCr6b.png,1,Nicolás Brian Acevedo Tabárez,7
+420,Luis Henrique,0,263,0,2.35,0,4,5,0,105049,Botafogo,luis-henrique,L. Henrique,https://s.sde.globo.com/media/person_role/2023/03/15/photo_FORMATO_XMfC6C1.png,1,Luis Henrique Tomaz de Lima,6
+421,Fabrício Daniel,0,294,0,2.35,0,4,5,0,105171,Coritiba,fabricio-daniel,F. Daniel,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_6f5bwYY.png,1,Fabrício Daniel de Souza,6
+422,Khellven,0,293,0,5.28,0,9,2,0,105175,Athlético-PR,khellven,Khellven,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_7lRpDNN.png,1,Khellven Douglas Silva Oliveira,7
+423,Bento,0,293,0,6.45,0,11,1,0,105208,Athlético-PR,bento,Bento,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_7ROEp8B.png,1,Bento Matheus Krepski,7
+424,De Lucca,0,267,0,1.76,0,3,4,0,105294,Vasco,de-lucca,D. Lucca,https://s.sde.globo.com/media/person_role/2023/03/14/photo_FORMATO_J73ZkrF.png,1,Patrick de Lucca Chaves de Oliveira,5
+425,Ferraresi,0,276,0,3.52,0,6,3,0,105300,São Paulo,ferraresi,Ferraresi,https://s.sde.globo.com/media/person_role/2022/08/13/a5301263d96806640ddf67cec70f99e7_FORMATO.png,1,Nahuel Adolfo Ferraresi Hernández,5
+426,Gabriel Xavier,0,265,0,1.76,0,3,3,0,105373,Bahia,gabriel-xavier,G. Xavier,https://s.sde.globo.com/media/person_role/2023/02/27/photo_FORMATO_0UPMoSl.png,1,Gabriel Lheman Xavier,7
+427,Trindade,0,294,0,2.35,0,4,4,0,105433,Coritiba,trindade,Trindade,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_IfD8fQ4.png,1,Jesús Emiliano Trindade Flores,6
+428,Matheus Bidu,0,264,0,2.35,0,4,2,0,105531,Corinthians,matheus-bidu,M. Bidu,https://s.sde.globo.com/media/person_role/2023/03/02/photo_FORMATO_cNTyg24.png,1,Matheus Lima Beltrão Oliveira Valin,6
+429,Davó,0,283,0,1.76,0,3,5,0,105533,Cruzeiro,davo,Davó,https://s.sde.globo.com/media/person_role/2023/03/01/photo_FORMATO_Y26zRnV.png,1,Matheus Alvarenga de Oliveira,6
+430,Rikelme,0,1371,0,0.59,0,1,5,0,105547,Cuiabá,rikelme,Rikelme,https://s.sde.globo.com/media/person_role/2023/03/06/photo_FORMATO_FfgJEdr.png,1,Rikelme Hernandes Amorim Rocha,6
+431,Riquelme,0,267,0,1.76,0,3,2,0,105566,Vasco,riquelme,Riquelme,https://s.sde.globo.com/media/person_role/2023/03/14/photo_FORMATO_smA6Xym.png,1,Riquelme Carvalho Araújo Viana,6
+432,Lucero,0,356,0,4.11,0,7,5,0,105568,Fortaleza,lucero,Lucero,https://s.sde.globo.com/media/person_role/2023/03/07/photo_FORMATO_iV2gJyv.png,1,Juan Martín Lucero,7
+433,Lucas Piton,0,267,0,4.69,0,8,2,0,105584,Vasco,lucas-piton,L. Piton,https://s.sde.globo.com/media/person_role/2023/03/14/photo_FORMATO_71dywWV.png,1,Lucas Piton Crivellaro,7
+434,Roni,0,264,0,1.76,0,3,4,0,105585,Corinthians,roni,Roni,https://s.sde.globo.com/media/person_role/2023/03/02/photo_FORMATO_efGU5wq.png,1,Roni Medeiros de Moura,2
+435,Maurício,0,285,0,4.11,0,7,4,0,105647,Internacional,mauricio,Maurício,https://s.sde.globo.com/media/person_role/2023/03/07/photo_FORMATO_7KIwg4E.png,1,Maurício Magalhães Prado,2
+436,Nicolás Hernández,0,285,0,2.35,0,4,3,0,105672,Internacional,nicolas-hernandez,N. Hernández,https://s.sde.globo.com/media/person_role/2023/03/07/photo_FORMATO_l85XoS0.png,1,Nicolás Hernández Rodríguez,6
+437,Rafael Navarro,0,275,0,2.35,0,4,5,0,105770,Palmeiras,rafael-navarro,R. Navarro,https://s.sde.globo.com/media/person_role/2023/03/15/photo_FORMATO_D5UD7xu.png,1,Rafael Navarro Leal,6
+438,Wesley,0,283,0,3.52,0,6,5,0,105811,Cruzeiro,wesley,Wesley,https://s.sde.globo.com/media/person_role/2023/03/01/photo_FORMATO_vnwHYu8.png,1,Wesley Ribeiro Silva,6
+439,Edu,0,290,0,1.76,0,3,3,0,105842,Goiás,edu,Edu,https://s.sde.globo.com/media/person_role/2023/03/11/photo_FORMATO_ufnVqJV.png,1,Lucas Eduardo Ribeiro de Souza,6
+440,Ivonei,0,277,0,1.17,0,2,4,0,105899,Santos,ivonei,Ivonei,https://s.sde.globo.com/media/person_role/2022/03/03/caea9218ffe2f27f406b20009a39c25e_FORMATO.png,1,Ivonei Júnior da Silva Rabelo,2
+441,Zé Gabriel,0,267,0,1.76,0,3,4,0,105902,Vasco,ze-gabriel,Z. Gabriel,https://s.sde.globo.com/media/person_role/2023/03/14/photo_FORMATO_PQUgcKV.png,1,José Gabriel dos Santos Silva,6
+442,Rômulo,0,285,0,,0,2,4,0,105911,Internacional,romulo,Rômulo,https://s.sde.globo.com/media/person_role/2023/04/12/photo_220x220_eEMPMPy.png,1,Rômulo Zanre Zwarg,6
+443,Vinícius,0,267,0,1.17,0,2,5,0,105998,Vasco,vinicius,Vinícius,https://s.sde.globo.com/media/person_role/2023/03/14/photo_FORMATO_Oqt8wcz.png,1,Vinícius dos Santos de Oliveira Paiva,6
+444,Lucas Ramos,0,285,0,2.35,0,4,4,0,106000,Internacional,lucas-ramos,L. Ramos,https://s.sde.globo.com/media/person_role/2023/03/07/photo_FORMATO_Tdt3VkZ.png,1,Lucas de Ramos Silveira,6
+445,Johnny,0,285,0,4.11,0,7,4,0,106002,Internacional,johnny,Johnny,https://s.sde.globo.com/media/person_role/2023/03/07/photo_FORMATO_ylIGH1n.png,1,João Lucas Souza Cardoso,7
+446,Breno,0,263,0,1.76,0,3,4,0,106083,Botafogo,breno,Breno,https://s.sde.globo.com/media/person_role/2023/03/07/photo_FORMATO_byFBxRL.png,1,Breno Washington Rodrigues da Silva,6
+447,Lucão,0,280,0,1.17,0,2,1,0,106160,Bragantino,lucao,Lucão,https://s.sde.globo.com/media/person_role/2023/03/01/photo_FORMATO_uN4AYEQ.png,1,Lucas Alexandre Galdino de Azevedo,7
+448,Gabriel Pec,0,267,0,3.52,0,6,5,0,106199,Vasco,gabriel-pec,G. Pec,https://s.sde.globo.com/media/person_role/2023/03/14/photo_FORMATO_RHuy7TJ.png,1,Gabriel Fortes Chaves,7
+449,Figueiredo,0,267,0,2.35,0,4,4,0,106201,Vasco,figueiredo,Figueiredo,https://s.sde.globo.com/media/person_role/2023/03/14/photo_FORMATO_YrswGSn.png,1,Lucas Figueiredo dos Santos,6
+450,Bruno Gomes,0,294,0,3.52,0,6,4,0,106202,Coritiba,bruno-gomes,B. Gomes,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_wvinlkF.png,1,Bruno Gomes da Silva Clevelário,7
+451,Kawan,0,293,0,1.17,0,2,4,0,106219,Athlético-PR,kawan,Kawan,https://s.sde.globo.com/media/person_role/2022/02/21/f32be788b285e944b21d286da2e5b28d_FORMATO.png,1,Kawan Gabriel da Silva,5
+452,Realpe,0,280,0,1.76,0,3,3,0,106299,Bragantino,realpe,Realpe,https://s.sde.globo.com/media/person_role/2022/05/05/593eafb7ce8c7aa2051ccde762f1d731_FORMATO.png,1,Leonardo Javier Realpe Montaño,7
+453,Caio Alexandre,0,356,0,3.52,0,6,4,0,106323,Fortaleza,caio-alexandre,C. Alexandre,https://s.sde.globo.com/media/person_role/2022/09/22/photo_FORMATO_V96pF1l.png,1,Caio Alexandre Souza e Silva,7
+454,Wesley Gasolina,0,283,0,1.76,0,3,2,0,106327,Cruzeiro,wesley-gasolina,W. Gasolina,https://s.sde.globo.com/media/person_role/2023/03/01/photo_FORMATO_IHO297R.png,1,Wesley David de Oliveira Andrade,6
+455,Jhonata Robert,0,284,0,2.35,0,4,4,0,106371,Grêmio,jhonata-robert,J. Robert,https://s.sde.globo.com/media/person_role/2023/03/08/photo_FORMATO_Yc1vcMc.png,1,Jhonata Robert Alves da Silva,5
+456,Eduardo Santos,0,280,0,1.76,0,3,3,0,106434,Bragantino,eduardo-santos,E. Santos,https://s.sde.globo.com/media/person_role/2023/04/03/photo_FORMATO_0B5pVnO.png,1,Eduardo Gonzaga Mendes Santos,6
+457,Halls,0,267,0,1.17,0,2,1,0,106682,Vasco,halls,Halls,https://s.sde.globo.com/media/person_role/2023/03/14/photo_FORMATO_oXORlmg.png,1,Hedhe Halls Rocha da Silva,6
+458,Carlos Alberto,0,263,0,2.35,0,4,5,0,106704,Botafogo,carlos-alberto,C. Alberto,https://s.sde.globo.com/media/person_role/2023/03/07/photo_FORMATO_DgukYrK.png,1,Carlos Alberto Gomes da Silva Filho,6
+459,Igor Formiga,0,283,0,1.17,0,2,2,0,106708,Cruzeiro,igor-formiga,I. Formiga,https://s.sde.globo.com/media/person_role/2023/03/01/photo_FORMATO_OHpWQRW.png,1,Igor Marques Paciência Cardoso,6
+460,André Anderson,0,276,0,1.76,0,3,4,0,106803,São Paulo,andre-anderson,A. Anderson,https://s.sde.globo.com/media/person_role/2022/04/12/147e9b9fa6d6b253f5f20e62622066ac_FORMATO.png,1,André Anderson Pomilio Lima,6
+461,Rodrigo Nestor,0,276,0,4.69,0,8,4,0,106822,São Paulo,rodrigo-nestor,R. Nestor,https://s.sde.globo.com/media/person_role/2022/03/01/70f9ba85a01525e2d77c787e7efb42f7_FORMATO.png,1,Rodrigo Nestor Bertalia,7
+462,Welington,0,276,0,4.11,0,7,2,0,106824,São Paulo,welington,Welington,https://s.sde.globo.com/media/person_role/2022/03/01/81ffdaa86a436b3f695649fc411cf06b_FORMATO.png,1,Welington Damascena Santos,6
+463,Patryck,0,276,0,1.17,0,2,2,0,106829,São Paulo,patryck,Patryck,https://s.sde.globo.com/media/person_role/2022/03/01/73a6760a1b2c4cc7fc70ee0323e11b73_FORMATO.png,1,Patryck Lanza dos Reis,6
+464,Talles,0,276,0,1.76,0,3,4,0,106830,São Paulo,talles,Talles,https://s.sde.globo.com/media/person_role/2022/03/01/46c4e9fd9a32a9e894bd6edc746e403d_FORMATO.png,1,Talles Macedo Toledo Costa,5
+465,Juan,0,276,0,1.17,0,2,5,0,106831,São Paulo,juan,Juan,https://s.sde.globo.com/media/person_role/2022/03/01/b64f8d56aad317fef852cca695190f34_FORMATO.png,1,Juan Santos da Silva,6
+466,Luan Patrick,0,280,0,2.35,0,4,3,0,106835,Bragantino,luan-patrick,L. Patrick,https://s.sde.globo.com/media/person_role/2023/03/01/photo_FORMATO_qBlP0vG.png,1,Luan Patrick Wiedthauper,6
+467,Edinho,0,266,0,,0,2,4,0,106882,Fluminense,edinho,Edinho,https://s.sde.globo.com/media/person_role/2023/04/12/photo_FORMATO_lpVHzsU.png,1,Eder Maciel Lopes,6
+468,Ariel,0,290,0,1.76,0,3,5,0,106949,Goiás,ariel,Ariel,https://s.sde.globo.com/media/person_role/2023/03/30/photo_FORMATO_Nvo8pua.png,1,Ariel Felipe Gomes da Rosa,6
+469,Fernando,0,293,0,1.76,0,3,2,0,106950,Athlético-PR,fernando,Fernando,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_DOiaQDY.png,1,Fernando Augusto Pereira Bueno Júnior,6
+470,Bernardo Schappo,0,356,0,2.35,0,4,3,0,106977,Fortaleza,bernardo-schappo,B. Schappo,https://s.sde.globo.com/media/person_role/2023/03/31/photo_220x220_5QLuHn9.png,1,Bernardo Schappo,6
+471,Ricardo Cerqueira,0,1371,0,1.17,0,2,4,0,107039,Cuiabá,ricardo-cerqueira,R. Cerqueira,https://s.sde.globo.com/media/person_role/2023/03/06/photo_FORMATO_lmtWu1C.png,1,José Ricardo Batista Cerqueira,6
+472,Alexandre Jesus,0,266,0,1.76,0,3,5,0,107044,Fluminense,alexandre-jesus,A. Jesus,https://s.sde.globo.com/media/person_role/2023/02/27/photo_FORMATO_XvtG1UE.png,1,Alexandre de Jesus Jeruzalem Júnior,6
+473,Stênio,0,283,0,1.76,0,3,5,0,107052,Cruzeiro,stenio,Stênio,https://s.sde.globo.com/media/person_role/2023/03/01/photo_FORMATO_9qm9tuE.png,1,Stenio Zanetti Toledo,6
+474,Natan,0,280,0,3.52,0,6,3,0,107110,Bragantino,natan,Natan,https://s.sde.globo.com/media/person_role/2022/05/05/ebc6c140c001d68b3b50f27e354d27e2_FORMATO.png,1,Natan Bernardo de Souza,7
+475,Richard Rios,0,275,0,2.35,0,4,4,0,107111,Palmeiras,richard-rios,R. Rios,https://s.sde.globo.com/media/person_role/2023/03/29/photo_FORMATO_RowK2Zx.png,1,Richard Rios Montoya,6
+476,Patrick de Paula,0,263,0,4.11,0,7,4,0,107172,Botafogo,patrick-de-paula,P. Paula,https://s.sde.globo.com/media/person_role/2023/03/07/photo_FORMATO_YTg7jfi.png,1,Patrick de Paula Carreiro,5
+477,Michel Araújo,0,276,0,2.35,0,4,4,0,107173,São Paulo,michel-araujo,M. Araújo,https://s.sde.globo.com/media/person_role/2023/03/30/photo_FORMATO_Z1W5SRZ.png,1,Michel Daryl Araújo Villar,7
+478,Bruno Tabata,0,275,0,2.35,0,4,4,0,107174,Palmeiras,bruno-tabata,B. Tabata,https://s.sde.globo.com/media/person_role/2023/03/15/photo_FORMATO_g6CL75l.png,1,Bruno Vinícius Souza Ramos,6
+479,Matheus Donelli,0,264,0,1.17,0,2,1,0,107179,Corinthians,matheus-donelli,M. Donelli,https://s.sde.globo.com/media/person_role/2023/03/02/photo_FORMATO_34QaZln.png,1,Matheus Planelles Donelli,6
+480,Léo Linck,0,293,0,1.17,0,2,1,0,107183,Athlético-PR,leo-linck,L. Linck,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_2aZU9Nq.png,1,Léo Matias Baiersdorf Linck,6
+481,Rômulo,0,293,0,1.76,0,3,5,0,107197,Athlético-PR,romulo,Rômulo,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_A5prVgV.png,1,Rômulo José Cardoso da Cruz,5
+482,Gustavo Garcia,0,275,0,1.76,0,3,2,0,107225,Palmeiras,gustavo-garcia,G. Garcia,https://s.sde.globo.com/media/person_role/2023/03/15/photo_FORMATO_9hMRqkt.png,1,Gustavo Garcia dos Santos,6
+483,Miqueias,0,265,0,1.76,0,3,4,0,107232,Bahia,miqueias,Miqueias,https://s.sde.globo.com/media/person_role/2023/02/27/photo_FORMATO_JqZAXdV.png,1,Miqueias Cabral Evaristo,6
+484,Vanderlan,0,275,0,2.93,0,5,2,0,107236,Palmeiras,vanderlan,Vanderlan,https://s.sde.globo.com/media/person_role/2023/03/15/photo_FORMATO_F0bHOxR.png,1,Vanderlan Barbosa da Silva,7
+485,Nathan,0,290,0,0.59,0,1,4,0,107261,Goiás,nathan,Nathan,https://s.sde.globo.com/media/person_role/2023/03/11/photo_FORMATO_hnxgxa6.png,1,Nathan Melo Silva,6
+486,Luan Dias,0,277,0,,0,5,4,0,107416,Santos,luan-dias,L. Dias,https://s.sde.globo.com/media/person_role/2023/04/12/photo_220x220_MHA8oKV.png,1,Luan Dias da Silva,6
+487,André,0,266,0,6.45,0,11,4,0,107498,Fluminense,andre,André,https://s.sde.globo.com/media/person_role/2022/04/20/ab46ac470d67b794ba585f6150123037_FORMATO.png,1,André Trindade da Costa Neto,7
+488,Natanael,0,294,0,2.93,0,5,2,0,107554,Coritiba,natanael,Natanael,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_0XMnyZN.png,1,Natanael Moreira Milouski,7
+489,Nathan,0,277,0,2.35,0,4,2,0,107676,Santos,nathan,Nathan,https://s.sde.globo.com/media/person_role/2022/09/30/photo_FORMATO.png,1,Nathan Santos de Araújo,7
+490,Chrystian Barletta,0,264,0,3.52,0,6,4,0,107726,Corinthians,chrystian-barletta,C. Barletta,https://s.sde.globo.com/media/person_role/2023/03/21/photo_FORMATO_A5fpusS.png,1,Chrystian Amaral Barletta de Almeida,6
+491,Emerson Júnior,0,285,0,,0,1,1,0,107740,Internacional,emerson-junior,E. Júnior,https://s.sde.globo.com/media/person_role/2023/03/07/photo_FORMATO_O9bfirr.png,1,Emerson Fabiano Kerber Júnior,6
+492,Praxedes,0,280,0,2.93,0,5,4,0,107744,Bragantino,praxedes,Praxedes,https://s.sde.globo.com/media/person_role/2022/05/05/f8aea5d525d74bdbe77382da13d85ed2_FORMATO.png,1,Bruno Conceição Praxedes,6
+493,Adriel,0,284,0,3.52,0,6,1,0,107748,Grêmio,adriel,Adriel,https://s.sde.globo.com/media/person_role/2023/03/08/photo_FORMATO_WyxMzh5.png,1,Adriel Vasconcelos Ramos,7
+494,Diego Rosa,0,265,0,2.35,0,4,4,0,107796,Bahia,diego-rosa,D. Rosa,https://s.sde.globo.com/media/person_role/2023/02/27/photo_FORMATO_Z8v7YI8.png,1,Diego Gabriel Silva Rosa,6
+495,Fernando Henrique,0,283,0,1.76,0,3,4,0,107800,Cruzeiro,fernando-henrique,F. Henrique,https://s.sde.globo.com/media/person_role/2023/03/01/photo_FORMATO_7OiYeRo.png,1,Fernando Henrique do Nascimento Pereira,5
+496,Natã,0,284,0,,0,1,3,0,107801,Grêmio,nata,Natã,https://s.sde.globo.com/media/person_role/2023/03/08/photo_FORMATO_nMfgjlm.png,1,Natã Felipe de Amorim Santos,6
+497,Matheus Dias,0,285,0,1.76,0,3,4,0,107809,Internacional,matheus-dias,M. Dias,https://s.sde.globo.com/media/person_role/2023/03/07/photo_FORMATO_f09xlRk.png,1,Matheus dos Santos Dias,6
+498,Hugo,0,290,0,1.76,0,3,2,0,107908,Goiás,hugo,Hugo,https://s.sde.globo.com/media/person_role/2023/03/11/photo_FORMATO_4XBJGTX.png,1,Hugo Ferreira de Farias,6
+499,Fausto Vera,0,264,0,4.11,0,7,4,0,107950,Corinthians,fausto-vera,F. Vera,https://s.sde.globo.com/media/person_role/2023/03/02/photo_FORMATO_w7tZlR4.png,1,Fausto Mariano Vera,2
+500,Isidro Pitta,0,1371,0,4.69,0,8,5,0,108133,Cuiabá,isidro-pitta,I. Pitta,https://s.sde.globo.com/media/person_role/2023/03/06/photo_FORMATO_LlMyePJ.png,1,Isidro Miguel Pitta Saldívar,6
+501,Lucas Cardoso,0,1371,0,1.76,0,3,4,0,108148,Cuiabá,lucas-cardoso,L. Cardoso,https://s.sde.globo.com/media/person_role/2023/03/06/photo_FORMATO_gZhwK7B.png,1,Lucas Cardoso Moreira,6
+502,Gustavinho,0,284,0,2.35,0,4,4,0,108201,Grêmio,gustavinho,Gustavinho,https://s.sde.globo.com/media/person_role/2023/03/08/photo_FORMATO_hopiRUY.png,1,Gustavo César Mendonça Gravino,6
+503,Breno,0,290,0,0.59,0,1,5,0,108211,Goiás,breno,Breno,https://s.sde.globo.com/media/person_role/2022/09/18/photo_FORMATO_aTUZBiS.png,1,Breno Herculano Almeida,6
+504,Gabriel Barros,0,285,0,,0,4,5,0,108352,Internacional,gabriel-barros,G. Barros,https://s.sde.globo.com/media/person_role/2023/04/11/photo_220x220.png,1,Gabriel de Sousa Barros,6
+505,Erison,0,276,0,3.52,0,6,5,0,108422,São Paulo,erison,Erison,https://s.sde.globo.com/media/person_role/2023/02/01/photo_FORMATO_0I7WXAm.png,1,Erison Danilo de Souza,6
+506,Galarza,0,267,0,1.76,0,3,4,0,108528,Vasco,galarza,Galarza,https://s.sde.globo.com/media/person_role/2023/03/14/photo_FORMATO_G8IevUF.png,1,Matías Galarza Fonda,6
+507,Arriagada,0,293,0,2.35,0,4,5,0,108624,Athlético-PR,arriagada,Arriagada,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_VPNWNb6.png,1,Luciano Daniel Arriagada García,6
+508,Victor Sá,0,263,0,2.93,0,5,5,0,108946,Botafogo,victor-sa,V. Sá,https://s.sde.globo.com/media/person_role/2023/03/07/photo_FORMATO_t9xgUxE.png,1,João Victor Santos Sá,7
+509,Matheus Nascimento,0,263,0,2.35,0,4,5,0,109114,Botafogo,matheus-nascimento,M. Nascimento,https://s.sde.globo.com/media/person_role/2023/03/07/photo_FORMATO_xScuqcn.png,1,Matheus Nascimento de Paula,6
+510,DG,0,263,0,1.17,0,2,2,0,109199,Botafogo,dg,DG,https://s.sde.globo.com/media/person_role/2022/07/15/4de72f5f4587ade71270417865e896e9_FORMATO.png,1,Douglas da Silva Teixeira,6
+511,Kawê,0,280,0,0.59,0,1,5,0,109246,Bragantino,kawe,Kawê,https://s.sde.globo.com/media/person_role/2023/03/01/photo_FORMATO_2gnQr2r.png,1,Kawê Ferreira Godoy Viana,6
+512,Sammuel,0,356,0,1.76,0,3,4,0,109341,Fortaleza,sammuel,Sammuel,https://s.sde.globo.com/media/person_role/2022/05/12/34eebe02442f63e6c4eee4a972018bc8_FORMATO.png,1,Sammuel Queiroz de Freitas,5
+513,Kennedy,0,356,0,1.17,0,2,1,0,109347,Fortaleza,kennedy,Kennedy,https://s.sde.globo.com/media/person_role/2023/03/07/photo_FORMATO_jTL4V8M.png,1,Antonio Kennedy Sousa de Almeida,6
+514,Raul Gustavo,0,265,0,5.28,0,9,3,0,109389,Bahia,raul-gustavo,R. Gustavo,https://s.sde.globo.com/media/person_role/2023/02/27/photo_FORMATO_o1bIdBe.png,1,Raul Gustavo Pereira Bicalho,5
+515,Thiago Andrade,0,293,0,2.35,0,4,5,0,109404,Athlético-PR,thiago-andrade,T. Andrade,https://s.sde.globo.com/media/person_role/2023/04/03/photo_FORMATO_83YGYl5.png,1,Thiago Eduardo de Andrade,6
+516,Ian Luccas,0,283,0,2.35,0,4,4,0,109412,Cruzeiro,ian-luccas,I. Luccas,https://s.sde.globo.com/media/person_role/2023/03/01/photo_FORMATO_HM5lJ1D.png,1,Ian Luccas Baroni Boetto,6
+517,Calebe,0,356,0,2.35,0,4,4,0,109461,Fortaleza,calebe,Calebe,https://s.sde.globo.com/media/person_role/2023/03/08/photo_FORMATO_l45UFDH.png,1,Calebe Gonçalves Ferreira da Silva,2
+518,Marcos Leonardo,0,277,0,8.21,0,14,5,0,109497,Santos,marcos-leonardo,M. Leonardo,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_eb1ett7.png,1,Marcos Leonardo Santos Almeida,7
+519,Joaquim,0,277,0,5.28,0,9,3,0,109563,Santos,joaquim,Joaquim,https://s.sde.globo.com/media/person_role/2023/03/14/photo_FORMATO_KiHaTyd.png,1,Joaquim Henrique Pereira Silva,6
+520,Martinelli,0,266,0,3.52,0,6,4,0,109573,Fluminense,martinelli,Martinelli,https://s.sde.globo.com/media/person_role/2022/04/20/d62bf91da00804290e9991da9ebe56a2_FORMATO.png,1,Matheus Martinelli Lima,5
+521,Andrey Santos,0,267,0,7.62,0,13,4,0,109591,Vasco,andrey-santos,A. Santos,https://s.sde.globo.com/media/person_role/2023/03/14/photo_FORMATO_jgSQJUl.png,1,Andrey Nascimento dos Santos,7
+522,Gabriel Novaes,0,290,0,2.35,0,4,5,0,109639,Goiás,gabriel-novaes,G. Novaes,https://s.sde.globo.com/media/person_role/2023/03/11/photo_FORMATO_Kdrpiw9.png,1,Gabriel Novaes Fernandes,5
+523,Hugo,0,263,0,2.35,0,4,2,0,109668,Botafogo,hugo,Hugo,https://s.sde.globo.com/media/person_role/2023/03/07/photo_FORMATO_8tyq2bR.png,1,Hugo Gonçalves Ferreira Neto,6
+524,Bryan García,0,293,0,1.76,0,3,4,0,110013,Athlético-PR,bryan-garcia,B. García,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_4c9H6zL.png,1,Bryan Jahir García Realpe,6
+525,Jhoanner Chávez,0,265,0,2.93,0,5,2,0,110021,Bahia,jhoanner-chavez,J. Chávez,https://s.sde.globo.com/media/person_role/2023/02/27/photo_FORMATO_bZ6JNlc.png,1,Jhoanner Stalin Chávez Quintero,7
+526,Matías Segovia,0,263,0,2.93,0,5,4,0,110055,Botafogo,matias-segovia,M. Segovia,https://s.sde.globo.com/media/person_role/2023/04/04/photo_FORMATO.png,1,Matías Emanuel Segovia Torales,6
+527,Gabriel Pereira,0,293,0,0.59,0,1,1,0,110251,Athlético-PR,gabriel-pereira,G. Pereira,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_yvoo9wb.png,1,Gabriel Roberto Pereira,6
+528,Ângelo,0,277,0,2.93,0,5,5,0,110415,Santos,angelo,Ângelo,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_CqBwl6X.png,1,Ângelo Gabriel Borges Damaceno,6
+529,Abel Ferreira,0,275,0,7.62,0,13,6,0,110506,Palmeiras,abel-ferreira,A. Ferreira,https://s.sde.globo.com/media/person_role/2021/04/27/574e87d52be9d06fd03fa69fefb60255_FORMATO.png,1,Abel Fernando Moreira Ferreira,7
+530,Vinícius Balieiro,0,277,0,1.76,0,3,4,0,110605,Santos,vinicius-balieiro,V. Balieiro,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_yMHsqPr.png,1,Vinícius Balieiro Lourenço de Carvalho,6
+531,Gabriel Pirani,0,266,0,2.35,0,4,4,0,110607,Fluminense,gabriel-pirani,G. Pirani,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_AErSxoD.png,1,Gabriel Cordeiro Pirani,6
+532,João Vitor,0,294,0,0.59,0,1,5,0,110623,Coritiba,joao-vitor,J. Vitor,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_KfLKMAj.png,1,João Vitor Moreira dos Santos,6
+533,Luiz Filipe,0,290,0,1.17,0,2,5,0,110632,Goiás,luiz-filipe,L. Filipe,https://s.sde.globo.com/media/person_role/2023/03/11/photo_FORMATO_xcsqOAQ.png,1,Luiz Filipe dos Reis Silva,6
+534,Mycael,0,293,0,1.76,0,3,1,0,110698,Athlético-PR,mycael,Mycael,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_4TEihe1.png,1,Mycael Pontes Moreira,6
+535,Pedro Rangel,0,266,0,1.76,0,3,1,0,110708,Fluminense,pedro-rangel,P. Rangel,https://s.sde.globo.com/media/person_role/2023/02/27/photo_FORMATO_bDPu6c3.png,1,Pedro Felipe de Faria Rangel,6
+536,Andrés Hurtado,0,280,0,2.93,0,5,2,0,110715,Bragantino,andres-hurtado,A. Hurtado,https://s.sde.globo.com/media/person_role/2022/05/05/495e0cd517eacede744f14fefa06d6d5_FORMATO.png,1,José Andrés Hurtado Cheme,6
+537,Rubens,0,282,0,2.93,0,5,2,0,110727,Atlético-MG,rubens,Rubens,https://s.sde.globo.com/media/person_role/2023/03/01/photo_FORMATO_JV4BtfR.png,1,Rubens Antônio Dias,7
+538,João Maranini,0,1371,0,1.76,0,3,3,0,110742,Cuiabá,joao-maranini,J. Maranini,https://s.sde.globo.com/media/person_role/2023/03/06/photo_FORMATO_2ubCgRc.png,1,João Victor Araújo Maranini,7
+539,John Kennedy,0,266,0,2.93,0,5,5,0,110759,Fluminense,john-kennedy,J. Kennedy,https://s.sde.globo.com/media/person_role/2023/03/17/photo_220x220.png,1,John Kennedy Batista de Souza,6
+540,Biel,0,265,0,3.52,0,6,5,0,110760,Bahia,biel,Biel,https://s.sde.globo.com/media/person_role/2023/02/27/photo_FORMATO_iT5hY8V.png,1,Gabriel Teixeira Aragão,7
+541,Marcão,0,294,0,1.17,0,2,1,0,110775,Coritiba,marcao,Marcão,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_ur2aV6A.png,1,Marco Antônio Amorim de Oliveira Montes,6
+542,Orellano,0,267,0,2.35,0,4,4,0,110776,Vasco,orellano,Orellano,https://s.sde.globo.com/media/person_role/2023/03/14/photo_FORMATO_QTGO9rI.png,1,Luca Nicolás Orellano,6
+543,Renato Paiva,0,265,0,2.35,0,4,6,0,110818,Bahia,renato-paiva,R. Paiva,https://s.sde.globo.com/media/person_role/2023/03/01/photo_FORMATO_ZitX2Ik.png,1,Renato Manuel Alves Paiva,7
+544,Guilherme Lopes,0,280,0,1.17,0,2,2,0,110909,Bragantino,guilherme-lopes,G. Lopes,https://s.sde.globo.com/media/person_role/2023/03/01/photo_FORMATO_UCfKPnM.png,1,Guilherme Lopes de Almeida,6
+545,Lucão,0,290,0,1.17,0,2,5,0,110928,Goiás,lucao,Lucão,https://s.sde.globo.com/media/person_role/2023/03/14/photo_FORMATO_G50Eggl.png,1,Lucas Emmanuel Araujo Macedo,6
+546,Kayque,0,263,0,2.93,0,5,4,0,110962,Botafogo,kayque,Kayque,https://s.sde.globo.com/media/person_role/2023/03/07/photo_FORMATO_kc0gmoa.png,1,Kayque Luiz Pereira,6
+547,Pedrinho,0,293,0,2.35,0,4,2,0,110995,Athlético-PR,pedrinho,Pedrinho,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_jdu5FfY.png,1,Pedro Henrique Azevedo Pereira,7
+548,Robson,0,327,0,1.17,0,2,1,0,111172,América-MG,robson,Robson,https://s.sde.globo.com/media/person_role/2021/06/04/4ae813551a7112d688190602a630a0b1_FORMATO.png,1,Robson Luiz dos Santos Nascimento,6
+549,Alix Vinicius,0,356,0,1.76,0,3,3,0,111246,Fortaleza,alix-vinicius,A. Vinicius,https://s.sde.globo.com/media/person_role/2023/03/31/photo_220x220_T7uB8SU.png,1,Alix Vinicius de Souza Sampaio,6
+550,Sorriso,0,280,0,2.93,0,5,5,0,111333,Bragantino,sorriso,Sorriso,https://s.sde.globo.com/media/person_role/2022/05/05/7924434ef39a0546d8ad7fa23ca14168_FORMATO.png,1,Marcos Vinicios Moura,7
+551,António Oliveira,0,294,0,2.93,0,5,6,0,111578,Coritiba,antonio-oliveira,A. Oliveira,https://s.sde.globo.com/media/person_role/2021/04/27/21a131dcff78d521da3297e98526ce48_FORMATO.png,1,António José Cardoso de Oliveira,7
+552,Juan Christian,0,283,0,0.59,0,1,5,0,111633,Cruzeiro,juan-christian,J. Christian,https://s.sde.globo.com/media/person_role/2023/03/01/photo_FORMATO_grCTDFm.png,1,Juan Christian Pereira Coelho,6
+553,Adson,0,264,0,2.93,0,5,4,0,111682,Corinthians,adson,Adson,https://s.sde.globo.com/media/person_role/2023/03/02/photo_FORMATO_uzK3HTh.png,1,Adson Ferreira Soares,2
+554,Matheus Cadorini,0,294,0,1.76,0,3,5,0,111688,Coritiba,matheus-cadorini,M. Cadorini,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_qDCu3iB.png,1,Matheus Alfredo Cadorini da Silva,6
+555,Matheus Cunha,0,262,0,2.35,0,4,1,0,111690,Flamengo,matheus-cunha,M. Cunha,https://s.sde.globo.com/media/person_role/2023/04/11/photo_FORMATO_xwFOLiN.png,1,Matheus Cunha Queiroz,6
+556,Mateusão,0,262,0,1.17,0,2,5,0,111694,Flamengo,mateusao,Mateusão,https://s.sde.globo.com/media/person_role/2023/04/11/photo_FORMATO_JeOW27e.png,1,Mateus Dias Lima,6
+557,Lucas Mezenga,0,263,0,1.17,0,2,3,0,111713,Botafogo,lucas-mezenga,L. Mezenga,https://s.sde.globo.com/media/person_role/2023/03/07/photo_FORMATO_BuH7iqi.png,1,Lucas de Souza Mombra Rosa,6
+558,Giovani,0,275,0,2.35,0,4,5,0,111759,Palmeiras,giovani,Giovani,https://s.sde.globo.com/media/person_role/2023/03/15/photo_FORMATO_aPzreE2.png,1,Giovani Henrique Amorim da Silva,6
+559,Fabinho,0,275,0,2.35,0,4,4,0,111760,Palmeiras,fabinho,Fabinho,https://s.sde.globo.com/media/person_role/2023/03/15/photo_FORMATO_6TfTz4T.png,1,Fábio Silva de Freitas,7
+560,Cadu,0,267,0,0.59,0,1,1,0,111761,Vasco,cadu,Cadu,https://s.sde.globo.com/media/person_role/2023/03/14/photo_FORMATO_MykTtrE.png,1,Carlos Eduardo Piekny Neves,6
+561,Rodrigo,0,267,0,2.93,0,5,4,0,111766,Vasco,rodrigo,Rodrigo,https://s.sde.globo.com/media/person_role/2023/03/14/photo_FORMATO_oUqfC4H.png,1,Rodrigo Alves de Holanda Santos,6
+562,Marlon Gomes,0,267,0,3.52,0,6,4,0,111769,Vasco,marlon-gomes,M. Gomes,https://s.sde.globo.com/media/person_role/2023/03/14/photo_FORMATO_t23W3Dj.png,1,Marlon Gomes Claudino,7
+563,Arthur Sales,0,265,0,1.76,0,3,5,0,111771,Bahia,arthur-sales,A. Sales,https://s.sde.globo.com/media/person_role/2023/03/13/photo_FORMATO_OzxQsVM.png,1,Arthur de Oliveira Sales,6
+564,Thomas Luciano,0,284,0,,0,1,2,0,111819,Grêmio,thomas-luciano,T. Luciano,https://s.sde.globo.com/media/person_role/2023/04/08/photo_FORMATO_bUxLkDf.png,1,Thomas Luciano Trindade Mathias,6
+565,Kayky,0,265,0,3.52,0,6,5,0,111829,Bahia,kayky,Kayky,https://s.sde.globo.com/media/person_role/2023/02/27/photo_FORMATO_ycDoFH2.png,1,Kayky da Silva Chagas,6
+566,Felipe Andrade,0,266,0,,0,1,3,0,111839,Fluminense,felipe-andrade,F. Andrade,https://s.sde.globo.com/media/person_role/2021/03/15/10a39e521ac9d7e127d7b8a8a2259992_FORMATO.png,1,Felipe de Andrade Vieira,6
+567,Mateusinho,0,1371,0,1.17,0,2,2,0,111879,Cuiabá,mateusinho,Mateusinho,https://s.sde.globo.com/media/person_role/2023/03/06/photo_FORMATO_mK5PRfk.png,1,Matheus da Silva Duarte,7
+568,Quagliata,0,1371,0,1.76,0,3,5,0,111949,Cuiabá,quagliata,Quagliata,https://s.sde.globo.com/media/person_role/2023/03/13/photo_220x220_kkqhEEK.png,1,Nicolás Quagliata Platero,6
+569,Julián Palacios,0,290,0,2.35,0,4,4,0,111996,Goiás,julian-palacios,J. Palacios,https://s.sde.globo.com/media/person_role/2023/03/11/photo_FORMATO_C8xKUgn.png,1,Julián Eduardo Palacios,6
+570,Lucas Beraldo,0,276,0,2.35,0,4,3,0,112136,São Paulo,lucas-beraldo,L. Beraldo,https://s.sde.globo.com/media/person_role/2022/07/22/aef0c837cb53876eb1509bd8c3eaa586_FORMATO.png,1,Lucas Lopes Beraldo,2
+571,Bitello,0,284,0,5.86,0,10,4,0,112140,Grêmio,bitello,Bitello,https://s.sde.globo.com/media/person_role/2023/03/13/photo_FORMATO_nhcHWBh.png,1,João Paulo de Souza Mares,7
+572,Paulo Victor,0,267,0,2.35,0,4,2,0,112141,Vasco,paulo-victor,P. Victor,https://s.sde.globo.com/media/person_role/2023/03/14/photo_FORMATO_1bXqoAq.png,1,Paulo Victor de Almeida Barbosa,6
+573,Thalisson Gabriel,0,294,0,0.59,0,1,3,0,112367,Coritiba,thalisson-gabriel,T. Gabriel,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_fY8etYF.png,1,Thalisson Gabriel Pereira Moreira,6
+574,Bernardo,0,294,0,1.76,0,3,4,0,112368,Coritiba,bernardo,Bernardo,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_ghXknjI.png,1,Bernardo Marcos Pinheiro Lemes,6
+575,Emerson Negueba,0,1371,0,1.17,0,2,5,0,112370,Cuiabá,emerson-negueba,E. Negueba,https://s.sde.globo.com/media/person_role/2023/03/30/photo_220x220_wzDDWM2.png,1,Emerson Ramon Bezerra Oliveira,6
+576,Gabriel Grando,0,284,0,2.35,0,4,1,0,112616,Grêmio,gabriel-grando,G. Grando,https://s.sde.globo.com/media/person_role/2023/03/08/photo_FORMATO_bv2qwrK.png,1,Gabriel Hamester Grando,6
+577,Kaiki,0,283,0,1.76,0,3,2,0,112709,Cruzeiro,kaiki,Kaiki,https://s.sde.globo.com/media/person_role/2023/03/01/photo_FORMATO_HCZ4bVf.png,1,Kaiki Bruno da Silva,6
+578,Lucas Barbosa,0,277,0,2.35,0,4,4,0,112886,Santos,lucas-barbosa,L. Barbosa,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_Nn5zqEX.png,1,Lucas Henrique Barbosa,7
+579,Capasso,0,267,0,2.93,0,5,3,0,112913,Vasco,capasso,Capasso,https://s.sde.globo.com/media/person_role/2023/03/14/photo_FORMATO_OaLhk6j.png,1,Manuel Vicente Capasso,7
+580,Werton,0,262,0,1.17,0,2,5,0,112984,Flamengo,werton,Werton,https://s.sde.globo.com/media/person_role/2023/04/11/photo_FORMATO_b5lT2QZ.png,1,Werton de Almeida Rêgo,6
+581,José López,0,275,0,2.93,0,5,5,0,113103,Palmeiras,jose-lopez,J. López,https://s.sde.globo.com/media/person_role/2023/03/15/photo_FORMATO_V15s07E.png,1,José Manuel Alberto López,6
+582,Kauan,0,282,0,0.59,0,1,2,0,113154,Atlético-MG,kauan,Kauan,https://s.sde.globo.com/media/person_role/2023/04/01/photo_220x220_9pgUpwG.png,1,Kauan Silva Sales,6
+583,Nathan Mendes,0,276,0,2.35,0,4,2,0,113157,São Paulo,nathan-mendes,N. Mendes,https://s.sde.globo.com/media/person_role/2023/03/08/photo_FORMATO_Ec4EI26.png,1,Nathan Gabriel de Souza Mendes,6
+584,Michel,0,275,0,1.17,0,2,3,0,113159,Palmeiras,michel,Michel,https://s.sde.globo.com/media/person_role/2022/04/06/2e58e6fda93f2529e843b6dacea39be3_FORMATO.png,1,Michel Augusto Modesto Rafael dos Santos,6
+585,Lomónaco,0,280,0,1.76,0,3,3,0,113203,Bragantino,lomonaco,Lomónaco,https://s.sde.globo.com/media/person_role/2022/06/02/269ea7a5ee84f815bccf1916cb6f6b72_FORMATO.png,1,Kevin Joel Lomónaco,6
+586,Pablo Maia,0,276,0,2.93,0,5,4,0,113359,São Paulo,pablo-maia,P. Maia,https://s.sde.globo.com/media/person_role/2022/03/05/e91f0953fe782088f01eda528fd69b2f_FORMATO.png,1,Pablo Gonçalves Maia Fortunato,6
+587,Diogo Batista,0,294,0,0.59,0,1,2,0,113384,Coritiba,diogo-batista,D. Batista,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_SfVPzCz.png,1,Diogo Batista de Souza,6
+588,Fernando Lázaro,0,264,0,3.52,0,6,6,0,113429,Corinthians,fernando-lazaro,F. Lázaro,https://s.sde.globo.com/media/person_role/2023/03/02/photo_FORMATO_PWLQE2S.png,1,Fernando Lázaro Rodrigues Alves,7
+589,Bruninho,0,280,0,3.52,0,6,4,0,113558,Bragantino,bruninho,Bruninho,https://s.sde.globo.com/media/person_role/2022/05/05/f1f155231d0b75984084fb05c52de0db_FORMATO.png,1,Bruno Gonçalves de Jesus,7
+590,Kevin,0,275,0,0.59,0,1,5,0,113663,Palmeiras,kevin,Kevin,https://s.sde.globo.com/media/person_role/2023/03/03/photo_FORMATO_TugHOMv.png,1,Kevin Santos Lopes de Macedo,6
+591,Ryan Luka,0,262,0,0.59,0,1,5,0,113667,Flamengo,ryan-luka,R. Luka,https://s.sde.globo.com/media/person_role/2023/03/14/photo_FORMATO_4G7ETFM.png,1,Ryan Luka Cordeiro de Souza,6
+592,Du Queiroz,0,264,0,3.52,0,6,4,0,113687,Corinthians,du-queiroz,D. Queiroz,https://s.sde.globo.com/media/person_role/2023/03/02/photo_FORMATO_iUTg2Sg.png,1,Eduardo Santos Queiroz,6
+593,André Luiz,0,262,0,1.17,0,2,5,0,114174,Flamengo,andre-luiz,A. Luiz,https://s.sde.globo.com/media/person_role/2023/04/11/photo_FORMATO_qtSFh6j.png,1,André Luiz Inácio da Silva,6
+594,Douglas Mendes,0,280,0,1.17,0,2,3,0,114311,Bragantino,douglas-mendes,D. Mendes,https://s.sde.globo.com/media/person_role/2022/08/08/13c02821040d26f757e8894f3d0aabb7_FORMATO.png,1,Douglas Mendes Moreira,6
+595,Lucas Pires,0,277,0,3.52,0,6,2,0,114374,Santos,lucas-pires,L. Pires,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_YT2uQmw.png,1,Lucas Pires Silva,6
+596,Cleiton,0,262,0,1.76,0,3,3,0,114790,Flamengo,cleiton,Cleiton,https://s.sde.globo.com/media/person_role/2023/04/11/photo_FORMATO_L2MYyBn.png,1,Cleiton Santana dos Santos,6
+597,Vitor Roque,0,293,0,5.28,0,9,5,0,114802,Athlético-PR,vitor-roque,V. Roque,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_0B2D0LR.png,1,Vitor Hugo Roque Ferreira,2
+598,Luciano,0,280,0,1.17,0,2,4,0,114888,Bragantino,luciano,Luciano,https://s.sde.globo.com/media/person_role/2022/05/05/21a71a480463a1c9c0140cfd2b91c6d8_FORMATO.png,1,Luciano Silva Santos,6
+599,Peruchi,0,1371,0,0.59,0,1,1,0,114893,Cuiabá,peruchi,Peruchi,https://s.sde.globo.com/media/person_role/2023/03/06/photo_FORMATO_SsVd5Bj.png,1,Vinicius Pasquini Peruchi,6
+600,Miguelito,0,277,0,0.59,0,1,4,0,115025,Santos,miguelito,Miguelito,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_CgKUL3N.png,1,Miguel Àngel Terceros,6
+601,Thauan Lara,0,285,0,1.17,0,2,2,0,115061,Internacional,thauan-lara,T. Lara,https://s.sde.globo.com/media/person_role/2023/03/07/photo_FORMATO_QvNiNqZ.png,1,Thauan Lara dos Santos,6
+602,Matheus França,0,262,0,2.93,0,5,4,0,115100,Flamengo,matheus-franca,M. França,https://s.sde.globo.com/media/person_role/2023/04/11/photo_FORMATO_FjNeYnR.png,1,Matheus França de Oliveira,2
+603,Caio,0,276,0,1.76,0,3,5,0,115227,São Paulo,caio,Caio,https://s.sde.globo.com/media/person_role/2022/04/06/c624743dce9149ef9c0122f7eabd3337_FORMATO.png,1,Caio Matheus da Silva,6
+604,Wesley,0,262,0,1.76,0,3,2,0,115239,Flamengo,wesley,Wesley,https://s.sde.globo.com/media/person_role/2023/04/11/photo_FORMATO_FLI9Vom.png,1,Wesley Vinícius França Lima,6
+605,Naves,0,275,0,0.59,0,1,3,0,115246,Palmeiras,naves,Naves,https://s.sde.globo.com/media/person_role/2023/03/15/photo_FORMATO_PUzC8ZB.png,1,Kaiky Marques Naves,6
+606,Jhon Jhon,0,275,0,0.59,0,1,4,0,115248,Palmeiras,jhon-jhon,J. Jhon,https://s.sde.globo.com/media/person_role/2023/03/15/photo_FORMATO_cdZiLf8.png,1,Jhonatan dos Santos Rosa,6
+607,Habraão,0,356,0,1.17,0,2,3,0,115270,Fortaleza,habraao,Habraão,https://s.sde.globo.com/media/person_role/2022/05/12/79c1454b609937a5b20a3a0b549b4f9f_FORMATO.png,1,Habraão Lincon do Nascimento Saraiva,6
+608,Ceballos,0,356,0,2.35,0,4,3,0,115502,Fortaleza,ceballos,Ceballos,https://s.sde.globo.com/media/person_role/2022/05/12/74e0c34f6d9685b4e494c70171746de9_FORMATO.png,1,Brayan Andrés Ceballos Jiménez,6
+609,Marcos Victor,0,265,0,2.35,0,4,3,0,115537,Bahia,marcos-victor,M. Victor,https://s.sde.globo.com/media/person_role/2023/02/27/photo_FORMATO_PrZupVH.png,1,Marcos Victor Ferreira da Silva,5
+610,Arthur,0,327,0,2.35,0,4,2,0,115562,América-MG,arthur,Arthur,https://s.sde.globo.com/media/person_role/2023/03/07/photo_FORMATO_uV8Y9vj.png,1,Arthur Augusto de Matos Soares,7
+611,Rodriguinho,0,327,0,1.76,0,3,4,0,115563,América-MG,rodriguinho,Rodriguinho,https://s.sde.globo.com/media/person_role/2022/02/24/cbc12bdc877ddabea0be444ea145a8d6_FORMATO.png,1,Rodrigo Henrique Santos de Souza,6
+612,Gabriel Delfim,0,282,0,1.17,0,2,1,0,115674,Atlético-MG,gabriel-delfim,G. Delfim,https://s.sde.globo.com/media/person_role/2023/03/01/photo_FORMATO_R1TAAd6.png,1,Gabriel Delfim Ferreira,6
+613,Zé Vitor,0,267,0,1.17,0,2,3,0,115733,Vasco,ze-vitor,Z. Vitor,https://s.sde.globo.com/media/person_role/2023/03/14/photo_FORMATO_E9RklP7.png,1,José Vitor Geminiano Cavalieri,6
+614,Pimentel,0,267,0,1.17,0,2,3,0,115734,Vasco,pimentel,Pimentel,https://s.sde.globo.com/media/person_role/2023/03/14/photo_FORMATO_bs3vmzt.png,1,Eric Lima Pimentel,6
+615,Jonathan,0,280,0,0.59,0,1,2,0,115870,Bragantino,jonathan,Jonathan,https://s.sde.globo.com/media/person_role/2023/03/29/photo_FORMATO_7Zk5L8m.png,1,Jonathan da Cruz Silva,6
+616,Lelê,0,266,0,3.52,0,6,5,0,115915,Fluminense,lele,Lelê,https://s.sde.globo.com/media/person_role/2023/03/30/photo_220x220_ZEcsRGT.png,1,Leanderson da Silva Genésio,6
+617,Endrick,0,275,0,3.52,0,6,5,0,115959,Palmeiras,endrick,Endrick,https://s.sde.globo.com/media/person_role/2023/03/15/photo_FORMATO_6tQjxwx.png,1,Endrick Felipe Moreira de Sousa,7
+618,Denilson,0,1371,0,1.76,0,3,4,0,115986,Cuiabá,denilson,Denilson,https://s.sde.globo.com/media/person_role/2022/10/15/photo_FORMATO_sqKxYTo.png,1,Denilson Alves Borges,7
+619,Adyson,0,327,0,1.17,0,2,5,0,115998,América-MG,adyson,Adyson,https://s.sde.globo.com/media/person_role/2022/02/25/816e31c3a9501bc4cafc2ef28de0e625_FORMATO.png,1,Adyson do Nascimento Soares,6
+620,Matheus Gonçalves,0,262,0,2.35,0,4,4,0,116012,Flamengo,matheus-goncalves,M. Gonçalves,https://s.sde.globo.com/media/person_role/2023/04/11/photo_FORMATO_ugK8C1s.png,1,Matheus Gonçalves Martins,6
+621,Igor Jesus,0,262,0,1.17,0,2,4,0,116013,Flamengo,igor-jesus,I. Jesus,https://s.sde.globo.com/media/person_role/2023/04/11/photo_FORMATO_fA4Y3X6.png,1,Igor Jesus Lima,6
+622,Victor Hugo,0,262,0,2.93,0,5,4,0,116034,Flamengo,victor-hugo,V. Hugo,https://s.sde.globo.com/media/person_role/2023/04/11/photo_FORMATO_nUR0WYM.png,1,Victor Hugo Gomes Silva,6
+623,Vitor Graziani,0,282,0,0.59,0,1,4,0,116046,Atlético-MG,vitor-graziani,V. Graziani,https://s.sde.globo.com/media/person_role/2023/04/01/photo_FORMATO_bXh4eA4.png,1,Vitor Hugo Santos Graziani,6
+624,Raí,0,263,0,1.76,0,3,4,0,116048,Botafogo,rai,Raí,https://s.sde.globo.com/media/person_role/2023/03/07/photo_FORMATO_n8x32pL.png,1,Raí da Silva Pessanha,6
+625,João Moreira,0,276,0,1.76,0,3,2,0,116137,São Paulo,joao-moreira,J. Moreira,https://s.sde.globo.com/media/person_role/2022/03/01/b2773da8a486428f92cda01d2ab65d9e_FORMATO.png,1,João Moreira Sanmartin Souza,5
+626,Gabriel Silva,0,284,0,,0,1,4,0,116282,Grêmio,gabriel-silva,G. Silva,https://s.sde.globo.com/media/person_role/2023/03/08/photo_FORMATO_rExi0Dp.png,1,Gabriel Silva Azevedo Figueiredo,6
+627,Daniel Junior,0,283,0,2.35,0,4,4,0,116432,Cruzeiro,daniel-junior,D. Junior,https://s.sde.globo.com/media/person_role/2023/03/01/photo_FORMATO_BhP9sDN.png,1,Daniel de Melo Araújo Junior,7
+628,Hércules,0,356,0,3.52,0,6,4,0,116447,Fortaleza,hercules,Hércules,https://s.sde.globo.com/media/person_role/2022/05/12/6429cedc69ac434a2c09ab6caf1f83c7_FORMATO.png,1,Hércules Pereira do Nascimento,6
+629,André,0,265,0,1.76,0,3,2,0,116450,Bahia,andre,André,https://s.sde.globo.com/media/person_role/2023/02/27/photo_FORMATO_kQwNdzi.png,1,André Dhominique Queiroz Santiago Da Silva,6
+630,Jamerson,0,294,0,,0,3,2,0,116461,Coritiba,jamerson,Jamerson,https://s.sde.globo.com/media/person_role/2023/04/10/photo_FORMATO_FvosjlG.png,1,Jamerson Santos de Jesus,6
+631,Carlos Maia,0,290,0,1.17,0,2,4,0,116525,Goiás,carlos-maia,C. Maia,https://s.sde.globo.com/media/person_role/2023/03/11/photo_FORMATO_iSGVAGn.png,1,Carlos Eduardo Maia do Nascimento,6
+632,Everton,0,265,0,1.17,0,2,5,0,116690,Bahia,everton,Everton,https://s.sde.globo.com/media/person_role/2023/02/27/photo_FORMATO_yPTcOhb.png,1,Everton Macedo Moraes,6
+633,Jhonny,0,280,0,0.59,0,1,2,0,116825,Bragantino,jhonny,Jhonny,https://s.sde.globo.com/media/person_role/2022/02/24/07c2ee6d264dd5863593c52fdaba42b5_FORMATO.png,1,Jhonny Cardinoti Pedro,6
+634,Reginaldo,0,290,0,0.59,0,1,5,0,116835,Goiás,reginaldo,Reginaldo,https://s.sde.globo.com/media/person_role/2022/04/15/c6b1985503cc71ba6d6154b448940158_FORMATO.png,1,Reginaldo dos Santos Moreira,6
+635,Popó,0,280,0,1.76,0,3,5,0,116994,Bragantino,popo,Popó,https://s.sde.globo.com/media/person_role/2023/03/01/photo_FORMATO_DFCaYPL.png,1,Werik Silva Pinto,6
+636,Thiago Borbas,0,280,0,2.35,0,4,5,0,117314,Bragantino,thiago-borbas,T. Borbas,https://s.sde.globo.com/media/person_role/2023/03/01/photo_FORMATO_y6Ph2tU.png,1,Thiago Nicolás Borbas Silva,6
+637,Galoppo,0,276,0,2.93,0,5,4,0,117579,São Paulo,galoppo,Galoppo,https://s.sde.globo.com/media/person_role/2022/07/26/2ca20d35cbccce7d03bb8c585af8fddc_FORMATO.png,1,Giuliano Galoppo,5
+638,Pedro Caixinha,0,280,0,3.52,0,6,6,0,117711,Bragantino,pedro-caixinha,P. Caixinha,https://s.sde.globo.com/media/person_role/2023/03/06/photo_FORMATO_LvzP4JH.png,1,Pedro Miguel Faria Caixinha,7
+639,Giovane,0,264,0,1.76,0,3,5,0,117849,Corinthians,giovane,Giovane,https://s.sde.globo.com/media/person_role/2023/03/02/photo_FORMATO_TquvINB.png,1,Giovane Santana do Nascimento,6
+640,Estevão,0,285,0,1.76,0,3,4,0,117870,Internacional,estevao,Estevão,https://s.sde.globo.com/media/person_role/2023/03/07/photo_FORMATO_HFq77iJ.png,1,Estevão Barreto de Oliveira,6
+641,Nathan Camargo,0,280,0,1.17,0,2,4,0,118175,Bragantino,nathan-camargo,N. Camargo,https://s.sde.globo.com/media/person_role/2023/03/01/photo_FORMATO_JrPbIiU.png,1,Nathan Camargo dos Santos,6
+642,Ronald,0,284,0,,0,1,4,0,118238,Grêmio,ronald,Ronald,https://s.sde.globo.com/media/person_role/2023/04/08/photo_FORMATO_jDGvDF5.png,1,Ronald Cardoso Falkoski,6
+643,Pedrinho,0,290,0,1.17,0,2,5,0,118304,Goiás,pedrinho,Pedrinho,https://s.sde.globo.com/media/person_role/2023/03/11/photo_FORMATO_vpwMN7R.png,1,Pedro Junqueira de Oliveira,6
+644,Mario Jorge,0,262,0,,0,9,6,0,118387,Flamengo,mario-jorge,M. Jorge,https://s.sde.globo.com/media/person_role/2023/04/09/photo_FORMATO.png,1,Mario Jorge dos Santos Silva,7
+645,Eguinaldo,0,267,0,2.35,0,4,5,0,118708,Vasco,eguinaldo,Eguinaldo,https://s.sde.globo.com/media/person_role/2023/03/14/photo_FORMATO_tsGYQ1l.png,1,Eguinaldo de Sousa Lemos,6
+646,Ed Carlos,0,277,0,1.76,0,3,4,0,118747,Santos,ed-carlos,E. Carlos,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_7WKkp5D.png,1,Ed Carlos de Arruda Amorim,6
+647,Patrick Verhon,0,265,0,1.17,0,2,4,0,118770,Bahia,patrick-verhon,P. Verhon,https://s.sde.globo.com/media/person_role/2023/02/27/photo_FORMATO_8G6mq44.png,1,Patrick Verhon Pertel Pereira,6
+648,Alexsander,0,266,0,2.93,0,5,2,0,118774,Fluminense,alexsander,Alexsander,https://s.sde.globo.com/media/person_role/2023/03/14/photo_FORMATO_g4r49f2.png,1,Alexsander Christian Gomes da Costa,7
+649,Kaio César,0,294,0,1.76,0,3,5,0,118844,Coritiba,kaio-cesar,K. César,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_jGkK86O.png,1,Kaio César Andrade Lima,6
+650,Vinícius Boff,0,1371,0,1.17,0,2,4,0,120684,Cuiabá,vinicius-boff,V. Boff,https://s.sde.globo.com/media/person_role/2023/03/06/photo_FORMATO_nfy08Tk.png,1,Vinícius Gonçalves Boff,6
+651,Erick Marcus,0,267,0,1.76,0,3,5,0,121184,Vasco,erick-marcus,E. Marcus,https://s.sde.globo.com/media/person_role/2023/03/14/photo_FORMATO_WLTp9mI.png,1,Erick Marcus dos Santos Oliveira do Carmo,6
+652,Kauan,0,290,0,1.17,0,2,4,0,121237,Goiás,kauan,Kauan,https://s.sde.globo.com/media/person_role/2023/03/11/photo_FORMATO_KIb8NpZ.png,1,Kauan Rodrigues da Silva,6
+653,Alan,0,290,0,0.59,0,1,4,0,121242,Goiás,alan,Alan,https://s.sde.globo.com/media/person_role/2023/03/11/photo_FORMATO_Jmw1xcE.png,1,Alan Matheus Stence,6
+654,Gabryel Freitas,0,1371,0,1.17,0,2,5,0,121263,Cuiabá,gabryel-freitas,G. Freitas,https://s.sde.globo.com/media/person_role/2023/03/06/photo_FORMATO_2WJ0Lb4.png,1,Gabryel Vinícius Araújo Freitas,6
+655,Ivo Vieira,0,1371,0,1.76,0,3,6,0,121593,Cuiabá,ivo-vieira,I. Vieira,https://s.sde.globo.com/media/person_role/2023/03/06/photo_FORMATO_KID8EWh.png,1,Ivo Ricardo Abreu Vieira,7
+656,Vitão,0,1371,0,1.17,0,2,3,0,121779,Cuiabá,vitao,Vitão,https://s.sde.globo.com/media/person_role/2023/03/21/photo_220x220_xTgu9xA.png,1,Victor Matheus dos Santos Gonçalves,6
+657,André,0,284,0,1.17,0,2,5,0,121792,Grêmio,andre,André,https://s.sde.globo.com/media/person_role/2023/04/05/photo_FORMATO.png,1,André Henrique da Silva Martins,6
+658,Jean Pedroso,0,294,0,0.59,0,1,3,0,121796,Coritiba,jean-pedroso,J. Pedroso,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_BsJge2e.png,1,Jean Henrique Carneiro Pedroso,6
+659,Sidnei,0,294,0,0.59,0,1,1,0,121797,Coritiba,sidnei,Sidnei,https://s.sde.globo.com/media/person_role/2023/02/28/photo_FORMATO_A2xBlsx.png,1,Sidnei Fernandes Junior,6
+660,Giovanni Manson,0,266,0,1.76,0,3,4,0,121985,Fluminense,giovanni-manson,G. Manson,https://s.sde.globo.com/media/person_role/2023/02/27/photo_FORMATO_hmOfPsg.png,1,Giovanni Manson Ribeiro,6
+661,Ryan,0,265,0,1.17,0,2,2,0,122300,Bahia,ryan,Ryan,https://s.sde.globo.com/media/person_role/2023/02/27/photo_FORMATO_9WvAzGp.png,1,Ryan Carlos Santos de Sousa,6
+662,Kennedy,0,265,0,0.59,0,1,5,0,122301,Bahia,kennedy,Kennedy,https://s.sde.globo.com/media/person_role/2023/02/27/photo_FORMATO_nXCTAYa.png,1,Kennedy Anderson Gomes Ferreira,6
+663,Lorran,0,262,0,1.76,0,3,4,0,122321,Flamengo,lorran,Lorran,https://s.sde.globo.com/media/person_role/2023/03/14/photo_FORMATO_PqkKiZh.png,1,Lorran Lucas Pereira de Sousa,6
+664,Talisson,0,280,0,0.59,0,1,5,0,122393,Bragantino,talisson,Talisson,https://s.sde.globo.com/media/person_role/2023/03/01/photo_FORMATO_EfBwbRQ.png,1,Talisson de Almeida,7
+665,Gustavinho,0,280,0,2.35,0,4,4,0,122394,Bragantino,gustavinho,Gustavinho,https://s.sde.globo.com/media/person_role/2023/03/01/photo_FORMATO_D4mqWRg.png,1,Gustavo Ribeiro Neves,6
+666,Lucca,0,285,0,1.17,0,2,5,0,122420,Internacional,lucca,Lucca,https://s.sde.globo.com/media/person_role/2023/03/07/photo_FORMATO_hF9GrgX.png,1,Lucca Holanda Sampaio Tavares,6
+667,Barros,0,267,0,1.76,0,3,4,0,122485,Vasco,barros,Barros,https://s.sde.globo.com/media/person_role/2023/03/14/photo_FORMATO_VK7ktPd.png,1,Cauan Lucas Barros da Luz,6
+668,Amorim,0,356,0,1.17,0,2,4,0,122598,Fortaleza,amorim,Amorim,https://s.sde.globo.com/media/person_role/2023/03/07/photo_FORMATO_z0sDRnS.png,1,Alexsandro Amorim de Freitas Filho,6
+669,Matheus Belém,0,276,0,0.59,0,1,3,0,122602,São Paulo,matheus-belem,M. Belém,,1,Matheus José Belém de Souza,6
+670,Bruno Santos,0,290,0,1.76,0,3,2,0,122668,Goiás,bruno-santos,B. Santos,https://s.sde.globo.com/media/person_role/2023/03/11/photo_FORMATO_TrU9q7C.png,1,Bruno Araújo dos Santos,6
+671,Lucas Cunha,0,280,0,2.35,0,4,3,0,122755,Bragantino,lucas-cunha,L. Cunha,https://s.sde.globo.com/media/person_role/2023/03/01/photo_FORMATO_UKu2eTF.png,1,Lucas de Souza Cunha,6
+672,Luan Campos,0,327,0,1.76,0,3,5,0,122992,América-MG,luan-campos,L. Campos,https://s.sde.globo.com/media/person_role/2023/03/10/photo_FORMATO_ghOAcrE.png,1,Luan de Campos Cristiano da Silva,6
+673,Pedro,0,264,0,,0,1,5,0,123022,Corinthians,pedro,Pedro,,1,Pedro Henrique Silva dos Santos,6
+674,Zinho,0,284,0,,0,2,5,0,123153,Grêmio,zinho,Zinho,https://s.sde.globo.com/media/person_role/2023/04/08/photo_FORMATO_EtLscfz.png,1,Luis Henrique Hoffmann,6
+675,Cauly,0,265,0,2.93,0,5,4,0,123360,Bahia,cauly,Cauly,https://s.sde.globo.com/media/person_role/2023/02/27/photo_FORMATO_ruw71T7.png,1,Cauly Oliveira Souza,2
+676,Pedro Lima,0,275,0,0.59,0,1,4,0,123610,Palmeiras,pedro-lima,P. Lima,https://s.sde.globo.com/media/person_role/2023/03/01/photo_FORMATO_A5AzBcL.png,1,Pedro Lima de Barros,6
+677,Pepa,0,283,0,4.11,0,7,6,0,123907,Cruzeiro,pepa,Pepa,https://s.sde.globo.com/media/person_role/2023/03/20/photo_220x220_o3JUWBe.png,1,Pedro Miguel Marques da Costa Filipe,7
+678,Everton,0,280,0,0.59,0,1,5,0,124158,Bragantino,everton,Everton,,1,Everton Tiago Barella de Souza Messias,6
+679,Henry Mosquera,0,280,0,0.59,0,1,5,0,124239,Bragantino,henry-mosquera,H. Mosquera,https://s.sde.globo.com/media/person_role/2023/04/01/photo_220x220.png,1,Henry David Mosquera Sánchez,6
+680,Isaac,0,282,0,,0,2,5,0,124247,Atlético-MG,isaac,Isaac,https://s.sde.globo.com/media/person_role/2023/04/06/photo_220x220_qx2138M.png,1,Isaac Aguiar Tomich,6
+681,Léo Santos,0,282,0,0.59,0,1,2,0,124249,Atlético-MG,leo-santos,L. Santos,https://s.sde.globo.com/media/person_role/2023/04/01/photo_FORMATO_EqilkPd.png,1,Leonardo dos Santos Lopes da Silva,6
+682,Pedro Ataíde,0,282,0,0.59,0,1,5,0,124250,Atlético-MG,pedro-ataide,P. Ataíde,https://s.sde.globo.com/media/person_role/2023/04/01/photo_220x220_jrCgQkt.png,1,Pedro Ataide de Souza Oliveira,6
+683,Deivid Washington,0,277,0,0.59,0,1,5,0,124251,Santos,deivid-washington,D. Washington,https://s.sde.globo.com/media/person_role/2023/04/03/photo_FORMATO.png,1,Deivid Washington de Souza Eugênio,6
+684,Ian,0,275,0,0.59,0,1,2,0,124313,Palmeiras,ian,Ian,https://s.sde.globo.com/media/person_role/2023/04/05/photo_220x220_UNa4pQH.png,1,Ian Custódio dos Anjos,6
+685,Allyson,0,1371,0,,0,4,3,0,124340,Cuiabá,allyson,Allyson,https://s.sde.globo.com/media/person_role/2023/04/06/photo_220x220.png,1,Allyson Aires dos Santos,6
+686,João Vitor,0,294,0,,0,1,2,0,124358,Coritiba,joao-vitor,J. Vitor,https://s.sde.globo.com/media/person_role/2023/04/08/photo_FORMATO_99Ek8Df.png,1,João Vitor da Silva Almeida,6

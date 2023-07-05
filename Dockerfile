@@ -1,4 +1,4 @@
-ARG BASE_IMAGE=python:3.8-buster
+ARG BASE_IMAGE=python:3.10-buster
 FROM $BASE_IMAGE
 
 # add kedro user

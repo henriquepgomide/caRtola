@@ -81,7 +81,7 @@ exclude = [
 
 [tool.ruff.lint]
 select = [
-    "D",
+    # "D", # docstring
     "E",
     "F",
     "Q0",
@@ -116,7 +116,7 @@ convention = "google"
 
 
 [tool.ruff.lint.per-file-ignores]
-"tests/*.py" = ["D", "S101", "F403", "S106"]
+"**/tests/*.py" = ["D", "S101", "F403", "S106"]
 
 [tool.pytest.ini_options]
 addopts = """

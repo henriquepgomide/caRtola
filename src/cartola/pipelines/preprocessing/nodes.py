@@ -2,16 +2,18 @@
 This is a boilerplate pipeline 'preprocessing'
 generated using Kedro 0.18.2
 """
+
 from typing import Dict
 
 import pandas as pd
 
 from cartola.commons.features import compute_slug
+from cartola.commons.scouts import get_disaccumulated_scouts_for_round
 
 
 def fill_scouts_with_zeros(df: pd.DataFrame, dict_scouts: Dict[str, float]) -> pd.DataFrame:
     scouts_cols = dict_scouts.keys()
-    df.loc[:, scouts_cols] = df.loc[:, scouts_cols].fillna(0.0)
+    df.loc[:, scouts_cols] = df.loc[:, scouts_cols].fillna(0)
     return df
 
 
@@ -34,4 +36,17 @@ def map_status_id_to_string(df: pd.DataFrame, dict_status_to_str: Dict[int, str]
 
 def add_year_column(df: pd.DataFrame, year: int):
     df["ano"] = year
+    return df
+
+
+def fix_accumulated_scouts(df: pd.DataFrame, dict_scouts: Dict[str, float]) -> pd.DataFrame:
+    if ~df.ano.isin([2015, 2017, 2018, 2019, 2020, 2021, 2022]).all():
+        return df
+
+    cols_scouts = list(dict_scouts.keys())
+    df_result = pd.DataFrame([])
+    for round_ in range(1, 39):
+        df_round = get_disaccumulated_scouts_for_round(df, round_, cols_scouts)
+        df_result = pd.concat([df_result, df_round], ignore_index=True)
+
     return df

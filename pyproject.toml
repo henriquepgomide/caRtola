@@ -14,13 +14,15 @@ pandas = "^1.5.0"
 
 [tool.poetry.group.dev.dependencies]
 kedro-docker = "^0.3.0"
-kedro-viz = "^5.1.1"
 pre-commit = "^2.20.0"
 jupyterlab = "^3.4.8"
 jupyter = "^1.0.0"
 nbstripout = "^0.6.1"
 ruff = "^0.4.9"
 mypy = "^0.982"
+ydata-profiling = "^4.8.3"
+kedro-viz = "^9.1.0"
+numba = "<0.59.0"
 
 [tool.poetry.group.test.dependencies]
 pytest = "^7.1.3"

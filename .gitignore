@@ -193,3 +193,7 @@ conf/**/*credentials*
 # custom
 .telemetry
 logs/
+
+# ydata
+report.html
+stats.json

@@ -22,7 +22,7 @@ pre-commit:
 	@pre-commit run --all-files
 
 profile:
-	@pandas_profiling -m -e $(args) report.html
+	@ydata_profiling -m -e $(args) report.html
 
 docker-build:
 	@kedro docker build --image cartola

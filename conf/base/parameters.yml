@@ -8,6 +8,10 @@ preprocessing.map_col_names:
   atletas.clube_id: id_clube
   atletas.clube.id.full.name: nome_clube
   atletas.foto: foto
+  atletas.gato_mestre.media_minutos_jogados: gm_media_minutos_jogados
+  atletas.gato_mestre.media_pontos_mandante: gm_media_pontos_mandante
+  atletas.gato_mestre.media_pontos_visitante: gm_media_pontos_visitante
+  atletas.gato_mestre.minutos_jogados: gm_minutos_jogados
   atletas.jogos_num: num_jogos
   atletas.media_num: media
   atletas.minimo_para_valorizar: minimo_para_valorizar
@@ -23,6 +27,7 @@ preprocessing.map_col_names:
   ClubeID: id_clube
   ClubeNome: nome_clube
   jogos_num: num_jogos
+  Jogos: num_jogos
   media_num: media
   Nome: nome_clube
   Participou: participou
@@ -30,6 +35,7 @@ preprocessing.map_col_names:
   Pontos: pontos_num
   PontosMedia: media
   posicao_id: posicao
+  Posicao: posicao
   PosicaoID: posicao
   preco_num: preco
   Preco: preco
@@ -112,3 +118,7 @@ preprocessing.map_status_id_to_str:
   5: Contundido
   6: Nulo
   7: Provável
+
+preprocessing.rename_scouts:
+  RB: DS  # Roubada de Bola -> Desarmes
+  PE: PI  # Passe Errado -> Passe Incompleto

@@ -15,15 +15,6 @@ clean:
 	@rm -f MANIFEST
 	@rm -f .coverage.*
 
-black:
-	@black $(FOLDER_PROJECT) --config pyproject.toml $(args)
-
-isort:
-	@isort $(FOLDER_PROJECT) $(args)
-
-flake8:
-	@flake8 $(FOLDER_PROJECT)
-
 mypy:
 	@mypy --ignore-missing-imports --exclude download_data.py$$ --exclude __main__.py$$ --strict src/cartola
 

@@ -123,6 +123,19 @@ addopts = """
 --cov-report term-missing \
 --cov src/cartola -ra"""
 
+[tool.coverage.paths]
+source = ["src/cartola/"]
+
+[tool.coverage.run]
+source = ["src/cartola"]
+omit = [
+    "__init__.py",
+    "tests/*",
+    "*/.ipynb_checkpoints/*",
+    "*/src/cartola/__main__.py",
+    "*/src/cartola/download_data.py",
+]
+
 [tool.coverage.report]
 fail_under = 0
 show_missing = true

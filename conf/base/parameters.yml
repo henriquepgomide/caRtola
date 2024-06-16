@@ -129,6 +129,7 @@ preprocessing.map_posicao_to_str:
   
 
 aggregated.map_types:
+  ano: int
   rodada: int
   A: int
   CA: int

@@ -55,4 +55,4 @@ def fix_accumulated_scouts(df: pd.DataFrame, dict_scouts: Dict[str, float]) -> p
         df_round = get_disaccumulated_scouts_for_round(df, round_, cols_scouts)
         df_result = pd.concat([df_result, df_round], ignore_index=True)
 
-    return df
+    return df_result

@@ -6,6 +6,12 @@
 
 2022.preprocessing.year: 2022
 
+2022.preprocessing.drop_columns:
+  - atletas.gato_mestre.media_minutos_jogados
+  - atletas.gato_mestre.media_pontos_mandante
+  - atletas.gato_mestre.media_pontos_visitante
+  - atletas.gato_mestre.minutos_jogados
+
 2022.preprocessing.scouts:
   # ataque
   G: 8.0    # Gol marcado

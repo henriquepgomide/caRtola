@@ -9,7 +9,7 @@ aggregated.primary:
     type: pandas.CSVDataSet
   filename_suffix: .csv
 
-aggregated.concatenated:
+aggregated.aggregated:
   type: pandas.CSVDataSet
   filepath: data/04_feature/aggregated.csv
   save_args:

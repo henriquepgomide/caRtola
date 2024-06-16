@@ -6,6 +6,8 @@
 
 2019.preprocessing.year: 2019
 
+2019.preprocessing.drop_columns: []
+
 2019.preprocessing.scouts:
   # ataque
   G: 8.0    # Gol marcado
@@ -16,7 +18,7 @@
   FS: 0.5   # Falta Sofrida
   PP: -4.0  # Pênalti Perdido
   I: -0.5   # Impedimento
-  PE: -0.3  # Passe Errado
+  PI: -0.3  # Passe Incompleto = Passe Errado (PE)
   # defesa
   SG: 5.0   # jogo sem Sofrer Gols (somente defensores)
   CV: -5.0  # Cartão Vermelho
@@ -25,8 +27,8 @@
   FC: -0.5  # Falta Cometida
   GC: -5.0  # Gol Contra
   DP: 7.0   # Defesa de Pênalti
-  RB: 1.5   # Roubada de Bola
-  DD: 3.0   # Defesa Difícil
+  DS: 1.5   # DeSarme = Roubada de Bola (RB)
+  DE: 3.0   # DEfesa = Defesa Difícil (DD) *
 
 # * exclusivo de goleiro
 # ** não válido para goleiros

@@ -8,10 +8,6 @@ preprocessing.map_col_names:
   atletas.clube_id: id_clube
   atletas.clube.id.full.name: nome_clube
   atletas.foto: foto
-  atletas.gato_mestre.media_minutos_jogados: gm_media_minutos_jogados
-  atletas.gato_mestre.media_pontos_mandante: gm_media_pontos_mandante
-  atletas.gato_mestre.media_pontos_visitante: gm_media_pontos_visitante
-  atletas.gato_mestre.minutos_jogados: gm_minutos_jogados
   atletas.jogos_num: num_jogos
   atletas.media_num: media
   atletas.minimo_para_valorizar: minimo_para_valorizar
@@ -26,13 +22,15 @@ preprocessing.map_col_names:
   clube_id: id_clube
   ClubeID: id_clube
   ClubeNome: nome_clube
+  DD: DE  # Defesa Difícil -> Defesa
   jogos_num: num_jogos
   Jogos: num_jogos
   media_num: media
   Nome: nome_clube
   Participou: participou
+  PE: PI  # Passe Errado -> Passe Incompleto
   pontos_num: pontuacao
-  Pontos: pontos_num
+  Pontos: pontuacao
   PontosMedia: media
   posicao_id: posicao
   Posicao: posicao
@@ -40,6 +38,7 @@ preprocessing.map_col_names:
   preco_num: preco
   Preco: preco
   PrecoVariacao: variacao
+  RB: DS  # Roubada de Bola -> Desarmes
   rodada_id: rodada
   Rodada: rodada
   status_id: status
@@ -119,6 +118,24 @@ preprocessing.map_status_id_to_str:
   6: Nulo
   7: Provável
 
-preprocessing.rename_scouts:
-  RB: DS  # Roubada de Bola -> Desarmes
-  PE: PI  # Passe Errado -> Passe Incompleto
+
+aggregated.map_types:
+  rodada: int
+  A: int
+  CA: int
+  CV: int
+  DE: int
+  DP: int
+  DS: int
+  FC: int
+  FD: int
+  FF: int
+  FS: int
+  FT: int
+  G: int
+  GC: int
+  GS: int
+  I: int
+  PI: int
+  PP: int
+  SG: int

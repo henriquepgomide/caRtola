@@ -1,25 +1,22 @@
 import pandera as pa
 
 
-class AttackScouts(pa.DataFrameModel):
-    G: float = pa.Field(ge=0)
-    FS: float = pa.Field(ge=0)
-    PE: float = pa.Field(ge=0, nullable=True)
-    A: float = pa.Field(ge=0)
-    FT: float = pa.Field(ge=0)
-    FD: float = pa.Field(ge=0)
-    FF: float = pa.Field(ge=0)
-    I: float = pa.Field(ge=0)  # noqa: E741
-    PP: float = pa.Field(ge=0)
-
-
-class DefenseScouts(pa.DataFrameModel):
-    SG: float = pa.Field(ge=0)
-    CV: float = pa.Field(ge=0)
-    CA: float = pa.Field(ge=0)
-    GS: float = pa.Field(ge=0)
-    FC: float = pa.Field(ge=0)
-    GC: float = pa.Field(ge=0)
-    DP: float = pa.Field(ge=0)
-    RB: float = pa.Field(ge=0, nullable=True)
-    DD: float = pa.Field(ge=0, nullable=True)
+class Scouts(pa.DataFrameModel):
+    A: int = pa.Field(ge=0)
+    CA: int = pa.Field(ge=0)
+    CV: int = pa.Field(ge=0)
+    DE: int = pa.Field(ge=0)
+    DP: int = pa.Field(ge=0)
+    DS: int = pa.Field(ge=0)
+    FC: int = pa.Field(ge=0)
+    FD: int = pa.Field(ge=0)
+    FF: int = pa.Field(ge=0)
+    FS: int = pa.Field(ge=0)
+    FT: int = pa.Field(ge=0)
+    G: int = pa.Field(ge=0)
+    GC: int = pa.Field(ge=0)
+    GS: int = pa.Field(ge=0)
+    I: int = pa.Field(ge=0)  # noqa: E741
+    PI: int = pa.Field(ge=0)
+    PP: int = pa.Field(ge=0)
+    SG: int = pa.Field(ge=0)

@@ -5,7 +5,7 @@ generated using Kedro 0.18.2
 
 from kedro.pipeline import Pipeline, node, pipeline
 
-from cartola.commons.dataframes import concat_partitioned_datasets, drop_duplicated_rows, rename_cols
+from cartola.commons.dataframes import concat_partitioned_datasets, drop_columns, drop_duplicated_rows, rename_cols
 from cartola.pipelines.preprocessing.nodes import (
     add_year_column,
     fill_empty_slugs,
@@ -21,7 +21,8 @@ def create_pipeline() -> Pipeline:
             node(concat_partitioned_datasets, inputs="raw", outputs="concat"),
             node(add_year_column, inputs=["concat", "params:year"], outputs="df_year"),
             node(rename_cols, inputs=["df_year", "params:map_col_names"], outputs="df_renamed"),
-            node(drop_duplicated_rows, inputs="df_renamed", outputs="df_not_duplicated"),
+            node(drop_columns, inputs=["df_renamed", "params:drop_columns"], outputs="df_dropped"),
+            node(drop_duplicated_rows, inputs="df_dropped", outputs="df_not_duplicated"),
             node(
                 map_status_id_to_string,
                 inputs=["df_not_duplicated", "params:map_status_id_to_str"],

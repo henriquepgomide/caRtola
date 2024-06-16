@@ -34,7 +34,7 @@ def map_status_id_to_string(df: pd.DataFrame, dict_status_to_str: Dict[int, str]
     return df
 
 
-def add_year_column(df: pd.DataFrame, year: int):
+def add_year_column(df: pd.DataFrame, year: int) -> pd.DataFrame:
     df["ano"] = year
     return df
 

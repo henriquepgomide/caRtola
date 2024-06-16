@@ -4,7 +4,11 @@ from typing import Dict
 
 from kedro.pipeline import Pipeline, pipeline
 
-from cartola.pipelines import aggregate_all_years, merge_splitted_datasets, preprocessing
+from cartola.pipelines import (
+    aggregate_all_years,
+    merge_splitted_datasets,
+    preprocessing,
+)
 
 
 def register_pipelines() -> Dict[str, Pipeline]:
@@ -13,7 +17,11 @@ def register_pipelines() -> Dict[str, Pipeline]:
     Returns:
         A mapping from a pipeline name to a ``Pipeline`` object.
     """
-    params_preprocessing = {"params:preprocessing.map_col_names", "params:preprocessing.map_status_id_to_str"}
+    params_preprocessing = {
+        "params:preprocessing.map_col_names",
+        "params:preprocessing.map_status_id_to_str",
+        "params:preprocessing.map_posicao_to_str",
+    }
 
     pipe_2014 = pipeline(
         pipe=merge_splitted_datasets.create_pipeline() + preprocessing.create_pipeline(),

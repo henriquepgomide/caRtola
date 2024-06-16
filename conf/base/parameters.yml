@@ -119,6 +119,15 @@ preprocessing.map_status_id_to_str:
   7: Provável
 
 
+preprocessing.map_posicao_to_str:
+  "1": gol
+  "2": lat
+  "3": zag
+  "4": mei
+  "5": ata
+  "6": tec
+  
+
 aggregated.map_types:
   rodada: int
   A: int

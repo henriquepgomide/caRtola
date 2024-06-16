@@ -34,6 +34,12 @@ def map_status_id_to_string(df: pd.DataFrame, dict_status_to_str: Dict[int, str]
     return df
 
 
+def map_posicao_to_string(df: pd.DataFrame, dict_posicao_to_str: Dict[str, str]) -> pd.DataFrame:
+    df.posicao = df.posicao.astype(str)
+    df.posicao.replace(dict_posicao_to_str, inplace=True)
+    return df
+
+
 def add_year_column(df: pd.DataFrame, year: int) -> pd.DataFrame:
     df["ano"] = year
     return df

@@ -120,7 +120,7 @@ convention = "google"
 
 [tool.pytest.ini_options]
 minversion = "6.0"
-testpaths = "tests"
+testpaths = "src/tests"
 python_files = ["test_*.py", "spec_*.py"]
 norecursedirs = [".git", ".pytest_cache"]
 filterwarnings = [
@@ -135,7 +135,6 @@ addopts = """
     --cov-report term-missing:skip-covered
     --cov-report xml
     --cov src/cartola -ra
-    --cov cli
 """
 
 [tool.coverage.paths]

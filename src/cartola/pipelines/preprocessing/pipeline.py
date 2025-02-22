@@ -1,5 +1,4 @@
-"""
-This is a boilerplate pipeline 'preprocessing'
+"""This is a boilerplate pipeline 'preprocessing'
 generated using Kedro 0.18.2
 """
 

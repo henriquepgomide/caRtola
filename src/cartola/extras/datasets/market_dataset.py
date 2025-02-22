@@ -12,9 +12,8 @@ class MarketDataSet(AbstractDataSet[pd.DataFrame, pd.DataFrame]):
     """A custom dataset to load marked data of 2021 (data/01_raw/2021) as pandas DataFrames."""
 
     def __init__(self, filepath: str):
-        """
-        Args:
-            filepath: The location of the file to load / save data.
+        """Args:
+        filepath: The location of the file to load / save data.
         """
         protocol, path = get_protocol_and_path(filepath)
         self._protocol = protocol

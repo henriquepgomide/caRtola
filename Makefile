@@ -15,6 +15,10 @@ clean:
 	@rm -f MANIFEST
 	@rm -f .coverage.*
 
+
+lint: ## lint files with ruff
+	@poetry run ruff check --fix
+
 mypy:
 	@mypy --ignore-missing-imports --exclude download_data.py$$ --exclude __main__.py$$ --strict src/cartola
 

@@ -1,4 +1,4 @@
-# 🎩 CaRtola FC: Ciência de Dados e Futebol desde 2014 até 2022
+# 🎩 CaRtola FC: Ciência de Dados e Futebol desde 2014 até 2023 (2024 em breve!)
 
 > Felizmente, existe um repositório no GitHub chamado caRtola, no qual toda a parte de obtenção e tratamento dos dados do jogo já foi realizada. (Ribeiro, 2019)
 
@@ -23,6 +23,7 @@ Estes são alguns tutoriais que escrevemos. Contribuições são sempre bem vind
 - [Média global ou média com mando de campo? O que usar para escalar seus jogadores][tutorial-py-3]
 - [Algoritmo de valorização dos Jogadores do Cartola PFC][tutorial-py-4]
 - [Estudo sobre algoritmo de valorizaço dos jogadores do Cartola, parte I][tutorial-py-5]
+- [Estudo sobre algoritmo de valorizaço dos jogadores do Cartola, parte II][tutorial-py-6]
 
 ### R
 
@@ -109,11 +110,12 @@ H. Gomide e A. Gualberto, CaRtola: Extração de dados da API do CartolaFC, aná
 [metropoles]: https://www.metropoles.com/esportes/cartola-fc-saiba-como-a-pandemia-pode-influenciar-os-times-mandantes
 [supertrunfo-site]: https://henriquepgomide.github.io/cartola-supertrunfo/
 [supertrunfo-repo]: https://github.com/henriquepgomide/cartola-supertrunfo
-[tutorial-py-1]: https://github.com/henriquepgomide/caRtola/blob/master/src/python/colabs/caRtola_como_ler_repositório_do_github_com_BeautifulSoup_e_Pandas.ipynb
-[tutorial-py-2]: https://github.com/henriquepgomide/caRtola/blob/master/src/python/markov-chain-lpp.ipynb
-[tutorial-py-3]: https://github.com/henriquepgomide/caRtola/blob/master/src/python/colabs/caRtola_media_media_movel_media_casa_ou_fora_o_que_usar.ipynb
-[tutorial-py-4]: https://github.com/henriquepgomide/caRtola/blob/master/src/python/desafio_valorizacao/Desafio%20da%20Valorização.ipynb
-[tutorial-py-5]: https://github.com/henriquepgomide/caRtola/blob/master/src/python/desafio_valorizacao/%23%20Descobrindo%20o%20algoritmo%20de%20valorização%20do%20Cartola%20FC%20-%20Parte%20I.ipynb
+[tutorial-py-1]: https://github.com/henriquepgomide/caRtola/tree/master/notebooks/colabs/caRtola_como_ler_repositório_do_github_com_BeautifulSoup_e_Pandas.ipynb
+[tutorial-py-2]: https://github.com/henriquepgomide/caRtola/tree/master/notebooks/markov-chain-lpp.ipynb
+[tutorial-py-3]: https://github.com/henriquepgomide/caRtola/tree/master/notebooks/colabs/caRtola_media_media_movel_media_casa_ou_fora_o_que_usar.ipynb
+[tutorial-py-4]: https://github.com/henriquepgomide/caRtola/tree/master/notebooks/desafio_valorizacao/Desafio%20da%20Valorização.ipynb
+[tutorial-py-5]: https://github.com/henriquepgomide/caRtola/blob/master/notebooks/desafio_valorizacao/Descobrindo%20o%20algoritmo%20de%20valoriza%C3%A7%C3%A3o%20do%20Cartola%20FC%20-%20Parte%20I.ipynb
+[tutorial-py-6]: https://github.com/henriquepgomide/caRtola/blob/master/notebooks/desafio_valorizacao/Descobrindo%20o%20algoritmo%20de%20valoriza%C3%A7%C3%A3o%20do%20Cartola%20FC%20-%20Parte%20I.ipynb
 [tutorial-r-1]: https://medium.com/@hpgomide/cartola-pfc-analisando-os-atacantes-do-primeiro-turno-com-affinity-propagation-89df6304b4e4
 [tutorial-r-2]: https://medium.com/@hpgomide/cartola-pfc-quais-meias-escalar-no-cartola-ofensivos-ou-defensivos-abe8d7db121d
 [tutorial-r-3]: https://medium.com/@hpgomide/cartola-pfc-analisando-jogadores-de-defesa-com-affinity-propagation-parte-iii-4b3c35df2c0c

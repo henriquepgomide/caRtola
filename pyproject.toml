@@ -2,31 +2,35 @@
 name = "cartola"
 version = "0.1.0"
 description = "Extração de dados da API do CartolaFC, análise exploratória dos dados e modelos preditivos em R e Python - 2014-22. [EN] Data munging, analysis and modeling of CartolaFC - the most popular fantasy football game in Brazil and maybe in the world. Data cover years 2014-22"
-authors = ["Henrique Gomide <henriquepgomide@gmail.com>"]
+authors = ["Henrique Gomide <henriquepgomide@gmail.com>", "Arnaldo Gualberto <arnaldo.g12@gmail.com>"]
 license = "MIT"
 readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "3.10.*"
 kedro = "0.18.2"
-mypy = "^0.982"
 Unidecode = "^1.3.6"
 pandas = "^1.5.0"
 
-[tool.poetry.dev-dependencies]
+[tool.poetry.group.dev.dependencies]
 kedro-docker = "^0.3.0"
-kedro-telemetry = "^0.2.1"
-kedro-viz = "^5.1.1"
+pre-commit = "^2.20.0"
+jupyterlab = "^3.4.8"
+jupyter = "^1.0.0"
+nbstripout = "^0.6.1"
+mypy = "^0.982"
+ydata-profiling = "^4.8.3"
+kedro-viz = "^9.1.0"
+numba = "<0.59.0"
+
+[tool.poetry.group.test.dependencies]
 pytest = "^7.1.3"
 pytest-cov = "^4.0.0"
 pytest-mock = "^3.10.0"
-pre-commit = "^2.20.0"
-jupyterlab = "^3.4.8"
-black = "^22.10.0"
-flake8 = "^5.0.4"
-isort = "^5.10.1"
-jupyter = "^1.0.0"
-nbstripout = "^0.6.1"
+pandera = "^0.19.3"
+
+[tool.poetry.group.lint.dependencies]
+ruff = "^0.9.7"
 
 [build-system]
 requires = ["poetry-core"]
@@ -37,26 +41,121 @@ package_name = "cartola"
 project_name = "caRtola"
 project_version = "0.18.2"
 
-[tool.black]
+[tool.ruff]
 line-length = 120
+exclude = [
+    ".cache",
+    ".config",
+    ".ipython",
+    ".dotnet",
+    "jupyter",
+    ".local",
+    ".vscode-server",
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".git-rewrite",
+    ".hg",
+    ".ipynb",
+    ".ipynb_checkpoints",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pyenv",
+    ".pytest_cache",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    ".vscode",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "site-packages",
+    "venv",
+]
 
-[tool.isort]
-multi_line_output = 3
-include_trailing_comma = true
-force_grid_wrap = 0
-use_parentheses = true
-line_length = 120
-known_third_party = "kedro"
+[tool.ruff.lint]
+select = [
+    "D",
+    "E",
+    "F",
+    "Q0",
+    "T20",
+    "COM",
+    "FBT",
+    "S",
+    "YTT",
+    "N",
+    "I",
+    "C90",
+    "TID",
+    "ERA",
+    "RUF",
+]
+extend-select = ["E501"]
+ignore = [
+    "D417",   # On top of the Google convention, disable `D417`, which requires documentation for every function parameter.
+    "N815",
+    "N803",
+    "COM812",
+    "N818",
+    "N805",
+    "COM819",
+    "I001",
+]
+fixable = ["A", "B", "C", "D", "E", "F", "Q", "I"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.lint.per-file-ignores]
+"notebooks/**.ipynb" = ["E402"]
+"**/tests/*.py" = ["D", "S101", "F403", "S106"]
 
 [tool.pytest.ini_options]
+minversion = "6.0"
+testpaths = "src/tests"
+python_files = ["test_*.py", "spec_*.py"]
+norecursedirs = [".git", ".pytest_cache"]
+filterwarnings = [
+    "error::UserWarning",
+    "ignore::DeprecationWarning",
+    "error::PendingDeprecationWarning",
+]
 addopts = """
---cov-report term-missing \
---cov src/cartola -ra"""
+    --color=yes
+    -p no:cacheprovider
+    --junitxml=report.xml
+    --cov-report term-missing:skip-covered
+    --cov-report xml
+    --cov src/cartola -ra
+"""
+
+[tool.coverage.paths]
+source = ["src/cartola/"]
+
+[tool.coverage.run]
+source = ["src/cartola"]
+omit = [
+    "__init__.py",
+    "tests/*",
+    "*/.ipynb_checkpoints/*",
+    "*/src/cartola/__main__.py",
+    "*/src/cartola/download_data.py",
+]
 
 [tool.coverage.report]
-fail_under = 0
 show_missing = true
-exclude_lines = ["pragma: no cover", "raise NotImplementedError"]
+include_namespace_packages = true
+fail_under = 100
+precision = 2
+exclude_lines = ["raise NotImplementedError"]
 
 [tool.vulture]
 paths = ["src/cartola"]

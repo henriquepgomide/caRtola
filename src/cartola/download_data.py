@@ -14,7 +14,6 @@ df_atletas = df_atletas.rename(
         col: f"atletas.{col}" if col.islower() else col for col in df_atletas.columns
     }
 )
-df_atletas = df_atletas.drop(columns="atletas.gato_mestre")
 
 df_clubes = pd.DataFrame(data_json["clubes"].values())
 df_clubes = df_clubes.rename(

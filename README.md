@@ -1,5 +1,4 @@
-# 🎩 CaRtola FC: Ciência de Dados e Futebol desde 2014 até 2025> Felizmente, existe um repositório no GitHub chamado caRtola, no qual toda a parte de obtenção e tratamento dos dados do jogo já foi realizada. (Ribeiro, 2019)
-
+# 🎩 CaRtola FC: Ciência de Dados e Futebol desde 2014 até 2025
 ## 🔊 Servidor Discord
 
 Entre no nosso [servidor do Discord][discord] para trocar experiências sobre projetos e do uso de estatísticas no Cartola FC.

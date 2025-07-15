@@ -1,5 +1,4 @@
-# 🎩 CaRtola FC: Ciência de Dados e Futebol desde 2014 até 2025## 🔊 Servidor Discord
-
+# 🎩 CaRtola FC: Ciência de Dados e Futebol desde 2014 até 2025
 Entre no nosso [servidor do Discord][discord] para trocar experiências sobre projetos e do uso de estatísticas no Cartola FC.
 
 ## 🎲 Dados

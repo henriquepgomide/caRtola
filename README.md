@@ -1,5 +1,4 @@
-# 🎩 CaRtola FC: Ciência de Dados e Futebol desde 2014 até 2025
-## 🎲 Dados
+# 🎩 CaRtola FC: Ciência de Dados e Futebol desde 2014 até 2025## 🎲 Dados
 
 Você encontra os dados raw do *Cartola FC* desde 2014 na pasta [data/01_raw][folder_data].
 

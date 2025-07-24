@@ -1,5 +1,4 @@
-# 🎩 CaRtola FC: Ciência de Dados e Futebol desde 2014 até 2025
-## 🧑‍🏫 Tutoriais
+# 🎩 CaRtola FC: Ciência de Dados e Futebol desde 2014 até 2025## 🧑‍🏫 Tutoriais
 
 Estes são alguns tutoriais que escrevemos. Contribuições são sempre bem vindas!
 

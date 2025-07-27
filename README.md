@@ -1,5 +1,4 @@
-# 🎩 CaRtola FC: Ciência de Dados e Futebol desde 2014 até 2025Estes são alguns tutoriais que escrevemos. Contribuições são sempre bem vindas!
-
+# 🎩 CaRtola FC: Ciência de Dados e Futebol desde 2014 até 2025
 ### Python
 
 - [Como ler todos os arquivos das rodadas deste repositório com Python?][tutorial-py-1]

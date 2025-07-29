@@ -1,5 +1,4 @@
-# 🎩 CaRtola FC: Ciência de Dados e Futebol desde 2014 até 2025### Python
-
+# 🎩 CaRtola FC: Ciência de Dados e Futebol desde 2014 até 2025
 - [Como ler todos os arquivos das rodadas deste repositório com Python?][tutorial-py-1]
 - [Seleção automática de jogadores feita com Markov Chain e programação linear][tutorial-py-2]
 - [Média global ou média com mando de campo? O que usar para escalar seus jogadores][tutorial-py-3]

@@ -1,5 +1,4 @@
-# 🎩 CaRtola FC: Ciência de Dados e Futebol desde 2014 até 2025- [Seleção automática de jogadores feita com Markov Chain e programação linear][tutorial-py-2]
-- [Média global ou média com mando de campo? O que usar para escalar seus jogadores][tutorial-py-3]
+# 🎩 CaRtola FC: Ciência de Dados e Futebol desde 2014 até 2025- [Média global ou média com mando de campo? O que usar para escalar seus jogadores][tutorial-py-3]
 - [Algoritmo de valorização dos Jogadores do Cartola PFC][tutorial-py-4]
 - [Estudo sobre algoritmo de valorizaço dos jogadores do Cartola, parte I][tutorial-py-5]
 - [Estudo sobre algoritmo de valorizaço dos jogadores do Cartola, parte II][tutorial-py-6]

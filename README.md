@@ -1,5 +1,4 @@
-# 🎩 CaRtola FC: Ciência de Dados e Futebol desde 2014 até 2025- [Algoritmo de valorização dos Jogadores do Cartola PFC][tutorial-py-4]
-- [Estudo sobre algoritmo de valorizaço dos jogadores do Cartola, parte I][tutorial-py-5]
+# 🎩 CaRtola FC: Ciência de Dados e Futebol desde 2014 até 2025- [Estudo sobre algoritmo de valorizaço dos jogadores do Cartola, parte I][tutorial-py-5]
 - [Estudo sobre algoritmo de valorizaço dos jogadores do Cartola, parte II][tutorial-py-6]
 
 ### R

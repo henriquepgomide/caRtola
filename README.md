@@ -1,5 +1,4 @@
-# 🎩 CaRtola FC: Ciência de Dados e Futebol desde 2014 até 2025- [Estudo sobre algoritmo de valorizaço dos jogadores do Cartola, parte II][tutorial-py-6]
-
+# 🎩 CaRtola FC: Ciência de Dados e Futebol desde 2014 até 2025
 ### R
 
 - [Parte I - Analisando os atacantes do primeiro turno com Affinity Propagation][tutorial-r-1]

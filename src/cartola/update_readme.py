@@ -16,7 +16,7 @@ for path in os.listdir(ROOT / "data/01_raw/"):
     
 with open(ROOT / "README.md", 'r', encoding="utf-8", errors="replace") as file:
     readme = file.readlines()
-    readme[0] = f"# 🎩 CaRtola FC: Ciência de Dados e Futebol desde {since} até {until}"
+    readme[0] = f"# 🎩 CaRtola FC: Ciência de Dados e Futebol desde {since} até {until}\n"
 
 with open(ROOT / "README.md", 'w', encoding="utf-8", errors="replace") as file:
     file.writelines(readme)

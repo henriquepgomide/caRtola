@@ -1,5 +1,4 @@
-# 🎩 CaRtola FC: Ciência de Dados e Futebol desde 2014 até 2025
-- [Parte I - Analisando os atacantes do primeiro turno com Affinity Propagation][tutorial-r-1]
+# 🎩 CaRtola FC: Ciência de Dados e Futebol desde 2014 até 2025- [Parte I - Analisando os atacantes do primeiro turno com Affinity Propagation][tutorial-r-1]
 - [Parte II - Quais meias escalar: Defensivos ou ofensivos?][tutorial-r-2]
 - [Parte III - Analisando jogadores de defesa com Affinity Propagation][tutorial-r-3]
 - [Como montar defesas no Cartola usando regressão de Poisson?][tutorial-r-4]

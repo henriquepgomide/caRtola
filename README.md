@@ -1,4 +1,36 @@
-# 🎩 CaRtola FC: Ciência de Dados e Futebol desde 2014 até 2025- [Como montar defesas no Cartola usando regressão de Poisson?][tutorial-r-4]
+# 🎩 CaRtola FC: Ciência de Dados e Futebol desde 2014 até 2025
+
+> Felizmente, existe um repositório no GitHub chamado caRtola, no qual toda a parte de obtenção e tratamento dos dados do jogo já foi realizada. (Ribeiro, 2019)
+
+## 🔊 Servidor Discord
+
+Entre no nosso [servidor do Discord][discord] para trocar experiências sobre projetos e do uso de estatísticas no Cartola FC.
+
+## 🎲 Dados
+
+Você encontra os dados raw do *Cartola FC* desde 2014 na pasta [data/01_raw][folder_data].
+
+> Estamos preparando um pipeline para agregar os dados de todos os anos em um único arquivo. Então, fique atento no repositório!
+
+## 🧑‍🏫 Tutoriais
+
+Estes são alguns tutoriais que escrevemos. Contribuições são sempre bem vindas!
+
+### Python
+
+- [Como ler todos os arquivos das rodadas deste repositório com Python?][tutorial-py-1]
+- [Seleção automática de jogadores feita com Markov Chain e programação linear][tutorial-py-2]
+- [Média global ou média com mando de campo? O que usar para escalar seus jogadores][tutorial-py-3]
+- [Algoritmo de valorização dos Jogadores do Cartola PFC][tutorial-py-4]
+- [Estudo sobre algoritmo de valorizaço dos jogadores do Cartola, parte I][tutorial-py-5]
+- [Estudo sobre algoritmo de valorizaço dos jogadores do Cartola, parte II][tutorial-py-6]
+
+### R
+
+- [Parte I - Analisando os atacantes do primeiro turno com Affinity Propagation][tutorial-r-1]
+- [Parte II - Quais meias escalar: Defensivos ou ofensivos?][tutorial-r-2]
+- [Parte III - Analisando jogadores de defesa com Affinity Propagation][tutorial-r-3]
+- [Como montar defesas no Cartola usando regressão de Poisson?][tutorial-r-4]
 
 ### C++
 

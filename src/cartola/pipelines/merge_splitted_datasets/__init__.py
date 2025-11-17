@@ -1,5 +1,4 @@
-"""
-This is a boilerplate pipeline 'merge_splitted_datasets'
+"""This is a boilerplate pipeline 'merge_splitted_datasets'
 generated using Kedro 0.18.2
 """
 

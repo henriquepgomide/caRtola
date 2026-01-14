@@ -1,0 +1,628 @@
+,atletas.nome,atletas.pontos_num,atletas.slug,atletas.atleta_id,atletas.clube_id,atletas.preco_num,atletas.apelido_abreviado,atletas.posicao_id,atletas.media_num,atletas.entrou_em_campo,atletas.status_id,atletas.rodada_id,atletas.variacao_num,atletas.foto,atletas.jogos_num,atletas.apelido,atletas.clube.id.full.name
+0,Fábio Deivson Lopes Maciel,0,fabio,37656,266,12,Fábio,1,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLU/FORMATO.png,0,Fábio,FLU
+1,Givanildo Vieira de Souza,0,hulk,39148,282,16,Hulk,5,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CAM/FORMATO.png,0,Hulk,CAM
+2,Alan Steven Franco Palma,0,alan-franco,39656,282,7,A. Franco,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CAM/FORMATO.png,0,Alan Franco,CAM
+3,Vagner Carmo Mancini,0,vagner-mancini,39850,280,5,V. Mancini,6,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/RBB/FORMATO.png,0,Vagner Mancini,RBB
+4,Dorival Silvestre Júnior,0,dorival-junior,40990,264,11,D. Júnior,6,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/COR/FORMATO.png,0,Dorival Júnior,COR
+5,Willian Borges da Silva,0,willian,42135,284,6,Willian,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/GRE/FORMATO.png,0,Willian,GRE
+6,Osvaldo Lourenço Filho,0,osvaldo,42222,287,5,Osvaldo,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/VIT/FORMATO.png,0,Osvaldo,VIT
+7,Cássio Roberto Ramos,0,cassio,42234,283,13,Cássio,1,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CRU/FORMATO.png,0,Cássio,CRU
+8,Fagner Conserva Lemos,0,fagner,42500,283,7,Fagner,2,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CRU/FORMATO.png,0,Fagner,CRU
+9,Adenor Leonardo Bachi,0,tite,45125,283,12,Tite,6,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CRU/FORMATO.png,0,Tite,CRU
+10,Gabriel Christoni Leite,0,gabriel-leite,50742,294,3,G. Leite,1,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CFC/FORMATO.png,0,Gabriel Leite,CFC
+11,Walter Leandro Capeloza Artune,0,walter,51413,2305,5,Walter,1,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/MIR/FORMATO.png,0,Walter,MIR
+12,Giuliano Victor de Paula,0,giuliano,51548,293,6,Giuliano,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CAP/FORMATO.png,0,Giuliano,CAP
+13,Everton Augusto de Barros Ribeiro,0,everton-ribeiro,51772,265,10,E. Ribeiro,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/BAH/FORMATO.png,0,Everton Ribeiro,BAH
+14,Alex Sandro Lobo Silva,0,alex-sandro,61987,262,12,A. Sandro,2,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLA/FORMATO.png,0,Alex Sandro,FLA
+15,Paulo Henrique Chagas de Lima,0,ganso,62977,266,7,Ganso,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLU/FORMATO.png,0,Ganso,FLU
+16,Neymar da Silva Santos Júnior,0,neymar,63007,277,19,Neymar,4,0,False,5,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/SAN/FORMATO.png,0,Neymar,SAN
+17,Rafael Toloi,0,rafael-toloi,63008,276,5,R. Tolói,3,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/SAO/FORMATO.png,0,Rafael Tolói,SAO
+18,Marcos Luis Rocha Aquino,0,marcos-rocha,63013,284,9,M. Rocha,2,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/GRE/FORMATO.png,0,Marcos Rocha,GRE
+19,Edenílson Andrade dos Santos,0,edenilson,63289,284,7,Edenílson,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/GRE/FORMATO.png,0,Edenílson,GRE
+20,Rodrigo Modesto da Silva Moledo,0,rodrigo-moledo,63354,294,3,R. Moledo,3,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CFC/FORMATO.png,0,Rodrigo Moledo,CFC
+21,Alan Patrick Lourenço,0,alan-patrick,68685,285,8,A. Patrick,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/INT/FORMATO.png,0,Alan Patrick,INT
+22,Carlos Eduardo de Oliveira Alves,0,eduardo,68708,2305,6,Eduardo,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/MIR/FORMATO.png,0,Eduardo,MIR
+23,Norberto Murara Neto,0,neto,68806,263,8,Neto,1,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/BOT/FORMATO.png,0,Neto,BOT
+24,Rafael de Carvalho Santos,0,rafael-santos,68822,315,3,R. Santos,1,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CHA/FORMATO.png,0,Rafael Santos,CHA
+25,Marcelo Lomba do Nascimento,0,marcelo-lomba,68872,275,4,M. Lomba,1,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/PAL/FORMATO.png,0,Marcelo Lomba,PAL
+26,Philippe Coutinho Correia,0,philippe-coutinho,68899,267,12,P. Coutinho,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/VAS/FORMATO.png,0,Philippe Coutinho,VAS
+27,Eduardo Pereira Rodrigues,0,dudu,68920,282,9,Dudu,5,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CAM/FORMATO.png,0,Dudu,CAM
+28,Rafael Pires Monteiro,0,rafael,68928,276,9,Rafael,1,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/SAO/FORMATO.png,0,Rafael,SAO
+29,Giovanni Augusto Oliveira Cardoso,0,giovanni-augusto,68938,315,5,G. Augusto,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CHA/FORMATO.png,0,Giovanni Augusto,CHA
+30,Willian José da Silva,0,willian-jose,68996,265,12,W. José,5,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/BAH/FORMATO.png,0,Willian José,BAH
+31,Aderbar Melo dos Santos Neto,0,santos,69012,293,8,Santos,1,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CAP/FORMATO.png,0,Santos,CAP
+32,Allan Marques Loureiro,0,allan,69140,263,6,Allan,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/BOT/FORMATO.png,0,Allan,BOT
+33,Danilo Luiz da Silva,0,danilo,69783,262,8,Danilo,3,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLA/FORMATO.png,0,Danilo,FLA
+34,Lucas Rodrigues Moura da Silva,0,lucas-moura,70164,276,12,L. Moura,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/SAO/FORMATO.png,0,Lucas Moura,SAO
+35,Eduardo Colcenti Antunes,0,eduardo-sasha,70360,280,7,E. Sasha,5,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/RBB/FORMATO.png,0,Eduardo Sasha,RBB
+36,Felipe Anderson Pereira Gomes,0,felipe-anderson,70592,275,9,F. Anderson,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/PAL/FORMATO.png,0,Felipe Anderson,PAL
+37,Jorge Sampaoli,0,jorge-sampaoli,70800,282,9,J. Sampaoli,6,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CAM/FORMATO.png,0,Jorge Sampaoli,CAM
+38,Bruno Henrique Corsini,0,bruno-henrique,70944,285,6,B. Henrique,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/INT/FORMATO.png,0,Bruno Henrique,INT
+39,Jean Carlos Vicente,0,jean-carlos,70958,315,4,J. Carlos,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CHA/FORMATO.png,0,Jean Carlos,CHA
+40,Leonardo da Silva Vieira,0,leo-vieira,71043,315,2,L. Vieira,1,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CHA/FORMATO.png,0,Léo Vieira,CHA
+41,Thiago Henrique Mendes Ribeiro,0,thiago-mendes,71123,267,7,T. Mendes,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/VAS/FORMATO.png,0,Thiago Mendes,VAS
+42,Maicon Pereira Roque,0,maicon,71227,294,5,Maicon,3,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CFC/FORMATO.png,0,Maicon,CFC
+43,Weverton Pereira da Silva,0,weverton,71631,275,9,Weverton,1,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/PAL/FORMATO.png,0,Weverton,PAL
+44,Gustavo Raúl Gómez Portillo,0,gustavo-gomez,71684,275,13,G. Gómez,3,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/PAL/FORMATO.png,0,Gustavo Gómez,PAL
+45,Gustavo Leonardo Cuellar Gallego,0,cuellar,71709,284,5,Cuéllar,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/GRE/FORMATO.png,0,Cuéllar,GRE
+46,Tiago Luis Volpi,0,tiago-volpi,72018,284,8,T. Volpi,1,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/GRE/FORMATO.png,0,Tiago Volpi,GRE
+47,Carlos Eduardo Lecciolle Thomazella,0,thomazella,72279,2305,2,Thomazella,1,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/MIR/FORMATO.png,0,Thomazella,MIR
+48,Everson Felipe Marques Pires,0,everson,72294,282,11,Everson,1,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CAM/FORMATO.png,0,Everson,CAM
+49,Fernando Diniz Silva,0,fernando-diniz,72391,267,8,F. Diniz,6,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/VAS/FORMATO.png,0,Fernando Diniz,VAS
+50,Bernard Anício Caldeira Duarte,0,bernard,72460,282,6,Bernard,4,0,False,2,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CAM/FORMATO.png,0,Bernard,CAM
+51,Matheus Simonete Bressanelli,0,bressan,72491,315,3,Bressan,3,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CHA/FORMATO.png,0,Bressan,CHA
+52,Alex Nicolao Telles,0,alex-telles,72493,263,12,A. Telles,2,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/BOT/FORMATO.png,0,Alex Telles,BOT
+53,Vitor Hugo Franchescoli de Souza,0,vitor-hugo,72605,282,7,V. Hugo,3,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CAM/FORMATO.png,0,Vitor Hugo,CAM
+54,Gabriel Iván Mercado,0,mercado,72951,285,5,Mercado,3,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/INT/FORMATO.png,0,Mercado,INT
+55,Daniel Fortunato Borges,0,daniel-borges,73318,2305,4,D. Borges,2,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/MIR/FORMATO.png,0,Daniel Borges,MIR
+56,Samuel Xavier Brito,0,samuel-xavier,73384,266,9,S. Xavier,2,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLU/FORMATO.png,0,Samuel Xavier,FLU
+57,Gilmar Dal Pozzo,0,gilmar-dal-pozzo,73481,315,3,G. Pozzo,6,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CHA/FORMATO.png,0,Gilmar Dal Pozzo,CHA
+58,Juan Carlos Osorio Arbeláez,0,juan-carlos-osorio,73717,364,6,J. Osorio,6,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/REM/FORMATO.png,0,Juan Carlos Osorio,REM
+59,Tomás Eduardo Rincón Hernández,0,rincon,74187,277,4,Rincón,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/SAN/FORMATO.png,0,Rincón,SAN
+60,André Martín Carrillo Díaz,0,carrillo,77485,264,7,Carrillo,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/COR/FORMATO.png,0,Carrillo,COR
+61,Cédric Ricardo Alves Soares,0,cedric-soares,77656,276,6,C. Soares,2,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/SAO/FORMATO.png,0,Cédric Soares,SAO
+62,João Felipe Schmidt Urbano,0,joao-schmidt,77777,277,6,J. Schmidt,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/SAN/FORMATO.png,0,João Schmidt,SAN
+63,Madson Ferreira dos Santos,0,madson,78077,293,5,Madson,2,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CAP/FORMATO.png,0,Madson,CAP
+64,Everaldo Stum,0,everaldo,78117,266,5,Everaldo,5,0,False,2,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLU/FORMATO.png,0,Everaldo,FLU
+65,Gustavo Henrique Vernes,0,gustavo-henrique,78248,264,10,G. Henrique,3,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/COR/FORMATO.png,0,Gustavo Henrique,COR
+66,Victor Vinícius Coelho dos Santos,0,vitinho,78435,264,6,Vitinho,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/COR/FORMATO.png,0,Vitinho,COR
+67,Renê Rodrigues Martins,0,rene,78445,266,6,Renê,2,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLU/FORMATO.png,0,Renê,FLU
+68,Willian Souza Arão da Silva,0,willian-arao,78478,277,7,W. Arão,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/SAN/FORMATO.png,0,Willian Arão,SAN
+69,Gabriel Girotto Franco,0,gabriel,78605,280,6,Gabriel,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/RBB/FORMATO.png,0,Gabriel,RBB
+70,Reinaldo Manoel da Silva,0,reinaldo,78850,2305,17,Reinaldo,2,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/MIR/FORMATO.png,0,Reinaldo,MIR
+71,Thiago dos Santos,0,thiago-santos,78855,294,3,T. Santos,3,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CFC/FORMATO.png,0,Thiago Santos,CFC
+72,Matheus Dória Macedo,0,doria,78946,276,7,Dória,3,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/SAO/FORMATO.png,0,Dória,SAO
+73,Alex Roberto Santana Rafael,0,alex-muralha,79066,2305,3,A. Muralha,1,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/MIR/FORMATO.png,0,Alex Muralha,MIR
+74,Germán Ezequiel Cano,0,cano,79631,266,6,Cano,5,0,False,5,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLU/FORMATO.png,0,Cano,FLU
+75,Lucas Silva Borges,0,lucas-silva,79701,283,9,L. Silva,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CRU/FORMATO.png,0,Lucas Silva,CRU
+76,Saúl Ñíguez Esclapez,0,saul,80061,262,7,Saúl,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLA/FORMATO.png,0,Saúl,FLA
+77,Jadson Alves dos Santos,0,jadson,80129,293,6,Jadson,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CAP/FORMATO.png,0,Jadson,CAP
+78,Glaybson Yago Souza Lisboa,0,yago-pikachu,80196,364,7,Y. Pikachu,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/REM/FORMATO.png,0,Yago Pikachu,REM
+79,Luciano da Rocha Neves,0,luciano,80287,276,18,Luciano,5,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/SAO/FORMATO.png,0,Luciano,SAO
+80,Gilberto Moraes Júnior,0,gilberto,80313,265,7,Gilberto,2,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/BAH/FORMATO.png,0,Gilberto,BAH
+81,Wendell Nascimento Borges,0,wendell,80570,276,7,Wendell,2,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/SAO/FORMATO.png,0,Wendell,SAO
+82,André Luis Silva de Aguiar,0,andre-luis,81005,2305,5,A. Luis,5,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/MIR/FORMATO.png,0,André Luis,MIR
+83,Jair Rodrigues Júnior,0,jair,81091,267,6,Jair,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/VAS/FORMATO.png,0,Jair,VAS
+84,Lucas Andrés Mugni,0,lucas-mugni,81121,2305,7,L. Mugni,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/MIR/FORMATO.png,0,Lucas Mugni,MIR
+85,Mayke Rocha de Oliveira,0,mayke,81150,277,5,Mayke,2,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/SAN/FORMATO.png,0,Mayke,SAN
+86,Alisson Euler de Freitas Castro,0,alisson,81845,276,6,Alisson,4,0,False,2,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/SAO/FORMATO.png,0,Alisson,SAO
+87,Willian Osmar de Oliveira Silva,0,willian-oliveira,81952,294,5,W. Oliveira,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CFC/FORMATO.png,0,Willian Oliveira,CFC
+88,José Rafael Vivian,0,ze-rafael,82455,277,7,Z. Rafael,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/SAN/FORMATO.png,0,Zé Rafael,SAN
+89,Otávio Henrique Passos Santos,0,otavio,82463,266,4,Otávio,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLU/FORMATO.png,0,Otávio,FLU
+90,Luiz de Araújo Guimarães Neto,0,luiz-araujo,82627,262,10,L. Araújo,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLA/FORMATO.png,0,Luiz Araújo,FLA
+91,Guilherme de Jesus da Silva,0,tinga,82628,294,5,Tinga,2,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CFC/FORMATO.png,0,Tinga,CFC
+92,Marcelo Rangel da Rosa,0,marcelo-rangel,82730,364,4,M. Rangel,1,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/REM/FORMATO.png,0,Marcelo Rangel,REM
+93,Lucas Ramon Batista Silva,0,lucas-ramon,82775,2305,7,L. Ramon,2,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/MIR/FORMATO.png,0,Lucas Ramon,MIR
+94,Rafael Thyere de Albuquerque Marques,0,rafael-thyere,83048,315,4,R. Thyere,3,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CHA/FORMATO.png,0,Rafael Thyere,CHA
+95,Ygor Vinhas Oliveira Lima,0,ygor-vinhas,83074,364,3,Y. Vinhas,1,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/REM/FORMATO.png,0,Ygor Vinhas,REM
+96,Alan Max Benítez Domínguez,0,alan-benitez,83251,285,4,A. Benítez,2,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/INT/FORMATO.png,0,Alan Benítez,INT
+97,Gabriel Barbosa Almeida,0,gabriel,83257,277,9,Gabriel,5,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/SAN/FORMATO.png,0,Gabriel,SAN
+98,Yuri Lima Lara,0,yuri-lara,83263,2305,5,Y. Lara,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/MIR/FORMATO.png,0,Yuri Lara,MIR
+99,Leonardo Pereira,0,leo-pereira,83528,262,13,L. Pereira,3,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLA/FORMATO.png,0,Léo Pereira,FLA
+100,Hueglo dos Santos Neris,0,neris,83786,287,3,Neris,3,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/VIT/FORMATO.png,0,Neris,VIT
+101,Francisco das Chagas Soares dos Santos Meireles,0,tiquinho-soares,84042,277,7,T. Soares,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/SAN/FORMATO.png,0,Tiquinho Soares,SAN
+102,Bruno Ferreira Melo,0,bruno-melo,84339,294,4,B. Melo,2,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CFC/FORMATO.png,0,Bruno Melo,CFC
+103,Fernando Pereira do Nascimento,0,fernando-sobral,84428,294,5,F. Sobral,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CFC/FORMATO.png,0,Fernando Sobral,CFC
+104,Lucas Daniel Romero,0,lucas-romero,84558,283,10,L. Romero,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CRU/FORMATO.png,0,Lucas Romero,CRU
+105,Josué Filipe Soares Pesqueira,0,josue,84626,294,6,Josué,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CFC/FORMATO.png,0,Josué,CFC
+106,Lucas Evangelista Santana de Oliveira,0,lucas-evangelista,84674,275,7,L. Evangelista,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/PAL/FORMATO.png,0,Lucas Evangelista,PAL
+107,Panagiotis Tachtsidis,0,panagiotis-tachtsidis,84708,364,3,P. Tachtsidis,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/REM/FORMATO.png,0,Panagiotis Tachtsidis,REM
+108,Jorge Luiz Frello Filho,0,jorginho,84735,262,15,Jorginho,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLA/FORMATO.png,0,Jorginho,FLA
+109,Guillermo Varela Olivera,0,varela,84816,262,7,Varela,2,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLA/FORMATO.png,0,Varela,FLA
+110,Luan Peres Petroni,0,luan-peres,84847,277,6,L. Peres,3,0,False,2,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/SAN/FORMATO.png,0,Luan Peres,SAN
+111,Raphael Guimarães de Paula,0,dodo,84927,364,3,Dodô,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/REM/FORMATO.png,0,Dodô,REM
+112,Memphis Depay,0,memphis-depay,85048,264,17,M. Depay,5,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/COR/FORMATO.png,0,Memphis Depay,COR
+113,Víctor Danilo Cantillo Jiménez,0,cantillo,85315,364,5,Cantillo,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/REM/FORMATO.png,0,Cantillo,REM
+114,Daniel de Oliveira Sertanejo,0,danielzinho,85403,276,7,Danielzinho,4,0,False,2,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/SAO/FORMATO.png,0,Danielzinho,SAO
+115,João Paulo Silva Martins,0,joao-paulo,85425,265,6,J. Paulo,1,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/BAH/FORMATO.png,0,João Paulo,BAH
+116,Leonardo Pinheiro da Conceição,0,leo,85626,293,5,Léo,3,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CAP/FORMATO.png,0,Léo,CAP
+117,Yannick Bolasie,0,bolasie,86292,315,6,Bolasie,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CHA/FORMATO.png,0,Bolasie,CHA
+118,Victor Luis Chuab Zamblauskas,0,victor-luis,86410,267,4,V. Luis,2,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/VAS/FORMATO.png,0,Victor Luis,VAS
+119,Marcos da Silva França,0,keno,86485,266,6,Keno,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLU/FORMATO.png,0,Keno,FLU
+120,Danilo das Neves Pinheiro,0,tche-tche,86686,267,6,T. Tchê,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/VAS/FORMATO.png,0,Tchê Tchê,VAS
+121,Richard Cândido Coelho,0,richard,86711,285,4,Richard,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/INT/FORMATO.png,0,Richard,INT
+122,Everton Sousa Soares,0,everton,86757,262,9,Everton,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLA/FORMATO.png,0,Everton,FLA
+123,Luiz Otávio da Silva Santos,0,luiz-otavio,86863,2305,4,L. Otávio,3,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/MIR/FORMATO.png,0,Luiz Otávio,MIR
+124,Leonardo César Jardim,0,leo-jardim,87008,267,11,L. Jardim,1,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/VAS/FORMATO.png,0,Léo Jardim,VAS
+125,Pedro Henrique Ribeiro Gonçalves,0,pedro-henrique,87225,280,7,P. Henrique,3,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/RBB/FORMATO.png,0,Pedro Henrique,RBB
+126,Guilherme Antonio Arana Lopes,0,guilherme-arana,87228,266,10,G. Arana,2,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLU/FORMATO.png,0,Guilherme Arana,FLU
+127,Yeferson Julio Soteldo Martínez,0,soteldo,87258,266,6,Soteldo,5,0,False,5,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLU/FORMATO.png,0,Soteldo,FLU
+128,Walter Kannemann,0,kannemann,87342,284,5,Kannemann,3,0,False,2,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/GRE/FORMATO.png,0,Kannemann,GRE
+129,Thaciano Mickael da Silva,0,thaciano,87470,277,6,Thaciano,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/SAN/FORMATO.png,0,Thaciano,SAN
+130,Antônio Francisco Moura Neto,0,neto-moura,87742,2305,5,N. Moura,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/MIR/FORMATO.png,0,Neto Moura,MIR
+131,Giorgian Daniel de Arrascaeta Benedetti,0,arrascaeta,87863,262,23,Arrascaeta,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLA/FORMATO.png,0,Arrascaeta,FLA
+132,Fabián Cornelio Balbuena González,0,balbuena,87887,284,7,Balbuena,3,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/GRE/FORMATO.png,0,Balbuena,GRE
+133,Gustavo Henrique Furtado Scarpa,0,gustavo-scarpa,87999,282,10,G. Scarpa,4,0,False,2,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CAM/FORMATO.png,0,Gustavo Scarpa,CAM
+134,Luís Manuel Ribeiro de Castro,0,luis-castro,88037,284,10,L. Castro,6,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/GRE/FORMATO.png,0,Luís Castro,GRE
+135,Jorge Marco de Oliveira Moraes,0,jorge,88065,364,4,Jorge,2,0,False,2,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/REM/FORMATO.png,0,Jorge,REM
+136,Ivan Quaresma da Silva,0,ivan,88136,285,4,Ivan,1,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/INT/FORMATO.png,0,Ivan,INT
+137,Altemir Cordeiro Pessôa Neto,0,neto-pessoa,88293,315,3,N. Pessoa,5,0,False,5,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CHA/FORMATO.png,0,Neto Pessoa,CHA
+138,Júnior Osmar Ignacio Alonso Mujica,0,junior-alonso,88312,282,6,J. Alonso,3,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CAM/FORMATO.png,0,Junior Alonso,CAM
+139,Ayrton Lucas Dantas de Medeiros,0,ayrton-lucas,88393,262,8,A. Lucas,2,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLA/FORMATO.png,0,Ayrton Lucas,FLA
+140,Walace Souza Silva,0,walace,88479,283,4,Walace,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CRU/FORMATO.png,0,Walace,CRU
+141,João Pedro Maturano dos Santos,0,joao-pedro,89273,284,5,J. Pedro,2,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/GRE/FORMATO.png,0,João Pedro,GRE
+142,Andreas Hugo Hoelgebaum Pereira,0,andreas-pereira,89274,275,15,A. Pereira,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/PAL/FORMATO.png,0,Andreas Pereira,PAL
+143,Willian de Asevedo Furtado,0,william,89275,283,12,William,2,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CRU/FORMATO.png,0,William,CRU
+144,Martin Christensen Braithwaite,0,braithwaite,89368,284,13,Braithwaite,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/GRE/FORMATO.png,0,Braithwaite,GRE
+145,Igor Rabello da Costa,0,igor-rabello,89493,266,5,I. Rabello,3,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLU/FORMATO.png,0,Igor Rabello,FLU
+146,Thiago Maia Alencar,0,thiago-maia,89637,285,6,T. Maia,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/INT/FORMATO.png,0,Thiago Maia,INT
+147,Luciano Federico Acosta,0,lucho-acosta,89837,266,8,L. Acosta,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLU/FORMATO.png,0,Lucho Acosta,FLU
+148,Jonathan Calleri,0,calleri,89840,276,14,Calleri,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/SAO/FORMATO.png,0,Calleri,SAO
+149,Franco Cristaldo,0,cristaldo,89846,284,6,Cristaldo,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/GRE/FORMATO.png,0,Cristaldo,GRE
+150,Douglas Moreira Fagundes,0,dodi,89883,284,6,Dodi,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/GRE/FORMATO.png,0,Dodi,GRE
+151,John Stiven Mendoza Valencia,0,mendoza,90031,293,6,Mendoza,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CAP/FORMATO.png,0,Mendoza,CAP
+152,Bruno de Jesus Pacheco,0,bruno-pacheco,90061,315,6,B. Pacheco,2,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CHA/FORMATO.png,0,Bruno Pacheco,CHA
+153,Bruno Henrique Pinto,0,bruno-henrique,90285,262,9,B. Henrique,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLA/FORMATO.png,0,Bruno Henrique,FLA
+154,Pedro Rocha Neves,0,pedro-rocha,90302,294,7,P. Rocha,5,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CFC/FORMATO.png,0,Pedro Rocha,CFC
+155,David Correa da Fonseca,0,david,90309,267,5,David,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/VAS/FORMATO.png,0,David,VAS
+156,Júlio César de Rezende Miranda,0,rezende,90449,265,3,Rezende,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/BAH/FORMATO.png,0,Rezende,BAH
+157,Arthur Henrique Ramos de Oliveira Melo,0,arthur-melo,90532,284,10,A. Melo,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/GRE/FORMATO.png,0,Arthur Melo,GRE
+158,Caique de Jesus Gonçalves,0,caique,90588,287,6,Caíque,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/VIT/FORMATO.png,0,Caíque,VIT
+159,Matheus Martins Fogaça de Paulo,0,matheuzinho,90703,287,6,Matheuzinho,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/VIT/FORMATO.png,0,Matheuzinho,VIT
+160,Luiz Fernando Moraes dos Santos,0,luiz-fernando,90715,293,5,L. Fernando,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CAP/FORMATO.png,0,Luiz Fernando,CAP
+161,Fabrício Bruno Soares de Faria,0,fabricio-bruno,90768,283,12,F. Bruno,3,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CRU/FORMATO.png,0,Fabrício Bruno,CRU
+162,William Klaus - Willian,0,klaus,90846,364,4,Klaus,3,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/REM/FORMATO.png,0,Klaus,REM
+163,Carlos Eduardo Ferreira de Souza,0,carlos-eduardo,90917,2305,5,C. Eduardo,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/MIR/FORMATO.png,0,Carlos Eduardo,MIR
+164,José Marcos Alves Luis,0,ze-marcos,90943,287,5,Z. Marcos,3,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/VIT/FORMATO.png,0,Zé Marcos,VIT
+165,Ronaldo de Oliveira Strada,0,ronaldo,91101,265,6,Ronaldo,1,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/BAH/FORMATO.png,0,Ronaldo,BAH
+166,Kaio Fernando da Silva Pantaleão,0,kaio,91158,263,7,Kaio,3,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/BOT/FORMATO.png,0,Kaio,BOT
+167,Erick Antonio Pulgar Farfán,0,erick-pulgar,91473,262,10,E. Pulgar,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLA/FORMATO.png,0,Erick Pulgar,FLA
+168,Robert Abel Arboleda Escobar,0,arboleda,91573,276,10,Arboleda,3,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/SAO/FORMATO.png,0,Arboleda,SAO
+169,Ronielson da Silva Barbosa,0,rony,91607,282,8,Rony,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CAM/FORMATO.png,0,Rony,CAM
+170,Igor Aquino da Silva,0,igor-carius,91639,2305,3,I. Cariús,2,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/MIR/FORMATO.png,0,Igor Cariús,MIR
+171,Marlon Rodrigues Xavier,0,marlon,91706,284,8,Marlon,2,0,False,5,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/GRE/FORMATO.png,0,Marlon,GRE
+172,David de Duarte Macedo,0,david-duarte,91772,265,5,D. Duarte,3,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/BAH/FORMATO.png,0,David Duarte,BAH
+173,José Ivaldo Almeida Silva,0,ze-ivaldo,91866,277,6,Z. Ivaldo,3,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/SAN/FORMATO.png,0,Zé Ivaldo,SAN
+174,Cristian David Pavón,0,pavon,91908,284,6,Pavón,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/GRE/FORMATO.png,0,Pavón,GRE
+175,Lyanco Evangelista Silveira Neves Vojnovic,0,lyanco,92087,282,9,Lyanco,3,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CAM/FORMATO.png,0,Lyanco,CAM
+176,Arthur Mendonça Cabral,0,arthur-cabral,92171,263,8,A. Cabral,5,0,False,2,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/BOT/FORMATO.png,0,Arthur Cabral,BOT
+177,Jair Ventura,0,jair-ventura,92180,287,5,J. Ventura,6,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/VIT/FORMATO.png,0,Jair Ventura,VIT
+178,José Carlos Ferreira Júnior,0,juninho,92182,285,5,Juninho,3,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/INT/FORMATO.png,0,Juninho,INT
+179,Rodrigo Ely,0,rodrigo-ely,92237,284,4,R. Ely,3,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/GRE/FORMATO.png,0,Rodrigo Ely,GRE
+180,Odair Hellmann,0,odair-hellmann,92273,293,5,O. Hellmann,6,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CAP/FORMATO.png,0,Odair Hellmann,CAP
+181,André Ramalho Silva,0,andre-ramalho,92440,264,6,A. Ramalho,3,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/COR/FORMATO.png,0,André Ramalho,COR
+182,Raul Lô Gonçalves,0,raul,92496,293,4,Raul,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CAP/FORMATO.png,0,Raul,CAP
+183,Renato Kayzer de Souza,0,renato-kayzer,92696,287,6,R. Kayzer,5,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/VIT/FORMATO.png,0,Renato Kayzer,VIT
+184,Bruno Rafael Rodrigues do Nascimento,0,bruno-rodrigues,92811,275,4,B. Rodrigues,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/PAL/FORMATO.png,0,Bruno Rodrigues,PAL
+185,Rafael Santos Borré Maury,0,borre,92854,285,8,Borré,5,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/INT/FORMATO.png,0,Borré,INT
+186,Ronaldo da Silva Souza Guerrero,0,ronaldo,92981,285,3,Ronaldo,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/INT/FORMATO.png,0,Ronaldo,INT
+187,João Othávio Basso,0,joao-basso,93372,277,4,J. Basso,3,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/SAN/FORMATO.png,0,João Basso,SAN
+188,Aitor Cantalapiedra Fernández,0,cantalapiedra,93411,287,7,Cantalapiedra,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/VIT/FORMATO.png,0,Cantalapiedra,VIT
+189,Wanderson Maciel Sousa Campos,0,wanderson,93478,283,6,Wanderson,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CRU/FORMATO.png,0,Wanderson,CRU
+190,Paulo Henrique de Oliveira Alves,0,paulo-henrique,93716,267,10,P. Henrique,2,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/VAS/FORMATO.png,0,Paulo Henrique,VAS
+191,Marlon Rodrigues Freitas,0,marlon-freitas,93790,275,9,M. Freitas,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/PAL/FORMATO.png,0,Marlon Freitas,PAL
+192,Cleiton Schwengber,0,cleiton,93882,280,7,Cleiton,1,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/RBB/FORMATO.png,0,Cleiton,RBB
+193,Matheus Fernandes Siqueira,0,matheus-fernandes,94067,280,5,M. Fernandes,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/RBB/FORMATO.png,0,Matheus Fernandes,RBB
+194,Maycon de Andrade Barberan,0,maycon,94154,282,7,Maycon,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CAM/FORMATO.png,0,Maycon,CAM
+195,Pedro Henrique Perotti,0,perotti,94286,315,4,Perotti,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CHA/FORMATO.png,0,Perotti,CHA
+196,Raphael Cavalcante Veiga,0,raphael-veiga,94509,275,11,R. Veiga,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/PAL/FORMATO.png,0,Raphael Veiga,PAL
+197,Lucas da Cruz Oliveira,0,lucas-oliveira,94514,2305,4,L. Oliveira,3,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/MIR/FORMATO.png,0,Lucas Oliveira,MIR
+198,Pedro Guilherme Abreu dos Santos,0,pedro,94583,262,20,Pedro,5,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLA/FORMATO.png,0,Pedro,FLA
+199,Luis Antônio da Rocha Júnior,0,juninho-capixaba,94968,280,9,J. Capixaba,2,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/RBB/FORMATO.png,0,Juninho Capixaba,RBB
+200,Márcio Antônio de Sousa Júnior,0,marcinho,95332,315,3,Marcinho,5,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CHA/FORMATO.png,0,Marcinho,CHA
+201,Igor Vinícius de Souza,0,igor-vinicius,95466,277,7,I. Vinícius,2,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/SAN/FORMATO.png,0,Igor Vinícius,SAN
+202,Sávio Antônio Alves,0,savio,95555,364,4,Sávio,2,0,False,2,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/REM/FORMATO.png,0,Sávio,REM
+203,Raniele Almeida Melo,0,raniele,95556,264,7,Raniele,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/COR/FORMATO.png,0,Raniele,COR
+204,Bruno Leonardo dos Santos Covas,0,bruno-leonardo,95620,315,3,B. Leonardo,3,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CHA/FORMATO.png,0,Bruno Leonardo,CHA
+205,Artur Victor Guimarães,0,artur,95799,263,8,Artur,5,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/BOT/FORMATO.png,0,Artur,BOT
+206,Daniel Cerântula Fuzato,0,daniel-fuzato,95936,267,2,D. Fuzato,1,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/VAS/FORMATO.png,0,Daniel Fuzato,VAS
+207,Vinícius Moreira de Lima,0,lima,96340,266,6,Lima,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLU/FORMATO.png,0,Lima,FLU
+208,Charles Rigon Mattos,0,charles,96342,264,4,Charles,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/COR/FORMATO.png,0,Charles,COR
+209,Carlos Joaquín Correa,0,joaquin-correa,96353,263,8,J. Correa,5,0,False,2,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/BOT/FORMATO.png,0,Joaquín Correa,BOT
+210,Renan Augusto Lodi dos Santos,0,renan-lodi,96591,282,11,R. Lodi,2,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CAM/FORMATO.png,0,Renan Lodi,CAM
+211,Matheus Fellipe Costa Pereira,0,matheus-pereira,96610,283,20,M. Pereira,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CRU/FORMATO.png,0,Matheus Pereira,CRU
+212,Allan Rodrigues de Souza,0,allan,96652,262,5,Allan,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLA/FORMATO.png,0,Allan,FLA
+213,Cleidson Andrade da Souza Silva,0,camutanga,96793,287,5,Camutanga,3,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/VIT/FORMATO.png,0,Camutanga,VIT
+214,Carlos Moisés de Lima,0,carlinhos,96831,364,4,Carlinhos,5,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/REM/FORMATO.png,0,Carlinhos,REM
+215,Emerson Aparecido Leite de Souza Júnior,0,emerson-royal,96870,262,5,E. Royal,2,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLA/FORMATO.png,0,Emerson Royal,FLA
+216,Carlos Eccehomo Cuesta Figueroa,0,carlos-cuesta,97095,267,9,C. Cuesta,3,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/VAS/FORMATO.png,0,Carlos Cuesta,VAS
+217,Mathías Adalberto Villasanti Rolón,0,villasanti,97145,284,7,Villasanti,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/GRE/FORMATO.png,0,Villasanti,GRE
+218,Alesson dos Santos Batista,0,alesson,97321,2305,7,Alesson,5,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/MIR/FORMATO.png,0,Alesson,MIR
+219,Rogério Mücke Ceni,0,rogerio-ceni,97341,265,11,R. Ceni,6,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/BAH/FORMATO.png,0,Rogério Ceni,BAH
+220,Victor Henrique Carvalho Caetano,0,victor-caetano,97432,315,3,V. Caetano,3,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CHA/FORMATO.png,0,Victor Caetano,CHA
+221,João Victor Carroll Santana,0,joao-victor,97460,2305,6,J. Victor,3,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/MIR/FORMATO.png,0,João Victor,MIR
+222,Fernando Marçal de Oliveira,0,marcal,97468,263,6,Marçal,2,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/BOT/FORMATO.png,0,Marçal,BOT
+223,Shaylon Kallyson Cardozo - Cardoso,0,shaylon,97520,2305,5,Shaylon,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/MIR/FORMATO.png,0,Shaylon,MIR
+224,Félix Eduardo Torres Caicedo,0,felix-torres,97642,264,4,F. Torres,3,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/COR/FORMATO.png,0,Félix Torres,COR
+225,Thiago Couto Wenceslau,0,thiago-couto,97645,287,3,T. Couto,1,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/VIT/FORMATO.png,0,Thiago Couto,VIT
+226,Murilo Cerqueira Paim,0,murilo,97653,275,7,Murilo,3,0,False,2,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/PAL/FORMATO.png,0,Murilo,PAL
+227,Giovanni Fernando Confreste Pavani - Cofreste,0,giovanni-pavani,97735,364,3,G. Pavani,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/REM/FORMATO.png,0,Giovanni Pavani,REM
+228,Marcelo Rodrigues Souza,0,marcelinho,97795,364,3,Marcelinho,2,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/REM/FORMATO.png,0,Marcelinho,REM
+229,Erick de Arruda Serafim,0,erick,97810,287,7,Erick,5,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/VIT/FORMATO.png,0,Erick,VIT
+230,Leonardo Rech Ortiz,0,leo-ortiz,97867,262,12,L. Ortiz,3,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLA/FORMATO.png,0,Léo Ortiz,FLA
+231,Iago Amaral Borduchi,0,iago,97868,265,4,Iago,2,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/BAH/FORMATO.png,0,Iago,BAH
+232,Jacy Maranhão Oliveira,0,jacy,97878,294,3,Jacy,3,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CFC/FORMATO.png,0,Jacy,CFC
+233,Vitor Eduardo da Silva Matos,0,vitao,97900,262,9,Vitão,3,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLA/FORMATO.png,0,Vitão,FLA
+234,Marcos Vinícius da Silva Santos,0,marcos-vinicius,97969,315,3,M. Vinícius,2,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CHA/FORMATO.png,0,Marcos Vinícius,CHA
+235,Erick Luis Conrado de Carvalho,0,erick,98022,265,7,Erick,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/BAH/FORMATO.png,0,Erick,BAH
+236,Jaderson Flores dos Reis,0,jaderson,98224,364,4,Jáderson,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/REM/FORMATO.png,0,Jáderson,REM
+237,Pedro Raul Garay da Silva,0,pedro-raul,98225,264,6,P. Raul,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/COR/FORMATO.png,0,Pedro Raul,COR
+238,Bartolomeu Jacinto Quissanga,0,bastos,98280,263,6,Bastos,3,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/BOT/FORMATO.png,0,Bastos,BOT
+239,Luiz Henrique Soares Firmino,0,negueba,98384,2305,6,Negueba,5,0,False,5,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/MIR/FORMATO.png,0,Negueba,MIR
+240,Victor Hugo Soares dos Santos,0,kanu,98484,265,4,Kanu,3,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/BAH/FORMATO.png,0,Kanu,BAH
+241,Jean Lucas de Souza Oliveira,0,jean-lucas,98517,265,9,J. Lucas,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/BAH/FORMATO.png,0,Jean Lucas,BAH
+242,Jefferson David Savarino Quintero,0,savarino,98672,263,10,Savarino,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/BOT/FORMATO.png,0,Savarino,BOT
+243,Fabrizio Germán Angileri - Fabricio,0,angileri,98720,264,4,Angileri,2,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/COR/FORMATO.png,0,Angileri,COR
+244,Samuel Dias Lino,0,samuel-lino,98873,262,9,S. Lino,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLA/FORMATO.png,0,Samuel Lino,FLA
+245,Tomás Esteban Cuello,0,cuello,98909,282,7,Cuello,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CAM/FORMATO.png,0,Cuello,CAM
+246,Rodrigo Antonio Rodrigues,0,rodrigo-rodrigues,99147,2305,4,R. Rodrigues,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/MIR/FORMATO.png,0,Rodrigo Rodrigues,MIR
+247,Pablo Vegetti,0,vegetti,99198,267,11,Vegetti,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/VAS/FORMATO.png,0,Vegetti,VAS
+248,José Luis Rodríguez Bebanz,0,puma-rodriguez,99213,267,5,P. Rodríguez,2,0,False,2,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/VAS/FORMATO.png,0,Puma Rodríguez,VAS
+249,Diego Nicolás de la Cruz Arcosa,0,de-la-cruz,99228,262,8,D. Cruz,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLA/FORMATO.png,0,De la Cruz,FLA
+250,Alexander Nahuel Barboza Ullúa,0,alexander-barboza,99274,263,11,A. Barboza,3,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/BOT/FORMATO.png,0,Alexander Barboza,BOT
+251,Luis Francisco Zubeldía,0,luis-zubeldia,99366,266,9,L. Zubeldía,6,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLU/FORMATO.png,0,Luis Zubeldía,FLU
+252,Michael Richard Delgado de Oliveira,0,michael,99392,262,5,Michael,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLA/FORMATO.png,0,Michael,FLA
+253,Gabriel Baralhas dos Santos,0,baralhas,99440,287,6,Baralhas,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/VIT/FORMATO.png,0,Baralhas,VIT
+254,Agustín Daniel Rossi,0,rossi,99552,262,9,Rossi,1,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLA/FORMATO.png,0,Rossi,FLA
+255,Paulo Henrique Sampaio Filho,0,paulinho,99818,275,15,Paulinho,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/PAL/FORMATO.png,0,Paulinho,PAL
+256,Alan Javier Franco,0,alan-franco,99889,276,7,A. Franco,3,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/SAO/FORMATO.png,0,Alan Franco,SAO
+257,Igor Silveira Gomes,0,igor-gomes,100084,282,8,I. Gomes,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CAM/FORMATO.png,0,Igor Gomes,CAM
+258,Yuri Alberto Monteiro da Silva,0,yuri-alberto,100652,264,19,Y. Alberto,5,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/COR/FORMATO.png,0,Yuri Alberto,COR
+259,Fernando dos Santos Pedro,0,fernando,100695,280,3,Fernando,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/RBB/FORMATO.png,0,Fernando,RBB
+260,Matheus Henrique de Souza,0,matheus-henrique,100742,283,8,M. Henrique,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CRU/FORMATO.png,0,Matheus Henrique,CRU
+261,Ruan Tressoldi Netto,0,ruan,100842,282,6,Ruan,3,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CAM/FORMATO.png,0,Ruan,CAM
+262,Lucas Esteves Souza,0,lucas-esteves,100846,284,4,L. Esteves,2,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/GRE/FORMATO.png,0,Lucas Esteves,GRE
+263,Luan Cândido de Almeida,0,luan-candido,100848,280,5,L. Cândido,2,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/RBB/FORMATO.png,0,Luan Cândido,RBB
+264,Victor Alexander da Silva,0,vitinho,100898,263,9,Vitinho,2,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/BOT/FORMATO.png,0,Vitinho,BOT
+265,Ronald dos Santos Lopes,0,ronald-lopes,100969,287,5,R. Lopes,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/VIT/FORMATO.png,0,Ronald Lopes,VIT
+266,Gustavo Nonato Santana,0,nonato,100987,266,6,Nonato,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLU/FORMATO.png,0,Nonato,FLU
+267,José Antonio dos Santos Júnior,0,junior-santos,101002,282,5,J. Santos,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CAM/FORMATO.png,0,Júnior Santos,CAM
+268,Alef Mangueira Severino Pereira,0,alef-manga,101254,364,5,A. Manga,5,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/REM/FORMATO.png,0,Alef Manga,REM
+269,Aldemir dos Santos Ferreira,0,ferreira,101290,276,8,Ferreira,5,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/SAO/FORMATO.png,0,Ferreira,SAO
+270,Ademir da Silva Santos Júnior,0,ademir,101314,265,8,Ademir,5,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/BAH/FORMATO.png,0,Ademir,BAH
+271,Cláudio Rodrigues Gomes,0,guga,101319,266,6,Guga,2,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLU/FORMATO.png,0,Guga,FLU
+272,Eduardo Vinícius Domachowski,0,eduardo-doma,101393,315,2,E. Doma,3,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CHA/FORMATO.png,0,Eduardo Doma,CHA
+273,Wallisson Luiz Alves Máximo,0,wallisson,101405,294,3,Wallisson,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CFC/FORMATO.png,0,Wallisson,CFC
+274,Marcelo de Araújo Pitaluga Filho,0,marcelo-pitaluga,101478,266,3,M. Pitaluga,1,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLU/FORMATO.png,0,Marcelo Pitaluga,FLU
+275,Hugo de Souza Nogueira,0,hugo-souza,101574,264,11,H. Souza,1,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/COR/FORMATO.png,0,Hugo Souza,COR
+276,Hugo Moura Arruda da Silva,0,hugo-moura,101594,267,4,H. Moura,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/VAS/FORMATO.png,0,Hugo Moura,VAS
+277,Ramon Ramos Lima,0,ramon,101597,287,5,Ramon,2,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/VIT/FORMATO.png,0,Ramon,VIT
+278,Felipe Jonatan Rocha Andrade,0,felipe-jonatan,101708,2305,5,F. Jonatan,2,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/MIR/FORMATO.png,0,Felipe Jonatan,MIR
+279,Marrony da Silva Liberato,0,marrony,101717,364,4,Marrony,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/REM/FORMATO.png,0,Marrony,REM
+280,Matheus França Silva,0,matheuzinho,101727,264,12,Matheuzinho,2,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/COR/FORMATO.png,0,Matheuzinho,COR
+281,Claudio Coelho Salvático,0,claudinho,101752,287,4,Claudinho,2,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/VIT/FORMATO.png,0,Claudinho,VIT
+282,Willian Estefani Machado,0,willian-machado,101908,2305,5,W. Machado,3,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/MIR/FORMATO.png,0,Willian Machado,MIR
+283,Vitor Hugo Naum dos Santos,0,vitinho,101960,285,7,Vitinho,5,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/INT/FORMATO.png,0,Vitinho,INT
+284,Joaquín Piquerez Moreira,0,piquerez,102130,275,10,Piquerez,2,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/PAL/FORMATO.png,0,Piquerez,PAL
+285,Vitor Eudes de Souza Costa,0,vitor-eudes,102137,266,2,V. Eudes,1,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLU/FORMATO.png,0,Vitor Eudes,FLU
+286,Benjamín Rollheiser,0,rollheiser,102256,277,9,Rollheiser,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/SAN/FORMATO.png,0,Rollheiser,SAN
+287,Caio Fernando de Oliveira,0,caio-paulista,102318,284,5,C. Paulista,2,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/GRE/FORMATO.png,0,Caio Paulista,GRE
+288,Carlos de Menezes Júnior,0,caca,102340,264,5,Cacá,3,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/COR/FORMATO.png,0,Cacá,COR
+289,Gonzalo Mathías Mastriani Borges,0,mastriani,102561,293,4,Mastriani,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CAP/FORMATO.png,0,Mastriani,CAP
+290,Nathan Uiliam Fogaça - Uilian,0,nathan-fogaca,102667,2305,4,N. Fogaça,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/MIR/FORMATO.png,0,Nathan Fogaça,MIR
+291,Julimar Silva Oliveira Júnior,0,julimar,102796,293,4,Julimar,5,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CAP/FORMATO.png,0,Julimar,CAP
+292,Anderson Silva da Paixão,0,anderson,102906,315,3,Anderson,1,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CHA/FORMATO.png,0,Anderson,CHA
+293,José Ricardo Araújo Fernandes,0,ze-ricardo,102911,364,3,Z. Ricardo,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/REM/FORMATO.png,0,Zé Ricardo,REM
+294,Agustín Canobbio Graviz,0,canobbio,102928,266,8,Canobbio,5,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLU/FORMATO.png,0,Canobbio,FLU
+295,Facundo Daniel Torres Pérez,0,facundo-torres,102950,275,6,F. Torres,4,0,False,5,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/PAL/FORMATO.png,0,Facundo Torres,PAL
+296,Gonzalo Daniel Escobar,0,escobar,102975,277,6,Escobar,2,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/SAN/FORMATO.png,0,Escobar,SAN
+297,Ignacio Jesús Laquintana Marsico - Nacho,0,laquintana,103014,280,4,Laquintana,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/RBB/FORMATO.png,0,Laquintana,RBB
+298,Gabriel Nascimento Rezende Brazão - Resende,0,gabriel-brazao,103056,277,10,G. Brazão,1,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/SAN/FORMATO.png,0,Gabriel Brazão,SAN
+299,Christopher Ramos de la Flor,0,chris-ramos,103179,263,7,C. Ramos,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/BOT/FORMATO.png,0,Chris Ramos,BOT
+300,Eric dos Santos Rodrigues,0,eric-ramires,103295,280,5,E. Ramires,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/RBB/FORMATO.png,0,Eric Ramires,RBB
+301,Kaio Jorge Pinto Ramos,0,kaio-jorge,103445,283,17,K. Jorge,5,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CRU/FORMATO.png,0,Kaio Jorge,CRU
+302,Ignácio da Silva Oliveira,0,ignacio,103523,266,6,Ignácio,3,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLU/FORMATO.png,0,Ignácio,FLU
+303,Gabriel Rafael Fuentes Gómez,0,gabriel-fuentes,103672,266,4,G. Fuentes,2,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLU/FORMATO.png,0,Gabriel Fuentes,FLU
+304,Gabriel Vinícius Menino,0,gabriel-menino,103767,282,6,G. Menino,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CAM/FORMATO.png,0,Gabriel Menino,CAM
+305,Hernán Jorge Crespo,0,hernan-crespo,103912,276,7,H. Crespo,6,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/SAO/FORMATO.png,0,Hernán Crespo,SAO
+306,Higor Matheus Meritão,0,higor-meritao,103987,315,4,H. Meritão,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CHA/FORMATO.png,0,Higor Meritão,CHA
+307,Rafael Silva Guanaes,0,rafael-guanaes,104027,2305,6,R. Guanaes,6,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/MIR/FORMATO.png,0,Rafael Guanaes,MIR
+308,José Sabino Chagas Monteiro,0,sabino,104075,276,5,Sabino,3,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/SAO/FORMATO.png,0,Sabino,SAO
+309,Carlos Miguel dos Santos Pereira,0,carlos-miguel,104084,275,9,C. Miguel,1,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/PAL/FORMATO.png,0,Carlos Miguel,PAL
+310,Bruno de Lara Fuchs,0,bruno-fuchs,104085,275,8,B. Fuchs,3,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/PAL/FORMATO.png,0,Bruno Fuchs,PAL
+311,Lucas Willians Assis Arcanjo,0,lucas-arcanjo,104118,287,4,L. Arcanjo,1,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/VIT/FORMATO.png,0,Lucas Arcanjo,VIT
+312,Raul Jonas Steffens,0,raul,104191,263,3,Raul,1,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/BOT/FORMATO.png,0,Raul,BOT
+313,Edson Guilherme Mendes dos Santos,0,edson-carioca,104204,2305,5,E. Carioca,5,0,False,5,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/MIR/FORMATO.png,0,Edson Carioca,MIR
+314,João Lucas de Almeida Carvalho,0,joao-lucas,104257,364,5,J. Lucas,2,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/REM/FORMATO.png,0,João Lucas,REM
+315,Eduardo Marcelo Rodrigues Nunes,0,dudu,104330,287,4,Dudu,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/VIT/FORMATO.png,0,Dudu,VIT
+316,Everton Souza da Cruz,0,everton,104470,315,3,Everton,2,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CHA/FORMATO.png,0,Everton,CHA
+317,Christian Roberto Alves Cardoso,0,christian,104502,283,9,Christian,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CRU/FORMATO.png,0,Christian,CRU
+318,Camilo Reijers de Oliveira,0,camilo,104519,315,4,Camilo,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CHA/FORMATO.png,0,Camilo,CHA
+319,Fabrício Oliveira de Souza,0,fabricio,104588,280,2,Fabrício,1,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/RBB/FORMATO.png,0,Fabrício,RBB
+320,Newton Araújo da Costa Júnior,0,newton,104693,263,5,Newton,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/BOT/FORMATO.png,0,Newton,BOT
+321,Juan Pablo Vojvoda Rizzo,0,juan-vojvoda,104754,277,8,J. Vojvoda,6,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/SAN/FORMATO.png,0,Juan Vojvoda,SAN
+322,Enzo Hernán Díaz,0,enzo-diaz,104758,276,8,E. Díaz,2,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/SAO/FORMATO.png,0,Enzo Díaz,SAO
+323,Nicolás Brian Acevedo Tabárez,0,acevedo,104783,265,5,Acevedo,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/BAH/FORMATO.png,0,Acevedo,BAH
+324,Sebastián Gómez Londoño,0,sebastian-gomez,104811,294,4,S. Gómez,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CFC/FORMATO.png,0,Sebastián Gómez,CFC
+325,Wagner Leonardo Calvelo de Souza,0,wagner-leonardo,104994,284,6,W. Leonardo,3,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/GRE/FORMATO.png,0,Wagner Leonardo,GRE
+326,João Marcelo Messias Ferreira,0,joao-marcelo,105047,283,5,J. Marcelo,3,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CRU/FORMATO.png,0,João Marcelo,CRU
+327,Reinier Jesus Carvalho,0,reinier,105068,282,4,Reinier,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CAM/FORMATO.png,0,Reinier,CAM
+328,Alexis David Duarte Pereira,0,alexis-duarte,105114,277,5,A. Duarte,3,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/SAN/FORMATO.png,0,Alexis Duarte,SAN
+329,Khellven Douglas Silva Oliveira,0,khellven,105175,275,7,Khellven,2,0,False,2,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/PAL/FORMATO.png,0,Khellven,PAL
+330,Ariel Agustín Sant'Anna Quintero,0,sant-anna,105213,280,4,S. Anna,2,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/RBB/FORMATO.png,0,Sant Anna,RBB
+331,Santiago Mariano Rodríguez Molina,0,santiago-rodriguez,105214,263,8,S. Rodríguez,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/BOT/FORMATO.png,0,Santiago Rodríguez,BOT
+332,Nahuel Adolfo Ferraresi Hernández,0,ferraresi,105300,276,8,Ferraresi,3,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/SAO/FORMATO.png,0,Ferraresi,SAO
+333,Gabriel Lheman Xavier - Lhman,0,gabriel-xavier,105373,265,5,G. Xavier,3,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/BAH/FORMATO.png,0,Gabriel Xavier,BAH
+334,Jorge Andrés Carrascal Guardo,0,carrascal,105436,262,13,Carrascal,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLA/FORMATO.png,0,Carrascal,FLA
+335,Renan Peixoto Nepomuceno,0,renan-peixoto,105518,293,4,R. Peixoto,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CAP/FORMATO.png,0,Renan Peixoto,CAP
+336,Matheus Lima Beltrão Oliveira Valin,0,matheus-bidu,105531,264,9,M. Bidu,2,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/COR/FORMATO.png,0,Matheus Bidu,COR
+337,Carlos Vinícius Alves Morais,0,carlos-vinicius,105563,284,17,C. Vinícius,5,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/GRE/FORMATO.png,0,Carlos Vinícius,GRE
+338,Lucas Piton Crivellaro,0,lucas-piton,105584,267,9,L. Piton,2,0,False,2,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/VAS/FORMATO.png,0,Lucas Piton,VAS
+339,Maurício Magalhães Prado,0,mauricio,105647,275,8,Maurício,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/PAL/FORMATO.png,0,Maurício,PAL
+340,Walter David Clar Fritz,0,walter-clar,105664,315,4,W. Clar,2,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CHA/FORMATO.png,0,Walter Clar,CHA
+341,Luan de Freitas Molarinho Chagas,0,luan-freitas,105807,266,3,L. Freitas,3,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLU/FORMATO.png,0,Luan Freitas,FLU
+342,Lucas Belezi Barbosa,0,belezi,105844,293,3,Belezi,3,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CAP/FORMATO.png,0,Belezi,CAP
+343,José Aldo Soares de Oliveira Filho,0,jose-aldo,105903,2305,5,J. Aldo,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/MIR/FORMATO.png,0,José Aldo,MIR
+344,Sergio Ramón Rochet Álvarez,0,rochet,105949,285,8,Rochet,1,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/INT/FORMATO.png,0,Rochet,INT
+345,Santiago Martín Ramos Mingo,0,santiago-mingo,105990,265,6,S. Mingo,3,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/BAH/FORMATO.png,0,Santiago Mingo,BAH
+346,Carlos Miguel Coronel,0,coronel,106028,276,5,Coronel,1,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/SAO/FORMATO.png,0,Coronel,SAO
+347,José David Enamorado Gómez,0,enamorado,106104,284,9,Enamorado,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/GRE/FORMATO.png,0,Enamorado,GRE
+348,Lucas Alexandre Galdino de Azevedo,0,lucao,106160,280,4,Lucão,1,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/RBB/FORMATO.png,0,Lucão,RBB
+349,Bruno Gomes da Silva Clevelário,0,bruno-gomes,106202,285,6,B. Gomes,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/INT/FORMATO.png,0,Bruno Gomes,INT
+350,Marcos Antônio Silva Santos,0,marcos-antonio,106294,276,8,M. Antônio,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/SAO/FORMATO.png,0,Marcos Antônio,SAO
+351,Caio Alexandre Souza e Silva,0,caio-alexandre,106323,265,7,C. Alexandre,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/BAH/FORMATO.png,0,Caio Alexandre,BAH
+352,Eduardo Gonzaga Mendes Santos,0,eduardo-santos,106434,280,5,E. Santos,3,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/RBB/FORMATO.png,0,Eduardo Santos,RBB
+353,Lucas Hernán Villalba,0,villalba,106593,283,10,Villalba,3,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CRU/FORMATO.png,0,Villalba,CRU
+354,Rodrigo Nestor Bertalia,0,rodrigo-nestor,106822,265,7,R. Nestor,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/BAH/FORMATO.png,0,Rodrigo Nestor,BAH
+355,Luciano Batista da Silva Júnior,0,luciano-juba,107093,265,7,L. Juba,2,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/BAH/FORMATO.png,0,Luciano Juba,BAH
+356,Jefferson Ruan Pereira dos Santos,0,jeffinho,107170,263,5,Jeffinho,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/BOT/FORMATO.png,0,Jeffinho,BOT
+357,Patrick de Paula Carreiro,0,patrick-de-paula,107172,364,5,P. Paula,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/REM/FORMATO.png,0,Patrick de Paula,REM
+358,Michel Daryl Araújo Villar,0,michel-araujo,107173,265,6,M. Araújo,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/BAH/FORMATO.png,0,Michel Araújo,BAH
+359,Bruno Vinícius Souza Ramos,0,bruno-tabata,107174,285,5,B. Tabata,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/INT/FORMATO.png,0,Bruno Tabata,INT
+360,Matheus Planelles Donelli,0,matheus-donelli,107179,264,3,M. Donelli,1,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/COR/FORMATO.png,0,Matheus Donelli,COR
+361,Leonardo Matias Baiersdorf Linck,0,leo-linck,107183,263,6,L. Linck,1,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/BOT/FORMATO.png,0,Léo Linck,BOT
+362,Danilo dos Santos de Oliveira,0,danilo,107231,263,10,Danilo,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/BOT/FORMATO.png,0,Danilo,BOT
+363,Vanderlan Barbosa da Silva,0,vanderlan,107236,280,5,Vanderlan,2,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/RBB/FORMATO.png,0,Vanderlan,RBB
+364,João Paulo Silveira dos Santos,0,joao-paulo,107453,315,3,J. Paulo,3,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CHA/FORMATO.png,0,João Paulo,CHA
+365,Sebastião Ênio Santos de Almeida,0,enio,107516,315,4,Ênio,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CHA/FORMATO.png,0,Ênio,CHA
+366,Natanael Moreira Milouski,0,natanael,107554,282,7,Natanael,2,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CAM/FORMATO.png,0,Natanael,CAM
+367,Eduardo de Queiroz Melo,0,eduardo-melo,107700,364,2,E. Melo,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/REM/FORMATO.png,0,Eduardo Melo,REM
+368,Bruno Conceição Praxedes,0,praxedes,107744,280,4,Praxedes,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/RBB/FORMATO.png,0,Praxedes,RBB
+369,Damián Josué Bobadilla Benítez,0,bobadilla,107873,276,10,Bobadilla,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/SAO/FORMATO.png,0,Bobadilla,SAO
+370,Hugo Ferreira de Farias,0,hugo,107908,264,4,Hugo,2,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/COR/FORMATO.png,0,Hugo,COR
+371,Carlos Terán Díaz,0,teran,107985,293,4,Terán,3,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CAP/FORMATO.png,0,Terán,CAP
+372,Johan Stiven Carbonero Balanta,0,carbonero,107989,285,9,Carbonero,5,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/INT/FORMATO.png,0,Carbonero,INT
+373,Isidro Miguel Pitta Saldívar,0,isidro-pitta,108133,280,7,I. Pitta,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/RBB/FORMATO.png,0,Isidro Pitta,RBB
+374,David Ricardo Loiola da Silva,0,david-ricardo,108274,263,7,D. Ricardo,3,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/BOT/FORMATO.png,0,David Ricardo,BOT
+375,Adonis Uriel Frías,0,adonis-frias,108469,277,6,A. Frías,3,0,False,2,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/SAN/FORMATO.png,0,Adonis Frías,SAN
+376,Santiago Moreno,0,santi-moreno,108474,266,4,S. Moreno,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLU/FORMATO.png,0,Santi Moreno,FLU
+377,Alexander Ernesto Aravena Guzmán,0,aravena,108548,284,4,Aravena,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/GRE/FORMATO.png,0,Aravena,GRE
+378,Gonzalo Andrés Tapia Dubournais,0,tapia,108588,276,6,Tapia,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/SAO/FORMATO.png,0,Tapia,SAO
+379,Benjamín Antonio Garré,0,garre,108671,267,4,Garré,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/VAS/FORMATO.png,0,Garré,VAS
+380,Emiliano Martínez Toranza,0,emiliano-martinez,108683,275,5,E. Martínez,4,0,False,2,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/PAL/FORMATO.png,0,Emiliano Martínez,PAL
+381,Antonio Javier Galeano Ferreira,0,galeano,108713,2305,8,Galeano,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/MIR/FORMATO.png,0,Galeano,MIR
+382,Gonzalo Jordy Plata Jiménez,0,plata,109096,262,7,Plata,5,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLA/FORMATO.png,0,Plata,FLA
+383,Tiago Cóser,0,tiago-coser,109127,294,2,T. Cóser,3,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CFC/FORMATO.png,0,Tiago Cóser,CFC
+384,Javier Enrique Delgado Saverio,0,kike-saverio,109138,287,5,K. Saverio,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/VIT/FORMATO.png,0,Kike Saverio,VIT
+385,Rafael dos Santos Carvalheira Natividade,0,rafael-carvalheira,109336,315,4,R. Carvalheira,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CHA/FORMATO.png,0,Rafael Carvalheira,CHA
+386,Erick da Costa Farias,0,erick-pulga,109401,265,10,E. Pulga,5,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/BAH/FORMATO.png,0,Erick Pulga,BAH
+387,Matheus Martinelli Lima,0,martinelli,109573,266,9,Martinelli,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLU/FORMATO.png,0,Martinelli,FLU
+388,Miguel Ángel Monsalve Gonzáles - González,0,monsalve,109966,284,5,Monsalve,4,0,False,5,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/GRE/FORMATO.png,0,Monsalve,GRE
+389,José Andrés Martínez Torres,0,jose-martinez,110311,264,6,J. Martínez,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/COR/FORMATO.png,0,José Martínez,COR
+390,Alexandro Ezequiel Bernabéi,0,bernabei,110426,285,11,Bernabéi,2,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/INT/FORMATO.png,0,Bernabéi,INT
+391,Abel Fernando Moreira Ferreira,0,abel-ferreira,110506,275,12,A. Ferreira,6,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/PAL/FORMATO.png,0,Abel Ferreira,PAL
+392,Braian Aguirre Nahuel,0,aguirre,110510,285,5,Aguirre,2,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/INT/FORMATO.png,0,Aguirre,INT
+393,Lucas Ángel Esquivel,0,esquivel,110668,293,4,Esquivel,2,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CAP/FORMATO.png,0,Esquivel,CAP
+394,Mycael Pontes Moreira,0,mycael,110698,293,5,Mycael,1,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CAP/FORMATO.png,0,Mycael,CAP
+395,Pedro Felipe de Faria Rangel,0,pedro-rangel,110708,294,3,P. Rangel,1,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CFC/FORMATO.png,0,Pedro Rangel,CFC
+396,José Andrés Hurtado Cheme,0,andres-hurtado,110715,280,4,A. Hurtado,2,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/RBB/FORMATO.png,0,Andrés Hurtado,RBB
+397,Gustavo Marques Alves dos Santos,0,gustavo-marques,110750,280,3,G. Marques,3,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/RBB/FORMATO.png,0,Gustavo Marques,RBB
+398,John Kennedy Batista de Souza,0,john-kennedy,110759,266,6,J. Kennedy,5,0,False,2,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLU/FORMATO.png,0,John Kennedy,FLU
+399,Gabriel Teixeira Aragão,0,biel,110760,282,5,Biel,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CAM/FORMATO.png,0,Biel,CAM
+400,Alix Vinicius de Souza Sampaio,0,alix-vinicius,111246,280,6,A. Vinicius,3,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/RBB/FORMATO.png,0,Alix Vinicius,RBB
+401,Gianluca Piola Minozzo,0,mancha,111279,315,3,Mancha,2,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CHA/FORMATO.png,0,Mancha,CHA
+402,Gustavo Martins de Souza Santos,0,gustavo-martins,111309,284,6,G. Martins,3,0,False,2,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/GRE/FORMATO.png,0,Gustavo Martins,GRE
+403,Victor Gabriel da Conceição Ribeiro,0,victor-gabriel,111466,285,4,V. Gabriel,3,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/INT/FORMATO.png,0,Victor Gabriel,INT
+404,Adson Ferreira Soares,0,adson,111682,267,6,Adson,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/VAS/FORMATO.png,0,Adson,VAS
+405,Anthoni Spier Souza,0,anthoni,111683,285,3,Anthoni,1,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/INT/FORMATO.png,0,Anthoni,INT
+406,Matheus Cunha Queiroz,0,matheus-cunha,111690,283,3,M. Cunha,1,0,False,5,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CRU/FORMATO.png,0,Matheus Cunha,CRU
+407,Ryan Guilherme da Silva Pae,0,ryan-guilherme,111757,283,2,R. Guilherme,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CRU/FORMATO.png,0,Ryan Guilherme,CRU
+408,Fábio Silva de Freitas,0,fabinho,111760,280,4,Fabinho,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/RBB/FORMATO.png,0,Fabinho,RBB
+409,Jhonnathan Espedito Coco Wagner,0,jhonnathan,111802,315,2,Jhonnathan,3,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CHA/FORMATO.png,0,Jhonnathan,CHA
+410,Kayky da Silva Chagas,0,kayky,111829,265,5,Kayky,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/BAH/FORMATO.png,0,Kayky,BAH
+411,Matheus Martins Silva dos Santos,0,matheus-martins,111831,263,5,M. Martins,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/BOT/FORMATO.png,0,Matheus Martins,BOT
+412,Jefté Vital da Silva Dias,0,jefte,111832,275,4,Jefté,2,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/PAL/FORMATO.png,0,Jefté,PAL
+413,Matheus da Silva Duarte,0,mateusinho,111879,287,3,Mateusinho,2,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/VIT/FORMATO.png,0,Mateusinho,VIT
+414,Diego Manuel Hernández González,0,diego-hernandez,111945,364,4,D. Hernández,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/REM/FORMATO.png,0,Diego Hernández,REM
+415,Renzo López Patrón,0,renzo-lopez,111951,287,3,R. López,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/VIT/FORMATO.png,0,Renzo López,VIT
+416,Antonio Feliphe Costa Silva,0,felipinho,112017,293,4,Felipinho,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CAP/FORMATO.png,0,Felipinho,CAP
+417,Thalisson Gabriel Pereira Moreira,0,thalisson-gabriel,112367,364,3,T. Gabriel,3,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/REM/FORMATO.png,0,Thalisson Gabriel,REM
+418,Vinicius Romualdo dos Santos,0,vini-paulista,112576,294,3,V. Paulista,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CFC/FORMATO.png,0,Vini Paulista,CFC
+419,Gabriel Hamester Grando,0,gabriel-grando,112616,284,4,G. Grando,1,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/GRE/FORMATO.png,0,Gabriel Grando,GRE
+420,Kaiki Bruno da Silva,0,kaiki-bruno,112709,283,14,K. Bruno,2,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CRU/FORMATO.png,0,Kaiki Bruno,CRU
+421,Ramón Sosa Acosta,0,ramon-sosa,112863,275,7,R. Sosa,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/PAL/FORMATO.png,0,Ramón Sosa,PAL
+422,Lucas Henrique Barbosa,0,lucas-barbosa,112886,280,8,L. Barbosa,5,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/RBB/FORMATO.png,0,Lucas Barbosa,RBB
+423,Juan Pablo Freytes,0,freytes,113034,266,5,Freytes,3,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLU/FORMATO.png,0,Freytes,FLU
+424,José Manuel Alberto López,0,flaco-lopez,113103,275,16,F. López,5,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/PAL/FORMATO.png,0,Flaco López,PAL
+425,Gastón Americo Benavídez,0,benavidez,113113,293,4,Benavídez,2,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CAP/FORMATO.png,0,Benavídez,CAP
+426,Nathan Gabriel de Souza Mendes,0,nathan-mendes,113157,280,4,N. Mendes,2,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/RBB/FORMATO.png,0,Nathan Mendes,RBB
+427,Marcus Vinícius Oliveira Alencar,0,marquinhos,113158,283,4,Marquinhos,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CRU/FORMATO.png,0,Marquinhos,CRU
+428,Pablo Gonçalves Maia Fortunato,0,pablo-maia,113359,276,7,P. Maia,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/SAO/FORMATO.png,0,Pablo Maia,SAO
+429,Cristian Gonzalo Olivera Ibarra,0,cristian-olivera,113397,265,6,C. Olivera,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/BAH/FORMATO.png,0,Cristian Olivera,BAH
+430,Diógenes Vinícius da Silva,0,diogenes,113690,277,2,Diógenes,1,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/SAN/FORMATO.png,0,Diógenes,SAN
+431,Luis Fernando Sinisterra Lucumí,0,sinisterra,114405,283,6,Sinisterra,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CRU/FORMATO.png,0,Sinisterra,CRU
+432,Vitor Hugo Roque Ferreira,0,vitor-roque,114802,275,21,V. Roque,5,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/PAL/FORMATO.png,0,Vitor Roque,PAL
+433,Miguel Àngel Terceros,0,miguelito,115025,277,4,Miguelito,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/SAN/FORMATO.png,0,Miguelito,SAN
+434,Matheus França de Oliveira,0,matheus-franca,115100,267,4,M. França,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/VAS/FORMATO.png,0,Matheus França,VAS
+435,Lucas de Freitas Molarinho Chagas,0,lucas-freitas,115141,267,4,L. Freitas,3,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/VAS/FORMATO.png,0,Lucas Freitas,VAS
+436,Jhonatan dos Santos Rosa,0,jhon-jhon,115248,280,14,J. Jhon,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/RBB/FORMATO.png,0,Jhon Jhon,RBB
+437,Renan Rodrigues Fonseca Viana,0,renan-viana,115266,293,2,R. Viana,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CAP/FORMATO.png,0,Renan Viana,CAP
+438,Habraão Lincon do Nascimento Saraiva,0,habraao,115270,293,3,Habraão,3,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CAP/FORMATO.png,0,Habraão,CAP
+439,Paulo César Pezzolano Suárez,0,paulo-pezzolano,115479,285,6,P. Pezzolano,6,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/INT/FORMATO.png,0,Paulo Pezzolano,INT
+440,Rodrigo Henrique Santos de Souza,0,rodriguinho,115563,283,3,Rodriguinho,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CRU/FORMATO.png,0,Rodriguinho,CRU
+441,Gabriel Delfim Ferreira,0,gabriel-delfim,115674,282,2,G. Delfim,1,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CAM/FORMATO.png,0,Gabriel Delfim,CAM
+442,João Victor Silva Benassi,0,benassi,115840,294,1,Benassi,1,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CFC/FORMATO.png,0,Benassi,CFC
+443,Everton Gustavo Fernandes Araújo,0,evertton-araujo,115914,262,4,E. Araújo,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLA/FORMATO.png,0,Evertton Araújo,FLA
+444,Leanderson da Silva Genésio,0,lele,115915,266,3,Lelê,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLU/FORMATO.png,0,Lelê,FLU
+445,Denilson Alves Borges,0,denilson,115986,2305,5,Denilson,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/MIR/FORMATO.png,0,Denilson,MIR
+446,Rubens Tadeu Hartmann Ricoldi,0,rubens,116066,315,2,Rubens,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CHA/FORMATO.png,0,Rubens,CHA
+447,Thiago Beltrame Stallbaum,0,thiago-beltrame,116067,284,2,T. Beltrame,1,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/GRE/FORMATO.png,0,Thiago Beltrame,GRE
+448,Hércules Pereira do Nascimento,0,hercules,116447,266,7,Hércules,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLU/FORMATO.png,0,Hércules,FLU
+449,Jamerson Santos de Jesus,0,jamerson,116461,287,4,Jamerson,2,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/VIT/FORMATO.png,0,Jamerson,VIT
+450,Carlos Andrés Gómez Hinestroza,0,andres-gomez,116706,267,9,A. Gómez,5,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/VAS/FORMATO.png,0,Andrés Gómez,VAS
+451,Robert Renan Alves Barbosa,0,robert-renan,117330,267,8,R. Renan,3,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/VAS/FORMATO.png,0,Robert Renan,VAS
+452,Yago de Paula Ferreira,0,yago-ferreira,117338,364,2,Y. Ferreira,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/REM/FORMATO.png,0,Yago Ferreira,REM
+453,Renato Marques de Oliveira Júnior,0,renato-marques,117403,2305,4,R. Marques,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/MIR/FORMATO.png,0,Renato Marques,MIR
+454,Otávio Eleodoro Rezende Costa,0,otavio,117404,283,2,Otávio,1,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CRU/FORMATO.png,0,Otávio,CRU
+455,Rodrigo Garro,0,garro,117632,264,12,Garro,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/COR/FORMATO.png,0,Garro,COR
+456,Young Navarro Moraes,0,young,117818,276,3,Young,1,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/SAO/FORMATO.png,0,Young,SAO
+457,Vitor Hugo Amorim de Assis,0,vitinho,117842,283,2,Vitinho,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CRU/FORMATO.png,0,Vitinho,CRU
+458,Breno de Souza Bidon,0,breno-bidon,117910,264,10,B. Bidon,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/COR/FORMATO.png,0,Breno Bidon,COR
+459,Joaquín Lavega Colzada,0,lavega,117930,294,3,Lavega,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CFC/FORMATO.png,0,Lavega,CFC
+460,Martín Rodrigo Anselmi,0,martin-anselmi,117965,263,6,M. Anselmi,6,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/BOT/FORMATO.png,0,Martín Anselmi,BOT
+461,Iago Teodoro da Silva Nogueira,0,iago,118090,262,2,Iago,3,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLA/FORMATO.png,0,Iago,FLA
+462,Nathan Camargo dos Santos,0,nathan-camargo,118175,280,2,N. Camargo,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/RBB/FORMATO.png,0,Nathan Camargo,RBB
+463,Ronald Cardoso Falkoski,0,ronald,118238,284,3,Ronald,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/GRE/FORMATO.png,0,Ronald,GRE
+464,Rodrigo Huendra Almeida Mendonça,0,rodriguinho,118563,276,4,Rodriguinho,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/SAO/FORMATO.png,0,Rodriguinho,SAO
+465,Alan Gabriel Saldivia Vázquez,0,saldivia,118655,267,6,Saldivia,3,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/VAS/FORMATO.png,0,Saldivia,VAS
+466,Mateus Carvalho dos Santos,0,mateus-carvalho,118752,267,4,M. Carvalho,4,0,False,5,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/VAS/FORMATO.png,0,Mateus Carvalho,VAS
+467,Alexsander Cristhian Gomes da Costa - Christian,0,alexsander,118774,282,8,Alexsander,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CAM/FORMATO.png,0,Alexsander,CAM
+468,Lautaro Ariel Díaz,0,lautaro-diaz,118775,277,6,L. Díaz,5,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/SAN/FORMATO.png,0,Lautaro Díaz,SAN
+469,Leonardo Derik Dias Gonçalves,0,leo-derik,120433,293,2,L. Derik,2,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CAP/FORMATO.png,0,Léo Derik,CAP
+470,André Henrique da Silva Martins,0,andre,121792,284,4,André,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/GRE/FORMATO.png,0,André,GRE
+471,Kayke Ferrari Guimarães,0,kayke,121824,264,4,Kayke,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/COR/FORMATO.png,0,Kayke,COR
+472,Gustavo Talles da Silva,0,gustavo-talles,121870,315,2,G. Talles,2,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CHA/FORMATO.png,0,Gustavo Talles,CHA
+473,Luis Fernando Santos Oliveira,0,fernando,122127,283,1,Fernando,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CRU/FORMATO.png,0,Fernando,CRU
+474,João Vitor de Souza Martins,0,joao-vitor,122138,315,3,J. Vitor,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CHA/FORMATO.png,0,João Vitor,CHA
+475,João Vitor Vigolo Gomes,0,batata,122316,293,1,Batata,2,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CAP/FORMATO.png,0,Batata,CAP
+476,Francisco Dyogo Bento Alves,0,dyogo-alves,122318,262,3,D. Alves,1,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLA/FORMATO.png,0,Dyogo Alves,FLA
+477,Daniel dos Santos Salles,0,daniel-sales,122320,262,2,D. Sales,2,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLA/FORMATO.png,0,Daniel Sales,FLA
+478,Gustavo Ribeiro Neves,0,gustavinho,122394,280,4,Gustavinho,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/RBB/FORMATO.png,0,Gustavinho,RBB
+479,Ryan Gustavo de Lima,0,ryan,122396,264,3,Ryan,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/COR/FORMATO.png,0,Ryan,COR
+480,Isaac Rodrigues de Lima,0,isaac,122439,293,2,Isaac,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CAP/FORMATO.png,0,Isaac,CAP
+481,Kayky Henrique Almeida Brandão da Silva,0,kayky-almeida,122441,364,2,K. Almeida,3,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/REM/FORMATO.png,0,Kayky Almeida,REM
+482,Cauan Lucas Barros da Luz,0,barros,122485,267,5,Barros,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/VAS/FORMATO.png,0,Barros,VAS
+483,Rayan Vitor Simplício Rocha,0,rayan,122486,267,9,Rayan,5,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/VAS/FORMATO.png,0,Rayan,VAS
+484,Gabriel Souza da Silva,0,gb,122487,267,4,GB,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/VAS/FORMATO.png,0,GB,VAS
+485,Wallace Yan de Souza Barreto,0,wallace-yan,122573,262,5,W. Yan,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLA/FORMATO.png,0,Wallace Yan,FLA
+486,João Wellington Gadelha Melo de Oliveira,0,japa,122660,283,3,Japa,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CRU/FORMATO.png,0,Japa,CRU
+487,Lucas de Souza Cunha,0,lucas-cunha,122755,280,3,L. Cunha,3,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/RBB/FORMATO.png,0,Lucas Cunha,RBB
+488,Gustavo Rubén Caballero González,0,caballero,122781,277,4,Caballero,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/SAN/FORMATO.png,0,Caballero,SAN
+489,Guzmán Rodríguez Ferrari,0,guzman-rodriguez,122897,280,6,G. Rodríguez,3,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/RBB/FORMATO.png,0,Guzmán Rodríguez,RBB
+490,Patrick Roberto da Silva Campos,0,patrick,122990,282,4,Patrick,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CAM/FORMATO.png,0,Patrick,CAM
+491,Victor dos Santos Nascimento,0,victor-nascimento,122994,265,1,V. Nascimento,1,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/BAH/FORMATO.png,0,Victor Nascimento,BAH
+492,Leonardo Caetano Silva,0,leozinho,123101,293,3,Leozinho,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CAP/FORMATO.png,0,Leozinho,CAP
+493,Carlos Eduardo Amaral Pereira de Castro,0,cadu,123359,282,3,Cadu,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CAM/FORMATO.png,0,Cadu,CAM
+494,Cauly Oliveira Souza,0,cauly,123360,265,6,Cauly,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/BAH/FORMATO.png,0,Cauly,BAH
+495,Italo de Vargas da Rosa,0,italo,123625,315,2,Ítalo,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CHA/FORMATO.png,0,Ítalo,CHA
+496,Lucas Ronier Vieira Pires,0,lucas-ronier,123648,294,4,L. Ronier,5,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CFC/FORMATO.png,0,Lucas Ronier,CFC
+497,José Janderson da Silva Marques,0,janderson,123649,283,1,Janderson,3,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CRU/FORMATO.png,0,Janderson,CRU
+498,José Guilherme de Lima Costa,0,ze-guilherme,123717,265,3,Z. Guilherme,2,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/BAH/FORMATO.png,0,Zé Guilherme,BAH
+499,Alan Jesús Rodríguez Guaglianoni,0,alan-rodriguez,123744,285,6,A. Rodríguez,4,0,False,5,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/INT/FORMATO.png,0,Alan Rodríguez,INT
+500,Rubén Darío Lezcano Portillo,0,lezcano,123788,266,4,Lezcano,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLU/FORMATO.png,0,Lezcano,FLU
+501,Juan Felipe Aguirre Tabares,0,aguirre,123869,293,4,Aguirre,3,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CAP/FORMATO.png,0,Aguirre,CAP
+502,Henry David Mosquera Sánchez,0,henry-mosquera,124239,280,4,H. Mosquera,5,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/RBB/FORMATO.png,0,Henry Mosquera,RBB
+503,Gustavo Prado Alves,0,gustavo-prado,124271,285,4,G. Prado,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/INT/FORMATO.png,0,Gustavo Prado,INT
+504,João Vitor da Silva Almeida,0,joao-almeida,124358,294,1,J. Almeida,2,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CFC/FORMATO.png,0,João Almeida,CFC
+505,Mateo Ponte Costa,0,mateo-ponte,124481,263,5,M. Ponte,2,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/BOT/FORMATO.png,0,Mateo Ponte,BOT
+506,Agustín Giay,0,giay,124526,275,7,Giay,2,0,False,2,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/PAL/FORMATO.png,0,Giay,PAL
+507,Ivan Ramiro Román Hurtado,0,ivan-roman,124661,282,5,I. Román,3,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CAM/FORMATO.png,0,Iván Román,CAM
+508,Felipe Negrucci Berdague,0,felipe-negrucci,124674,276,2,F. Negrucci,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/SAO/FORMATO.png,0,Felipe Negrucci,SAO
+509,Nathan Ribeiro Fernandes,0,nathan-fernandes,124757,263,5,N. Fernandes,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/BOT/FORMATO.png,0,Nathan Fernandes,BOT
+510,Gustavo Henrique da Silva,0,gustavo-henrique,124758,280,3,G. Henrique,3,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/RBB/FORMATO.png,0,Gustavo Henrique,RBB
+511,Ruan Lucas de Assis,0,ruan-assis,124834,294,1,R. Assis,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CFC/FORMATO.png,0,Ruan Assis,CFC
+512,Jonathan de Jesus Alves,0,jonathan-jesus,124912,283,6,J. Jesus,3,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CRU/FORMATO.png,0,Jonathan Jesus,CRU
+513,Viery Fernandes Santos Lopes,0,viery,125467,284,3,Viery,3,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/GRE/FORMATO.png,0,Viery,GRE
+514,João Pedro de Sousa Rodrigues,0,joao-pedro,125488,264,5,J. Pedro,3,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/COR/FORMATO.png,0,João Pedro,COR
+515,Jean Gabriel Silveira,0,jean-gabriel,125551,294,2,J. Gabriel,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CFC/FORMATO.png,0,Jean Gabriel,CFC
+516,Eduardo Kogitzki Anastacio,0,dudu,125746,293,1,Dudu,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CAP/FORMATO.png,0,Dudu,CAP
+517,Pedro Luccas Morisco da Silva,0,pedro-morisco,125803,294,6,P. Morisco,1,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CFC/FORMATO.png,0,Pedro Morisco,CFC
+518,Bruno Zapelli,0,zapelli,125926,293,6,Zapelli,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CAP/FORMATO.png,0,Zapelli,CAP
+519,Ythallo Rycklem Rodrigues de Oliveira,0,ythallo,126013,263,4,Ythallo,3,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/BOT/FORMATO.png,0,Ythallo,BOT
+520,Marcelo Braz da Silva,0,marcelinho,126120,280,1,Marcelinho,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/RBB/FORMATO.png,0,Marcelinho,RBB
+521,Paulo Lucas Santos de Paula,0,paulinho,126182,285,5,Paulinho,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/INT/FORMATO.png,0,Paulinho,INT
+522,Álvaro Martín Barreal,0,barreal,126471,277,12,Barreal,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/SAN/FORMATO.png,0,Barreal,SAN
+523,Fernando Seabra,0,fernando-seabra,126977,294,4,F. Seabra,6,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CFC/FORMATO.png,0,Fernando Seabra,CFC
+524,Luiz Gustavo Lemos Carvalho,0,bahia,127242,264,2,Bahia,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/COR/FORMATO.png,0,Bahia,COR
+525,Julio Cesar Lima Fidelis,0,julio-fidelis,127932,266,2,J. Fidélis,2,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLU/FORMATO.png,0,Julio Fidélis,FLU
+526,Felipe Chiqueti Bandeira,0,felipe-chiqueti,127970,293,1,F. Chiqueti,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CAP/FORMATO.png,0,Felipe Chiqueti,CAP
+527,Alejandro García Castillo,0,alejandro-garcia,128427,293,4,A. García,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CAP/FORMATO.png,0,Alejandro García,CAP
+528,Marcos André Paulino Maia,0,marcao,128429,293,3,Marcão,3,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CAP/FORMATO.png,0,Marcão,CAP
+529,João Victor Machado Cruz,0,joao-cruz,128431,293,5,J. Cruz,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CAP/FORMATO.png,0,João Cruz,CAP
+530,Johan Rojas Echavarría,0,johan-rojas,128433,267,6,J. Rojas,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/VAS/FORMATO.png,0,Johan Rojas,VAS
+531,Felipe Cardoso,0,felipe-cardoso,129317,287,3,F. Cardoso,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/VIT/FORMATO.png,0,Felipe Cardoso,VIT
+532,Ruan Pablo Barbosa Sousa,0,ruan-pablo,129663,265,2,R. Pablo,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/BAH/FORMATO.png,0,Ruan Pablo,BAH
+533,Cristhian Joel Loor Santamaría - Christian,0,cristhian-loor,129930,263,2,C. Loor,1,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/BOT/FORMATO.png,0,Cristhian Loor,BOT
+534,Leonardo Nannetti Lopes,0,leo-nannetti,130189,262,2,L. Nannetti,1,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLA/FORMATO.png,0,Léo Nannetti,FLA
+535,Guilherme Estrella de Paiva,0,guilherme-estrella,130255,267,3,G. Estrella,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/VAS/FORMATO.png,0,Guilherme Estrella,VAS
+536,Phillipe Gabriel Pires de Oliveira,0,phillipe-gabriel,130280,267,1,P. Gabriel,1,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/VAS/FORMATO.png,0,Phillipe Gabriel,VAS
+537,Matheus Dalsasso Dias,0,matheus-dias,130283,294,1,M. Dias,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CFC/FORMATO.png,0,Matheus Dias,CFC
+538,Guilherme Henrique Bernardineli Gomes,0,guilherme-gomes,130382,262,3,G. Gomes,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLA/FORMATO.png,0,Guilherme Gomes,FLA
+539,Robert dos Santos Conceição,0,robert,130414,315,3,Robert,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CHA/FORMATO.png,0,Robert,CHA
+540,Luighi Hanri Sousa Santos,0,luighi,130612,275,4,Luighi,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/PAL/FORMATO.png,0,Luighi,PAL
+541,Mailson Bezerra Silva,0,mailson,130619,315,2,Mailson,5,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CHA/FORMATO.png,0,Mailson,CHA
+542,Edenílson Santos Nascimento Filho,0,edenilson,130620,287,3,Edenílson,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/VIT/FORMATO.png,0,Edenílson,VIT
+543,Facundo Bernal Cruz,0,bernal,130650,266,5,Bernal,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLU/FORMATO.png,0,Bernal,FLU
+544,Kauan Faria Gomes,0,kauan,130806,315,1,Kauan,3,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CHA/FORMATO.png,0,Kauan,CHA
+545,João Victor de Souza Menezes,0,souza,130811,277,8,Souza,2,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/SAN/FORMATO.png,0,Souza,SAN
+546,Matheus Soares Rocha,0,matheus-soares,130842,293,1,M. Soares,1,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CAP/FORMATO.png,0,Matheus Soares,CAP
+547,Arthur dos Santos Barbosa Dias,0,arthur-dias,130843,293,3,A. Dias,3,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CAP/FORMATO.png,0,Arthur Dias,CAP
+548,Riquelme Freitas dos Santos,0,riquelme,130889,284,4,Riquelme,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/GRE/FORMATO.png,0,Riquelme,GRE
+549,Thiago Azaf Siqueira Soares,0,thiago-azaf,131279,294,1,T. Azaf,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CFC/FORMATO.png,0,Thiago Azaf,CFC
+550,João Pedro Chermont Crema,0,jp-chermont,131516,277,2,J. Chermont,2,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/SAN/FORMATO.png,0,JP Chermont,SAN
+551,André Oliveira e Silva,0,andre-silva,131617,276,8,A. Silva,5,0,False,5,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/SAO/FORMATO.png,0,André Silva,SAO
+552,Felipe Longo Fernandes da Silva,0,felipe-longo,131753,264,2,F. Longo,1,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/COR/FORMATO.png,0,Felipe Longo,COR
+553,Juan Camilo Portilla Orozco,0,portilla,131832,293,5,Portilla,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CAP/FORMATO.png,0,Portilla,CAP
+554,Neyser Villarreal - Neiser,0,villarreal,131967,283,5,Villarreal,5,0,False,5,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CRU/FORMATO.png,0,Villarreal,CRU
+555,Kevin Steven Serna Jaramillo,0,serna,132071,266,9,Serna,5,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLU/FORMATO.png,0,Serna,FLU
+556,Keny Alexander Arroyo Alvarado,0,arroyo,132264,283,7,Arroyo,5,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CRU/FORMATO.png,0,Arroyo,CRU
+557,Ignacio Sosa Ospital,0,ignacio-sosa,132274,280,6,I. Sosa,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/RBB/FORMATO.png,0,Ignacio Sosa,RBB
+558,Román Agustín Gómez,0,roman-gomez,132412,265,5,R. Gómez,2,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/BAH/FORMATO.png,0,Román Gómez,BAH
+559,Jemmes Bruno Ribeiro da Silva,0,jemmes,132553,266,6,Jemmes,3,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLU/FORMATO.png,0,Jemmes,FLU
+560,Vinicius Mendonça Pereira,0,vinicinho,132580,280,5,Vinicinho,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/RBB/FORMATO.png,0,Vinicinho,RBB
+561,Felipe Guimarães da Silva,0,felipe-guimaraes,133460,294,1,F. Guimarães,2,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CFC/FORMATO.png,0,Felipe Guimarães,CFC
+562,Guilherme William Silva Inácio,0,gui-negao,133543,264,5,G. Negão,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/COR/FORMATO.png,0,Gui Negão,COR
+563,Mateus Xavier de Sousa,0,mateus-xavier,133673,277,2,M. Xavier,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/SAN/FORMATO.png,0,Mateus Xavier,SAN
+564,Luiz Gustavo Roncholeta Benedetti,0,benedetti,133679,275,3,Benedetti,3,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/PAL/FORMATO.png,0,Benedetti,PAL
+565,Wallace Davi Nunes da Silva Dias,0,wallace-davi,133696,266,4,W. Davi,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLU/FORMATO.png,0,Wallace Davi,FLU
+566,Larson Torna Ferreira dos Santos,0,larson,136156,275,3,Larson,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/PAL/FORMATO.png,0,Larson,PAL
+567,Mateo Naín Sanabria Doracio,0,sanabria,136955,265,6,Sanabria,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/BAH/FORMATO.png,0,Sanabria,BAH
+568,Kaique Kenji Takamura Correa,0,kaique-kenji,137542,283,3,K. Kenji,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CRU/FORMATO.png,0,Kaique Kenji,CRU
+569,Tevis Gabriel Alves Santos,0,tevis,137543,283,2,Tevis,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CRU/FORMATO.png,0,Tevis,CRU
+570,Clayton Sampaio Pereira,0,clayton-sampaio,137618,285,3,C. Sampaio,3,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/INT/FORMATO.png,0,Clayton Sampaio,INT
+571,Sergio Stevan Palacios Zapata,0,palacios,138021,280,3,Palacios,3,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/RBB/FORMATO.png,0,Palacios,RBB
+572,Filipe Luís Kasmirski,0,filipe-luis,139076,262,12,F. Luís,6,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLA/FORMATO.png,0,Filipe Luís,FLA
+573,Kauã Prates de Almeida,0,kaua-prates,139345,283,4,K. Prates,2,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CRU/FORMATO.png,0,Kauã Prates,CRU
+574,João Pedro do Nascimento da Mata,0,da-mata,140303,262,2,D. Mata,3,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLA/FORMATO.png,0,Da Mata,FLA
+575,David Antunes da Silva,0,david,140438,315,1,David,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CHA/FORMATO.png,0,David,CHA
+576,Riquelme Felipe Silva de Almeida,0,riquelme-felipe,140484,266,4,R. Felipe,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLU/FORMATO.png,0,Riquelme Felipe,FLU
+577,João Victor de Souza Cunha,0,joao-victor,140492,262,2,J. Victor,3,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLA/FORMATO.png,0,João Victor,FLA
+578,Ryan Francisco Rodrigues dos Santos Silva,0,ryan-francisco,140542,276,5,R. Francisco,5,0,False,5,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/SAO/FORMATO.png,0,Ryan Francisco,SAO
+579,Davi Gomes de Alvarenga,0,davi-gomes,140906,280,3,D. Gomes,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/RBB/FORMATO.png,0,Davi Gomes,RBB
+580,Lucas Taverna,0,lucas-taverna,141337,294,1,L. Taverna,2,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CFC/FORMATO.png,0,Lucas Taverna,CFC
+581,João Victor Ferreira da Silva,0,joao-victor,141385,364,1,J. Victor,1,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/REM/FORMATO.png,0,João Victor,REM
+582,Marcos Alexandre Ferreira Campos Filho,0,marcos-alexandre,141386,364,1,M. Alexandre,1,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/REM/FORMATO.png,0,Marcos Alexandre,REM
+583,Frederico Lippert Neto Gomes,0,fredi-lippert,141419,265,2,F. Lippert,3,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/BAH/FORMATO.png,0,Fredi Lippert,BAH
+584,Allan Andrade Elias,0,allan,141451,275,16,Allan,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/PAL/FORMATO.png,0,Allan,PAL
+585,Lucca Marques Alencar,0,lucca,141609,276,3,Lucca,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/SAO/FORMATO.png,0,Lucca,SAO
+586,Maik Gomes Viegas,0,maik,141611,276,5,Maik,2,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/SAO/FORMATO.png,0,Maik,SAO
+587,Gabriel Morais Silva Bontempo,0,gabriel-bontempo,141754,277,5,G. Bontempo,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/SAN/FORMATO.png,0,Gabriel Bontempo,SAN
+588,Gustavo Henrique Pereira,0,gustavo-henrique,141776,277,2,G. Henrique,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/SAN/FORMATO.png,0,Gustavo Henrique,SAN
+589,Jonathan Estiven Palacios Castillo,0,palacios,141812,315,2,Palacios,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CHA/FORMATO.png,0,Palacios,CHA
+590,Vinicius Rodrigues Lira,0,vinicius-lira,141868,277,3,V. Lira,2,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/SAN/FORMATO.png,0,Vinicius Lira,SAN
+591,Diego da Cruz Lopes,0,dieguinho,141995,264,4,Dieguinho,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/COR/FORMATO.png,0,Dieguinho,COR
+592,Francis Amuzu,0,amuzu,142004,284,6,Amuzu,5,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/GRE/FORMATO.png,0,Amuzu,GRE
+593,Bruno Ferreira Alves,0,bruno-alves,142049,283,2,B. Alves,3,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CRU/FORMATO.png,0,Bruno Alves,CRU
+594,Marcelo Eráclito de Souza Filho,0,marcelo-eraclito,142130,283,1,M. Eráclito,1,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CRU/FORMATO.png,0,Marcelo Eráclito,CRU
+595,Nuno Gonçalo Rocha Moreira,0,nuno-moreira,142279,267,8,N. Moreira,4,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/VAS/FORMATO.png,0,Nuno Moreira,VAS
+596,Jordan Andrés Barrera Herrera,0,barrera,142484,263,7,Barrera,4,0,False,2,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/BOT/FORMATO.png,0,Barrera,BOT
+597,Michael Nicolás Ferreira Berrondo,0,nicolas-ferreira,142593,364,3,N. Ferreira,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/REM/FORMATO.png,0,Nicolás Ferreira,REM
+598,Robson de Souza Júnior,0,robinho-jr,142867,277,4,R. Jr.,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/SAN/FORMATO.png,0,Robinho Jr.,SAN
+599,Lucas Martín Villalba Jaume,0,villalba,142877,263,6,Villalba,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/BOT/FORMATO.png,0,Villalba,BOT
+600,Álvaro Montoro,0,montoro,142890,263,9,Montoro,4,0,False,2,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/BOT/FORMATO.png,0,Montoro,BOT
+601,Gabriel da Silva Abdias,0,gabriel-abdias,143072,263,3,G. Abdias,2,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/BOT/FORMATO.png,0,Gabriel Abdias,BOT
+602,Kevin Stiven Viveros Rodallega,0,viveros,143193,293,7,Viveros,5,0,False,7,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CAP/FORMATO.png,0,Viveros,CAP
+603,Caio Joshua Lana de Andrade,0,joshua,143295,262,3,Joshua,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLA/FORMATO.png,0,Joshua,FLA
+604,Murilo Rhikman Alves Pimentel,0,murilo-rhikman,143350,283,3,M. Rhikman,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CRU/FORMATO.png,0,Murilo Rhikman,CRU
+605,Darilson Gama Amador,0,ph-gama,143455,364,2,P. Gama,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/REM/FORMATO.png,0,PH Gama,REM
+606,Raykkonen Pereira Soares,0,raykkonen,143488,285,3,Raykkonen,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/INT/FORMATO.png,0,Raykkonen,INT
+607,Carlos Eduardo Souza de Barros,0,carlos-eduardo,143532,293,1,C. Eduardo,1,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CAP/FORMATO.png,0,Carlos Eduardo,CAP
+608,Kauã Moraes Silva,0,kaua-moraes,143600,283,3,K. Moraes,2,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CRU/FORMATO.png,0,Kauã Moraes,CRU
+609,Nicolas Pontes de Souza Almeida,0,nicolas-pontes,144423,283,1,N. Pontes,2,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CRU/FORMATO.png,0,Nicolas Pontes,CRU
+610,Rúben da Rocha Rodrigues,0,ruben-rodrigues,145099,287,5,R. Rodrigues,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/VIT/FORMATO.png,0,Rúben Rodrigues,VIT
+611,Kauê Junior Furquim da Silva,0,kaue-furquim,145379,265,2,K. Furquim,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/BAH/FORMATO.png,0,Kauê Furquim,BAH
+612,Rúben Ismael Valente Ramos,0,ruben-ismael,145387,287,4,R. Ismael,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/VIT/FORMATO.png,0,Rúben Ismael,VIT
+613,Cauê Nascimento Santos,0,caue,145400,280,2,Cauê,2,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/RBB/FORMATO.png,0,Cauê,RBB
+614,Paulo Roberto dos Santos Almeida,0,paulo-roberto,145510,287,3,P. Roberto,2,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/VIT/FORMATO.png,0,Paulo Roberto,VIT
+615,Élan Joshep Ricardo Ochoa,0,elan-ricardo,145609,293,3,E. Ricardo,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CAP/FORMATO.png,0,Élan Ricardo,CAP
+616,Douglas Costa Telles,0,douglas-telles,145705,262,2,D. Telles,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/FLA/FORMATO.png,0,Douglas Telles,FLA
+617,André Luiz Santos Dias,0,andre,145744,264,4,André,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/COR/FORMATO.png,0,André,COR
+618,Cristian Marcelo González Tassano,0,cristian-tassano,145782,364,3,C. Tassano,3,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/REM/FORMATO.png,0,Cristian Tassano,REM
+619,João Pedro Sousa Silva,0,joao-pedro,146040,364,3,J. Pedro,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/REM/FORMATO.png,0,João Pedro,REM
+620,José Kadir Barría Rose,0,kadir,146375,263,5,Kadir,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/BOT/FORMATO.png,0,Kadir,BOT
+621,Rayan Passaglia Lelis,0,rayan-lelis,146807,283,2,R. Lelis,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CRU/FORMATO.png,0,Rayan Lelis,CRU
+622,João Henrique Araújo Bom,0,joao-bom,146894,315,2,J. Bom,5,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CHA/FORMATO.png,0,João Bom,CHA
+623,Rhuan Gabriel Rodrigues de Souza Silva,0,rhuan-gabriel,146991,283,1,R. Gabriel,4,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CRU/FORMATO.png,0,Rhuan Gabriel,CRU
+624,Cauan Matteo Baptistella,0,cauan-baptistella,146992,283,2,C. Baptistella,4,0,False,5,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CRU/FORMATO.png,0,Cauan Baptistella,CRU
+625,Kaiquy Luiz Alves Vasco,0,kaiquy-luiz,147287,283,1,K. Luiz,3,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CRU/FORMATO.png,0,Kaiquy Luiz,CRU
+626,William Fernando Soares de Almeida,0,william-fernando,147297,283,1,W. Fernando,2,0,False,6,1,0,https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/clubes_2026/silhuetas/CRU/FORMATO.png,0,William Fernando,CRU

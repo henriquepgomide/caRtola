@@ -1,13 +1,17 @@
-"""
-This is a boilerplate pipeline 'merge_splitted_datasets'
+"""This is a boilerplate pipeline 'merge_splitted_datasets'
 generated using Kedro 0.18.2
 """
+
 import pandas as pd
 
 
 def merge_datasets(df_scouts: pd.DataFrame, df_players: pd.DataFrame, df_teams: pd.DataFrame) -> pd.DataFrame:
     df_players = df_players.drop(columns="ClubeID")
     df_teams = df_teams.drop(columns="Abreviacao")
+
+    if "Posicao" in df_scouts.columns:
+        df_scouts = df_scouts.drop(columns="Posicao")
+
     return {
         "concat": (
             df_scouts.merge(df_players, how="left", left_on="AtletaID", right_on="ID")

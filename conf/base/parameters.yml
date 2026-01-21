@@ -22,22 +22,93 @@ preprocessing.map_col_names:
   clube_id: id_clube
   ClubeID: id_clube
   ClubeNome: nome_clube
+  DD: DE  # Defesa Difícil -> Defesa
   jogos_num: num_jogos
+  Jogos: num_jogos
   media_num: media
   Nome: nome_clube
   Participou: participou
+  PE: PI  # Passe Errado -> Passe Incompleto
   pontos_num: pontuacao
-  Pontos: pontos_num
+  Pontos: pontuacao
   PontosMedia: media
   posicao_id: posicao
+  Posicao: posicao
   PosicaoID: posicao
   preco_num: preco
   Preco: preco
   PrecoVariacao: variacao
+  RB: DS  # Roubada de Bola -> Desarmes
   rodada_id: rodada
   Rodada: rodada
   status_id: status
   variacao_num: variacao
+
+
+preprocessing.map_clube_to_id_clube:
+  AME: 327
+  AMÉRICA-MG: 327
+  ATHLÉTICO-PR: 293 
+  ATLÉTICO-GO: 373
+  ATLÉTICO-MG: 282
+  ATLÉTICO-PR: 293
+  AVA: 314
+  AVAÍ: 314
+  BAH: 265
+  BAHIA: 265
+  BOT: 263
+  BOTAFOGO: 263
+  BRAGANTINO: 280
+  CAM: 282
+  CAP: 293
+  CEA: 354
+  CEARÁ: 354
+  CFC: 294
+  CHA: 315
+  CHAPECOENSE: 315
+  COR: 264
+  CORINTHIANS: 264
+  CORITIBA: 294
+  CRI: 288
+  CRU: 283
+  CRUZEIRO: 283
+  CSA: 341
+  CUIABÁ: 1371
+  FIG: 316
+  FIGUEIRENSE: 316
+  FLA: 262
+  FLAMENGO: 262
+  FLU: 266
+  FLUMINENSE: 266
+  FORTALEZA: 356
+  GOI: 290
+  GOIÁS: 290
+  GRE: 284
+  GRÊMIO: 284
+  INT: 285
+  INTERNACIONAL: 285
+  JEC: 317
+  JOINVILLE: 317
+  JUVENTUDE: 286
+  PAL: 275
+  PALMEIRAS: 275
+  PAR: 
+  PARANÁ: 
+  PON: 303
+  PONTE PRETA: 303
+  SAN: 277
+  SANTA CRUZ: 344
+  SANTOS: 277
+  SÃO PAULO: 276
+  SAO: 276
+  SCZ: 344
+  SPO: 292
+  SPORT: 292
+  SPT: 292
+  VAS: 267
+  VASCO: 267
+  VIT: 287
+  VITÓRIA: 287
 
 
 preprocessing.map_status_id_to_str:
@@ -46,3 +117,35 @@ preprocessing.map_status_id_to_str:
   5: Contundido
   6: Nulo
   7: Provável
+
+
+preprocessing.map_posicao_to_str:
+  "1": gol
+  "2": lat
+  "3": zag
+  "4": mei
+  "5": ata
+  "6": tec
+  
+
+aggregated.map_types:
+  ano: int
+  rodada: int
+  A: int
+  CA: int
+  CV: int
+  DE: int
+  DP: int
+  DS: int
+  FC: int
+  FD: int
+  FF: int
+  FS: int
+  FT: int
+  G: int
+  GC: int
+  GS: int
+  I: int
+  PI: int
+  PP: int
+  SG: int

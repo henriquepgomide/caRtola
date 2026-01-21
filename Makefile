@@ -15,20 +15,18 @@ clean:
 	@rm -f MANIFEST
 	@rm -f .coverage.*
 
-black:
-	@black $(FOLDER_PROJECT) --config pyproject.toml $(args)
 
-isort:
-	@isort $(FOLDER_PROJECT) $(args)
-
-flake8:
-	@flake8 $(FOLDER_PROJECT)
+lint: ## lint files with ruff
+	@poetry run ruff check --fix
 
 mypy:
 	@mypy --ignore-missing-imports --exclude download_data.py$$ --exclude __main__.py$$ --strict src/cartola
 
 pre-commit:
 	@pre-commit run --all-files
+
+profile:
+	@ydata_profiling -m -e $(args) report.html
 
 docker-build:
 	@kedro docker build --image cartola

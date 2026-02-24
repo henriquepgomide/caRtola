@@ -1,10 +1,14 @@
-from typing import Dict
+from typing import Dict, List
 
 import pandas as pd
 
 
 def drop_duplicated_rows(df: pd.DataFrame) -> pd.DataFrame:
     return df.drop_duplicates(ignore_index=True)
+
+
+def drop_columns(df: pd.DataFrame, list_cols: List[str]) -> pd.DataFrame:
+    return df.drop(columns=list_cols)
 
 
 def concat_partitioned_datasets(partitioned_dataset: Dict[str, pd.DataFrame]) -> pd.DataFrame:

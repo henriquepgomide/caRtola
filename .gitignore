@@ -173,7 +173,6 @@ conf/local/**
 conf/**/*credentials*
 
 # ignore everything in the following folders
-**/data/**/*
 **/logs/**/*
 
 # keep empty data folders

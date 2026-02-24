@@ -28,13 +28,13 @@ year = date.today().year
 file = join("data", "01_raw", str(year), f"rodada-{rodada}.csv")
 print(file)
 
-cols_scouts = [col for col in df_merge.columns if col.isupper()]
-cols_atleta = list(set(df_merge.columns) - set(cols_scouts))
+cols_scouts = sorted([col for col in df_merge.columns if col.isupper()])
+cols_atleta = sorted(list(set(df_merge.columns) - set(cols_scouts)))
 
 df_merge = df_merge.loc[:, cols_atleta + cols_scouts]
 df_merge.sort_values(by="atletas.atleta_id", inplace=True, ignore_index=True)
 
 if not exists(file):
     os.makedirs(os.path.dirname(file), exist_ok=True)
-    df_merge.to_csv(file)
+    df_merge.to_csv(file, index=False)
     # json.dump(data_json, open(file.replace(".csv", ".json"), "w", encoding="utf-8"), indent=2, ensure_ascii=False)

@@ -1,11 +1,10 @@
-"""This is a boilerplate pipeline 'merge_splitted_datasets'
-generated using Kedro 0.18.2
-"""
+"""Nodes for the merge_splitted_datasets pipeline."""
 
 import pandas as pd
 
 
 def merge_datasets(df_scouts: pd.DataFrame, df_players: pd.DataFrame, df_teams: pd.DataFrame) -> pd.DataFrame:
+    """Merge the scouts/players/teams DataFrames into a single raw partition."""
     df_players = df_players.drop(columns="ClubeID")
     df_teams = df_teams.drop(columns="Abreviacao")
 

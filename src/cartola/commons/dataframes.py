@@ -1,3 +1,5 @@
+"""Generic DataFrame helpers shared by Kedro pipelines."""
+
 from collections.abc import Callable
 from typing import Dict, List
 
@@ -5,6 +7,7 @@ import pandas as pd
 
 
 def drop_duplicated_rows(df: pd.DataFrame) -> pd.DataFrame:
+    """Return `df` with exact-duplicate rows removed and index reset."""
     return df.drop_duplicates(ignore_index=True)
 
 
@@ -35,4 +38,5 @@ def concat_partitioned_datasets(
 
 
 def rename_cols(df: pd.DataFrame, map_col_names: Dict[str, str]) -> pd.DataFrame:
+    """Rename columns of `df` using the `map_col_names` mapping."""
     return df.rename(columns=map_col_names)

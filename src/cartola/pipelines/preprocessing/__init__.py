@@ -1,6 +1,4 @@
-"""This is a boilerplate pipeline 'preprocessing'
-generated using Kedro 0.18.2
-"""
+"""Per-year preprocessing pipeline (raw -> primary)."""
 
 from cartola.pipelines.preprocessing.pipeline import create_pipeline
 

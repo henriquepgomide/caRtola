@@ -1,3 +1,5 @@
+"""Scout column helpers (de-accumulation across rounds)."""
+
 from typing import List
 
 import pandas as pd
@@ -8,6 +10,7 @@ def get_disaccumulated_scouts_for_round(
     round_: int,
     cols_scouts: List[str],
 ):
+    """Return per-round delta scouts for `round_` against the prior cumulative max."""
     df_round = df[df.rodada == round_]
     if round_ == 1:
         return df_round

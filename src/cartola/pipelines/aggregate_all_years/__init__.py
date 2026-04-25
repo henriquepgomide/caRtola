@@ -1,7 +1,4 @@
-"""
-This is a boilerplate pipeline 'aggregate_all_years'
-generated using Kedro 0.18.2
-"""
+"""Pipeline that aggregates per-year preprocessed CSVs into a single feature table."""
 
 from cartola.pipelines.aggregate_all_years.pipeline import create_pipeline
 

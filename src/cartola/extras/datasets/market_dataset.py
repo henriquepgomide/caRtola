@@ -1,3 +1,5 @@
+"""Custom Kedro dataset for the 2021 market JSON files (data/01_raw/2021)."""
+
 import json
 from pathlib import PurePosixPath
 from typing import Any, Dict
@@ -9,11 +11,13 @@ from kedro.io.core import get_filepath_str, get_protocol_and_path
 
 
 class MarketDataset(AbstractDataset[pd.DataFrame, pd.DataFrame]):
-    """A custom dataset to load marked data of 2021 (data/01_raw/2021) as pandas DataFrames."""
+    """A custom dataset to load market data of 2021 (data/01_raw/2021) as pandas DataFrames."""
 
     def __init__(self, filepath: str):
-        """Args:
-        filepath: The location of the file to load / save data.
+        """Initialize the dataset.
+
+        Args:
+            filepath: The location of the file to load / save data.
         """
         protocol, path = get_protocol_and_path(filepath)
         self._protocol = protocol

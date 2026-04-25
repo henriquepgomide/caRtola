@@ -59,6 +59,27 @@ def normalize_partitions(
 
         df = df.loc[:, canonical_columns].copy()
 
+        # rodada < 1 are pre-season placeholders in some years' raw data;
+        # they violate the schema (rodada >= 1) and the disaccumulation
+        # baseline assumes round 1 is the season start.
+        if "rodada" in df.columns:
+            df = df[df["rodada"].fillna(0).astype(int) >= 1]
+
+        # Source data sometimes carries duplicate (id_atleta, rodada) rows from
+        # re-scrapes. Empirically the noisy scrape is consistently inflated
+        # (e.g. one row with G=0 plus another row with G=113 in 2020 round 10),
+        # so we keep the row with the smaller scout sum -- the cleaner reading.
+        if {"id_atleta", "rodada"}.issubset(df.columns):
+            present_scouts = [c for c in scout_columns if c in df.columns]
+            if present_scouts:
+                df = df.assign(
+                    _scout_sum=df[present_scouts].fillna(0).sum(axis=1),
+                ).sort_values("_scout_sum", kind="stable")
+                df = df.drop_duplicates(subset=["id_atleta", "rodada"], keep="first")
+                df = df.drop(columns="_scout_sum")
+            else:
+                df = df.drop_duplicates(subset=["id_atleta", "rodada"], keep="first")
+
         if year in accumulated_years:
             df = disaccumulate_scouts(df, scout_columns)
             df = df.loc[:, canonical_columns]

@@ -79,6 +79,27 @@ def test_disaccumulate_scouts_passes_through_non_scout_columns():
     assert (result["apelido"] == "X").all()
 
 
+def test_disaccumulate_scouts_clips_negative_deltas_to_zero():
+    """Source-data noise (e.g. Cartola correcting a mis-scored event or a round
+    reset to 0 mid-season) can produce negative deltas. Per the spec, scouts
+    must be >= 0 when present, so deltas are clipped at zero.
+    """
+    df = pd.DataFrame(
+        dict(
+            id_atleta=[1, 1, 1],
+            rodada=[1, 2, 3],
+            G=[0, 5, 0],
+            CA=[0, 3, 1],
+        )
+    )
+    result = disaccumulate_scouts(df, ["G", "CA"])
+    result = result.sort_values("rodada").reset_index(drop=True)
+    assert list(result["G"]) == [0, 5, 0]
+    assert list(result["CA"]) == [0, 3, 0]
+    assert (result["G"] >= 0).all()
+    assert (result["CA"] >= 0).all()
+
+
 def test_disaccumulate_scouts_handles_nan_scouts():
     df = pd.DataFrame(
         dict(
@@ -184,6 +205,60 @@ def test_normalize_partitions_applies_disaccumulation_only_to_accumulated_years(
     assert list(out_2018["CA"]) == [0, 1]
     # 2014 was NOT disaccumulated: round-2 G stays at the cumulative 2.
     assert list(out_2014["G"]) == [0, 2]
+
+
+def test_normalize_partitions_drops_invalid_rodadas():
+    """rodada < 1 is invalid (pre-season placeholders); filter them out."""
+    df = pd.DataFrame(
+        dict(
+            id_atleta=[1, 1, 1], slug=["x", "x", "x"], apelido=["X", "X", "X"], nome=["X", "X", "X"],
+            posicao=["gol"] * 3, status=[None] * 3, id_clube=[10] * 3, nome_clube=["C"] * 3,
+            ano=[2014] * 3, rodada=[0, 1, 2],
+            participou=[1] * 3, num_jogos=[1] * 3, pontuacao=[1.0] * 3, media=[1.0] * 3,
+            preco=[5.0] * 3, variacao=[0.0] * 3,
+            G=[0, 0, 1], A=[0, 0, 0], CA=[0, 0, 0], SG=[1, 1, 1],
+        )
+    )
+    result = normalize_partitions(
+        {"preprocessed_2014": _partition(df)},
+        canonical_columns=CANONICAL,
+        scout_columns=SCOUTS,
+        accumulated_years=[],
+    )
+    assert (result[2014]["rodada"] >= 1).all()
+    assert len(result[2014]) == 2
+
+
+def test_normalize_partitions_dedupes_by_player_round_keeps_low_scout_sum():
+    """Source data carries duplicate (id_atleta, rodada) rows from re-scrapes,
+    where the noisy scrape is consistently inflated. Keep the row whose scout
+    sum is smaller (the cleaner reading) so disaccumulation has a well-defined
+    cumulative sequence.
+    """
+    df = pd.DataFrame(
+        dict(
+            id_atleta=[1, 1, 1], slug=["x", "x", "x"], apelido=["X", "X", "X"], nome=["X", "X", "X"],
+            posicao=["gol"] * 3, status=[None] * 3, id_clube=[10] * 3, nome_clube=["C"] * 3,
+            ano=[2014] * 3, rodada=[1, 1, 2],
+            participou=[1] * 3, num_jogos=[1] * 3, pontuacao=[1.0] * 3, media=[1.0] * 3,
+            preco=[5.0] * 3, variacao=[0.0] * 3,
+            # Two rows for rodada=1; the noisy one (G=99) appears first, the
+            # clean one (G=0) appears second. Order-based "keep=first" would
+            # pick the noisy row, so we keep the lower scout-sum instead.
+            G=[99, 0, 1], A=[0, 0, 0], CA=[0, 0, 0], SG=[1, 1, 1],
+        )
+    )
+    result = normalize_partitions(
+        {"preprocessed_2014": _partition(df)},
+        canonical_columns=CANONICAL,
+        scout_columns=SCOUTS,
+        accumulated_years=[],
+    )
+    out = result[2014].sort_values("rodada").reset_index(drop=True)
+    assert len(out) == 2
+    grouped = out.groupby(["id_atleta", "rodada"]).size()
+    assert (grouped == 1).all()
+    assert out.iloc[0]["G"] == 0
 
 
 def test_concat_normalized_partitions_orders_by_year():

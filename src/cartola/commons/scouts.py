@@ -19,19 +19,21 @@ def get_disaccumulated_scouts_for_round(
     df_round_prev = df[df.rodada < round_].groupby("id_atleta")[cols_scouts].max()
     df_players = df_round.merge(df_round_prev, how="left", on="id_atleta", suffixes=suffixes)
 
-    # if is the first round of a player, the scouts of previous rounds will be NaNs. Thus, set them to zero
-    df_players.fillna(value=0, inplace=True)
+    # If this is the player's first round, the prev-scout columns are NaN. Fill
+    # only the scout columns with 0 (filling everything would clobber strings).
+    fill_cols = cols_current + cols_prev
+    df_players[fill_cols] = df_players[fill_cols].fillna(0)
 
-    # compute the scouts
     df_players[cols_current] = df_players[cols_current].values - df_players[cols_prev].values
 
-    # update the columns
     df_players.drop(labels=cols_prev, axis=1, inplace=True)
     df_players = df_players.rename(columns=dict(zip(cols_current, cols_scouts)))
-    # SG (clean-sheet) is monotonic non-decreasing per player, but data noise can
-    # make a delta negative. Only clip when SG is actually being disaccumulated.
-    if "SG" in df_players.columns:
-        df_players["SG"] = df_players["SG"].clip(lower=0)
+    # All scouts are by definition non-decreasing across rounds (you can't
+    # un-score a goal), but Cartola's source data carries noise (corrections,
+    # mid-season resets, duplicate rows with bad totals) that can produce
+    # negative deltas. Per the spec, scouts must be >= 0 when present, so we
+    # clip all negative deltas to zero.
+    df_players[cols_scouts] = df_players[cols_scouts].clip(lower=0)
 
     return df_players
 

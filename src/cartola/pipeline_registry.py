@@ -23,74 +23,27 @@ def register_pipelines() -> Dict[str, Pipeline]:
         "params:preprocessing.map_posicao_to_str",
     }
 
-    pipe_2014 = pipeline(
-        merge_splitted_datasets.create_pipeline() + preprocessing.create_pipeline(),
-        namespace="2014",
-        parameters=params_preprocessing,
-    )
+    def _year_pipeline(year: int, *, with_merge: bool) -> Pipeline:
+        base = preprocessing.create_pipeline()
+        if with_merge:
+            base = merge_splitted_datasets.create_pipeline() + base
+        return pipeline(base, namespace=str(year), parameters=params_preprocessing)
 
-    pipe_2015 = pipeline(
-        merge_splitted_datasets.create_pipeline() + preprocessing.create_pipeline(),
-        namespace="2015",
-        parameters=params_preprocessing,
-    )
-
-    pipe_2016 = pipeline(
-        merge_splitted_datasets.create_pipeline() + preprocessing.create_pipeline(),
-        namespace="2016",
-        parameters=params_preprocessing,
-    )
-
-    pipe_2017 = pipeline(
-        preprocessing.create_pipeline(),
-        namespace="2017",
-        parameters=params_preprocessing,
-    )
-
-    pipe_2018 = pipeline(
-        preprocessing.create_pipeline(),
-        namespace="2018",
-        parameters=params_preprocessing,
-    )
-
-    pipe_2019 = pipeline(
-        preprocessing.create_pipeline(),
-        namespace="2019",
-        parameters=params_preprocessing,
-    )
-
-    pipe_2020 = pipeline(
-        preprocessing.create_pipeline(),
-        namespace="2020",
-        parameters=params_preprocessing,
-    )
-
-    pipe_2021 = pipeline(
-        preprocessing.create_pipeline(),
-        namespace="2021",
-        parameters=params_preprocessing,
-    )
-
-    pipe_2022 = pipeline(
-        preprocessing.create_pipeline(),
-        namespace="2022",
-        parameters=params_preprocessing,
-    )
+    year_pipelines = {
+        year: _year_pipeline(year, with_merge=year in (2014, 2015, 2016))
+        for year in range(2014, 2027)
+    }
 
     pipe_aggregate = aggregate_all_years.create_pipeline()
 
-    return {
-        "__default__": (
-            pipe_2014 + pipe_2015 + pipe_2016 + pipe_2017 + pipe_2018 + pipe_2019 + pipe_2020 + pipe_2021 + pipe_2022
-        ),
-        "2014": pipe_2014,
-        "2015": pipe_2015,
-        "2016": pipe_2016,
-        "2017": pipe_2017,
-        "2018": pipe_2018,
-        "2019": pipe_2019,
-        "2020": pipe_2020,
-        "2021": pipe_2021,
-        "2022": pipe_2022,
+    default = year_pipelines[2014]
+    for year in range(2015, 2027):
+        default = default + year_pipelines[year]
+    default = default + pipe_aggregate
+
+    pipelines: Dict[str, Pipeline] = {
+        "__default__": default,
         "aggregate": pipe_aggregate,
     }
+    pipelines.update({str(y): p for y, p in year_pipelines.items()})
+    return pipelines

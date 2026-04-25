@@ -1,0 +1,25 @@
+# Here you can define all your data sets by using simple YAML syntax.
+#
+# Documentation for this file format can be found in "The Data Catalog"
+# Link: https://kedro.readthedocs.io/en/stable/data/data_catalog.html
+# 2026 raw CSVs do not have a leading unnamed index column, so no index_col here.
+2026.preprocessing.raw:
+  type: partitions.PartitionedDataset
+  path: data/01_raw/2026
+  dataset:
+    type: pandas.CSVDataset
+  filename_suffix: .csv
+
+
+2026.preprocessing.concat:
+  type: pandas.CSVDataset
+  filepath: data/02_intermediate/concat_2026.csv
+  save_args:
+    index: False
+
+
+2026.preprocessing.preprocessed:
+  type: pandas.CSVDataset
+  filepath: data/03_primary/preprocessed_2026.csv
+  save_args:
+    index: False

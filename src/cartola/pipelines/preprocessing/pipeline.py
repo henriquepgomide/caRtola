@@ -1,6 +1,4 @@
-"""This is a boilerplate pipeline 'preprocessing'
-generated using Kedro 0.18.2
-"""
+"""Per-year preprocessing pipeline."""
 
 from kedro.pipeline import Pipeline, node, pipeline
 
@@ -14,13 +12,13 @@ from cartola.pipelines.preprocessing.nodes import (
     add_year_column,
     fill_empty_slugs,
     fill_scouts_with_zeros,
-    fix_accumulated_scouts,
     map_posicao_to_string,
     map_status_id_to_string,
 )
 
 
 def create_pipeline() -> Pipeline:
+    """Build the per-year preprocessing pipeline (raw -> primary)."""
     return pipeline(
         [
             node(concat_partitioned_datasets, inputs="raw", outputs="concat"),
@@ -33,10 +31,13 @@ def create_pipeline() -> Pipeline:
                 inputs=["df_not_duplicated", "params:map_posicao_to_str"],
                 outputs="df_posicao",
             ),
-            node(map_status_id_to_string, inputs=["df_posicao", "params:map_status_id_to_str"], outputs="df_status"),
+            node(
+                map_status_id_to_string,
+                inputs=["df_posicao", "params:map_status_id_to_str"],
+                outputs="df_status",
+            ),
             node(fill_scouts_with_zeros, inputs=["df_status", "params:scouts"], outputs="df_filled_scouts"),
-            node(fill_empty_slugs, inputs="df_filled_scouts", outputs="df_filled_slugs"),
-            node(fix_accumulated_scouts, inputs=["df_filled_slugs", "params:scouts"], outputs="preprocessed"),
+            node(fill_empty_slugs, inputs="df_filled_scouts", outputs="preprocessed"),
         ],
         namespace="preprocessing",
         tags=["preprocessing"],

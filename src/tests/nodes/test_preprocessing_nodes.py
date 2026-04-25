@@ -5,7 +5,6 @@ from cartola.pipelines.preprocessing.nodes import (
     add_year_column,
     fill_empty_slugs,
     fill_scouts_with_zeros,
-    fix_accumulated_scouts,
     map_posicao_to_string,
     map_status_id_to_string,
 )
@@ -60,23 +59,3 @@ def test_add_year_columns():
     assert np.all(df.ano.values == 2000)
 
 
-def test_fix_accumulated_scouts():
-    dict_data = dict(
-        ano=[2015, 2015, 2015],
-        id_atleta=[1, 1, 1],
-        rodada=[1, 2, 3],
-        SG=[0, 0, 0],
-        CA=[0, 1, 1],
-        DE=[0, 1, 3],
-    )
-    df = pd.DataFrame(dict_data)
-    df = fix_accumulated_scouts(df, dict(SG=1, CA=1, DE=1))
-    assert np.all(df.SG.values == [0, 0, 0])
-    assert np.all(df.CA.values == [0, 1, 0])
-    assert np.all(df.DE.values == [0, 1, 2])
-
-
-def test_fix_accumulated_scouts_in_year_without_accumulation():
-    df = pd.DataFrame(dict(ano=[2000]))
-    df_res = fix_accumulated_scouts(df, {})
-    assert df.equals(df_res)

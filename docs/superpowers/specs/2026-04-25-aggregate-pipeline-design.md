@@ -128,8 +128,11 @@ def finalize_aggregated(
 2. Assert `df["ano"].unique() == [year]` if the column exists. Mismatch
    raises `ValueError` (loud failure on data integrity).
 3. **Select canonical columns only.** Drop everything else by omission.
-   Missing scout columns are added as `0` (the canonical column type is
-   non-nullable). Missing player/team meta columns are added as `NaN`.
+   Missing scout columns are added as `NaN` (not `0`) — being absent from
+   the source year means "we don't know", not "zero". Missing player/team
+   meta columns are also added as `NaN`. Pandas nullable integer dtypes
+   (`Int32`) are used for scouts so they can hold `NaN` without being
+   silently coerced to `float64`.
 4. **Coerce types** to the partition-level dtype map (no final cast yet —
    that's `finalize_aggregated`'s job; this only ensures the DataFrame is
    concat-compatible).
@@ -229,14 +232,22 @@ Final aggregated columns, in CSV order:
 | Game        | `media`       | `float`        | yes      |
 | Game        | `preco`       | `float` (>0)   | yes      |
 | Game        | `variacao`    | `float`        | yes      |
-| Scouts (20) | A, CA, CV, DE, DP, DS, FC, FD, FF, FS, FT, G, GC, GS, I, PI, PP, SG | `Int32` (≥0) | no |
-| Scouts      | PC, PS        | `float` (≥0)   | yes      |
+| Scouts (20) | A, CA, CV, DE, DP, DS, FC, FD, FF, FS, FT, G, GC, GS, I, PI, PP, SG | `Int32` (≥0 when not null) | yes |
+| Scouts      | PC, PS        | `float` (≥0 when not null) | yes |
+
+All scout columns are nullable. A `NaN` means "this scout was not tracked
+in this year's source data". When a scout *is* present, it must be `≥ 0`
+(enforced by Pandera's `Field(ge=0, nullable=True)` and a pytest invariant
+`(df[col].dropna() >= 0).all()`).
 
 `posicao ∈ {gol, lat, zag, mei, ata, tec}`.
 `status ∈ {Provável, Dúvida, Suspenso, Contundido, Nulo} ∪ {NaN}`.
 
 The `cartola/schemas/aggregated.py` Pandera model is updated to match.
-`cartola/schemas/scouts.py` stays as-is (already accurate).
+`cartola/schemas/scouts.py` is updated so every scout is
+`Field(ge=0, nullable=True)` (previously the 18 "core" scouts were
+non-nullable). This reflects the rule above: missing → `NaN`, present →
+`≥ 0`.
 
 ## Tests
 
@@ -277,9 +288,10 @@ Loads `data/04_feature/aggregated.csv`:
   within that year's observed maximum.
 - Column set equals exactly the canonical list (no extras).
 - **De-accumulation invariants:** per-(player, round) bounds for
-  `G, A, GC, CA, CV`; `SG ∈ {0, 1}`; no negatives in non-nullable scouts.
+  `G, A, GC, CA, CV`; `SG ∈ {0, 1}`; no negative values in any scout
+  column (`(df[scout].dropna() >= 0).all()` for each scout).
 - Cumulative sums of any scout per (year, id_atleta) are non-decreasing
-  across rounds.
+  across rounds (computed on `.fillna(0)` for the test only).
 - `posicao` distribution per year is non-degenerate.
 - 16 ≤ distinct `id_clube` per year ≤ 22.
 
@@ -311,9 +323,9 @@ Run `uv run ruff check .` and fix everything. Explicit decisions:
 
 - **Loud failure on data integrity:** partition filename year ≠ `ano`
   column → `ValueError`.
-- **Graceful skip on optional columns:** missing scouts → `0`; missing
+- **Graceful skip on optional columns:** missing scouts → `NaN`; missing
   player/team meta → `NaN`. Never crash because a year lacks an optional
-  column.
+  column. The `≥ 0` rule applies only to non-null values.
 - **Pandera validation** in tests uses `lazy=True` so all violations
   surface in one shot.
 

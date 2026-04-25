@@ -128,24 +128,75 @@ preprocessing.map_posicao_to_str:
   "6": tec
   
 
+aggregated.canonical_columns:
+  - id_atleta
+  - slug
+  - apelido
+  - nome
+  - posicao
+  - status
+  - id_clube
+  - nome_clube
+  - ano
+  - rodada
+  - participou
+  - num_jogos
+  - pontuacao
+  - media
+  - preco
+  - variacao
+  - A
+  - CA
+  - CV
+  - DE
+  - DP
+  - DS
+  - FC
+  - FD
+  - FF
+  - FS
+  - FT
+  - G
+  - GC
+  - GS
+  - I
+  - PC
+  - PI
+  - PP
+  - PS
+  - SG
+
+aggregated.scouts:
+  - A
+  - CA
+  - CV
+  - DE
+  - DP
+  - DS
+  - FC
+  - FD
+  - FF
+  - FS
+  - FT
+  - G
+  - GC
+  - GS
+  - I
+  - PC
+  - PI
+  - PP
+  - PS
+  - SG
+
+aggregated.accumulated_years:
+  - 2015
+  - 2017
+  - 2018
+  - 2019
+  - 2020
+  - 2021
+  - 2022
+
 aggregated.map_types:
   ano: int
   rodada: int
-  A: int
-  CA: int
-  CV: int
-  DE: int
-  DP: int
-  DS: int
-  FC: int
-  FD: int
-  FF: int
-  FS: int
-  FT: int
-  G: int
-  GC: int
-  GS: int
-  I: int
-  PI: int
-  PP: int
-  SG: int

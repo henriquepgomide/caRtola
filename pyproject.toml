@@ -18,6 +18,8 @@ dependencies = [
     "kedro-datasets[pandas]>=6.0",
     "pandas>=2.2",
     "Unidecode>=1.3.6",
+    "requests>=2.31",
+    "fsspec>=2024.6",
 ]
 
 [dependency-groups]

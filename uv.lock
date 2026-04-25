@@ -252,9 +252,11 @@ name = "cartola"
 version = "0.2.0"
 source = { editable = "." }
 dependencies = [
+    { name = "fsspec" },
     { name = "kedro" },
     { name = "kedro-datasets", extra = ["pandas"] },
     { name = "pandas" },
+    { name = "requests" },
     { name = "unidecode" },
 ]
 
@@ -279,9 +281,11 @@ test = [
 
 [package.metadata]
 requires-dist = [
+    { name = "fsspec", specifier = ">=2024.6" },
     { name = "kedro", specifier = ">=1.3.1,<2" },
     { name = "kedro-datasets", extras = ["pandas"], specifier = ">=6.0" },
     { name = "pandas", specifier = ">=2.2" },
+    { name = "requests", specifier = ">=2.31" },
     { name = "unidecode", specifier = ">=1.3.6" },
 ]
 

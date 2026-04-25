@@ -24,55 +24,55 @@ def register_pipelines() -> Dict[str, Pipeline]:
     }
 
     pipe_2014 = pipeline(
-        pipe=merge_splitted_datasets.create_pipeline() + preprocessing.create_pipeline(),
+        merge_splitted_datasets.create_pipeline() + preprocessing.create_pipeline(),
         namespace="2014",
         parameters=params_preprocessing,
     )
 
     pipe_2015 = pipeline(
-        pipe=merge_splitted_datasets.create_pipeline() + preprocessing.create_pipeline(),
+        merge_splitted_datasets.create_pipeline() + preprocessing.create_pipeline(),
         namespace="2015",
         parameters=params_preprocessing,
     )
 
     pipe_2016 = pipeline(
-        pipe=merge_splitted_datasets.create_pipeline() + preprocessing.create_pipeline(),
+        merge_splitted_datasets.create_pipeline() + preprocessing.create_pipeline(),
         namespace="2016",
         parameters=params_preprocessing,
     )
 
     pipe_2017 = pipeline(
-        pipe=preprocessing.create_pipeline(),
+        preprocessing.create_pipeline(),
         namespace="2017",
         parameters=params_preprocessing,
     )
 
     pipe_2018 = pipeline(
-        pipe=preprocessing.create_pipeline(),
+        preprocessing.create_pipeline(),
         namespace="2018",
         parameters=params_preprocessing,
     )
 
     pipe_2019 = pipeline(
-        pipe=preprocessing.create_pipeline(),
+        preprocessing.create_pipeline(),
         namespace="2019",
         parameters=params_preprocessing,
     )
 
     pipe_2020 = pipeline(
-        pipe=preprocessing.create_pipeline(),
+        preprocessing.create_pipeline(),
         namespace="2020",
         parameters=params_preprocessing,
     )
 
     pipe_2021 = pipeline(
-        pipe=preprocessing.create_pipeline(),
+        preprocessing.create_pipeline(),
         namespace="2021",
         parameters=params_preprocessing,
     )
 
     pipe_2022 = pipeline(
-        pipe=preprocessing.create_pipeline(),
+        preprocessing.create_pipeline(),
         namespace="2022",
         parameters=params_preprocessing,
     )

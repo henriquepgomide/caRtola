@@ -4,11 +4,11 @@ from typing import Any, Dict
 
 import fsspec
 import pandas as pd
-from kedro.io import AbstractDataSet
+from kedro.io import AbstractDataset
 from kedro.io.core import get_filepath_str, get_protocol_and_path
 
 
-class MarketDataSet(AbstractDataSet[pd.DataFrame, pd.DataFrame]):
+class MarketDataset(AbstractDataset[pd.DataFrame, pd.DataFrame]):
     """A custom dataset to load marked data of 2021 (data/01_raw/2021) as pandas DataFrames."""
 
     def __init__(self, filepath: str):

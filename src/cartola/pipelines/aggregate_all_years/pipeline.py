@@ -20,6 +20,7 @@ def create_pipeline(**kwargs) -> Pipeline:
                     "params:canonical_columns",
                     "params:scouts",
                     "params:accumulated_years",
+                    "params:clube_id_map",
                 ],
                 outputs="normalized",
             ),

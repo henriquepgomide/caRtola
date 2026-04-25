@@ -21,6 +21,7 @@ def normalize_partitions(
     canonical_columns: List[str],
     scout_columns: List[str],
     accumulated_years: List[int],
+    clube_id_map: Dict[str, int] | None = None,
 ) -> Dict[int, pd.DataFrame]:
     """Normalize each per-year partition to the canonical column set.
 
@@ -58,6 +59,26 @@ def normalize_partitions(
                 df[col] = pd.NA if col not in scout_columns else float("nan")
 
         df = df.loc[:, canonical_columns].copy()
+
+        # Coerce mixed-type columns to a single canonical dtype. Across years
+        # `id_clube` shows up as int, '262.0' string, or float; `participou`
+        # as 1/0, True/False, or 'True'/'False'. Normalize both to numeric so
+        # the schema validates and downstream consumers see consistent types.
+        if "id_clube" in df.columns:
+            id_clube = df["id_clube"].astype("object")
+            # Some years (e.g. 2017) carry the club abbreviation as id_clube
+            # instead of a numeric id. Map abbreviations -> numeric id when a
+            # mapping is provided before coercing.
+            if clube_id_map:
+                id_clube = id_clube.map(
+                    lambda v: clube_id_map.get(v, v) if isinstance(v, str) else v
+                )
+            df["id_clube"] = pd.to_numeric(id_clube, errors="coerce")
+        if "participou" in df.columns:
+            participou = df["participou"].astype("object").replace(
+                {"True": 1, "False": 0, "true": 1, "false": 0, True: 1, False: 0}
+            )
+            df["participou"] = pd.to_numeric(participou, errors="coerce")
 
         # rodada < 1 are pre-season placeholders in some years' raw data;
         # they violate the schema (rodada >= 1) and the disaccumulation

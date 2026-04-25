@@ -61,4 +61,10 @@ def disaccumulate_scouts(df: pd.DataFrame, cols_scouts: List[str]) -> pd.DataFra
         [get_disaccumulated_scouts_for_round(df, int(r), cols_present) for r in rounds],
         ignore_index=True,
     )
+    # SG (Saldo de Gols / clean sheet) is binary per round: a player either
+    # kept a clean sheet that round or didn't. A delta > 1 here indicates
+    # the player missed rounds and the cumulative jumped by N; for per-round
+    # semantics we cap at 1.
+    if "SG" in df_result.columns:
+        df_result["SG"] = df_result["SG"].clip(upper=1)
     return df_result

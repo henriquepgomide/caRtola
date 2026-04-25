@@ -52,6 +52,23 @@ def test_disaccumulate_scouts_sg_clipping():
     assert (result["SG"] <= 1).all()
 
 
+def test_disaccumulate_scouts_caps_sg_when_player_misses_rounds():
+    """SG (clean sheet) is binary per round. If a goalkeeper plays round 2
+    but misses round 3 and plays round 4, the cumulative SG can jump from
+    1 -> 3 between rounds 2 and 4. The naive delta is 2 but SG is bounded
+    above by 1 per round.
+    """
+    df = pd.DataFrame(
+        dict(
+            id_atleta=[1, 1, 1],
+            rodada=[2, 4, 5],
+            SG=[1, 3, 4],
+        )
+    )
+    result = disaccumulate_scouts(df, ["SG"])
+    assert (result["SG"] <= 1).all()
+
+
 def test_disaccumulate_scouts_player_appears_mid_season():
     df = pd.DataFrame(
         dict(
@@ -259,6 +276,38 @@ def test_normalize_partitions_dedupes_by_player_round_keeps_low_scout_sum():
     grouped = out.groupby(["id_atleta", "rodada"]).size()
     assert (grouped == 1).all()
     assert out.iloc[0]["G"] == 0
+
+
+def test_normalize_partitions_coerces_id_clube_and_participou_to_numeric():
+    """Across years the raw data carries id_clube as int, '262.0' string, or
+    float, and participou as 1/0, True/False, or 'True'/'False'. Normalize
+    them to numeric so the schema validates and downstream consumers see a
+    consistent type.
+    """
+    df = pd.DataFrame(
+        dict(
+            id_atleta=[1, 2], slug=["a", "b"], apelido=["A", "B"], nome=["A", "B"],
+            posicao=["gol", "ata"], status=[None, None],
+            id_clube=["262.0", "263.0"],
+            nome_clube=["X", "Y"],
+            ano=[2014, 2014], rodada=[1, 1],
+            participou=["True", "False"],
+            num_jogos=[1, 1], pontuacao=[1.0, 1.0], media=[1.0, 1.0],
+            preco=[5.0, 5.0], variacao=[0.0, 0.0],
+            G=[0, 0], A=[0, 0], CA=[0, 0], SG=[1, 0],
+        )
+    )
+    result = normalize_partitions(
+        {"preprocessed_2014": _partition(df)},
+        canonical_columns=CANONICAL,
+        scout_columns=SCOUTS,
+        accumulated_years=[],
+    )
+    out = result[2014]
+    assert pd.api.types.is_numeric_dtype(out["id_clube"])
+    assert sorted(out["id_clube"]) == [262.0, 263.0]
+    assert pd.api.types.is_numeric_dtype(out["participou"])
+    assert set(out["participou"].dropna().unique()) <= {0, 1, 0.0, 1.0}
 
 
 def test_concat_normalized_partitions_orders_by_year():

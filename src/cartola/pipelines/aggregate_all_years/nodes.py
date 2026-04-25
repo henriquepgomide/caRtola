@@ -8,11 +8,6 @@ import pandas as pd
 from cartola.commons.scouts import disaccumulate_scouts
 
 
-def convert_types(df: pd.DataFrame, dict_map_types: dict) -> pd.DataFrame:
-    """Convert columns to the specified types."""
-    return df.astype(dict_map_types)
-
-
 def _year_from_partition_key(key: str) -> int:
     """Parse the trailing 4-digit year from a partition key like 'preprocessed_2018'."""
     digits = "".join(c for c in key.split("_")[-1] if c.isdigit())
@@ -71,3 +66,16 @@ def normalize_partitions(
         normalized[year] = df.reset_index(drop=True)
 
     return normalized
+
+
+def concat_normalized_partitions(normalized: Dict[int, pd.DataFrame]) -> pd.DataFrame:
+    """Concatenate normalized per-year DataFrames in ascending year order."""
+    years = sorted(normalized.keys())
+    return pd.concat([normalized[y] for y in years], ignore_index=True)
+
+
+def finalize_aggregated(df: pd.DataFrame, dtype_map: Dict[str, type]) -> pd.DataFrame:
+    """Apply final dtype map and sort rows for a stable, diff-friendly CSV."""
+    df = df.astype({k: v for k, v in dtype_map.items() if k in df.columns})
+    sort_cols = [c for c in ("ano", "rodada", "id_clube", "slug") if c in df.columns]
+    return df.sort_values(sort_cols).reset_index(drop=True)

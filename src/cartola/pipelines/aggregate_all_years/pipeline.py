@@ -1,19 +1,38 @@
-"""
-This is a boilerplate pipeline 'aggregate_all_years'
-generated using Kedro 0.18.2
-"""
+"""Aggregate-all-years pipeline: per-year primaries -> single canonical CSV."""
 
 from kedro.pipeline import Pipeline, node, pipeline
 
-from cartola.commons.dataframes import concat_partitioned_datasets
-from cartola.pipelines.aggregate_all_years.nodes import convert_types
+from cartola.pipelines.aggregate_all_years.nodes import (
+    concat_normalized_partitions,
+    finalize_aggregated,
+    normalize_partitions,
+)
 
 
 def create_pipeline(**kwargs) -> Pipeline:
+    """Build the aggregate pipeline."""
     return pipeline(
         [
-            node(concat_partitioned_datasets, inputs="primary", outputs="concatenated"),
-            node(convert_types, inputs=["concatenated", "params:map_types"], outputs="aggregated"),
+            node(
+                normalize_partitions,
+                inputs=[
+                    "primary",
+                    "params:canonical_columns",
+                    "params:scouts",
+                    "params:accumulated_years",
+                ],
+                outputs="normalized",
+            ),
+            node(
+                concat_normalized_partitions,
+                inputs="normalized",
+                outputs="concatenated",
+            ),
+            node(
+                finalize_aggregated,
+                inputs=["concatenated", "params:map_types"],
+                outputs="aggregated",
+            ),
         ],
         tags=["aggregated"],
         namespace="aggregated",

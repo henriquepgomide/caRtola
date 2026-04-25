@@ -4,7 +4,8 @@ import pytest
 
 from cartola.commons.scouts import disaccumulate_scouts
 from cartola.pipelines.aggregate_all_years.nodes import (
-    convert_types,
+    concat_normalized_partitions,
+    finalize_aggregated,
     normalize_partitions,
 )
 
@@ -20,16 +21,6 @@ SCOUTS = ["G", "A", "CA", "SG"]
 
 def _partition(df: pd.DataFrame):
     return lambda: df
-
-
-def test_convert_types():
-    df = pd.DataFrame(dict(col_str=["1", "2"], col_int=[1, 2], col_float=[1.1, 2.2]))
-    dict_map_types = dict(col_str=int, col_int=str, col_float=int)
-    df_res = convert_types(df, dict_map_types)
-    import pandas.api.types as ptypes
-    assert ptypes.is_integer_dtype(df_res.col_str)
-    assert ptypes.is_integer_dtype(df_res.col_float)
-    assert ptypes.is_string_dtype(df_res.col_int)
 
 
 def test_disaccumulate_scouts_simple_player():
@@ -193,3 +184,25 @@ def test_normalize_partitions_applies_disaccumulation_only_to_accumulated_years(
     assert list(out_2018["CA"]) == [0, 1]
     # 2014 was NOT disaccumulated: round-2 G stays at the cumulative 2.
     assert list(out_2014["G"]) == [0, 2]
+
+
+def test_concat_normalized_partitions_orders_by_year():
+    df_2018 = pd.DataFrame(dict(ano=[2018], rodada=[1], slug=["x"], id_clube=[1]))
+    df_2014 = pd.DataFrame(dict(ano=[2014], rodada=[1], slug=["x"], id_clube=[1]))
+    df_2020 = pd.DataFrame(dict(ano=[2020], rodada=[1], slug=["x"], id_clube=[1]))
+    out = concat_normalized_partitions({2018: df_2018, 2014: df_2014, 2020: df_2020})
+    assert list(out["ano"]) == [2014, 2018, 2020]
+
+
+def test_finalize_aggregated_sorts_and_casts():
+    df = pd.DataFrame(
+        dict(
+            ano=["2014", "2014"], rodada=["2", "1"],
+            id_clube=[1, 1], slug=["b", "a"],
+            G=[0.0, 1.0],
+        )
+    )
+    out = finalize_aggregated(df, dtype_map={"ano": int, "rodada": int})
+    assert list(out["ano"]) == [2014, 2014]
+    assert list(out["rodada"]) == [1, 2]
+    assert out.iloc[0]["slug"] == "a"

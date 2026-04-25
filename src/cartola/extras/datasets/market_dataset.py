@@ -20,19 +20,20 @@ class MarketDataset(AbstractDataset[pd.DataFrame, pd.DataFrame]):
         self._filepath = PurePosixPath(path)
         self._fs = fsspec.filesystem(self._protocol)
 
-    def _load(self) -> pd.DataFrame:
+    def load(self) -> pd.DataFrame:
         """Loads data from the json file.
 
         Returns:
             Data from the json file as a pandas DataFrame.
         """
         load_path = get_filepath_str(self._filepath, self._protocol)
-        dict_json = json.load(open(load_path, "r", encoding="latin-1"))
+        with open(load_path, "r", encoding="latin-1") as fh:
+            dict_json = json.load(fh)
         df = pd.DataFrame(dict_json["atletas"])
         return df.join(pd.DataFrame(df.pop("scout").values.tolist()))
 
-    def _save(self, data: pd.DataFrame) -> None:
-        """Saves data to the specified filepath"""
+    def save(self, data: pd.DataFrame) -> None:
+        """Saves data to the specified filepath."""
         save_path = get_filepath_str(self._filepath, self._protocol)
         data.to_csv(save_path, index=False)
 

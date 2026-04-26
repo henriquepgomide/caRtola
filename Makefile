@@ -28,11 +28,26 @@ pre-commit:
 profile:
 	@ydata_profiling -m -e $(args) report.html
 
-docker-build:
-	@kedro docker build --image cartola
+IMAGE ?= cartola
+TAG ?= latest
 
-docker-run:	
-	@kedro docker run --image cartola
+docker-build:
+	@docker build -t $(IMAGE):$(TAG) .
+
+docker-run:
+	@docker run --rm \
+		-v $(PWD)/conf:/app/conf \
+		-v $(PWD)/data:/app/data \
+		-v $(PWD)/logs:/app/logs \
+		$(IMAGE):$(TAG)
+
+docker-shell:
+	@docker run --rm -it \
+		-v $(PWD)/conf:/app/conf \
+		-v $(PWD)/data:/app/data \
+		-v $(PWD)/logs:/app/logs \
+		--entrypoint /bin/bash \
+		$(IMAGE):$(TAG)
 
 docker:
 	$(MAKE) docker-build

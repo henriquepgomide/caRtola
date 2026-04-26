@@ -83,7 +83,7 @@ convention = "google"
 
 [tool.pytest.ini_options]
 minversion = "8.0"
-testpaths = "src/tests"
+testpaths = "tests"
 python_files = ["test_*.py", "spec_*.py"]
 norecursedirs = [".git", ".pytest_cache"]
 markers = [

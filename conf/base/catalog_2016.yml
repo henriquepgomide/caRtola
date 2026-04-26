@@ -19,7 +19,7 @@
     index: False
 
 
-2016.preprocessing.raw:
+2016.merge.concat:
   type: partitions.PartitionedDataset
   path: data/02_intermediate
   dataset:

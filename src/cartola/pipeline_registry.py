@@ -24,10 +24,28 @@ def register_pipelines() -> Dict[str, Pipeline]:
     }
 
     def _year_pipeline(year: int, *, with_merge: bool) -> Pipeline:
-        base = preprocessing.create_pipeline()
-        if with_merge:
-            base = merge_splitted_datasets.create_pipeline() + base
-        return pipeline(base, namespace=str(year), parameters=params_preprocessing)
+        # Wrap each sub-pipeline with the year namespace *before* connecting
+        # them. After wrapping, both `merge` and `preprocessing` live under a
+        # shared `{year}` top-level namespace, so the rename
+        # `{year}.preprocessing.raw` -> `{year}.merge.concat` no longer trips
+        # Kedro's dotted-name validator (which requires the dataset namespace
+        # prefix to share the node's top-level namespace).
+        pre = pipeline(
+            preprocessing.create_pipeline(),
+            namespace=str(year),
+            parameters=params_preprocessing,
+        )
+        if not with_merge:
+            return pre
+        merge = pipeline(
+            merge_splitted_datasets.create_pipeline(),
+            namespace=str(year),
+        )
+        pre = pipeline(
+            pre,
+            inputs={f"{year}.preprocessing.raw": f"{year}.merge.concat"},
+        )
+        return merge + pre
 
     year_pipelines = {
         year: _year_pipeline(year, with_merge=year in (2014, 2015, 2016))

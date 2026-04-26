@@ -16,6 +16,17 @@ def test_fill_scouts_with_zeros():
     assert ~df.a.isna().any()
 
 
+def test_fill_scouts_with_zeros_no_op_when_no_scout_cols_present():
+    """If none of the requested scout columns exist on the frame, return it
+    unchanged. The same scouts dict is shared across years that may or may
+    not carry the columns; callers depend on this no-op behavior.
+    """
+    df = pd.DataFrame(dict(other=[1, 2, 3]))
+    out = fill_scouts_with_zeros(df, dict(G=0.0, A=0.0))
+    assert out is df
+    assert list(out.columns) == ["other"]
+
+
 def test_fill_empty_slugs():
     data = dict(apelido=["Cristiano Ronaldo", "Messi"], slug=["CR7", np.nan])
     df = pd.DataFrame(data)
@@ -57,5 +68,3 @@ def test_add_year_columns():
     df = add_year_column(df, year=2000)
     assert "ano" in df.columns
     assert np.all(df.ano.values == 2000)
-
-

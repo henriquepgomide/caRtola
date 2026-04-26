@@ -1168,7 +1168,7 @@ Expected: lists pipelines including `aggregate`. No parse errors.
 
 - [ ] **Step 4: Verify the catalog still resolves**
 
-Run: `uv run kedro catalog list 2>&1 | grep -E '(aggregated|primary)' | head -10`
+Run: `uv run kedro catalog describe-datasets 2>&1 | grep -E '(aggregated|primary)' | head -10`
 Expected: `aggregated.primary`, `aggregated.aggregated`, `aggregated.normalized`, `aggregated.concatenated` listed (the last two are MemoryDatasets — fine).
 
 - [ ] **Step 5: Commit**
@@ -1193,7 +1193,7 @@ Per the spec: 2023–2025 raw files have a leading unnamed index column (`index_
 
 ```yaml
 2023.preprocessing.raw:
-  type: PartitionedDataset
+  type: partitions.PartitionedDataset
   path: data/01_raw/2023
   dataset:
     type: pandas.CSVDataset
@@ -1222,7 +1222,7 @@ Per the spec: 2023–2025 raw files have a leading unnamed index column (`index_
 
 ```yaml
 2026.preprocessing.raw:
-  type: PartitionedDataset
+  type: partitions.PartitionedDataset
   path: data/01_raw/2026
   dataset:
     type: pandas.CSVDataset
@@ -1309,10 +1309,10 @@ def register_pipelines() -> Dict[str, Pipeline]:
     }
 
     def _year_pipeline(year: int, *, with_merge: bool) -> Pipeline:
-        pipe = preprocessing.create_pipeline()
+        base = preprocessing.create_pipeline()
         if with_merge:
-            pipe = merge_splitted_datasets.create_pipeline() + pipe
-        return pipeline(pipe=pipe, namespace=str(year), parameters=params_preprocessing)
+            base = merge_splitted_datasets.create_pipeline() + base
+        return pipeline(base, namespace=str(year), parameters=params_preprocessing)
 
     year_pipelines = {
         year: _year_pipeline(year, with_merge=year in (2014, 2015, 2016))

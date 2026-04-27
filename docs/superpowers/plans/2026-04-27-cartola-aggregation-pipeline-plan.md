@@ -6,7 +6,7 @@
 
 **Architecture:** Function-based DAG using Hamilton's `@parameterize` (one node per year), feeding a final `aggregated` concat node. Per-year processing flows through entity-aligned modules (`columns` → `team` → `player` → `scouts`). Year-specific config lives in a single `YEAR_REGISTRY` catalog. CSV-in / CSV-out, all local.
 
-**Tech Stack:** Python 3.10+, `uv` (package mgr), Hamilton (`sf-hamilton`), Hamilton UI (`sf-hamilton-ui`), Typer (CLI), Pandera (schema validation), pytest, pandas, unidecode.
+**Tech Stack:** Python 3.12+, `uv` (package mgr), Hamilton (`sf-hamilton`), Hamilton UI (`sf-hamilton-ui`), Typer (CLI), Pandera (schema validation), pytest, pandas, unidecode, ruff (lint+format).
 
 **Spec reference:** `docs/superpowers/specs/2026-04-27-cartola-aggregation-pipeline-design.md`.
 
@@ -66,12 +66,13 @@ git commit -m "chore: remove Kedro and Docker scaffolding ahead of pipeline rewr
 
 ---
 
-### Task 0.2: Rewrite `pyproject.toml` for `uv`
+### Task 0.2: Rewrite `pyproject.toml` for `uv` + ruff
 
 **Files:**
 - Modify: `pyproject.toml` (full rewrite)
+- Optionally autofix `src/cartola/` (ruff modernization of pre-existing code)
 
-- [ ] **Step 1: Replace `pyproject.toml` with the uv-native version**
+- [ ] **Step 1: Replace `pyproject.toml` with the uv-native, ruff-based version**
 
 ```toml
 [project]
@@ -81,18 +82,19 @@ description = "Local pipeline that aggregates Cartola FC data (2014–2026) into
 authors = [{ name = "Henrique Gomide", email = "henriquepgomide@gmail.com" }]
 license = { text = "MIT" }
 readme = "README.md"
-requires-python = ">=3.10,<3.13"
+requires-python = ">=3.12"
 dependencies = [
     "pandas>=2.2,<3.0",
     "sf-hamilton>=1.83",
     "typer>=0.12",
-    "pandera>=0.20",
+    "pandera>=0.20,<2.0",
     "unidecode>=1.3.6",
     "pyarrow>=15.0",
+    "requests>=2.31",
 ]
 
 [project.optional-dependencies]
-ui = ["sf-hamilton-ui>=0.0.18"]
+ui = ["sf-hamilton-ui>=0.0.17"]
 
 [project.scripts]
 cartola = "cartola.cli:app"
@@ -104,28 +106,33 @@ build-backend = "hatchling.build"
 [tool.hatch.build.targets.wheel]
 packages = ["src/cartola"]
 
-[tool.uv]
-dev-dependencies = [
+[dependency-groups]
+dev = [
     "pytest>=8.0",
     "pytest-cov>=5.0",
     "pytest-mock>=3.12",
     "pre-commit>=3.7",
-    "black>=24.0",
-    "isort>=5.13",
-    "flake8>=7.0",
+    "ruff>=0.6",
     "mypy>=1.10",
     "nbstripout>=0.7",
 ]
 
-[tool.black]
+[tool.ruff]
 line-length = 120
+target-version = "py312"
 
-[tool.isort]
-multi_line_output = 3
-include_trailing_comma = true
-force_grid_wrap = 0
-use_parentheses = true
-line_length = 120
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort (import order)
+    "B",   # flake8-bugbear
+    "UP",  # pyupgrade
+]
+ignore = [
+    "E203",  # whitespace before ':' (ruff-format compatibility)
+]
 
 [tool.pytest.ini_options]
 addopts = "--cov-report term-missing --cov src/cartola -ra"
@@ -137,10 +144,17 @@ show_missing = true
 exclude_lines = ["pragma: no cover", "raise NotImplementedError"]
 ```
 
+Notes on the design:
+- `ruff` replaces `black` + `isort` + `flake8` — single tool, faster, one config.
+- `requests>=2.31` is required at runtime (`src/cartola/download_data.py` imports it).
+- `sf-hamilton-ui>=0.0.17` (PyPI's latest at the time of writing).
+- `pandera<2.0` keeps the schema model API stable until we migrate.
+- `requires-python = ">=3.12"` lets us use modern typing without `from __future__ import annotations` boilerplate (current Python ecosystem fully supports 3.12/3.13).
+
 - [ ] **Step 2: Generate the lock file with uv**
 
 ```bash
-uv sync --extra ui --dev
+uv sync --extra ui --group dev
 ```
 
 Expected: produces `uv.lock` and `.venv/`. If `uv` is not installed, run `curl -LsSf https://astral.sh/uv/install.sh | sh` first.
@@ -148,16 +162,24 @@ Expected: produces `uv.lock` and `.venv/`. If `uv` is not installed, run `curl -
 - [ ] **Step 3: Smoke check the install**
 
 ```bash
-uv run python -c "import pandas, hamilton, typer, pandera, unidecode; print('ok')"
+uv run python -c "import pandas, hamilton, typer, pandera, unidecode, requests; print('ok')"
 ```
 
 Expected: `ok`.
 
-- [ ] **Step 4: Commit**
+- [ ] **Step 4: (Optional) Modernize pre-existing src with ruff**
 
 ```bash
-git add pyproject.toml uv.lock
-git commit -m "chore: replace Poetry with uv; add Hamilton, Typer, Pandera"
+uv run ruff check --fix src/cartola/
+uv run ruff format src/cartola/
+uv run ruff check src/cartola/   # must be "All checks passed!"
+```
+
+- [ ] **Step 5: Commit**
+
+```bash
+git add pyproject.toml uv.lock src/cartola/
+git commit -m "chore: switch to uv + ruff toolchain (Python 3.12+)"
 ```
 
 ---
@@ -1928,6 +1950,8 @@ Expected: `ImportError` for `AggregatedSchema` (not yet defined).
 
 Note: we use generic `int`/`float`/`str` dtypes (not `pd.Int*Dtype`) so the schema validates regardless of whether the column is numpy-int64 or pandas-Int64; `pd.Int32Dtype` is used only for `id_clube` because we explicitly need nullable integers there. `coerce=True` is enabled at the model level to allow Pandera to upcast minor dtype differences.
 
+We also use `import pandera.pandas as pa` (instead of the bare `import pandera as pa`) to silence the FutureWarning Pandera 0.31+ emits when pandas-specific classes are imported from the top-level module.
+
 Add at the end of the file:
 
 ```python
@@ -1935,7 +1959,7 @@ Add at the end of the file:
 # ---------------------------------------------------------------------------
 # Pandera schema (data-quality contract)
 # ---------------------------------------------------------------------------
-import pandera as pa  # noqa: E402  (kept here to keep the constants section clean)
+import pandera.pandas as pa  # noqa: E402  (kept here to keep the constants section clean)
 from pandera.typing import Series  # noqa: E402
 
 
@@ -2340,12 +2364,12 @@ help:
 	@echo "  test         - run all tests (slow ones included)"
 	@echo "  test-fast    - run all tests except those marked slow"
 	@echo "  test-slow    - run only slow (real-data smoke) tests"
-	@echo "  lint         - flake8 + mypy"
-	@echo "  format       - black + isort"
+	@echo "  lint         - ruff check + mypy"
+	@echo "  format       - ruff format + ruff check --fix"
 	@echo "  clean        - remove pycache and other build artifacts"
 
 install:
-	uv sync --extra ui --dev
+	uv sync --extra ui --group dev
 
 aggregate:
 	uv run cartola aggregate
@@ -2363,18 +2387,19 @@ test-slow:
 	uv run pytest -m slow -v
 
 lint:
-	uv run flake8 src/cartola
+	uv run ruff check src/cartola tests
 	uv run mypy --ignore-missing-imports src/cartola
 
 format:
-	uv run black src/cartola tests
-	uv run isort src/cartola tests
+	uv run ruff format src/cartola tests
+	uv run ruff check --fix src/cartola tests
 
 clean:
 	@find . -type f -name '*.pyc' -delete
 	@find . -type d -name '__pycache__' -exec rm -rf {} + 2>/dev/null || true
 	@find . -type d -name '.mypy_cache' -exec rm -rf {} + 2>/dev/null || true
 	@find . -type d -name '.pytest_cache' -exec rm -rf {} + 2>/dev/null || true
+	@find . -type d -name '.ruff_cache' -exec rm -rf {} + 2>/dev/null || true
 	@find . -type d -name '*.egg-info' -exec rm -rf {} + 2>/dev/null || true
 ```
 

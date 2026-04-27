@@ -39,7 +39,7 @@ We need a single, harmonized, per-(year, round, player) DataFrame covering 2014â
 
 ## 4. Constraints
 
-- Python 3.10+ (current project pins `3.10.*`).
+- Python 3.12+ (modern typing, no `from __future__ import annotations` boilerplate).
 - Local-only execution.
 - Pure CSV input/output (no DBs).
 - Output must be inspectable by humans (CSV, not Parquet).

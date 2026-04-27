@@ -163,33 +163,26 @@ cython_debug/
 **/.DS_Store
 
 #########################
-# KEDRO PROJECT
+# project-specific
 
-# ignore all local configuration
-conf/local/**
-!conf/local/.gitkeep
-
-# ignore potentially sensitive credentials files
-conf/**/*credentials*
-
-# ignore everything in the following folders
+# ignore everything under data/ and logs/ by default (pipeline outputs are
+# local-only). Whitelist exceptions below for raw inputs we DO want tracked.
 **/data/**/*
 **/logs/**/*
 
-# keep empty data folders
+# keep dir markers and the raw inputs that ship with the repo
 !**/data/*
 !**/data/**/.gitkeep
-!**/logs/*
 !**/logs/**/.gitkeep
-
-# also keep the example dataset
-!**/data/01_raw/iris.csv
-!**/data/01_raw/boston.csv
-
-# also keep all .gitkeep files
 !.gitkeep
 
+# raw seasonal inputs are tracked (they're the pipeline's public dataset)
+!data/01_raw/**/*.csv
 
-# custom
 .telemetry
 logs/
+
+# local IDE / tool artifacts
+.vscode/
+.viz/
+report.xml

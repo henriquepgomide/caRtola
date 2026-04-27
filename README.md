@@ -10,7 +10,45 @@ Entre no nosso [servidor do Discord][discord] para trocar experiências sobre pr
 
 Você encontra os dados raw do *Cartola FC* desde 2014 na pasta [data/01_raw][folder_data].
 
-> Estamos preparando um pipeline para agregar os dados de todos os anos em um único arquivo. Então, fique atento no repositório!
+## 🛠 Pipeline (Cartola Aggregation)
+
+Pipeline local que agrega os dados do *Cartola FC* de 2014 a 2026 em um único
+CSV harmonizado de 38 colunas (contexto + clube + jogador + estado de jogo +
+21 scouts).
+
+> ⚠️ 2021 ainda não está incluso: o raw daquele ano está em formato JSON
+> (`Mercado_N.txt`) e exige um leitor dedicado, planejado como follow-up.
+
+### Setup
+
+```bash
+uv sync --extra ui --group dev
+```
+
+### Rodando
+
+```bash
+uv run cartola aggregate                       # todos os anos
+uv run cartola aggregate --years 2024,2025,2026
+uv run cartola aggregate --track               # envia o run para a Hamilton UI
+uv run cartola viz                             # abre a UI em http://localhost:8241
+```
+
+Saídas:
+
+- `data/03_primary/cartola_<year>.csv` — um por ano processado
+- `data/04_aggregated/cartola_2014_2026.csv` — concat final (apenas em runs completos)
+
+### Testes
+
+```bash
+make test-fast    # unit + integração; roda em segundos
+make test-slow    # smoke test contra todos os dados reais; ~10s
+make test         # ambos
+```
+
+Detalhes de design e decisões em
+[`docs/superpowers/specs/2026-04-27-cartola-aggregation-pipeline-design.md`](docs/superpowers/specs/2026-04-27-cartola-aggregation-pipeline-design.md).
 
 ## 🧑‍🏫 Tutoriais
 

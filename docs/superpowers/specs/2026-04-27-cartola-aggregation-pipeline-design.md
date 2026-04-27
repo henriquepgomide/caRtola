@@ -163,7 +163,7 @@ TEAM_NAME_TO_ID = {
 }
 ```
 
-**Resolution policy** (in `harmonization.resolve_id_clube`):
+**Resolution policy** (in `team.resolve_id_clube`):
 1. Normalize `nome_clube`: `unidecode(name.strip().upper())`. Compare against an unidecoded version of the map keys.
 2. If found → set canonical `id_clube`.
 3. If not found OR `nome_clube` is NaN/empty → leave `id_clube` as NaN, log a warning with the row count grouped by `(ano, nome_clube)`.
@@ -176,6 +176,8 @@ TEAM_NAME_TO_ID = {
 ## 7. Pipeline Design
 
 ### 7.1 Architecture
+
+The pipeline is organized **by entity** (team, player, scouts) — mirroring the schema groups in §6. A small `columns.py` handles the cross-cutting raw→canonical rename; the rest is entity-aligned.
 
 ```
                    ┌──────────────────┐
@@ -191,20 +193,29 @@ TEAM_NAME_TO_ID = {
                │  - round_files         │
                └────────────┬───────────┘
                             ▼
-               ┌─────────────────────────────────┐
-               │   harmonization                 │  harmonization.py
-               │ rename_columns                  │
-               │ → resolve_id_clube (via map)    │
-               │ → map_position_label            │
-               │ → map_status_label              │
-               │ → fill_missing_slug             │
-               └────────────┬────────────────────┘
+               ┌────────────────────────┐
+               │  rename_columns        │  columns.py
+               │  raw → canonical names │
+               └────────────┬───────────┘
                             ▼
                ┌────────────────────────┐
-               │   scouts pipeline      │  scouts.py
-               │ harmonize names →      │
-               │ disaccumulate (if cat) │
-               │ → fill within-year     │
+               │  team                  │  team.py
+               │  resolve_id_clube      │
+               │  (via TEAM_NAME_TO_ID) │
+               └────────────┬───────────┘
+                            ▼
+               ┌────────────────────────┐
+               │  player                │  player.py
+               │  map_position →        │
+               │  map_status →          │
+               │  fill_missing_slug     │
+               └────────────┬───────────┘
+                            ▼
+               ┌────────────────────────┐
+               │  scouts                │  scouts.py
+               │  harmonize_names →     │
+               │  disaccumulate (if cat)│
+               │  → fill_within_year    │
                └────────────┬───────────┘
                             ▼
             ┌────────────────────────────────┐
@@ -220,7 +231,7 @@ TEAM_NAME_TO_ID = {
             └────────────────────────────────┘
 ```
 
-### 7.2 Module structure
+### 7.2 Module structure (entity-organized)
 
 ```
 src/cartola/
@@ -228,18 +239,19 @@ src/cartola/
 ├── cli.py                     # Typer CLI: `aggregate`, `viz`
 ├── aggregation/
 │   ├── __init__.py
-│   ├── schema.py              # CANONICAL_COLUMNS, SCOUTS, dtypes,
-│   │                          # POSITION_MAP, STATUS_MAP, TEAM_NAME_TO_ID,
-│   │                          # AggregatedSchema (Pandera)
+│   ├── schema.py              # CANONICAL_COLUMNS, dtypes, AggregatedSchema (Pandera)
+│   ├── columns.py             # COLUMN_RENAME_MAP, rename_columns()
+│   │                          # cross-cutting: raw → canonical column names
 │   ├── readers.py             # read_season_files, read_monolithic, read_round_files
-│   ├── harmonization.py       # rename_columns, resolve_id_clube,
-│   │                          # map_position_label, map_status_label,
-│   │                          # fill_missing_slug, COLUMN_RENAME_MAP
-│   ├── scouts.py              # harmonize_scout_names, disaccumulate_scouts,
-│   │                          # fill_scouts_within_year, SCOUT_RENAME_MAP
+│   ├── team.py                # TEAM_NAME_TO_ID, resolve_id_clube()
+│   ├── player.py              # POSITION_MAP, STATUS_MAP, map_position(),
+│   │                          # map_status(), fill_missing_slug()
+│   ├── scouts.py              # SCOUTS, SCOUT_RENAME_MAP,
+│   │                          # harmonize_scout_names(), disaccumulate_scouts(),
+│   │                          # fill_scouts_within_year(), process()
 │   ├── catalog.py             # YearConfig dataclass, YEAR_REGISTRY dict
 │   ├── nodes.py               # Hamilton @parameterize'd nodes per year +
-│   │                          # `aggregated` final node
+│   │                          # `aggregated` final node (orchestrates entities)
 │   └── driver.py              # build_driver(), run(years, output_dir, track)
 ├── commons/
 │   ├── __init__.py
@@ -248,6 +260,8 @@ src/cartola/
 ├── download_data.py           # KEPT as-is (independent script)
 └── update_readme.py           # KEPT as-is
 ```
+
+**Why entity-based**: matches schema groups (§6), domain-aligned naming, scales naturally as features grow per entity. The cross-cutting `rename_columns` lives in `columns.py` to avoid fragmenting the rename map across files.
 
 ### 7.3 The catalog (`catalog.py`)
 
@@ -292,9 +306,8 @@ Each year becomes one Hamilton node via `@parameterize`. The aggregated node dep
 from hamilton.function_modifiers import parameterize, value
 import pandas as pd
 
+from cartola.aggregation import columns, team, player, scouts
 from cartola.aggregation.catalog import YEAR_REGISTRY
-from cartola.aggregation.harmonization import harmonize
-from cartola.aggregation.scouts import process_scouts
 from cartola.aggregation.schema import CANONICAL_COLUMNS
 
 # Generate {"year_2014": {"year": value(2014)}, "year_2015": {...}, ...}
@@ -302,12 +315,16 @@ _PARAMS = {f"year_{y}": {"year": value(y)} for y in YEAR_REGISTRY}
 
 @parameterize(**_PARAMS)
 def year_dataframe(year: int) -> pd.DataFrame:
-    """Reads, harmonizes, processes scouts, and returns one year's data
-    in the canonical schema."""
+    """Reads raw data and applies entity-by-entity transformations to produce
+    one year of data in the canonical schema."""
     cfg = YEAR_REGISTRY[year]
     raw = cfg.reader(cfg.raw_dir, year)
-    df = harmonize(raw, year=year)
-    df = process_scouts(df, accumulated=cfg.accumulated, has_scouts=cfg.has_scouts)
+    df = columns.rename_columns(raw)
+    df = team.resolve_id_clube(df)
+    df = player.map_position(df)
+    df = player.map_status(df)
+    df = player.fill_missing_slug(df)
+    df = scouts.process(df, accumulated=cfg.accumulated, has_scouts=cfg.has_scouts)
     df["ano"] = year
     return df.reindex(columns=CANONICAL_COLUMNS)
 
@@ -356,10 +373,10 @@ def disaccumulate_scouts(df: pd.DataFrame, scout_cols: list[str]) -> pd.DataFram
 
 ### 7.6 NaN policy for scouts
 
-The `process_scouts` function in `scouts.py` applies the rules below. Pseudocode:
+The `scouts.process` function in `scouts.py` applies the rules below. Pseudocode:
 
 ```python
-def process_scouts(df, accumulated: bool, has_scouts: bool) -> pd.DataFrame:
+def process(df, accumulated: bool, has_scouts: bool) -> pd.DataFrame:
     if not has_scouts:
         for col in SCOUTS:
             df[col] = pd.NA          # all 21 scouts NaN (e.g., 2025)
@@ -408,12 +425,13 @@ tests/
 │   ├── 2014/{2014_jogadores,2014_scouts_raw,2014_times}.csv
 │   ├── 2017/2017_scouts_raw.csv
 │   └── 2018/{rodada-1,rodada-2}.csv
-├── unit/
+├── unit/                      # one test file per source module (1:1)
 │   ├── test_schema.py
+│   ├── test_columns.py        # rename_columns: legacy → canonical names
 │   ├── test_readers.py        # each reader against fixtures
-│   ├── test_harmonization.py
-│   ├── test_scouts.py         # disaccumulate edge cases (skip round, first
-│   │                          # appearance, retroactive correction, SG clip)
+│   ├── test_team.py           # resolve_id_clube + edge cases (see below)
+│   ├── test_player.py         # map_position, map_status, fill_missing_slug
+│   ├── test_scouts.py         # harmonize_names, disaccumulate edge cases
 │   ├── test_catalog.py        # all years valid, raw_dir exists
 │   └── test_nodes.py
 ├── integration/
@@ -427,18 +445,35 @@ tests/
 
 ### Unit test coverage targets
 
-- **`test_scouts.py::test_disaccumulate_basic`**: simple 2-round case.
-- **`test_scouts.py::test_disaccumulate_skipped_round`**: player misses a round.
-- **`test_scouts.py::test_disaccumulate_first_appearance_mid_season`**: player joins in round 5.
-- **`test_scouts.py::test_disaccumulate_sg_clip`**: SG never goes negative.
-- **`test_scouts.py::test_disaccumulate_retroactive_correction`**: cumulative goes down → kept as negative for non-SG scouts.
-- **`test_harmonization.py::test_scout_renames`**: PE→PI, RB→DS, DD→DE applied.
-- **`test_harmonization.py::test_resolve_id_clube_full_name`**: "Flamengo" → 262.
-- **`test_harmonization.py::test_resolve_id_clube_abbreviation`**: "FLA" → 262.
-- **`test_harmonization.py::test_resolve_id_clube_with_accents`**: "São Paulo" / "SAO PAULO" → 276.
-- **`test_harmonization.py::test_resolve_id_clube_unknown_name_stays_nan`**: "Time XYZ" → NaN, warning logged.
-- **`test_harmonization.py::test_resolve_id_clube_overrides_raw_2018`**: 2018 row with `clube_id="ATL"` and `nome_clube="Atlético-MG"` → id_clube=282 (not the buggy abbreviation).
-- **`test_catalog.py::test_all_years_have_existing_raw_dir`**: every YEAR_REGISTRY entry points to a real directory.
+**`test_columns.py`**
+- `test_rename_columns_legacy_2014`: `Apelido`→`apelido`, `AtletaID`→`id_atleta`, etc.
+- `test_rename_columns_modern_atletas_prefix`: `atletas.atleta_id`→`id_atleta`, `atletas.clube.id.full.name`→`nome_clube`.
+
+**`test_team.py`**
+- `test_resolve_id_clube_full_name`: "Flamengo" → 262.
+- `test_resolve_id_clube_abbreviation`: "FLA" → 262.
+- `test_resolve_id_clube_with_accents`: "São Paulo" / "SAO PAULO" → 276.
+- `test_resolve_id_clube_unknown_name_stays_nan`: "Time XYZ" → NaN, warning logged.
+- `test_resolve_id_clube_overrides_raw_2018`: 2018 row with `id_clube="ATL"` and `nome_clube="Atlético-MG"` → id_clube=282 (not the buggy abbreviation).
+- `test_resolve_id_clube_parana`: "Paraná" → 270.
+
+**`test_player.py`**
+- `test_map_position_legacy_id_to_label`: int 1 → "gol", 5 → "ata".
+- `test_map_status_legacy_id_to_label`: int 7 → "Provável", 5 → "Contundido".
+- `test_fill_missing_slug_uses_apelido`: NaN slug → `compute_slug(apelido)`.
+
+**`test_scouts.py`**
+- `test_harmonize_scout_names`: PE→PI, RB→DS, DD→DE applied.
+- `test_disaccumulate_basic`: simple 2-round case.
+- `test_disaccumulate_skipped_round`: player misses a round.
+- `test_disaccumulate_first_appearance_mid_season`: player joins in round 5.
+- `test_disaccumulate_sg_clip`: SG never goes negative.
+- `test_disaccumulate_retroactive_correction`: cumulative goes down → kept as negative for non-SG scouts.
+- `test_process_no_scouts_year`: `has_scouts=False` → all 21 scouts NaN.
+
+**`test_catalog.py`**
+- `test_all_years_have_existing_raw_dir`: every YEAR_REGISTRY entry points to a real directory.
+- `test_accumulated_years_match_spec`: confirms 2015, 2017, 2018, 2019, 2020, 2021, 2022 are flagged accumulated.
 
 ### Pandera schema (in `aggregation/schema.py`)
 

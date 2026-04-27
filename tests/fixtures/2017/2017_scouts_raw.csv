@@ -1,0 +1,3 @@
+,A,CA,CV,DD,DP,FC,FD,FF,FS,FT,G,GC,GS,I,PE,PP,RB,SG,athletes.atletas.scout,atletas.apelido,atletas.atleta_id,atletas.clube.id.full.name,atletas.clube_id,atletas.foto,atletas.jogos_num,atletas.media_num,atletas.nome,atletas.pontos_num,atletas.posicao_id,atletas.preco_num,Rodada,atletas.status_id,atletas.variacao_num
+0,0,0,0,0,0,1,0,0,2,0,0,0,0,0,1,0,1,0,,Juan,36540,Flamengo,FLA,https://example.com/foto.png,1,5.0,Juan Silveira dos Santos,5.0,zag,8.0,1,Provável,0.0
+1,1,0,0,0,0,2,1,1,3,0,1,0,0,1,0,0,2,1,,Juan,36540,Flamengo,FLA,https://example.com/foto.png,2,5.5,Juan Silveira dos Santos,6.0,zag,8.5,2,Provável,0.5

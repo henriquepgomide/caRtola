@@ -107,12 +107,34 @@ def _normalize_name(name: object) -> str | None:
     return unidecode(text.upper())
 
 
+# Built once: the set of canonical Cartola team IDs we already know about.
+# Used as a safety net for raw rows that store the numeric `clube_id` directly
+# in the `nome_clube` column (notably 2020 from rodada-12 onwards).
+_KNOWN_CLUBE_IDS: frozenset[int] = frozenset(TEAM_NAME_TO_ID.values())
+
+
+def _maybe_numeric_clube_id(value: object) -> int | None:
+    """Return ``int(value)`` if ``value`` is a digit-string matching a known
+    Cartola clube id (e.g. `"285"` → ``285`` for Internacional)."""
+    if value is None or (isinstance(value, float) and pd.isna(value)):
+        return None
+    text = str(value).strip()
+    if not text or not text.isdigit():
+        return None
+    candidate = int(text)
+    return candidate if candidate in _KNOWN_CLUBE_IDS else None
+
+
 def resolve_id_clube(df: pd.DataFrame) -> pd.DataFrame:
     """Rebuild `id_clube` from `nome_clube` using TEAM_NAME_TO_ID.
 
     Returns the input DataFrame with `id_clube` cast to `Int32` (nullable).
     Rows whose `nome_clube` cannot be resolved get NaN id_clube and a single
     aggregated WARN log per (ano, nome_clube) group is emitted.
+
+    Fallback: if `nome_clube` is a numeric string that matches a known
+    Cartola clube id (some 2020 rounds store `"285"` instead of
+    `"Internacional"` in the name column), we resolve to that id directly.
     """
     df = df.copy()
 
@@ -128,6 +150,13 @@ def resolve_id_clube(df: pd.DataFrame) -> pd.DataFrame:
     unresolved_mask = (
         df["id_clube"].isna() & df["nome_clube"].notna() & (df["nome_clube"].astype(str).str.strip() != "")
     )
+    if unresolved_mask.any():
+        numeric_fallback = df.loc[unresolved_mask, "nome_clube"].map(_maybe_numeric_clube_id)
+        df.loc[unresolved_mask, "id_clube"] = numeric_fallback.astype("Int32")
+        unresolved_mask = (
+            df["id_clube"].isna() & df["nome_clube"].notna() & (df["nome_clube"].astype(str).str.strip() != "")
+        )
+
     if unresolved_mask.any():
         group_cols = [c for c in ("ano", "nome_clube") if c in df.columns]
         groups = (

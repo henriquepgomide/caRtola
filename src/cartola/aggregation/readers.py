@@ -21,7 +21,12 @@ logger = logging.getLogger(__name__)
 _ROUND_FILE_RE = re.compile(r"rodada-(\d+)\.csv$", re.IGNORECASE)
 
 
-_MOJIBAKE_MARKERS = (b"\xc3\x83", b"\xc3\x82")  # UTF-8 of `Ã`, `Â` — common double-encoding signs.
+# Strong double-encoding signature: `Ã` (\xc3\x83) immediately followed by a
+# `Â` (\xc3\x82) start byte — that 4-byte sequence is what you get when a
+# UTF-8 file is decoded as latin-1 and re-encoded as UTF-8. A naive marker
+# like just `\xc3\x83` triggers false positives on legitimate accented words
+# such as `São` or `ração`.
+_MOJIBAKE_SIGNATURE = b"\xc3\x83\xc2"
 
 
 def _read_csv_robust(path: Path) -> pd.DataFrame:
@@ -33,15 +38,16 @@ def _read_csv_robust(path: Path) -> pd.DataFrame:
        on UTF-8 read, retry as latin-1.
     2. **Double-encoded UTF-8** (notably 2023's `rodada-N.csv`) → reads as
        valid UTF-8 but contains mojibake like `SÃ£o Paulo` instead of
-       `São Paulo`. Detected via the `Ã` / `Â` byte markers in the file head.
-       Repaired by ``decode utf-8 → encode latin-1 → decode utf-8``.
+       `São Paulo`. Detected via the `Ã Â` 3-byte signature in the file
+       (sampling several KB to handle long single-line headers). Repaired
+       by ``decode utf-8 → encode latin-1 → decode utf-8``.
     """
     try:
-        head = path.open("rb").read(8192)
+        sample = path.open("rb").read(65536)
     except OSError:
         return pd.read_csv(path)
 
-    if any(marker in head for marker in _MOJIBAKE_MARKERS):
+    if _MOJIBAKE_SIGNATURE in sample:
         try:
             text = path.read_bytes().decode("utf-8").encode("latin-1").decode("utf-8")
             return pd.read_csv(io.StringIO(text))

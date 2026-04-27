@@ -60,6 +60,7 @@ ignore = [
 [tool.pytest.ini_options]
 addopts = "--cov-report term-missing --cov src/cartola -ra"
 testpaths = ["tests"]
+markers = ["slow: real-data smoke tests; skip with -m 'not slow'"]
 
 [tool.coverage.report]
 fail_under = 0

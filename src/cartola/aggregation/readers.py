@@ -9,6 +9,7 @@ Three shapes correspond to three eras of the project:
 
 from __future__ import annotations
 
+import io
 import logging
 import re
 from pathlib import Path
@@ -20,6 +21,40 @@ logger = logging.getLogger(__name__)
 _ROUND_FILE_RE = re.compile(r"rodada-(\d+)\.csv$", re.IGNORECASE)
 
 
+_MOJIBAKE_MARKERS = (b"\xc3\x83", b"\xc3\x82")  # UTF-8 of `Ã`, `Â` — common double-encoding signs.
+
+
+def _read_csv_robust(path: Path) -> pd.DataFrame:
+    """Read a Cartola CSV, repairing common encoding pitfalls.
+
+    Two real-world cases:
+
+    1. **Genuine latin-1 file** (rare in this corpus) → ``UnicodeDecodeError``
+       on UTF-8 read, retry as latin-1.
+    2. **Double-encoded UTF-8** (notably 2023's `rodada-N.csv`) → reads as
+       valid UTF-8 but contains mojibake like `SÃ£o Paulo` instead of
+       `São Paulo`. Detected via the `Ã` / `Â` byte markers in the file head.
+       Repaired by ``decode utf-8 → encode latin-1 → decode utf-8``.
+    """
+    try:
+        head = path.open("rb").read(8192)
+    except OSError:
+        return pd.read_csv(path)
+
+    if any(marker in head for marker in _MOJIBAKE_MARKERS):
+        try:
+            text = path.read_bytes().decode("utf-8").encode("latin-1").decode("utf-8")
+            return pd.read_csv(io.StringIO(text))
+        except (UnicodeDecodeError, UnicodeEncodeError):
+            logger.warning("Mojibake repair failed for %s; reading as-is", path)
+
+    try:
+        return pd.read_csv(path, encoding="utf-8")
+    except UnicodeDecodeError:
+        logger.warning("UTF-8 decode failed for %s — falling back to latin-1", path)
+        return pd.read_csv(path, encoding="latin-1")
+
+
 def read_season_files(raw_dir: str, year: int) -> pd.DataFrame:
     """2014–2016: merge `<year>_scouts_raw.csv` (per-round data) with
     `<year>_jogadores.csv` (player metadata) and `<year>_times.csv` (team names).
@@ -27,9 +62,9 @@ def read_season_files(raw_dir: str, year: int) -> pd.DataFrame:
     Returns a wide DataFrame keyed by (AtletaID, Rodada) with team `Nome`.
     """
     base = Path(raw_dir)
-    scouts = pd.read_csv(base / f"{year}_scouts_raw.csv")
-    jogadores = pd.read_csv(base / f"{year}_jogadores.csv")
-    times = pd.read_csv(base / f"{year}_times.csv")
+    scouts = _read_csv_robust(base / f"{year}_scouts_raw.csv")
+    jogadores = _read_csv_robust(base / f"{year}_jogadores.csv")
+    times = _read_csv_robust(base / f"{year}_times.csv")
 
     # 2014 scouts has a `Posicao` column that is redundant with jogadores.PosicaoID
     # (both int, same values). Drop to avoid a duplicate column after the merge.
@@ -48,7 +83,7 @@ def read_season_files(raw_dir: str, year: int) -> pd.DataFrame:
 def read_monolithic(raw_dir: str, year: int) -> pd.DataFrame:
     """2017: a single CSV containing player metadata + scouts in one wide table."""
     path = Path(raw_dir) / f"{year}_scouts_raw.csv"
-    return pd.read_csv(path)
+    return _read_csv_robust(path)
 
 
 def read_round_files(raw_dir: str, year: int) -> pd.DataFrame:
@@ -66,5 +101,5 @@ def read_round_files(raw_dir: str, year: int) -> pd.DataFrame:
         logger.warning("No rodada-*.csv files in %s", base)
         return pd.DataFrame()
 
-    frames = [pd.read_csv(p) for p in files]
+    frames = [_read_csv_robust(p) for p in files]
     return pd.concat(frames, ignore_index=True)

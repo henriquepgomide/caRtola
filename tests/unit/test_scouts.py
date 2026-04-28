@@ -115,3 +115,12 @@ def test_process_accumulated_year_disaccumulates():
     )
     out = scouts.process(df, accumulated=True, has_scouts=True)
     assert out["G"].tolist() == [1.0, 3.0]
+
+
+def test_process_returns_early_when_no_scout_columns_present():
+    """``has_scouts=True`` but the input frame happens to have zero scout
+    columns at all → short-circuit before fillna/disaccumulate (line 95)."""
+    df = pd.DataFrame({"id_atleta": [1, 2], "rodada": [1, 1]})
+    out = scouts.process(df, accumulated=True, has_scouts=True)
+    assert list(out.columns) == ["id_atleta", "rodada"]
+    assert len(out) == 2

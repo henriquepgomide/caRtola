@@ -17,11 +17,7 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-ui = [
-    "sf-hamilton-ui>=0.0.17",
-    "sf-hamilton-sdk>=0.8",
-    "django-ninja<1.5",
-]
+ui = ["sf-hamilton-ui>=0.0.17", "sf-hamilton-sdk>=0.8", "django-ninja<1.5"]
 
 [project.scripts]
 cartola = "cartola.cli:app"
@@ -88,13 +84,17 @@ addopts = [
     "--cov-report=term-missing:skip-covered",
     "--cov-report=xml",
     "--cov=src/cartola",
-    "--cov=cli",
     "-ra",
 ]
 
 [tool.coverage.report]
-fail_under = 90
+fail_under = 100
 precision = 2
 show_missing = true
 include_namespace_packages = true
-exclude_lines = ["pragma: no cover", "raise NotImplementedError"]
+omit = ["src/cartola/download_data.py", "src/cartola/update_readme.py"]
+exclude_lines = [
+    "pragma: no cover",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+]

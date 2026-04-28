@@ -87,3 +87,101 @@ def test_read_round_files_skips_rodada_zero(tmp_path):
     assert len(df) == 1
     assert df["atletas.rodada_id"].iloc[0] == 1
     assert df["G"].iloc[0] == 5
+
+
+def test_read_csv_robust_recovers_from_oserror(tmp_path, mocker):
+    """If the rb-sample probe raises OSError, fall back to a plain read_csv."""
+    csv = tmp_path / "x.csv"
+    csv.write_text("a,b\n1,2\n", encoding="utf-8")
+
+    real_open = csv.open
+
+    def fake_open(self, *args, **kwargs):
+        if args and args[0] == "rb":
+            raise OSError("simulated probe failure")
+        return real_open(*args, **kwargs)
+
+    mocker.patch.object(type(csv), "open", autospec=True, side_effect=fake_open)
+    df = readers._read_csv_robust(csv)
+    assert df["a"].iloc[0] == 1
+
+
+def test_read_csv_robust_repairs_double_encoded_utf8(tmp_path):
+    """Synthesize a mojibake file (legit UTF-8 → encoded as latin-1 → encoded as UTF-8)."""
+    csv = tmp_path / "mojibake.csv"
+    correct = "nome\nSão Paulo\n"
+    mojibake_bytes = correct.encode("utf-8").decode("latin-1").encode("utf-8")
+    csv.write_bytes(mojibake_bytes)
+    df = readers._read_csv_robust(csv)
+    assert df["nome"].iloc[0] == "São Paulo"
+
+
+def test_read_csv_robust_unrepairable_mojibake_falls_through(tmp_path, caplog, mocker):
+    """If the repair step itself errors, log a warning and read the file as-is."""
+    csv = tmp_path / "x.csv"
+    csv.write_bytes(b"a\n1\n")
+    mocker.patch.object(readers, "_MOJIBAKE_SIGNATURE", b"a")
+    mocker.patch.object(readers.Path, "read_bytes", side_effect=UnicodeDecodeError("utf-8", b"", 0, 1, "x"))
+    with caplog.at_level("WARNING"):
+        df = readers._read_csv_robust(csv)
+    assert df["a"].iloc[0] == 1
+    assert any("Mojibake repair failed" in record.message for record in caplog.records)
+
+
+def test_read_csv_robust_falls_back_to_latin1(tmp_path, caplog):
+    """Genuine latin-1 file → first read raises UnicodeDecodeError; second succeeds."""
+    csv = tmp_path / "latin1.csv"
+    csv.write_bytes("nome\ncoração\n".encode("latin-1"))
+    with caplog.at_level("WARNING"):
+        df = readers._read_csv_robust(csv)
+    assert df["nome"].iloc[0] == "coração"
+    assert any("falling back to latin-1" in record.message for record in caplog.records)
+
+
+def test_read_round_files_warns_when_dir_missing(tmp_path, caplog):
+    missing = tmp_path / "does-not-exist"
+    with caplog.at_level("WARNING"):
+        df = readers.read_round_files(str(missing), year=2099)
+    assert df.empty
+    assert any("Raw dir does not exist" in record.message for record in caplog.records)
+
+
+def test_read_round_files_returns_empty_when_only_rodada_zero(tmp_path):
+    """Only file is ``rodada-0.csv`` (preseason) → skipped → empty DataFrame."""
+    cols = ["atletas.atleta_id", "atletas.rodada_id", "G"]
+    (tmp_path / "rodada-0.csv").write_text("\n".join([",".join(cols), "100,1,0"]))
+    df = readers.read_round_files(str(tmp_path), year=2099)
+    assert df.empty
+
+
+def test_read_mercado_json_warns_when_dir_missing(tmp_path, caplog):
+    missing = tmp_path / "does-not-exist"
+    with caplog.at_level("WARNING"):
+        df = readers.read_mercado_json(str(missing), year=2021)
+    assert df.empty
+    assert any("Raw dir does not exist" in record.message for record in caplog.records)
+
+
+def test_read_mercado_json_returns_empty_when_only_preseason_present(tmp_path):
+    """Only file is ``Mercado_1.txt`` (preseason; idx<2) → skipped → empty DataFrame."""
+    payload = '{"atletas": [], "clubes": {}}'
+    (tmp_path / "Mercado_1.txt").write_text(payload, encoding="utf-8")
+    df = readers.read_mercado_json(str(tmp_path), year=2021)
+    assert df.empty
+
+
+def test_read_mercado_json_falls_back_to_latin1(tmp_path):
+    """A latin-1 encoded ``Mercado_*.txt`` → utf-8 decode raises → retry as latin-1."""
+    payload = {
+        "atletas": [
+            {"atleta_id": 1, "clube_id": 262, "rodada_id": 5, "scout": {"G": 1}},
+        ],
+        "clubes": {"262": {"id": 262, "nome": "São Paulo"}},
+    }
+    import json as _json
+
+    text = _json.dumps(payload, ensure_ascii=False)
+    (tmp_path / "Mercado_2.txt").write_bytes(text.encode("latin-1"))
+    df = readers.read_mercado_json(str(tmp_path), year=2021)
+    assert len(df) == 1
+    assert df["G"].iloc[0] == 1

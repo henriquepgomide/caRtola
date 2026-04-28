@@ -91,3 +91,61 @@ def test_dedupe_per_rodada_handles_missing_columns_gracefully():
     df = pd.DataFrame({"foo": [1, 2]})
     out = player.dedupe_per_rodada(df)
     assert len(out) == 2
+
+
+def test_compute_slug_strips_accents_and_lowercases():
+    assert player.compute_slug("Éverton Ribeiro") == "everton-ribeiro"
+
+
+def test_coerce_with_map_returns_na_for_none_value():
+    """Direct check of the helper's None branch (player.py line 30)."""
+    out = player._coerce_with_map(None, {1: "x"}, {"x"})
+    assert out is pd.NA
+
+
+def test_coerce_with_map_returns_na_for_non_castable_string():
+    """Numeric cast failure path: a non-numeric string that is not a known label."""
+    out = player._coerce_with_map("not-a-number", {1: "x"}, {"x"})
+    assert out is pd.NA
+
+
+def test_coerce_with_map_returns_na_for_non_int_castable_object():
+    """Hit the outer try/except (lines 41-42): non-string, non-None value
+    whose ``int()`` cast raises (e.g. ``pd.NA``, an arbitrary object)."""
+    assert player._coerce_with_map(pd.NA, {1: "x"}, {"x"}) is pd.NA
+    assert player._coerce_with_map([1, 2], {1: "x"}, {"x"}) is pd.NA
+
+
+def test_map_position_handles_none_cell():
+    df = pd.DataFrame({"posicao": [None, 1]})
+    out = player.map_position(df)
+    assert pd.isna(out["posicao"].iloc[0])
+    assert out["posicao"].iloc[1] == "gol"
+
+
+def test_dedupe_per_rodada_with_no_scout_columns_uses_zero_filled_marker():
+    """Hit the ``else: df['_dedupe_scout_filled'] = 0`` branch (line 138)."""
+    df = pd.DataFrame(
+        {
+            "rodada": [1, 1],
+            "id_atleta": [10, 10],
+            "num_jogos": [1, 2],
+        }
+    )
+    out = player.dedupe_per_rodada(df)
+    assert len(out) == 1
+    assert out["num_jogos"].iloc[0] == 2
+
+
+def test_dedupe_per_rodada_uses_pontuacao_as_tiebreaker():
+    """Hit the ``if 'pontuacao' in df.columns`` branch (line 144)."""
+    df = pd.DataFrame(
+        {
+            "rodada": [1, 1],
+            "id_atleta": [10, 10],
+            "pontuacao": [1.0, 9.0],
+        }
+    )
+    out = player.dedupe_per_rodada(df)
+    assert len(out) == 1
+    assert out["pontuacao"].iloc[0] == 9.0

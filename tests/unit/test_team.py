@@ -79,6 +79,30 @@ def test_resolve_id_clube_numeric_string_falls_back_to_known_id():
     assert pd.isna(out["id_clube"].iloc[2])  # unknown id stays NaN
 
 
+def test_resolve_id_clube_treats_empty_string_name_as_unresolved():
+    """Hit ``_normalize_name`` empty-string branch (line 104)."""
+    df = pd.DataFrame({"nome_clube": ["", "  "], "id_clube": [pd.NA, pd.NA]})
+    out = team.resolve_id_clube(df)
+    assert out["id_clube"].isna().all()
+
+
+def test_maybe_numeric_clube_id_returns_none_for_nan():
+    """Direct check of the NaN-guard in ``_maybe_numeric_clube_id`` (line 125)."""
+    assert team._maybe_numeric_clube_id(None) is None
+    assert team._maybe_numeric_clube_id(float("nan")) is None
+    assert team._maybe_numeric_clube_id("") is None
+    assert team._maybe_numeric_clube_id("not-a-digit") is None
+
+
+def test_resolve_id_clube_handles_missing_nome_clube_column():
+    """Hit the ``if 'nome_clube' not in df.columns`` branch (lines 159-160)."""
+    df = pd.DataFrame({"id_atleta": [1, 2, 3]})
+    out = team.resolve_id_clube(df)
+    assert "id_clube" in out.columns
+    assert out["id_clube"].isna().all()
+    assert str(out["id_clube"].dtype) == "Int32"
+
+
 def test_resolve_id_clube_falls_back_to_raw_abbreviation_when_name_missing():
     # 2017 ships ~114 rows (mostly coaches) with NaN nome_clube but a known
     # string abbreviation in the raw id_clube column. Recover the

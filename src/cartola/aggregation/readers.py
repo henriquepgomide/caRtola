@@ -1,14 +1,15 @@
-"""Raw-shape readers. Each reader returns a single per-(player, round) DataFrame
-with the raw column names — renaming/harmonization happens downstream.
+"""Raw-shape readers for the four eras of Cartola data.
 
-Four shapes correspond to four eras of the project:
-- season_files: jogadores.csv + scouts_raw.csv + times.csv (2014–2016)
-- monolithic:   single <year>_scouts_raw.csv with player+team metadata (2017)
-- round_files:  rodada-N.csv per round, concatenated (2018–2020, 2022+)
-- mercado_json: JSON `Mercado_N.txt` snapshots, latin-1 encoded (2021 only)
+Each reader returns a single per-(player, round) DataFrame with the raw column
+names — renaming/harmonization happens downstream.
+
+The four shapes correspond to four eras of the project:
+
+* ``season_files``: ``jogadores.csv`` + ``scouts_raw.csv`` + ``times.csv`` (2014-2016).
+* ``monolithic``:   single ``<year>_scouts_raw.csv`` with player+team metadata (2017).
+* ``round_files``:  ``rodada-N.csv`` per round, concatenated (2018-2020, 2022+).
+* ``mercado_json``: JSON ``Mercado_N.txt`` snapshots, latin-1 encoded (2021 only).
 """
-
-from __future__ import annotations
 
 import io
 import json
@@ -24,26 +25,34 @@ _ROUND_FILE_RE = re.compile(r"rodada-(\d+)\.csv$", re.IGNORECASE)
 _MERCADO_FILE_RE = re.compile(r"Mercado_(\d+)\.txt$", re.IGNORECASE)
 
 
-# Strong double-encoding signature: `Ã` (\xc3\x83) immediately followed by a
-# `Â` (\xc3\x82) start byte — that 4-byte sequence is what you get when a
-# UTF-8 file is decoded as latin-1 and re-encoded as UTF-8. A naive marker
-# like just `\xc3\x83` triggers false positives on legitimate accented words
-# such as `São` or `ração`.
 _MOJIBAKE_SIGNATURE = b"\xc3\x83\xc2"
+"""Strong double-encoding signature.
+
+A ``Ã`` (``\\xc3\\x83``) immediately followed by a ``Â`` (``\\xc3\\x82``) start
+byte — that 4-byte sequence is what you get when a UTF-8 file is decoded as
+latin-1 and re-encoded as UTF-8. A naive marker like just ``\\xc3\\x83`` triggers
+false positives on legitimate accented words such as ``São`` or ``ração``.
+"""
 
 
 def _read_csv_robust(path: Path) -> pd.DataFrame:
     """Read a Cartola CSV, repairing common encoding pitfalls.
 
-    Two real-world cases:
+    Two real-world cases are handled:
 
-    1. **Genuine latin-1 file** (rare in this corpus) → ``UnicodeDecodeError``
-       on UTF-8 read, retry as latin-1.
-    2. **Double-encoded UTF-8** (notably 2023's `rodada-N.csv`) → reads as
-       valid UTF-8 but contains mojibake like `SÃ£o Paulo` instead of
-       `São Paulo`. Detected via the `Ã Â` 3-byte signature in the file
+    1. Genuine latin-1 file (rare in this corpus) → ``UnicodeDecodeError``
+       on UTF-8 read; retry as latin-1.
+    2. Double-encoded UTF-8 (notably 2023's ``rodada-N.csv``) → reads as
+       valid UTF-8 but contains mojibake like ``SÃ£o Paulo`` instead of
+       ``São Paulo``. Detected via the ``Ã Â`` 3-byte signature in the file
        (sampling several KB to handle long single-line headers). Repaired
        by ``decode utf-8 → encode latin-1 → decode utf-8``.
+
+    Args:
+        path: Path to the CSV file.
+
+    Returns:
+        Parsed DataFrame.
     """
     try:
         sample = path.open("rb").read(65536)
@@ -65,18 +74,24 @@ def _read_csv_robust(path: Path) -> pd.DataFrame:
 
 
 def read_season_files(raw_dir: str, year: int) -> pd.DataFrame:
-    """2014–2016: merge `<year>_scouts_raw.csv` (per-round data) with
-    `<year>_jogadores.csv` (player metadata) and `<year>_times.csv` (team names).
+    """Read the 2014-2016 three-file shape.
 
-    Returns a wide DataFrame keyed by (AtletaID, Rodada) with team `Nome`.
+    Merges ``<year>_scouts_raw.csv`` (per-round data) with
+    ``<year>_jogadores.csv`` (player metadata) and ``<year>_times.csv``
+    (team names).
+
+    Args:
+        raw_dir: Directory containing the three CSVs for ``year``.
+        year: Season year (2014-2016).
+
+    Returns:
+        Wide DataFrame keyed by ``(AtletaID, Rodada)`` with team ``Nome``.
     """
     base = Path(raw_dir)
     scouts = _read_csv_robust(base / f"{year}_scouts_raw.csv")
     jogadores = _read_csv_robust(base / f"{year}_jogadores.csv")
     times = _read_csv_robust(base / f"{year}_times.csv")
 
-    # 2014 scouts has a `Posicao` column that is redundant with jogadores.PosicaoID
-    # (both int, same values). Drop to avoid a duplicate column after the merge.
     if "Posicao" in scouts.columns:
         scouts = scouts.drop(columns=["Posicao"])
 
@@ -90,21 +105,37 @@ def read_season_files(raw_dir: str, year: int) -> pd.DataFrame:
 
 
 def read_monolithic(raw_dir: str, year: int) -> pd.DataFrame:
-    """2017: a single CSV containing player metadata + scouts in one wide table."""
+    """Read the 2017 single-file shape.
+
+    Args:
+        raw_dir: Directory containing ``<year>_scouts_raw.csv``.
+        year: Season year (2017).
+
+    Returns:
+        Wide DataFrame containing player metadata + scouts in one table.
+    """
     path = Path(raw_dir) / f"{year}_scouts_raw.csv"
     return _read_csv_robust(path)
 
 
 def read_round_files(raw_dir: str, year: int) -> pd.DataFrame:
-    """2018+: per-round files `rodada-N.csv`. Concat everything.
+    """Read the 2018+ per-round file shape (``rodada-N.csv``) and concat.
 
     The file name is treated as the source of truth for which round each
-    snapshot represents — the upstream `atletas.rodada_id` field is
+    snapshot represents — the upstream ``atletas.rodada_id`` field is
     overwritten because it is occasionally stale (e.g. 2023 ships both
-    `rodada-1.csv` and `rodada-2.csv` carrying internal `rodada_id=2`,
-    and 2022 ships a preseason `rodada-0.csv` that internally claims
-    `rodada_id=1` and would otherwise duplicate the actual round 1).
-    `rodada-0.csv` (preseason) is dropped entirely.
+    ``rodada-1.csv`` and ``rodada-2.csv`` carrying internal ``rodada_id=2``,
+    and 2022 ships a preseason ``rodada-0.csv`` that internally claims
+    ``rodada_id=1`` and would otherwise duplicate the actual round 1).
+    ``rodada-0.csv`` (preseason) is dropped entirely.
+
+    Args:
+        raw_dir: Directory containing ``rodada-*.csv`` files.
+        year: Season year (unused; ``raw_dir`` already encodes it).
+
+    Returns:
+        Concatenated DataFrame across all valid rounds. An empty DataFrame
+        is returned when ``raw_dir`` does not exist or has no matching files.
     """
     base = Path(raw_dir)
     if not base.exists():
@@ -134,9 +165,6 @@ def read_round_files(raw_dir: str, year: int) -> pd.DataFrame:
     return pd.concat(frames, ignore_index=True)
 
 
-# Atleta-level fields we lift from each Mercado JSON entry. Names match the
-# `clube_id` / `atleta_id` form already covered by COLUMN_RENAME_MAP, so the
-# downstream rename step works without special-casing 2021.
 _MERCADO_ATLETA_FIELDS: tuple[str, ...] = (
     "atleta_id",
     "clube_id",
@@ -153,20 +181,34 @@ _MERCADO_ATLETA_FIELDS: tuple[str, ...] = (
     "nome",
     "foto",
 )
+"""Atleta-level fields lifted from each Mercado JSON entry.
+
+Names match the ``clube_id`` / ``atleta_id`` form already covered by
+:data:`~cartola.aggregation.columns.COLUMN_RENAME_MAP`, so the downstream
+rename step works without special-casing 2021.
+"""
 
 
 def read_mercado_json(raw_dir: str, year: int) -> pd.DataFrame:
-    """2021: per-round JSON snapshots `Mercado_N.txt` (latin-1 encoded).
+    """Read the 2021 per-round JSON ``Mercado_N.txt`` shape.
 
-    Each `Mercado_N.txt` is the cartola market state at the start of round
-    `N`, which means it carries cumulative stats from rounds 1..N-1 — except
-    for `Mercado_1.txt`, which is the preseason snapshot with empty scouts
-    and is therefore skipped (it would otherwise duplicate the rodada=1 row
-    that comes from `Mercado_2.txt`).
+    Each ``Mercado_N.txt`` is the Cartola market state at the start of round
+    ``N``, which means it carries cumulative stats from rounds ``1..N-1`` —
+    except for ``Mercado_1.txt``, which is the preseason snapshot with empty
+    scouts and is therefore skipped (it would otherwise duplicate the
+    ``rodada=1`` row that comes from ``Mercado_2.txt``).
 
-    Each player row is labelled with `rodada_id = N - 1` and the nested
-    `scout: {SCOUT: count, ...}` dict is flattened to top-level columns so
-    the same downstream pipeline as `read_round_files` applies.
+    Each player row is labelled with ``rodada_id = N - 1`` and the nested
+    ``scout: {SCOUT: count, ...}`` dict is flattened to top-level columns so
+    the same downstream pipeline as :func:`read_round_files` applies.
+
+    Args:
+        raw_dir: Directory containing ``Mercado_*.txt`` files.
+        year: Season year (unused; ``raw_dir`` already encodes it).
+
+    Returns:
+        DataFrame across all post-preseason rounds. Returns an empty
+        DataFrame when ``raw_dir`` is missing or has no matching files.
     """
     base = Path(raw_dir)
     if not base.exists():
@@ -185,11 +227,8 @@ def read_mercado_json(raw_dir: str, year: int) -> pd.DataFrame:
     for path in files:
         idx = int(_MERCADO_FILE_RE.search(path.name).group(1))
         if idx < 2:
-            continue  # preseason — no stats to disaccumulate from
+            continue
 
-        # Real 2021 files are latin-1, but treat utf-8 as the JSON default
-        # (per RFC 8259) so test fixtures and any future re-exported files
-        # also load cleanly.
         try:
             with path.open(encoding="utf-8") as fh:
                 payload = json.load(fh)

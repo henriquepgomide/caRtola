@@ -1,15 +1,20 @@
 """Canonical schema for the aggregated Cartola DataFrame.
 
 This module is the single source of truth for:
-- column names and order in the final aggregated CSV (CANONICAL_COLUMNS, DTYPES)
-- the canonical scout list (SCOUTS)
-- categorical label maps (POSITION_MAP, STATUS_MAP)
-- the Pandera DataFrame model (AggregatedSchema) used as the data-quality contract
+
+* column names and order in the final aggregated CSV
+  (:data:`CANONICAL_COLUMNS`, :data:`DTYPES`)
+* the canonical scout list (:data:`SCOUTS`)
+* categorical label maps (:data:`POSITION_MAP`, :data:`STATUS_MAP`)
+* the Pandera DataFrame model (:class:`AggregatedSchema`) used as the
+  data-quality contract.
 """
 
-from __future__ import annotations
+from typing import ClassVar
 
 import pandas as pd
+import pandera.pandas as pa
+from pandera.typing import Series
 
 SCOUTS: list[str] = [
     "A",
@@ -36,13 +41,11 @@ SCOUTS: list[str] = [
 ]
 
 CANONICAL_COLUMNS: list[str] = [
-    # contexto
     "ano",
     "rodada",
     "id_clube",
     "nome_clube",
     "id_atleta",
-    # info do jogador
     "nome",
     "apelido",
     "apelido_abreviado",
@@ -53,15 +56,11 @@ CANONICAL_COLUMNS: list[str] = [
     "pontuacao",
     "media",
     "preco",
-    # game state
     "variacao",
     "num_jogos",
-    # scouts
     *SCOUTS,
 ]
 
-# Per-column pandas dtypes used after harmonization.
-# Nullable types (Int*) are required for columns that may legitimately be NaN.
 DTYPES: dict[str, str] = {
     "ano": "int16",
     "rodada": "int8",
@@ -80,8 +79,12 @@ DTYPES: dict[str, str] = {
     "preco": "float32",
     "variacao": "float32",
     "num_jogos": "Int16",
-    **{col: "float32" for col in SCOUTS},
+    **dict.fromkeys(SCOUTS, "float32"),
 }
+"""Per-column pandas dtypes used after harmonization.
+
+Nullable types (``Int*``) are required for columns that may legitimately be NaN.
+"""
 
 POSITION_MAP: dict[int, str] = {
     1: "gol",
@@ -92,7 +95,6 @@ POSITION_MAP: dict[int, str] = {
     6: "tec",
 }
 
-# Source: Kedro legacy conf/base/parameters.yml.
 STATUS_MAP: dict[int, str] = {
     2: "Dúvida",
     3: "Suspenso",
@@ -100,17 +102,16 @@ STATUS_MAP: dict[int, str] = {
     6: "Nulo",
     7: "Provável",
 }
-
-
-# ---------------------------------------------------------------------------
-# Pandera schema (data-quality contract)
-# ---------------------------------------------------------------------------
-import pandera.pandas as pa  # noqa: E402  (kept here to keep the constants section clean)
-from pandera.typing import Series  # noqa: E402
+"""Status id → label, sourced from the legacy Kedro ``conf/base/parameters.yml``."""
 
 
 class AggregatedSchema(pa.DataFrameModel):
-    """Pandera contract for the final aggregated DataFrame."""
+    """Pandera contract for the final aggregated DataFrame.
+
+    Notes:
+        ``PI`` (and ``DS``) can be negative after disaccumulation if Cartola
+        corrected backwards, so they intentionally lack a ``ge=0`` constraint.
+    """
 
     ano: Series[int] = pa.Field(ge=2014, le=2030)
     rodada: Series[int] = pa.Field(ge=0, le=38)
@@ -147,9 +148,8 @@ class AggregatedSchema(pa.DataFrameModel):
     G: Series[float] = pa.Field(nullable=True, ge=0)
     GC: Series[float] = pa.Field(nullable=True, ge=0)
     GS: Series[float] = pa.Field(nullable=True, ge=0)
-    I: Series[float] = pa.Field(nullable=True, ge=0)  # noqa: E741  (Cartola scout name)
+    I: Series[float] = pa.Field(nullable=True, ge=0)  # noqa: E741
     PC: Series[float] = pa.Field(nullable=True, ge=0)
-    # PI/DS can be negative after disaccumulation if Cartola corrected backwards.
     PI: Series[float] = pa.Field(nullable=True)
     PP: Series[float] = pa.Field(nullable=True, ge=0)
     PS: Series[float] = pa.Field(nullable=True, ge=0)
@@ -157,6 +157,8 @@ class AggregatedSchema(pa.DataFrameModel):
     V: Series[float] = pa.Field(nullable=True, ge=0)
 
     class Config:
+        """Pandera schema configuration: strict columns, coerced dtypes, unique key."""
+
         strict = True
         coerce = True
-        unique = ["ano", "rodada", "id_atleta"]
+        unique: ClassVar[list[str]] = ["ano", "rodada", "id_atleta"]

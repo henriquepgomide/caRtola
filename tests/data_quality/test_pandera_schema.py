@@ -8,7 +8,7 @@ from cartola.aggregation.schema import CANONICAL_COLUMNS, SCOUTS, AggregatedSche
 
 
 def _good_row(**overrides):
-    base = {col: pd.NA for col in CANONICAL_COLUMNS}
+    base = dict.fromkeys(CANONICAL_COLUMNS, pd.NA)
     base.update(
         {
             "ano": 2024,

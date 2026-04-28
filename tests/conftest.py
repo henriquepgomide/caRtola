@@ -1,7 +1,5 @@
 """Shared pytest fixtures for the Cartola aggregation pipeline tests."""
 
-from __future__ import annotations
-
 from pathlib import Path
 
 import pandas as pd

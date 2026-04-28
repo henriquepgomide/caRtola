@@ -1,11 +1,9 @@
 """Team-entity transformations.
 
-Always rebuilds `id_clube` from the normalized `nome_clube`. This bypasses the
-buggy raw `clube_id` in 2018 (string abbreviations, sometimes ambiguous like
-"ATL" for both Atlético-MG and Atlético-PR).
+Always rebuilds ``id_clube`` from the normalized ``nome_clube``. This bypasses
+the buggy raw ``clube_id`` in 2018 (string abbreviations, sometimes ambiguous
+like ``"ATL"`` for both Atlético-MG and Atlético-PR).
 """
-
-from __future__ import annotations
 
 import logging
 
@@ -15,7 +13,6 @@ from unidecode import unidecode
 logger = logging.getLogger(__name__)
 
 
-# Full names + common abbreviations → canonical Cartola team id.
 TEAM_NAME_TO_ID: dict[str, int] = {
     "AME": 327,
     "AMÉRICA-MG": 327,
@@ -91,8 +88,9 @@ TEAM_NAME_TO_ID: dict[str, int] = {
     "VIT": 287,
     "VITÓRIA": 287,
 }
+"""Full names and common abbreviations mapped to canonical Cartola team ids."""
 
-# Pre-computed normalized lookup (uppercased + accent-stripped) for O(1) match.
+
 _NAME_TO_ID_NORMALIZED: dict[str, int] = {
     unidecode(name.strip().upper()): team_id for name, team_id in TEAM_NAME_TO_ID.items()
 }
@@ -107,15 +105,22 @@ def _normalize_name(name: object) -> str | None:
     return unidecode(text.upper())
 
 
-# Built once: the set of canonical Cartola team IDs we already know about.
-# Used as a safety net for raw rows that store the numeric `clube_id` directly
-# in the `nome_clube` column (notably 2020 from rodada-12 onwards).
 _KNOWN_CLUBE_IDS: frozenset[int] = frozenset(TEAM_NAME_TO_ID.values())
 
 
 def _maybe_numeric_clube_id(value: object) -> int | None:
-    """Return ``int(value)`` if ``value`` is a digit-string matching a known
-    Cartola clube id (e.g. `"285"` → ``285`` for Internacional)."""
+    """Return ``int(value)`` when it matches a known Cartola clube id.
+
+    Some 2020 rounds store the numeric id directly in the ``nome_clube``
+    column (``"285"`` instead of ``"Internacional"``).
+
+    Args:
+        value: Raw cell from ``nome_clube``.
+
+    Returns:
+        The integer clube id if ``value`` is a digit-string in
+        :data:`_KNOWN_CLUBE_IDS`; otherwise ``None``.
+    """
     if value is None or (isinstance(value, float) and pd.isna(value)):
         return None
     text = str(value).strip()
@@ -126,22 +131,27 @@ def _maybe_numeric_clube_id(value: object) -> int | None:
 
 
 def resolve_id_clube(df: pd.DataFrame) -> pd.DataFrame:
-    """Rebuild `id_clube` from `nome_clube` using TEAM_NAME_TO_ID.
+    """Rebuild ``id_clube`` from ``nome_clube`` using :data:`TEAM_NAME_TO_ID`.
 
-    Returns the input DataFrame with `id_clube` cast to `Int32` (nullable).
-    Rows whose `nome_clube` cannot be resolved get NaN id_clube and a single
-    aggregated WARN log per (ano, nome_clube) group is emitted.
+    Rows whose ``nome_clube`` cannot be resolved get ``NaN`` ``id_clube`` and a
+    single aggregated ``WARN`` log per ``(ano, nome_clube)`` group is emitted.
 
     Fallbacks (in order):
 
-    1. If `nome_clube` is a numeric string matching a known Cartola clube id
+    1. If ``nome_clube`` is a numeric string matching a known Cartola clube id
        (some 2020 rounds store ``"285"`` instead of ``"Internacional"`` in
        the name column), resolve to that id directly.
-    2. If `nome_clube` is missing entirely but the raw `id_clube` column
+    2. If ``nome_clube`` is missing entirely but the raw ``id_clube`` column
        holds a known unambiguous abbreviation (``"SAO"`` → 276 for the 2017
-       coaches with NaN nome_clube), resolve via TEAM_NAME_TO_ID. Genuinely
-       ambiguous codes like ``"ATL"`` (Atlético-MG vs -PR) are intentionally
-       absent from the map and stay NaN.
+       coaches with NaN ``nome_clube``), resolve via :data:`TEAM_NAME_TO_ID`.
+       Genuinely ambiguous codes like ``"ATL"`` (Atlético-MG vs -PR) are
+       intentionally absent from the map and stay NaN.
+
+    Args:
+        df: Per-(player, round) DataFrame; may or may not have ``id_clube``.
+
+    Returns:
+        A copy of ``df`` with ``id_clube`` cast to ``Int32`` (nullable).
     """
     df = df.copy()
 

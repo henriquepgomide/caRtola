@@ -1,10 +1,8 @@
 """Single source of truth for per-year metadata.
 
-Adding year N+1 = a single new entry in YEAR_REGISTRY (and one extra parameter
-in nodes.aggregated()).
+Adding year ``N+1`` is a single new entry in :data:`YEAR_REGISTRY` (and one
+extra parameter in :func:`cartola.aggregation.nodes.aggregated`).
 """
-
-from __future__ import annotations
 
 from collections.abc import Callable
 from dataclasses import dataclass
@@ -21,6 +19,17 @@ from cartola.aggregation.readers import (
 
 @dataclass(frozen=True)
 class YearConfig:
+    """Per-year configuration for the aggregation pipeline.
+
+    Attributes:
+        year: Season year (e.g. ``2018``).
+        raw_dir: Directory holding the raw inputs for ``year``.
+        reader: One of the readers in :mod:`cartola.aggregation.readers`.
+        accumulated: ``True`` when the source year ships season-cumulative
+            scouts that need disaccumulation.
+        has_scouts: ``True`` when the source year publishes scout columns.
+    """
+
     year: int
     raw_dir: str
     reader: Callable[[str, int], pd.DataFrame]

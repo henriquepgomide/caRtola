@@ -10,8 +10,6 @@ Known data-quality limitations (tracked as follow-up work):
 * 2026 is an in-progress season; row / round / goal bounds are widened.
 """
 
-from __future__ import annotations
-
 import pandas as pd
 import pytest
 
@@ -58,7 +56,7 @@ def test_full_season_round_count_is_38(aggregated_df, year):
 def test_full_season_total_goals_in_bounds(aggregated_df, year):
     sub = aggregated_df[aggregated_df["ano"] == year]
     total_g = sub["G"].sum(skipna=True)
-    # ~30 goals/round × ~38 rounds ≈ 1,140; allow a wide band for double counting.
+    # ~30 goals/round x ~38 rounds ~= 1,140; allow a wide band for double counting.
     assert 100 <= total_g <= 2_000, f"Unreasonable total goals for {year}: {total_g}"
 
 

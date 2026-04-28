@@ -1,9 +1,7 @@
 """Hamilton driver wrapper: builds the DAG, runs it, persists outputs.
 
-`track=True` enables the Hamilton UI tracker (requires `sf-hamilton-ui`).
+``track=True`` enables the Hamilton UI tracker (requires ``sf-hamilton-ui``).
 """
-
-from __future__ import annotations
 
 import logging
 from pathlib import Path
@@ -23,7 +21,12 @@ AGGREGATED_DIR = Path("data/04_aggregated")
 def build_driver(track: bool = False) -> driver.Driver:
     """Build a Hamilton driver from the nodes module.
 
-    `track=True` attaches the Hamilton UI tracker so the run shows up in the UI.
+    Args:
+        track: When ``True``, attaches the Hamilton UI tracker so the run
+            shows up in the UI.
+
+    Returns:
+        A configured Hamilton :class:`~hamilton.driver.Driver`.
     """
     builder = driver.Builder().with_modules(nodes).with_config({})
     if track:
@@ -45,11 +48,21 @@ def build_driver(track: bool = False) -> driver.Driver:
 def run(years: list[int] | None = None, track: bool = False) -> pd.DataFrame:
     """Execute the pipeline.
 
-    If `years` is None or matches all configured years → write the per-year CSVs
-    AND the final aggregated CSV.
+    If ``years`` is ``None`` or matches all configured years, write the
+    per-year CSVs **and** the final aggregated CSV. If ``years`` is a strict
+    subset, write only the per-year CSVs (no aggregation; aggregating a
+    partial run could mislead downstream consumers).
 
-    If `years` is a strict subset → write only the per-year CSVs (no aggregation;
-    aggregating a partial run could mislead downstream consumers).
+    Args:
+        years: Optional subset of season years to process.
+        track: Forwarded to :func:`build_driver`.
+
+    Returns:
+        The aggregated DataFrame on a full run, or the concatenation of the
+        selected per-year DataFrames on a partial run.
+
+    Raises:
+        ValueError: If ``years`` contains entries not in :data:`YEAR_REGISTRY`.
     """
     drv = build_driver(track=track)
 
@@ -86,9 +99,15 @@ def run(years: list[int] | None = None, track: bool = False) -> pd.DataFrame:
 
 
 def launch_ui() -> None:
-    """Launch the Hamilton UI server (requires `sf-hamilton-ui`)."""
+    """Launch the Hamilton UI server (requires ``sf-hamilton-ui``).
+
+    Blocks; serves ``http://localhost:8241`` by default.
+
+    Raises:
+        SystemExit: When ``sf-hamilton-ui`` is not installed.
+    """
     try:
         from hamilton_ui import commands  # type: ignore[import-untyped]
     except ImportError as exc:
         raise SystemExit("Hamilton UI is not installed. Run `uv sync --extra ui` and try again.") from exc
-    commands.run()  # blocks; serves http://localhost:8241 by default
+    commands.run()

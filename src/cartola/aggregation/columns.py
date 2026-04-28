@@ -1,28 +1,23 @@
 """Cross-cutting column rename: raw CSV column names → canonical schema names.
 
-Sourced from the legacy Kedro `parameters.yml::preprocessing.map_col_names` plus
-columns we explicitly drop because they are noise or out-of-canon.
+Sourced from the legacy Kedro ``parameters.yml::preprocessing.map_col_names``
+plus columns we explicitly drop because they are noise or out-of-canon.
 """
-
-from __future__ import annotations
 
 import pandas as pd
 
-# Raw column name → canonical name. Order does not matter; pandas resolves by exact match.
 COLUMN_RENAME_MAP: dict[str, str] = {
-    # ---- legacy 2014–2016 ---------------------------------------------------
     "Apelido": "apelido",
     "AtletaID": "id_atleta",
     "ClubeID": "id_clube",
     "ClubeNome": "nome_clube",
-    "Nome": "nome_clube",  # appears as the team name in 2014_times.csv merge
+    "Nome": "nome_clube",
     "Rodada": "rodada",
     "Pontos": "pontuacao",
     "PontosMedia": "media",
     "Preco": "preco",
     "PrecoVariacao": "variacao",
     "PosicaoID": "posicao",
-    # ---- snake_case API (2017 monolithic with mixed naming) -----------------
     "atleta_id": "id_atleta",
     "clube_id": "id_clube",
     "rodada_id": "rodada",
@@ -33,7 +28,6 @@ COLUMN_RENAME_MAP: dict[str, str] = {
     "preco_num": "preco",
     "variacao_num": "variacao",
     "jogos_num": "num_jogos",
-    # ---- modern `atletas.*` prefix (2017+) ----------------------------------
     "atletas.apelido": "apelido",
     "atletas.apelido_abreviado": "apelido_abreviado",
     "atletas.atleta_id": "id_atleta",
@@ -51,11 +45,18 @@ COLUMN_RENAME_MAP: dict[str, str] = {
     "atletas.status_id": "status",
     "atletas.variacao_num": "variacao",
 }
+"""Raw column name → canonical name.
 
-# Columns we drop unconditionally (noise, legacy-only, or out-of-canon).
+Order does not matter; pandas resolves by exact match. Keys cover three eras:
+
+* Legacy 2014-2016 PascalCase (``Apelido``, ``AtletaID``, ``Rodada``, ...).
+* 2017 monolithic ``snake_case`` API (``atleta_id``, ``clube_id``, ...).
+* Modern 2017+ ``atletas.*`` prefix (``atletas.apelido``, ``atletas.atleta_id``, ...).
+"""
+
 COLUMNS_TO_DROP: frozenset[str] = frozenset(
     {
-        "",  # unnamed index column written by R/pandas with index=True
+        "",
         "Participou",
         "participou",
         "Posicao",
@@ -70,16 +71,30 @@ COLUMNS_TO_DROP: frozenset[str] = frozenset(
         "atletas.minimo_para_valorizar",
         "atletas.entrou_em_campo",
         "atletas.temporada_id",
-        "Abreviacao",  # from times.csv merge — not part of canonical schema
+        "Abreviacao",
     }
 )
+"""Raw column names dropped unconditionally as noise, legacy-only, or out-of-canon.
+
+The empty string entry (``""``) catches the unnamed index column written by
+R/pandas with ``index=True``.
+"""
 
 
 def rename_columns(df: pd.DataFrame) -> pd.DataFrame:
-    """Drop noise columns then rename raw → canonical via COLUMN_RENAME_MAP.
+    """Drop noise columns then rename raw → canonical via :data:`COLUMN_RENAME_MAP`.
 
     Unknown columns are passed through unchanged so downstream entity modules
-    (and the final reindex against CANONICAL_COLUMNS) can decide what to keep.
+    (and the final reindex against
+    :data:`~cartola.aggregation.schema.CANONICAL_COLUMNS`) can decide what to
+    keep.
+
+    Args:
+        df: Raw per-(player, round) DataFrame from one of the readers.
+
+    Returns:
+        A new DataFrame with :data:`COLUMNS_TO_DROP` removed and the surviving
+        columns renamed via :data:`COLUMN_RENAME_MAP`.
     """
     keep = [c for c in df.columns if c not in COLUMNS_TO_DROP]
     return df[keep].rename(columns=COLUMN_RENAME_MAP)

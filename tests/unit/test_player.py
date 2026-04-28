@@ -12,7 +12,7 @@ def test_map_position_int_id_to_label():
 
 
 def test_map_position_passes_through_existing_labels():
-    # 2017–2022 already store the label string.
+    # 2017-2022 already store the label string.
     df = pd.DataFrame({"posicao": ["zag", "mei"]})
     out = player.map_position(df)
     assert out["posicao"].tolist() == ["zag", "mei"]

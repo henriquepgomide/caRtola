@@ -1,10 +1,10 @@
 """Hamilton nodes for the aggregation pipeline.
 
-One per-year node is generated dynamically from YEAR_REGISTRY via
-@parameterize, plus a final `aggregated` node that concatenates them.
+One per-year node is generated dynamically from
+:data:`~cartola.aggregation.catalog.YEAR_REGISTRY` via
+:func:`~hamilton.function_modifiers.parameterize`, plus a final ``aggregated``
+node that concatenates them.
 """
-
-from __future__ import annotations
 
 import warnings
 
@@ -20,8 +20,13 @@ _PARAMS = {f"year_{y}": {"year": value(y)} for y in YEAR_REGISTRY}
 
 @parameterize(**_PARAMS)
 def year_dataframe(year: int) -> pd.DataFrame:
-    """Reads raw data for `year` and applies entity-by-entity transformations
-    to produce one year of data in the canonical schema.
+    """Read raw data for ``year`` and apply entity-by-entity transformations.
+
+    Args:
+        year: Season year present in :data:`YEAR_REGISTRY`.
+
+    Returns:
+        One year of data in the canonical schema (``CANONICAL_COLUMNS`` order).
     """
     cfg = YEAR_REGISTRY[year]
     raw = cfg.reader(cfg.raw_dir, year)
@@ -51,10 +56,29 @@ def aggregated(
     year_2025: pd.DataFrame,
     year_2026: pd.DataFrame,
 ) -> pd.DataFrame:
-    """Concat all year DataFrames, preserving CANONICAL_COLUMNS order.
+    """Concat all year DataFrames, preserving :data:`CANONICAL_COLUMNS` order.
 
-    Parameter names must mirror keys in YEAR_REGISTRY exactly; nodes.test_*
-    asserts this invariant.
+    Parameter names must mirror keys in :data:`YEAR_REGISTRY` exactly;
+    ``test_nodes.test_*`` asserts this invariant.
+
+    Args:
+        year_2014: Year-2014 DataFrame produced by :func:`year_dataframe`.
+        year_2015: Year-2015 DataFrame produced by :func:`year_dataframe`.
+        year_2016: Year-2016 DataFrame produced by :func:`year_dataframe`.
+        year_2017: Year-2017 DataFrame produced by :func:`year_dataframe`.
+        year_2018: Year-2018 DataFrame produced by :func:`year_dataframe`.
+        year_2019: Year-2019 DataFrame produced by :func:`year_dataframe`.
+        year_2020: Year-2020 DataFrame produced by :func:`year_dataframe`.
+        year_2021: Year-2021 DataFrame produced by :func:`year_dataframe`.
+        year_2022: Year-2022 DataFrame produced by :func:`year_dataframe`.
+        year_2023: Year-2023 DataFrame produced by :func:`year_dataframe`.
+        year_2024: Year-2024 DataFrame produced by :func:`year_dataframe`.
+        year_2025: Year-2025 DataFrame produced by :func:`year_dataframe`.
+        year_2026: Year-2026 DataFrame produced by :func:`year_dataframe`.
+
+    Returns:
+        Concatenated DataFrame with rows from every non-empty year, reset
+        index, in :data:`CANONICAL_COLUMNS` order.
     """
     frames = [
         year_2014,
@@ -74,9 +98,6 @@ def aggregated(
     non_empty = [f for f in frames if not f.empty]
     if not non_empty:
         return pd.DataFrame(columns=CANONICAL_COLUMNS)
-    # Older years legitimately have all-NA columns (e.g. 2014 lacks new scouts);
-    # the canonical schema requires we keep those columns so suppress the
-    # informational FutureWarning about all-NA dtype handling.
     with warnings.catch_warnings():
         warnings.filterwarnings("ignore", category=FutureWarning, message=".*empty or all-NA.*")
         merged = pd.concat(non_empty, ignore_index=True)

@@ -36,33 +36,61 @@ dev = [
     "pytest-mock>=3.12",
     "pre-commit>=3.7",
     "ruff>=0.6",
-    "mypy>=1.10",
     "nbstripout>=0.7",
 ]
 
 [tool.ruff]
 line-length = 120
 target-version = "py312"
+exclude = ["notebooks/**", ".venv", "__pycache__", "*.egg-info"]
+
+[tool.ruff.format] # se usar ruff format no lugar do black
+quote-style = "double"
+indent-style = "space"
 
 [tool.ruff.lint]
 select = [
     "E",   # pycodestyle errors
     "W",   # pycodestyle warnings
     "F",   # pyflakes
-    "I",   # isort (import order)
+    "I",   # isort
     "B",   # flake8-bugbear
     "UP",  # pyupgrade
+    "C4",  # flake8-comprehensions → list/dict/set comprehensions desnecessários
+    "SIM", # flake8-simplify → simplifica ifs, returns, etc.
+    "RUF", # Ruff-specific rules → inclui regras extras do próprio ruff
+    "PTH", # flake8-use-pathlib → substitui os.path por pathlib
+    "TID", # flake8-tidy-imports → proíbe imports relativos ambíguos
+    "ANN", # flake8-annotations → type hints obrigatórios (pode ser muito restritivo)
+    "D",   # pydocstyle → docstrings (se quiser enforçar documentação)
+    "S",   # flake8-bandit → segurança (útil se tiver código que acessa APIs/secrets)
+    "N",   # pep8-naming → convenções de nomes
 ]
-ignore = [
-    "E203",  # whitespace before ':' (ruff-format compatibility)
-]
+fixable = ["ALL"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["S101", "ANN", "D"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
 
 [tool.pytest.ini_options]
-addopts = "--cov-report term-missing --cov src/cartola -ra"
 testpaths = ["tests"]
 markers = ["slow: real-data smoke tests; skip with -m 'not slow'"]
+addopts = [
+    "--color=yes",
+    "-p no:cacheprovider",
+    "--junitxml=report.xml",
+    "--cov-report=term-missing:skip-covered",
+    "--cov-report=xml",
+    "--cov=src/cartola",
+    "--cov=cli",
+    "-ra",
+]
 
 [tool.coverage.report]
-fail_under = 0
+fail_under = 90
+precision = 2
 show_missing = true
+include_namespace_packages = true
 exclude_lines = ["pragma: no cover", "raise NotImplementedError"]

@@ -1,19 +1,13 @@
 .PHONY: help install aggregate viz test test-fast test-slow lint format clean
 
-help:
-	@echo "Available targets:"
-	@echo "  install      - uv sync with dev + ui extras"
-	@echo "  aggregate    - run the full aggregation pipeline"
-	@echo "  viz          - launch Hamilton UI"
-	@echo "  test         - run all tests (slow ones included)"
-	@echo "  test-fast    - run all tests except those marked slow"
-	@echo "  test-slow    - run only slow (real-data smoke) tests"
-	@echo "  lint         - ruff check + mypy"
-	@echo "  format       - ruff format + ruff check --fix"
-	@echo "  clean        - remove pycache and other build artifacts"
+help: ## display this help screen
+	@grep -h -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
 install:
-	uv sync --extra ui --group dev
+	@set -e && \
+	uv sync --extra ui --group dev && \
+	uv run pre-commit install && \
+	uv run pre-commit install --hook-type commit-msg
 
 aggregate:
 	uv run cartola aggregate
@@ -22,21 +16,19 @@ viz:
 	uv run cartola viz
 
 test:
-	uv run pytest -v
+	uv run pytest
 
 test-fast:
-	uv run pytest -m "not slow" -v
+	uv run pytest -m "not slow"
 
 test-slow:
-	uv run pytest -m slow -v
+	uv run pytest -m slow
 
 lint:
-	uv run ruff check src/cartola tests
-	uv run mypy --ignore-missing-imports src/cartola
+	uv run ruff check --fix
 
-format:
-	uv run ruff format src/cartola tests
-	uv run ruff check --fix src/cartola tests
+pre-commit:
+	uv run pre-commit run --all-files
 
 clean:
 	@find . -type f -name '*.pyc' -delete

@@ -1,11 +1,9 @@
 """Typer CLI for the Cartola aggregation pipeline.
 
 Commands:
-- aggregate: run the pipeline and write per-year + aggregated CSVs.
-- viz:       launch the Hamilton UI (requires the `ui` extra).
+    aggregate: Run the pipeline and write per-year + aggregated CSVs.
+    viz: Launch the Hamilton UI (requires the ``ui`` extra).
 """
-
-from __future__ import annotations
 
 import logging
 

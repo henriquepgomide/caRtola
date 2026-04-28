@@ -12,6 +12,9 @@ from hamilton import driver
 from cartola.aggregation import nodes
 from cartola.aggregation.catalog import YEAR_REGISTRY
 
+DEFAULT_UI_PORT = 8241
+DEFAULT_UI_BASE_DIR = Path.home() / ".hamilton" / "db"
+
 logger = logging.getLogger(__name__)
 
 PRIMARY_DIR = Path("data/03_primary")
@@ -98,10 +101,26 @@ def run(years: list[int] | None = None, track: bool = False) -> pd.DataFrame:
     return aggregated_df
 
 
-def launch_ui() -> None:
+def launch_ui(
+    port: int = DEFAULT_UI_PORT,
+    base_dir: str | Path = DEFAULT_UI_BASE_DIR,
+    no_migration: bool = False,
+    no_open: bool = False,
+    settings_file: str = "mini",
+    config_file: str | None = None,
+) -> None:
     """Launch the Hamilton UI server (requires ``sf-hamilton-ui``).
 
-    Blocks; serves ``http://localhost:8241`` by default.
+    Blocks; serves ``http://localhost:<port>``. Defaults mirror Hamilton's
+    own ``hamilton ui`` CLI (sqlite-backed mini mode under ``~/.hamilton/db``).
+
+    Args:
+        port: TCP port for the Django dev server.
+        base_dir: SQLite + blob storage directory.
+        no_migration: Skip Django migrations on startup.
+        no_open: Skip auto-opening the browser when the server is healthy.
+        settings_file: ``"mini"`` (sqlite) or ``"deploy"`` (requires ``config_file``).
+        config_file: Required when ``settings_file="deploy"``.
 
     Raises:
         SystemExit: When ``sf-hamilton-ui`` is not installed.
@@ -110,4 +129,11 @@ def launch_ui() -> None:
         from hamilton_ui import commands  # type: ignore[import-untyped]
     except ImportError as exc:
         raise SystemExit("Hamilton UI is not installed. Run `uv sync --extra ui` and try again.") from exc
-    commands.run()
+    commands.run(
+        port=port,
+        base_dir=str(base_dir),
+        no_migration=no_migration,
+        no_open=no_open,
+        settings_file=settings_file,
+        config_file=config_file,
+    )

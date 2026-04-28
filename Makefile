@@ -37,3 +37,4 @@ clean:
 	@find . -type d -name '.pytest_cache' -exec rm -rf {} + 2>/dev/null || true
 	@find . -type d -name '.ruff_cache' -exec rm -rf {} + 2>/dev/null || true
 	@find . -type d -name '*.egg-info' -exec rm -rf {} + 2>/dev/null || true
+	@rm -f .coverage coverage.xml report.xml

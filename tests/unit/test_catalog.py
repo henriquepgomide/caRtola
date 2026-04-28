@@ -4,21 +4,22 @@ import pytest
 
 from cartola.aggregation import catalog
 
-# 2021 is intentionally omitted: raw is JSON (`Mercado_N.txt`), needs a dedicated reader.
-EXPECTED_YEARS = [y for y in range(2014, 2027) if y != 2021]
+EXPECTED_YEARS = list(range(2014, 2027))
 
 
-def test_registry_covers_supported_years():
+def test_registry_covers_2014_to_2026():
     assert sorted(catalog.YEAR_REGISTRY) == EXPECTED_YEARS
 
 
-def test_2021_excluded_from_registry():
-    assert 2021 not in catalog.YEAR_REGISTRY
+def test_2021_uses_mercado_json_reader():
+    from cartola.aggregation.readers import read_mercado_json
+
+    assert catalog.YEAR_REGISTRY[2021].reader is read_mercado_json
 
 
 def test_accumulated_years_match_spec():
     # Years whose scout columns are reported as season-cumulative and need disaccumulation.
-    expected_accumulated = {2015, 2017, 2018, 2019, 2020, 2022, 2023, 2024, 2026}
+    expected_accumulated = {2015, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2026}
     actual = {y for y, cfg in catalog.YEAR_REGISTRY.items() if cfg.accumulated}
     assert actual == expected_accumulated
 

@@ -12,6 +12,7 @@ from dataclasses import dataclass
 import pandas as pd
 
 from cartola.aggregation.readers import (
+    read_mercado_json,
     read_monolithic,
     read_round_files,
     read_season_files,
@@ -35,8 +36,7 @@ YEAR_REGISTRY: dict[int, YearConfig] = {
     2018: YearConfig(2018, "data/01_raw/2018", read_round_files, accumulated=True),
     2019: YearConfig(2019, "data/01_raw/2019", read_round_files, accumulated=True),
     2020: YearConfig(2020, "data/01_raw/2020", read_round_files, accumulated=True),
-    # 2021: raw is JSON (`Mercado_N.txt`), needs a dedicated reader. Skipped for now;
-    # tracked as a known limitation in tests/data_quality/test_real_data_smoke.py.
+    2021: YearConfig(2021, "data/01_raw/2021", read_mercado_json, accumulated=True),
     2022: YearConfig(2022, "data/01_raw/2022", read_round_files, accumulated=True),
     2023: YearConfig(2023, "data/01_raw/2023", read_round_files, accumulated=True),
     2024: YearConfig(2024, "data/01_raw/2024", read_round_files, accumulated=True),

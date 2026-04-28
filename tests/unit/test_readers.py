@@ -39,3 +39,28 @@ def test_read_round_files_handles_missing_dir(tmp_path):
     empty.mkdir()
     df = readers.read_round_files(str(empty), year=2099)
     assert df.empty
+
+
+def test_read_mercado_json_2021_skips_preseason_and_assigns_rodada(fixtures_dir):
+    """Mercado_1 is the preseason snapshot; Mercado_N (N>=2) carries cumulative
+    stats for round N-1. The reader must skip Mercado_1 and label every row
+    with `rodada = N - 1`."""
+    df = readers.read_mercado_json(str(fixtures_dir / "2021"), year=2021)
+    # Mercado_2 (rodada=1) → 2 atletas; Mercado_3 (rodada=2) → 2 atletas; preseason skipped.
+    assert len(df) == 4
+    assert sorted(df["rodada_id"].unique()) == [1, 2]
+
+
+def test_read_mercado_json_2021_flattens_scouts_and_resolves_team_name(fixtures_dir):
+    df = readers.read_mercado_json(str(fixtures_dir / "2021"), year=2021)
+    hulk = df[df["atleta_id"] == 2002].sort_values("rodada_id")
+    # nested `scout: {"G": ...}` is flattened into top-level columns
+    assert list(hulk["G"]) == [1, 2]
+    assert list(hulk["FF"]) == [2, 3]
+    # nome_clube is hydrated from the `clubes` lookup so resolve_id_clube works
+    assert (hulk["atletas.clube.id.full.name"] == "Atlético-MG").all()
+
+
+def test_read_mercado_json_handles_empty_dir(tmp_path):
+    df = readers.read_mercado_json(str(tmp_path), year=2021)
+    assert df.empty

@@ -5,8 +5,6 @@ The CI / manual full run executes it.
 
 Known data-quality limitations (tracked as follow-up work):
 
-* **2021** is excluded from `YEAR_REGISTRY` until a JSON `Mercado_N.txt` reader
-  is added (the local 2021 raw checkout has no `rodada-N.csv` files).
 * Some years (notably 2020 / 2022 / 2023) contain a small number of
   duplicated `(ano, rodada, id_atleta)` rows in the upstream raw data
   (e.g. coaches with `posicao_id=6`, players listed twice). Pandera unique
@@ -27,7 +25,7 @@ from cartola.aggregation.schema import SCOUTS
 pytestmark = pytest.mark.slow
 
 # Years with a full-shape season we can sanity-bound. Excludes 2025 (no scouts)
-# and 2026 (in-progress, partial season). 2021 is not in YEAR_REGISTRY at all.
+# and 2026 (in-progress, partial season).
 FULL_SEASON_YEARS = sorted(y for y in YEAR_REGISTRY if 2018 <= y <= 2024 and y != 2025)
 
 

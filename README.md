@@ -16,9 +16,6 @@ Pipeline local que agrega os dados do *Cartola FC* de 2014 a 2026 em um único
 CSV harmonizado de 38 colunas (contexto + clube + jogador + estado de jogo +
 21 scouts).
 
-> ⚠️ 2021 ainda não está incluso: o raw daquele ano está em formato JSON
-> (`Mercado_N.txt`) e exige um leitor dedicado, planejado como follow-up.
-
 ### Setup
 
 ```bash

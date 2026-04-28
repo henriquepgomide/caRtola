@@ -60,3 +60,34 @@ def test_fill_missing_slug_creates_column_if_missing():
     df = pd.DataFrame({"apelido": ["Foo Bar"]})
     out = player.fill_missing_slug(df)
     assert out["slug"].iloc[0] == "foo-bar"
+
+
+def test_dedupe_per_rodada_keeps_richest_scout_row():
+    """2020 round 10 ships ~47 atletas twice in the SAME file: one row
+    with NaN scouts and one with the actual values. Keep the populated
+    one so disaccumulation downstream stays correct."""
+    df = pd.DataFrame(
+        {
+            "rodada": [10, 10, 11],
+            "id_atleta": [38133, 38133, 38133],
+            "G": [pd.NA, 17, 0],
+            "DS": [pd.NA, 0, 1],
+            "num_jogos": [1, 1, 2],
+        }
+    )
+    out = player.dedupe_per_rodada(df)
+    keep = out[out["rodada"] == 10].iloc[0]
+    assert int(keep["G"]) == 17
+    assert len(out) == 2
+
+
+def test_dedupe_per_rodada_no_duplicates_passes_through():
+    df = pd.DataFrame({"rodada": [1, 2], "id_atleta": [10, 20], "G": [0, 1]})
+    out = player.dedupe_per_rodada(df)
+    assert len(out) == 2
+
+
+def test_dedupe_per_rodada_handles_missing_columns_gracefully():
+    df = pd.DataFrame({"foo": [1, 2]})
+    out = player.dedupe_per_rodada(df)
+    assert len(out) == 2

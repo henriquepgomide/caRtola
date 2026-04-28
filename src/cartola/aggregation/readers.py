@@ -96,7 +96,16 @@ def read_monolithic(raw_dir: str, year: int) -> pd.DataFrame:
 
 
 def read_round_files(raw_dir: str, year: int) -> pd.DataFrame:
-    """2018+: per-round files `rodada-N.csv`. Concat everything."""
+    """2018+: per-round files `rodada-N.csv`. Concat everything.
+
+    The file name is treated as the source of truth for which round each
+    snapshot represents — the upstream `atletas.rodada_id` field is
+    overwritten because it is occasionally stale (e.g. 2023 ships both
+    `rodada-1.csv` and `rodada-2.csv` carrying internal `rodada_id=2`,
+    and 2022 ships a preseason `rodada-0.csv` that internally claims
+    `rodada_id=1` and would otherwise duplicate the actual round 1).
+    `rodada-0.csv` (preseason) is dropped entirely.
+    """
     base = Path(raw_dir)
     if not base.exists():
         logger.warning("Raw dir does not exist: %s", base)
@@ -110,7 +119,18 @@ def read_round_files(raw_dir: str, year: int) -> pd.DataFrame:
         logger.warning("No rodada-*.csv files in %s", base)
         return pd.DataFrame()
 
-    frames = [_read_csv_robust(p) for p in files]
+    frames: list[pd.DataFrame] = []
+    for path in files:
+        rodada = int(_ROUND_FILE_RE.search(path.name).group(1))
+        if rodada < 1:
+            logger.info("Skipping preseason snapshot %s", path.name)
+            continue
+        frame = _read_csv_robust(path)
+        frame["atletas.rodada_id"] = rodada
+        frames.append(frame)
+
+    if not frames:
+        return pd.DataFrame()
     return pd.concat(frames, ignore_index=True)
 
 

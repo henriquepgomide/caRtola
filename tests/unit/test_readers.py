@@ -64,3 +64,26 @@ def test_read_mercado_json_2021_flattens_scouts_and_resolves_team_name(fixtures_
 def test_read_mercado_json_handles_empty_dir(tmp_path):
     df = readers.read_mercado_json(str(tmp_path), year=2021)
     assert df.empty
+
+
+def test_read_round_files_overwrites_rodada_from_filename(tmp_path):
+    """2023's `rodada-1.csv` and `rodada-2.csv` BOTH carry an internal
+    `atletas.rodada_id=2` (the upstream snapshot field is stale) — the
+    file name is the source of truth for "which round did we just see"."""
+    cols = ["atletas.atleta_id", "atletas.rodada_id", "G"]
+    (tmp_path / "rodada-1.csv").write_text("\n".join([",".join(cols), "100,2,0", "200,2,0"]))
+    (tmp_path / "rodada-2.csv").write_text("\n".join([",".join(cols), "100,2,1", "200,2,2"]))
+    df = readers.read_round_files(str(tmp_path), year=2099)
+    assert sorted(df["atletas.rodada_id"].unique()) == [1, 2]
+
+
+def test_read_round_files_skips_rodada_zero(tmp_path):
+    """2022 ships a `rodada-0.csv` preseason snapshot whose internal
+    rodada_id is 1, duplicating every player in `rodada-1.csv`. Drop it."""
+    cols = ["atletas.atleta_id", "atletas.rodada_id", "G"]
+    (tmp_path / "rodada-0.csv").write_text("\n".join([",".join(cols), "100,1,0"]))
+    (tmp_path / "rodada-1.csv").write_text("\n".join([",".join(cols), "100,1,5"]))
+    df = readers.read_round_files(str(tmp_path), year=2099)
+    assert len(df) == 1
+    assert df["atletas.rodada_id"].iloc[0] == 1
+    assert df["G"].iloc[0] == 5

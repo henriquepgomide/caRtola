@@ -30,6 +30,7 @@ def year_dataframe(year: int) -> pd.DataFrame:
     df = player.map_position(df)
     df = player.map_status(df)
     df = player.fill_missing_slug(df)
+    df = player.dedupe_per_rodada(df)
     df = scouts.process(df, accumulated=cfg.accumulated, has_scouts=cfg.has_scouts)
     df["ano"] = year
     return df.reindex(columns=CANONICAL_COLUMNS)

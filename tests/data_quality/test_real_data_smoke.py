@@ -5,11 +5,8 @@ The CI / manual full run executes it.
 
 Known data-quality limitations (tracked as follow-up work):
 
-* Some years (notably 2020 / 2022 / 2023) contain a small number of
-  duplicated `(ano, rodada, id_atleta)` rows in the upstream raw data
-  (e.g. coaches with `posicao_id=6`, players listed twice). Pandera unique
-  validation and the strict de-dup test are therefore tolerant rather than
-  exact while the upstream data is being investigated.
+* 2014 is missing `id_clube` for ~half the rows because the legacy raw scout
+  files have empty `ClubeID`. Tolerated by per-year `id_clube` checks.
 * 2026 is an in-progress season; row / round / goal bounds are widened.
 """
 
@@ -81,11 +78,9 @@ def test_2025_has_no_scouts(aggregated_df):
         assert sub[col].isna().all(), f"2025 should have NaN for scout {col}, got non-NaN"
 
 
-def test_duplicate_rows_are_rare(aggregated_df):
-    """Tolerant uniqueness check: real raw data has a small number of dup rows
-    (coaches, players listed twice, etc.). Hard-fail only if a dup explosion
-    appears (>1% of rows), which would indicate a regression in our pipeline.
-    """
+def test_no_duplicate_player_round_rows(aggregated_df):
+    """Strict uniqueness: ``read_round_files`` derives `rodada` from the file
+    name and ``player.dedupe_per_rodada`` collapses any within-file dups, so
+    every (ano, rodada, id_atleta) tuple must appear exactly once."""
     dups = aggregated_df.duplicated(subset=["ano", "rodada", "id_atleta"]).sum()
-    pct = dups / len(aggregated_df)
-    assert pct < 0.01, f"{dups} duplicate (ano, rodada, id_atleta) tuples ({pct:.2%}) — too many"
+    assert dups == 0, f"{dups} duplicate (ano, rodada, id_atleta) tuples found"

@@ -132,9 +132,16 @@ def resolve_id_clube(df: pd.DataFrame) -> pd.DataFrame:
     Rows whose `nome_clube` cannot be resolved get NaN id_clube and a single
     aggregated WARN log per (ano, nome_clube) group is emitted.
 
-    Fallback: if `nome_clube` is a numeric string that matches a known
-    Cartola clube id (some 2020 rounds store `"285"` instead of
-    `"Internacional"` in the name column), we resolve to that id directly.
+    Fallbacks (in order):
+
+    1. If `nome_clube` is a numeric string matching a known Cartola clube id
+       (some 2020 rounds store ``"285"`` instead of ``"Internacional"`` in
+       the name column), resolve to that id directly.
+    2. If `nome_clube` is missing entirely but the raw `id_clube` column
+       holds a known unambiguous abbreviation (``"SAO"`` → 276 for the 2017
+       coaches with NaN nome_clube), resolve via TEAM_NAME_TO_ID. Genuinely
+       ambiguous codes like ``"ATL"`` (Atlético-MG vs -PR) are intentionally
+       absent from the map and stay NaN.
     """
     df = df.copy()
 
@@ -142,6 +149,7 @@ def resolve_id_clube(df: pd.DataFrame) -> pd.DataFrame:
         df["id_clube"] = pd.array([pd.NA] * len(df), dtype="Int32")
         return df
 
+    raw_id_clube = df["id_clube"].copy() if "id_clube" in df.columns else None
     normalized = df["nome_clube"].map(_normalize_name)
     resolved = normalized.map(_NAME_TO_ID_NORMALIZED)
 
@@ -153,10 +161,16 @@ def resolve_id_clube(df: pd.DataFrame) -> pd.DataFrame:
     if unresolved_mask.any():
         numeric_fallback = df.loc[unresolved_mask, "nome_clube"].map(_maybe_numeric_clube_id)
         df.loc[unresolved_mask, "id_clube"] = numeric_fallback.astype("Int32")
-        unresolved_mask = (
-            df["id_clube"].isna() & df["nome_clube"].notna() & (df["nome_clube"].astype(str).str.strip() != "")
-        )
 
+    if raw_id_clube is not None:
+        missing_name_mask = df["id_clube"].isna() & df["nome_clube"].isna()
+        if missing_name_mask.any():
+            abbrev_fallback = raw_id_clube.loc[missing_name_mask].map(_normalize_name).map(_NAME_TO_ID_NORMALIZED)
+            df.loc[missing_name_mask, "id_clube"] = abbrev_fallback.astype("Int32")
+
+    unresolved_mask = (
+        df["id_clube"].isna() & df["nome_clube"].notna() & (df["nome_clube"].astype(str).str.strip() != "")
+    )
     if unresolved_mask.any():
         group_cols = [c for c in ("ano", "nome_clube") if c in df.columns]
         groups = (

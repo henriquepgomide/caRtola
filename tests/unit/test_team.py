@@ -77,3 +77,21 @@ def test_resolve_id_clube_numeric_string_falls_back_to_known_id():
     assert out["id_clube"].iloc[0] == 285  # Internacional
     assert out["id_clube"].iloc[1] == 262  # Flamengo
     assert pd.isna(out["id_clube"].iloc[2])  # unknown id stays NaN
+
+
+def test_resolve_id_clube_falls_back_to_raw_abbreviation_when_name_missing():
+    # 2017 ships ~114 rows (mostly coaches) with NaN nome_clube but a known
+    # string abbreviation in the raw id_clube column. Recover the
+    # unambiguous ones; refuse to guess truly ambiguous codes like "ATL"
+    # (could mean Atlético-MG or Atlético-PR).
+    df = pd.DataFrame(
+        {
+            "nome_clube": [None, None, None, None],
+            "id_clube": ["SAO", "FLU", "ATL", "ZZZ"],
+        }
+    )
+    out = team.resolve_id_clube(df)
+    assert out["id_clube"].iloc[0] == 276  # São Paulo
+    assert out["id_clube"].iloc[1] == 266  # Fluminense
+    assert pd.isna(out["id_clube"].iloc[2])  # ATL is ambiguous → stays NaN
+    assert pd.isna(out["id_clube"].iloc[3])  # unknown abbreviation stays NaN

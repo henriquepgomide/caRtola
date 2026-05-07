@@ -16,7 +16,7 @@ from cartola.aggregation.readers import (
     read_round_files,
     read_season_files,
 )
-from cartola.aggregation.schema import CANONICAL_COLUMNS
+from cartola.aggregation.schema import CANONICAL_COLUMNS, apply_canonical_dtypes
 
 
 def _process_year(cfg: YearConfig, year: int) -> pd.DataFrame:
@@ -29,7 +29,7 @@ def _process_year(cfg: YearConfig, year: int) -> pd.DataFrame:
     df = player.fill_missing_slug(df)
     df = scouts.process(df, accumulated=cfg.accumulated, has_scouts=cfg.has_scouts)
     df["ano"] = year
-    return df.reindex(columns=CANONICAL_COLUMNS)
+    return apply_canonical_dtypes(df.reindex(columns=CANONICAL_COLUMNS))
 
 
 @pytest.fixture

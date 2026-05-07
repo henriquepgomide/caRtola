@@ -1,0 +1,30 @@
+# This is a boilerplate parameters config generated for pipeline 'preprocessing'
+# using Kedro 0.18.2.
+#
+# Documentation for this file format can be found in "Parameters"
+# Link: https://kedro.readthedocs.io/en/0.18.2/kedro_project_setup/configuration.html#parameters
+
+2019.preprocessing.scouts:
+  # ataque
+  G: 8.0    # Gol marcado
+  A: 5.0    # Assistência
+  FT: 3.0   # Finalização na Trave
+  FD: 1.2   # Finalização Defendida
+  FF: 0.8   # Finalização para Fora
+  FS: 0.5   # Falta Sofrida
+  PP: -4.0  # Pênalti Perdido
+  I: -0.5   # Impedimento
+  PE: -0.3  # Passe Errado
+  # defesa
+  SG: 5.0   # jogo sem Sofrer Gols (somente defensores)
+  CV: -5.0  # Cartão Vermelho
+  CA: -2.0  # Cartão Amarelo
+  GS: -2.0  # Gol Sofrido
+  FC: -0.5  # Falta Cometida
+  GC: -5.0  # Gol Contra
+  DP: 7.0   # Defesa de Pênalti
+  RB: 1.5   # Roubada de Bola
+  DD: 3.0   # Defesa Difícil
+
+# * exclusivo de goleiro
+# ** não válido para goleiros

@@ -109,10 +109,10 @@ H. Gomide e A. Gualberto, CaRtola: Extração de dados da API do CartolaFC, aná
 
 ```{latex}
 @book{
-     title={CaRtola: Extração de dados da API do CartolaFC, análise exploratória dos dados e modelos preditivos em R e Python}, 
-     url={https://github.com/henriquepgomide/caRtola}, 
-     abstractNote={Extração de dados da API do CartolaFC, análise exploratória dos dados e modelos preditivos em R e Python}, 
-     author={Gomide, Henrique and Gualberto, Arnaldo}, 
+     title={CaRtola: Extração de dados da API do CartolaFC, análise exploratória dos dados e modelos preditivos em R e Python},
+     url={https://github.com/henriquepgomide/caRtola},
+     abstractNote={Extração de dados da API do CartolaFC, análise exploratória dos dados e modelos preditivos em R e Python},
+     author={Gomide, Henrique and Gualberto, Arnaldo},
      year={2022}
 }
 ```

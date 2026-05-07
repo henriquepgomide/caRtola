@@ -1,0 +1,36 @@
+2016.merge.scouts:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/2016/2016_scouts_raw.csv
+  save_args:
+    index: False
+
+
+2016.merge.players:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/2016/2016_jogadores.csv
+  save_args:
+    index: False
+
+
+2016.merge.teams:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/2016/2016_times.csv
+  save_args:
+    index: False
+
+
+2016.preprocessing.raw:
+  type: PartitionedDataSet
+  path: data/02_intermediate
+  dataset:
+    type: pandas.CSVDataSet
+    save_args:
+      index: False
+  filename_suffix: _2016.csv
+
+
+2016.preprocessing.preprocessed:
+  type: pandas.CSVDataSet
+  filepath: data/03_primary/preprocessed_2016.csv
+  save_args:
+    index: False

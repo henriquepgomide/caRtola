@@ -1,20 +1,42 @@
-from typing import Dict
+"""Generic DataFrame helpers shared by Kedro pipelines."""
+
+from collections.abc import Callable
+from typing import Dict, List
 
 import pandas as pd
 
 
 def drop_duplicated_rows(df: pd.DataFrame) -> pd.DataFrame:
+    """Return `df` with exact-duplicate rows removed and index reset."""
     return df.drop_duplicates(ignore_index=True)
 
 
-def concat_partitioned_datasets(partitioned_dataset: Dict[str, pd.DataFrame]) -> pd.DataFrame:
-    df_concat = pd.DataFrame()
-    for _, partition_load_func in partitioned_dataset.items():
-        partition_data = partition_load_func()
-        df_concat = pd.concat([df_concat, partition_data], ignore_index=True)
+def drop_columns(df: pd.DataFrame, list_cols: List[str]) -> pd.DataFrame:
+    """Drop the listed columns, ignoring any that are absent from the frame.
 
-    return df_concat.reset_index(drop=True)
+    The same per-year `drop_columns` parameter is reused across years whose
+    raw schemas drift slightly; tolerating missing columns keeps the
+    parameter set small without requiring a unique file per year.
+    """
+    return df.drop(columns=list_cols, errors="ignore")
+
+
+def concat_partitioned_datasets(
+    partitioned_dataset: Dict[str, Callable[[], pd.DataFrame]],
+) -> pd.DataFrame:
+    """Concatenate all partitions in a Kedro PartitionedDataset.
+
+    Materializes every partition once and concatenates in a single
+    `pd.concat` call (O(n) total) rather than the historical O(n^2)
+    accumulator pattern.
+    """
+    if not partitioned_dataset:
+        return pd.DataFrame()
+
+    frames = [load() for load in partitioned_dataset.values()]
+    return pd.concat(frames, ignore_index=True)
 
 
 def rename_cols(df: pd.DataFrame, map_col_names: Dict[str, str]) -> pd.DataFrame:
+    """Rename columns of `df` using the `map_col_names` mapping."""
     return df.rename(columns=map_col_names)

@@ -1,7 +1,5 @@
 """Tests for the Hamilton nodes module."""
 
-import inspect
-
 import pandas as pd
 from hamilton import driver
 
@@ -15,10 +13,14 @@ def test_module_exposes_year_dataframe_and_aggregated():
     assert "aggregated" in dir(nodes)
 
 
-def test_aggregated_signature_matches_registry():
-    sig = inspect.signature(nodes.aggregated)
+def test_aggregated_collects_one_dependency_per_registry_year():
+    """The DAG must wire one ``year_<Y>`` upstream of ``aggregated`` per
+    entry in :data:`YEAR_REGISTRY`. This is the runtime invariant that
+    replaces the static-signature check from the pre-@inject(group) era."""
+    drv = driver.Builder().with_modules(nodes).build()
+    deps = {n.name for n in drv.what_is_upstream_of("aggregated")}
     expected = {f"year_{y}" for y in YEAR_REGISTRY}
-    assert set(sig.parameters) == expected
+    assert expected.issubset(deps)
 
 
 def test_driver_dag_has_one_node_per_year_plus_aggregated():
@@ -32,8 +34,7 @@ def test_driver_dag_has_one_node_per_year_plus_aggregated():
 
 def test_aggregated_concats_input_frames():
     df_a = pd.DataFrame({c: pd.Series(dtype="object") for c in CANONICAL_COLUMNS})
-    kwargs = {f"year_{y}": df_a for y in YEAR_REGISTRY}
-    out = nodes.aggregated(**kwargs)
+    out = nodes.aggregated(year_frames=[df_a for _ in YEAR_REGISTRY])
     assert list(out.columns) == CANONICAL_COLUMNS
     assert len(out) == 0
 
@@ -42,8 +43,7 @@ def test_aggregated_returns_empty_canonical_when_all_inputs_empty():
     """When every per-year frame is empty (no columns), short-circuit to an
     empty canonical DataFrame instead of concatenating zero non-empty frames."""
     empty = pd.DataFrame()
-    kwargs = {f"year_{y}": empty for y in YEAR_REGISTRY}
-    out = nodes.aggregated(**kwargs)
+    out = nodes.aggregated(year_frames=[empty for _ in YEAR_REGISTRY])
     assert list(out.columns) == CANONICAL_COLUMNS
     assert len(out) == 0
 
@@ -53,8 +53,8 @@ def test_aggregated_concats_only_non_empty_frames():
         {c: ([2018] if c == "ano" else [pd.NA]) for c in CANONICAL_COLUMNS},
     )
     empty = pd.DataFrame()
-    kwargs = {f"year_{y}": (populated if y == 2018 else empty) for y in YEAR_REGISTRY}
-    out = nodes.aggregated(**kwargs)
+    frames = [populated if y == 2018 else empty for y in YEAR_REGISTRY]
+    out = nodes.aggregated(year_frames=frames)
     assert len(out) == 1
     assert int(out["ano"].iloc[0]) == 2018
 

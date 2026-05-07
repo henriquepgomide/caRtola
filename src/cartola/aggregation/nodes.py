@@ -2,20 +2,22 @@
 
 One per-year node is generated dynamically from
 :data:`~cartola.aggregation.catalog.YEAR_REGISTRY` via
-:func:`~hamilton.function_modifiers.parameterize`, plus a final ``aggregated``
-node that concatenates them.
+:func:`~hamilton.function_modifiers.parameterize`. The final ``aggregated``
+node fans those years in via :func:`~hamilton.function_modifiers.inject` +
+:func:`~hamilton.function_modifiers.group`, so adding year ``N+1`` is a
+single-line edit in :data:`YEAR_REGISTRY` (genuine single source of truth).
 """
 
-import warnings
-
 import pandas as pd
-from hamilton.function_modifiers import parameterize, value
+from hamilton.function_modifiers import group, inject, parameterize, source, value
 
 from cartola.aggregation import columns, player, scouts, team
 from cartola.aggregation.catalog import YEAR_REGISTRY
-from cartola.aggregation.schema import CANONICAL_COLUMNS
+from cartola.aggregation.schema import CANONICAL_COLUMNS, apply_canonical_dtypes
 
-_PARAMS = {f"year_{y}": {"year": value(y)} for y in YEAR_REGISTRY}
+_YEARS: list[int] = sorted(YEAR_REGISTRY)
+_PARAMS: dict[str, dict[str, object]] = {f"year_{y}": {"year": value(y)} for y in _YEARS}
+_YEAR_SOURCES = [source(f"year_{y}") for y in _YEARS]
 
 
 @parameterize(**_PARAMS)
@@ -26,7 +28,10 @@ def year_dataframe(year: int) -> pd.DataFrame:
         year: Season year present in :data:`YEAR_REGISTRY`.
 
     Returns:
-        One year of data in the canonical schema (``CANONICAL_COLUMNS`` order).
+        One year of data in the canonical schema (``CANONICAL_COLUMNS``
+        order) with dtypes from
+        :data:`~cartola.aggregation.schema.DTYPES` applied so downstream
+        ``pd.concat`` does not need to reconcile mixed dtypes.
     """
     cfg = YEAR_REGISTRY[year]
     raw = cfg.reader(cfg.raw_dir, year)
@@ -38,67 +43,28 @@ def year_dataframe(year: int) -> pd.DataFrame:
     df = player.dedupe_per_rodada(df)
     df = scouts.process(df, accumulated=cfg.accumulated, has_scouts=cfg.has_scouts)
     df["ano"] = year
-    return df.reindex(columns=CANONICAL_COLUMNS)
+    return apply_canonical_dtypes(df.reindex(columns=CANONICAL_COLUMNS))
 
 
-def aggregated(
-    year_2014: pd.DataFrame,
-    year_2015: pd.DataFrame,
-    year_2016: pd.DataFrame,
-    year_2017: pd.DataFrame,
-    year_2018: pd.DataFrame,
-    year_2019: pd.DataFrame,
-    year_2020: pd.DataFrame,
-    year_2021: pd.DataFrame,
-    year_2022: pd.DataFrame,
-    year_2023: pd.DataFrame,
-    year_2024: pd.DataFrame,
-    year_2025: pd.DataFrame,
-    year_2026: pd.DataFrame,
-) -> pd.DataFrame:
+@inject(year_frames=group(*_YEAR_SOURCES))
+def aggregated(year_frames: list[pd.DataFrame]) -> pd.DataFrame:
     """Concat all year DataFrames, preserving :data:`CANONICAL_COLUMNS` order.
 
-    Parameter names must mirror keys in :data:`YEAR_REGISTRY` exactly;
-    ``test_nodes.test_*`` asserts this invariant.
+    Year inputs are wired automatically from :data:`YEAR_REGISTRY` via
+    ``@inject(group(source(...)))``, so this function does not need to know
+    how many years exist.
 
     Args:
-        year_2014: Year-2014 DataFrame produced by :func:`year_dataframe`.
-        year_2015: Year-2015 DataFrame produced by :func:`year_dataframe`.
-        year_2016: Year-2016 DataFrame produced by :func:`year_dataframe`.
-        year_2017: Year-2017 DataFrame produced by :func:`year_dataframe`.
-        year_2018: Year-2018 DataFrame produced by :func:`year_dataframe`.
-        year_2019: Year-2019 DataFrame produced by :func:`year_dataframe`.
-        year_2020: Year-2020 DataFrame produced by :func:`year_dataframe`.
-        year_2021: Year-2021 DataFrame produced by :func:`year_dataframe`.
-        year_2022: Year-2022 DataFrame produced by :func:`year_dataframe`.
-        year_2023: Year-2023 DataFrame produced by :func:`year_dataframe`.
-        year_2024: Year-2024 DataFrame produced by :func:`year_dataframe`.
-        year_2025: Year-2025 DataFrame produced by :func:`year_dataframe`.
-        year_2026: Year-2026 DataFrame produced by :func:`year_dataframe`.
+        year_frames: Per-year DataFrames produced by :func:`year_dataframe`,
+            collected by Hamilton from every ``year_<Y>`` node.
 
     Returns:
         Concatenated DataFrame with rows from every non-empty year, reset
-        index, in :data:`CANONICAL_COLUMNS` order.
+        index, in :data:`CANONICAL_COLUMNS` order. Returns an empty
+        canonical DataFrame when every input is empty.
     """
-    frames = [
-        year_2014,
-        year_2015,
-        year_2016,
-        year_2017,
-        year_2018,
-        year_2019,
-        year_2020,
-        year_2021,
-        year_2022,
-        year_2023,
-        year_2024,
-        year_2025,
-        year_2026,
-    ]
-    non_empty = [f for f in frames if not f.empty]
+    non_empty = [f for f in year_frames if not f.empty]
     if not non_empty:
         return pd.DataFrame(columns=CANONICAL_COLUMNS)
-    with warnings.catch_warnings():
-        warnings.filterwarnings("ignore", category=FutureWarning, message=".*empty or all-NA.*")
-        merged = pd.concat(non_empty, ignore_index=True)
+    merged = pd.concat(non_empty, ignore_index=True)
     return merged.reset_index(drop=True).reindex(columns=CANONICAL_COLUMNS)

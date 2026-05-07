@@ -74,17 +74,54 @@ DTYPES: dict[str, str] = {
     "foto": "string",
     "posicao": "string",
     "status": "string",
-    "pontuacao": "float32",
-    "media": "float32",
-    "preco": "float32",
-    "variacao": "float32",
+    "pontuacao": "float64",
+    "media": "float64",
+    "preco": "float64",
+    "variacao": "float64",
     "num_jogos": "Int16",
-    **dict.fromkeys(SCOUTS, "float32"),
+    **dict.fromkeys(SCOUTS, "float64"),
 }
 """Per-column pandas dtypes used after harmonization.
 
 Nullable types (``Int*``) are required for columns that may legitimately be NaN.
+Floats are ``float64`` to match :class:`AggregatedSchema` (``Series[float]``)
+and avoid precision artifacts when Pandera ``coerce=True`` upcasts on
+validation — round-tripping ``float32`` through ``float64`` and back to a
+text CSV produces visible noise like ``4.49 → 4.489999771118164``.
 """
+
+_NON_NULLABLE_NUMERIC: frozenset[str] = frozenset(
+    {"float32", "float64", "int8", "int16", "int32", "int64"},
+)
+
+
+def apply_canonical_dtypes(df: pd.DataFrame) -> pd.DataFrame:
+    """Cast columns present in ``df`` to the dtype declared in :data:`DTYPES`.
+
+    For non-nullable numeric targets, cells holding ``pd.NA`` are first
+    coerced to ``np.nan`` via :func:`pandas.to_numeric` because pandas
+    refuses to ``astype("float32")`` an object column containing ``pd.NA``
+    (raises ``TypeError: float() argument ... not 'NAType'``).
+
+    Columns absent from ``df`` are skipped silently — callers that need
+    canonical column presence should reindex against
+    :data:`CANONICAL_COLUMNS` first.
+
+    Args:
+        df: Frame whose columns will be coerced in-place on a copy.
+
+    Returns:
+        A copy of ``df`` with applicable columns cast to canonical dtypes.
+    """
+    out = df.copy()
+    for col, dtype in DTYPES.items():
+        if col not in out.columns:
+            continue
+        if dtype in _NON_NULLABLE_NUMERIC:
+            out[col] = pd.to_numeric(out[col], errors="coerce")
+        out[col] = out[col].astype(dtype)
+    return out
+
 
 POSITION_MAP: dict[int, str] = {
     1: "gol",

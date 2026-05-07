@@ -10,7 +10,7 @@ readCsvInsideFolder <- function(path,
   df_list <- list()
   
   for (i in 1:length(files)){
-    data         <- read.csv(paste0("data/", year, "/", files[i]), stringsAsFactors = FALSE)
+    data         <- read.csv(paste0("data/01_raw/", year, "/", files[i]), stringsAsFactors = FALSE)
     df_list[[i]] <- data
   }
   

@@ -16,7 +16,7 @@ process2018Matches <- function(data){
   data$away_score <- as.integer(data$away_score)
   
   # Open data dictionary
-  team_dic <- read.csv("data/times_ids.csv", 
+  team_dic <- read.csv("data/01_raw/times_ids.csv", 
                        stringsAsFactors = FALSE)
   # Look up values
   data$home_team <- plyr::mapvalues(data$home_team, 
@@ -108,16 +108,16 @@ predictCleanSheets <- function(team_features){
 # Open and merge data -----------------------------------------------------
 ## Open '18, '19 and '20 datasets
 
-matches_18 <- read.csv("data/2018/2018_partidas.csv",
+matches_18 <- read.csv("data/01_raw/2018/2018_partidas.csv",
                        stringsAsFactors = FALSE)
 matches_18 <- process2018Matches(matches_18)
 
-matches_19 <- read.csv("data/2019/2019_partidas.csv",
+matches_19 <- read.csv("data/01_raw/2019/2019_partidas.csv",
                        stringsAsFactors = FALSE) 
 matches_19 <- dplyr::mutate(matches_19, year = 2019)
 
 
-matches_20 <- read.csv("data/2020/2020_partidas.csv",
+matches_20 <- read.csv("data/01_raw/2020/2020_partidas.csv",
                        stringsAsFactors = FALSE) 
 matches_20 <- dplyr::mutate(matches_20, year = 2020)
 
@@ -181,7 +181,7 @@ df_to_export <- dplyr::select(df_to_export,
 names(df_to_export)[c(5,6)] <- c("away_scoring_odds", "home_scoring_odds")
 
 write.csv(df_to_export,
-          sprintf("data/2020/team-features/2020-team-features-round-%s.csv",
+          sprintf("data/01_raw/2020/team-features/2020-team-features-round-%s.csv",
                   max(matches_to_predict$round)), 
           row.names = FALSE,
           na = "0")
@@ -194,7 +194,7 @@ df_rank_to_export <-
   filter(team_name %in% first_tier_2020)
 
 write.csv(df_rank_to_export,
-          sprintf("data/2020/team-rankings/2020-team-rankings-round-%s.csv", 
+          sprintf("data/01_raw/2020/team-rankings/2020-team-rankings-round-%s.csv", 
                   max(matches_to_predict$round)),
           row.names = FALSE,
           na = "0")

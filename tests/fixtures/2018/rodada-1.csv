@@ -1,0 +1,2 @@
+"","atletas.nome","atletas.slug","atletas.apelido","atletas.foto","atletas.atleta_id","atletas.rodada_id","atletas.clube_id","atletas.posicao_id","atletas.status_id","atletas.pontos_num","atletas.preco_num","atletas.variacao_num","atletas.media_num","atletas.clube.id.full.name","FC","FD","FF","FS","G","I","RB","CA","PE","A","SG","DD","FT","GS","CV","GC","DP","PP"
+"1","Matheus Ferraz Pereira","matheus-ferraz","Matheus Ferraz","https://example.com/p.png",38632,1,"AME","zag","Nulo",2.5,6.0,0.0,2.5,"Atlético-MG",1,0,0,1,0,0,2,0,0,0,1,0,0,0,0,0,0,0

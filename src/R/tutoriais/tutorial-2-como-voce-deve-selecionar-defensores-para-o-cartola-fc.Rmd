@@ -1,3 +1,4 @@
+<!-- markdownlint-disable -->
 ---
 title: "Tutorial 2 - Como você deve selecionar seus laterais para o Cartola F.C.?"
 author: "Henrique Gomide, Ph.D."

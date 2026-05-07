@@ -1,0 +1,5 @@
+# Example markdownlint YAML configuration with all properties set to their default value
+
+# Default state for all rules
+default: true
+line-length: false

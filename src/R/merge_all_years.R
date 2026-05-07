@@ -11,10 +11,10 @@ library(zoo)
 #%%%%%%%%%%%%%%%%%%%%%%%%%
 
 # Open data frames
-df_2014 <- read.csv("data/2014/2014_scouts_raw.csv", stringsAsFactors = FALSE)
-df_2015 <- read.csv("data/2015/2015_scouts_raw.csv", stringsAsFactors = FALSE)
-df_2016 <- read.csv("data/2016/2016_scouts_raw.csv", stringsAsFactors = FALSE)
-df_2017 <- read.csv("data/2017/2017_scouts_raw.csv", stringsAsFactors = FALSE)
+df_2014 <- read.csv("data/01_raw/2014/2014_scouts_raw.csv", stringsAsFactors = FALSE)
+df_2015 <- read.csv("data/01_raw/2015/2015_scouts_raw.csv", stringsAsFactors = FALSE)
+df_2016 <- read.csv("data/01_raw/2016/2016_scouts_raw.csv", stringsAsFactors = FALSE)
+df_2017 <- read.csv("data/01_raw/2017/2017_scouts_raw.csv", stringsAsFactors = FALSE)
 
 # Inser column year into data
 df_2014$ano <- 2014
@@ -73,7 +73,7 @@ names(cartola) <- c("AtletaID", "Rodada", "Nome",
                     c(names(cartola)[15:30]))
 cartola$ano <- 2018
 
-temp1 <- read.csv("data/times_ids.csv", stringsAsFactors = FALSE)
+temp1 <- read.csv("data/01_raw/times_ids.csv", stringsAsFactors = FALSE)
 cartola$ClubeID <- mapvalues(cartola$ClubeID, 
                              from = as.vector(temp1$nome.cartola), 
                              to = as.vector(temp1$id))

@@ -1,3 +1,4 @@
+<!-- markdownlint-disable -->
 Como escolher defensores?
 =========================
 

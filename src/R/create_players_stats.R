@@ -5,7 +5,7 @@ library(zoo)
 source("src/R/utils.R")
 
 # 0. Dataprep -------------------------------------------------------------
-data <- readCsvInsideFolder("data/2020/",
+data <- readCsvInsideFolder("data/01_raw/2020/",
                             "rodada",
                             "2020")
 
@@ -22,7 +22,7 @@ data$atletas.rodada_id  <- factor(data$atletas.rodada_id,
 # Convert team names with universal team ids
 mapTeamNames <- function(var) {
   # Map team names using all year dictionary
-  temp1 <- read.csv("data/times_ids.csv", stringsAsFactors = FALSE)
+  temp1 <- read.csv("data/01_raw/times_ids.csv", stringsAsFactors = FALSE)
   var <- plyr::mapvalues(var, 
                          from = as.vector(temp1$nome.cartola), 
                          to = as.vector(temp1$id))
@@ -138,7 +138,7 @@ names(data)[1:6] <- c("slug", "atleta.id", "team",
 
 data$rodada <- as.integer(data$rodadaF)
 
-matches <- read.csv("data/2020/2020_partidas.csv", 
+matches <- read.csv("data/01_raw/2020/2020_partidas.csv", 
                     check.names = FALSE,
                     stringsAsFactors = FALSE)
 
@@ -281,6 +281,6 @@ names(df.cartola.2020) <- c("player_slug", "player_id", "player_nickname",
                             "status", "price_diff", "last_points")
 
 write.csv(df.cartola.2020,
-          "data/2020/2020-medias-jogadores.csv", 
+          "data/01_raw/2020/2020-medias-jogadores.csv", 
           row.names = FALSE,
           na = "0")

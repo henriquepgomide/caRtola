@@ -57,28 +57,36 @@ def test_disaccumulate_first_appearance_mid_season_keeps_cumulative():
     assert out["G"].iloc[0] == 3.0
 
 
-def test_disaccumulate_sg_clipped_at_zero():
+def test_disaccumulate_correction_drops_to_zero_no_negative():
+    """Cartola lowers a cumulative scout retroactively → the current
+    round's per-round value is 0 (not negative). A player cannot perform
+    a negative number of actions; the correction is attributed to a past
+    round we cannot identify forward-only."""
     df = pd.DataFrame(
         {
-            "id_atleta": [1, 1],
-            "rodada": [1, 2],
-            "SG": [2.0, 1.0],  # cumulative went DOWN (Cartola correction)
-        }
-    )
-    out = scouts.disaccumulate_scouts(df, scout_cols=["SG"])
-    assert out["SG"].tolist() == [2.0, 0.0]
-
-
-def test_disaccumulate_retroactive_correction_keeps_negative_for_non_sg():
-    df = pd.DataFrame(
-        {
-            "id_atleta": [1, 1],
-            "rodada": [1, 2],
-            "G": [2.0, 1.0],
+            "id_atleta": [1, 1, 1],
+            "rodada": [1, 2, 3],
+            "G": [2.0, 1.0, 1.0],
         }
     )
     out = scouts.disaccumulate_scouts(df, scout_cols=["G"])
-    assert out["G"].tolist() == [2.0, -1.0]
+    assert out["G"].tolist() == [2.0, 0.0, 0.0]
+
+
+def test_disaccumulate_resumes_against_running_max_after_correction():
+    """Regression for the running-max baseline: when cumulative dips and
+    later climbs back above the previous high, the new positive delta is
+    computed against the high-water mark, not the corrected lower value
+    (a naive ``.diff()`` would double-count events here)."""
+    df = pd.DataFrame(
+        {
+            "id_atleta": [1, 1, 1, 1],
+            "rodada": [1, 2, 3, 4],
+            "G": [1.0, 2.0, 1.0, 3.0],  # cum dips at r3, recovers + 1 at r4
+        }
+    )
+    out = scouts.disaccumulate_scouts(df, scout_cols=["G"])
+    assert out["G"].tolist() == [1.0, 1.0, 0.0, 1.0]
 
 
 def test_process_no_scouts_year_fills_all_with_nan():

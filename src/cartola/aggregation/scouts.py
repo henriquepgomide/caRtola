@@ -28,15 +28,34 @@ def disaccumulate_scouts(df: pd.DataFrame, scout_cols: list[str]) -> pd.DataFram
     """Convert season-cumulative scouts to per-round values.
 
     The Cartola API returns scouts as season-cumulative for some years
-    (2015, 2017-2022). The per-round delta is the diff against the player's
-    previous appearance.
+    (2015, 2017-2022). The per-round delta for a ``(player, round, scout)``
+    is computed against the player's running cumulative maximum across
+    previous appearances:
 
-    Edge cases handled:
-        * Player skipped a round → diff = 0 (cumulative unchanged).
-        * First appearance of a player → keep the cumulative value as the
-          per-round value.
-        * Cartola correction lowering a scout → kept as negative (caller's
-          choice), except ``SG`` (clean sheet) which is clipped at 0.
+    .. code-block:: text
+
+        delta_N = max(cum_N - cummax(cum_1..N-1), 0)
+
+    This is more robust than a naive ``cum_N - cum_(N-1)`` ``.diff()``
+    because Cartola occasionally lowers a season-cumulative value
+    retroactively (e.g. an assist credit reviewed and removed). With the
+    running-cummax baseline:
+
+    * If ``cum_N`` drops below the previous high, ``delta_N = 0`` — a
+      player cannot perform a negative number of actions in a single
+      round, so the correction is attributed to a past round we cannot
+      identify forward-only.
+    * The next round whose cumulative exceeds the previous high resumes
+      producing positive deltas correctly relative to that high
+      (a naive ``.diff()`` against the corrected lower value would
+      double-count those events).
+
+    Edge cases:
+        * Player skipped a round → ``delta = 0`` for the next appearance
+          if the cumulative did not change.
+        * First appearance of a player → previous cummax is treated as
+          ``0``, so ``delta = cum_N`` (the cumulative at first appearance
+          is taken as the per-round value).
 
     Args:
         df: Per-(player, round) DataFrame with cumulative scout columns.
@@ -44,19 +63,14 @@ def disaccumulate_scouts(df: pd.DataFrame, scout_cols: list[str]) -> pd.DataFram
 
     Returns:
         A copy of ``df`` (sorted by ``id_atleta``, ``rodada``) with
-        ``scout_cols`` replaced by per-round values.
+        ``scout_cols`` replaced by per-round values, all ``>= 0``.
     """
     df = df.sort_values(["id_atleta", "rodada"], kind="mergesort").reset_index(drop=True).copy()
     df[scout_cols] = df[scout_cols].fillna(0.0)
 
-    diffs = df.groupby("id_atleta", sort=False)[scout_cols].diff()
-    first = df.groupby("id_atleta", sort=False).cumcount() == 0
-    diffs.loc[first, :] = df.loc[first, scout_cols].values
-
-    if "SG" in scout_cols:
-        diffs["SG"] = diffs["SG"].clip(lower=0)
-
-    df[scout_cols] = diffs.values
+    cummax = df.groupby("id_atleta", sort=False)[scout_cols].cummax()
+    prev_cummax = cummax.groupby(df["id_atleta"], sort=False).shift(1).fillna(0.0)
+    df[scout_cols] = (df[scout_cols] - prev_cummax).clip(lower=0).values
     return df
 
 

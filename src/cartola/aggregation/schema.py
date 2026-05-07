@@ -145,9 +145,15 @@ STATUS_MAP: dict[int, str] = {
 class AggregatedSchema(pa.DataFrameModel):
     """Pandera contract for the final aggregated DataFrame.
 
-    Notes:
-        ``PI`` (and ``DS``) can be negative after disaccumulation if Cartola
-        corrected backwards, so they intentionally lack a ``ge=0`` constraint.
+    All per-round scout columns must be ``>= 0``: scouts represent counts
+    of in-game events (goals, assists, fouls suffered/committed, etc.) and
+    a player cannot perform a negative number of actions in a single
+    round. When the source data ships season-cumulative scouts,
+    :func:`~cartola.aggregation.scouts.disaccumulate_scouts` is responsible
+    for producing per-round deltas that respect this invariant — a
+    retroactive Cartola correction lowering a cumulative count is treated
+    as ``0`` for the current round (the past round's count was wrong, but
+    the player did not perform a negative action this round).
     """
 
     ano: Series[int] = pa.Field(ge=2014, le=2030)
@@ -187,7 +193,7 @@ class AggregatedSchema(pa.DataFrameModel):
     GS: Series[float] = pa.Field(nullable=True, ge=0)
     I: Series[float] = pa.Field(nullable=True, ge=0)  # noqa: E741
     PC: Series[float] = pa.Field(nullable=True, ge=0)
-    PI: Series[float] = pa.Field(nullable=True)
+    PI: Series[float] = pa.Field(nullable=True, ge=0)
     PP: Series[float] = pa.Field(nullable=True, ge=0)
     PS: Series[float] = pa.Field(nullable=True, ge=0)
     SG: Series[float] = pa.Field(nullable=True, ge=0)

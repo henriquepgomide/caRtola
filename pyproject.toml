@@ -42,7 +42,7 @@ dev = [
 [tool.ruff]
 line-length = 120
 target-version = "py312"
-exclude = ["notebooks/**", ".venv", "__pycache__", "*.egg-info"]
+exclude = ["notebooks/**", "src/R/**", ".devcontainer/**"]
 
 [tool.ruff.format] # se usar ruff format no lugar do black
 quote-style = "double"

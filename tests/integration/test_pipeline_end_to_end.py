@@ -27,7 +27,7 @@ def _process_year(cfg: YearConfig, year: int) -> pd.DataFrame:
     df = player.map_position(df)
     df = player.map_status(df)
     df = player.fill_missing_slug(df)
-    df = scouts.process(df, accumulated=cfg.accumulated, has_scouts=cfg.has_scouts)
+    df = scouts.process(df, accumulated=cfg.accumulated)
     df["ano"] = year
     return apply_canonical_dtypes(df.reindex(columns=CANONICAL_COLUMNS))
 

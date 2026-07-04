@@ -74,35 +74,28 @@ def disaccumulate_scouts(df: pd.DataFrame, scout_cols: list[str]) -> pd.DataFram
     return df
 
 
-def process(df: pd.DataFrame, *, accumulated: bool, has_scouts: bool) -> pd.DataFrame:
+def process(df: pd.DataFrame, *, accumulated: bool) -> pd.DataFrame:
     """Apply the canonical scout pipeline.
 
     Behavior:
-        * ``has_scouts=False`` → all 21 :data:`~cartola.aggregation.schema.SCOUTS`
-          become NaN columns (e.g. 2025).
-        * ``has_scouts=True`` → rename ``PE``/``RB``/``DD``; missing scout values
-          within a year fill with ``0.0``; if ``accumulated``, run
+        * Rename ``PE``/``RB``/``DD``; missing scout values within a year
+          fill with ``0.0``; if ``accumulated``, run
           :func:`disaccumulate_scouts` on present scouts.
 
-    Scout columns absent from the input remain absent — they will be NaN after
-    the final reindex against ``CANONICAL_COLUMNS`` in
-    :func:`cartola.aggregation.nodes.year_dataframe`.
+    Scout columns absent from the input remain absent — they will be NaN
+    after the final reindex against ``CANONICAL_COLUMNS`` in
+    :func:`cartola.aggregation.nodes.year_dataframe`. This is how a year
+    that genuinely publishes no scouts naturally ends up all-NaN, with no
+    need for a separate manual flag.
 
     Args:
         df: Per-(player, round) DataFrame.
         accumulated: ``True`` when the source year ships season-cumulative scouts.
-        has_scouts: ``True`` when the source year publishes scout columns at all.
 
     Returns:
         A copy of ``df`` with the scout columns harmonized for that year.
     """
     df = df.copy()
-
-    if not has_scouts:
-        for col in SCOUTS:
-            df[col] = pd.NA
-        return df
-
     df = harmonize_scout_names(df)
     present = [c for c in SCOUTS if c in df.columns]
     if not present:

@@ -15,13 +15,12 @@ import pytest
 
 from cartola.aggregation import driver
 from cartola.aggregation.catalog import YEAR_REGISTRY
-from cartola.aggregation.schema import SCOUTS
 
 pytestmark = pytest.mark.slow
 
-# Years with a full-shape season we can sanity-bound. Excludes 2025 (no scouts)
-# and 2026 (in-progress, partial season).
-FULL_SEASON_YEARS = sorted(y for y in YEAR_REGISTRY if 2018 <= y <= 2024 and y != 2025)
+# Years with a full-shape season we can sanity-bound. Excludes 2026
+# (in-progress, partial season).
+FULL_SEASON_YEARS = sorted(y for y in YEAR_REGISTRY if 2018 <= y <= 2025)
 
 
 @pytest.fixture(scope="module")
@@ -68,12 +67,6 @@ def test_in_progress_2026_bounds(aggregated_df):
     total_g = sub["G"].sum(skipna=True)
     # ~30 goals/round; partial season → cap at full-season ceiling.
     assert 0 <= total_g <= 2_000, f"2026 total goals out of bounds: {total_g}"
-
-
-def test_2025_has_no_scouts(aggregated_df):
-    sub = aggregated_df[aggregated_df["ano"] == 2025]
-    for col in SCOUTS:
-        assert sub[col].isna().all(), f"2025 should have NaN for scout {col}, got non-NaN"
 
 
 def test_no_duplicate_player_round_rows(aggregated_df):

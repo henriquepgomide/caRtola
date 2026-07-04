@@ -4,7 +4,6 @@ import numpy as np
 import pandas as pd
 
 from cartola.aggregation import scouts
-from cartola.aggregation.schema import SCOUTS
 
 
 def test_harmonize_scout_names_renames_legacy():
@@ -89,14 +88,6 @@ def test_disaccumulate_resumes_against_running_max_after_correction():
     assert out["G"].tolist() == [1.0, 1.0, 0.0, 1.0]
 
 
-def test_process_no_scouts_year_fills_all_with_nan():
-    df = pd.DataFrame({"id_atleta": [1, 2], "rodada": [1, 1]})
-    out = scouts.process(df, accumulated=False, has_scouts=False)
-    for col in SCOUTS:
-        assert col in out.columns
-        assert out[col].isna().all()
-
-
 def test_process_legacy_year_renames_and_fills_zero():
     df = pd.DataFrame(
         {
@@ -107,7 +98,7 @@ def test_process_legacy_year_renames_and_fills_zero():
             "G": [1.0],
         }
     )
-    out = scouts.process(df, accumulated=False, has_scouts=True)
+    out = scouts.process(df, accumulated=False)
     assert out["PI"].iloc[0] == 0.0
     assert out["DS"].iloc[0] == 3.0
     assert out["G"].iloc[0] == 1.0
@@ -121,14 +112,15 @@ def test_process_accumulated_year_disaccumulates():
             "G": [1.0, 4.0],
         }
     )
-    out = scouts.process(df, accumulated=True, has_scouts=True)
+    out = scouts.process(df, accumulated=True)
     assert out["G"].tolist() == [1.0, 3.0]
 
 
 def test_process_returns_early_when_no_scout_columns_present():
-    """``has_scouts=True`` but the input frame happens to have zero scout
-    columns at all → short-circuit before fillna/disaccumulate (line 95)."""
+    """A year whose raw files ship zero scout columns → short-circuit
+    before fillna/disaccumulate; the caller's final reindex against
+    ``CANONICAL_COLUMNS`` is what turns the absent columns into NaN."""
     df = pd.DataFrame({"id_atleta": [1, 2], "rodada": [1, 1]})
-    out = scouts.process(df, accumulated=True, has_scouts=True)
+    out = scouts.process(df, accumulated=True)
     assert list(out.columns) == ["id_atleta", "rodada"]
     assert len(out) == 2

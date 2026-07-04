@@ -19,13 +19,9 @@ def test_2021_uses_mercado_json_reader():
 
 def test_accumulated_years_match_spec():
     # Years whose scout columns are reported as season-cumulative and need disaccumulation.
-    expected_accumulated = {2015, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2026}
+    expected_accumulated = {2015, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026}
     actual = {y for y, cfg in catalog.YEAR_REGISTRY.items() if cfg.accumulated}
     assert actual == expected_accumulated
-
-
-def test_2025_has_no_scouts_flag():
-    assert catalog.YEAR_REGISTRY[2025].has_scouts is False
 
 
 def test_all_years_have_existing_raw_dir(repo_root):

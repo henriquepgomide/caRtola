@@ -27,14 +27,12 @@ class YearConfig:
         reader: One of the readers in :mod:`cartola.aggregation.readers`.
         accumulated: ``True`` when the source year ships season-cumulative
             scouts that need disaccumulation.
-        has_scouts: ``True`` when the source year publishes scout columns.
     """
 
     year: int
     raw_dir: str
     reader: Callable[[str, int], pd.DataFrame]
     accumulated: bool = False
-    has_scouts: bool = True
 
 
 YEAR_REGISTRY: dict[int, YearConfig] = {
@@ -49,6 +47,6 @@ YEAR_REGISTRY: dict[int, YearConfig] = {
     2022: YearConfig(2022, "data/01_raw/2022", read_round_files, accumulated=True),
     2023: YearConfig(2023, "data/01_raw/2023", read_round_files, accumulated=True),
     2024: YearConfig(2024, "data/01_raw/2024", read_round_files, accumulated=True),
-    2025: YearConfig(2025, "data/01_raw/2025", read_round_files, accumulated=False, has_scouts=False),
+    2025: YearConfig(2025, "data/01_raw/2025", read_round_files, accumulated=True),
     2026: YearConfig(2026, "data/01_raw/2026", read_round_files, accumulated=True),
 }

@@ -91,9 +91,9 @@ def test_apply_canonical_dtypes_skips_absent_columns():
 
 
 def test_apply_canonical_dtypes_handles_pd_na_in_float_column():
-    """Regression: ``scouts.process`` writes ``pd.NA`` to scout columns when
-    ``has_scouts=False``; those columns must coerce to ``float64`` cleanly,
-    not raise ``TypeError`` on ``astype``."""
+    """Defensive coercion: object columns holding ``pd.NA`` (e.g. from an
+    upstream ``pd.concat`` of mixed-dtype frames) must coerce to
+    ``float64`` cleanly, not raise ``TypeError`` on ``astype``."""
     df = pd.DataFrame({c: pd.Series([pd.NA, pd.NA], dtype="object") for c in SCOUTS})
     out = apply_canonical_dtypes(df)
     for col in SCOUTS:

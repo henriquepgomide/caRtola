@@ -1,0 +1,37 @@
+{
+  "name": "caRtola",
+  "image": "ghcr.io/astral-sh/uv:python3.12-bookworm",
+  "workspaceFolder": "/workspaces/caRtola",
+
+  "containerEnv": {
+    "PYTHONUNBUFFERED": "1",
+    "UV_LINK_MODE": "copy",
+    "UV_PROJECT_ENVIRONMENT": "/workspaces/caRtola/.venv"
+  },
+
+  "postCreateCommand": "make install",
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "charliermarsh.ruff",
+        "ms-toolsai.jupyter",
+        "tamasfe.even-better-toml",
+        "davidanson.vscode-markdownlint"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/workspaces/caRtola/.venv/bin/python",
+        "python.terminal.activateEnvironment": false,
+        "[python]": {
+          "editor.defaultFormatter": "charliermarsh.ruff",
+          "editor.formatOnSave": true,
+          "editor.codeActionsOnSave": {
+            "source.fixAll.ruff": "explicit",
+            "source.organizeImports.ruff": "explicit"
+          }
+        }
+      }
+    }
+  }
+}

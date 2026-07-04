@@ -21,6 +21,10 @@ cd caRtola
 make install
 ```
 
+> Prefere não instalar nada localmente? Abra o repositório em um Dev Container
+> (VS Code: "Reopen in Container", ou GitHub Codespaces) — o ambiente com `uv`, Python 3.12 e as
+> dependências do projeto é montado automaticamente via `make install`.
+
 ---
 
 ## 💻 2. Rodando o pipeline

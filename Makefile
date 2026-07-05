@@ -3,15 +3,12 @@ help: ## display this help screen
 
 install: ## set up local environment
 	@set -e && \
-	uv sync --extra ui --group dev && \
+	uv sync --group dev && \
 	uv run pre-commit install && \
 	uv run pre-commit install --hook-type commit-msg
 
 aggregate: ## run the full aggregation pipeline
 	@uv run cartola aggregate
-
-viz: ## launch Hamilton UI
-	@uv run cartola viz
 
 test: ## run all tests (slow ones included)
 	@uv run pytest

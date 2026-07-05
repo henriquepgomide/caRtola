@@ -53,26 +53,6 @@ Saídas:
 | `data/03_primary/cartola_<year>.csv`       | sempre (um por ano rodado) | uma temporada no schema canônico  |
 | `data/04_aggregated/cartola_2014_2026.csv` | só em runs completos       | concat final de todos os anos     |
 
-### Hamilton UI (opcional)
-
-Para visualizar o DAG e acompanhar runs:
-
-1. Suba a UI em `http://localhost:8241`:
-
-   ```bash
-   make viz
-   # equivalente a:
-   uv run cartola viz
-   ```
-
-2. Na UI, crie um projeto chamado **`cartola`** (nome esperado pelo tracker).
-
-3. Em outro terminal, dispare o pipeline enviando o run para a UI:
-
-   ```bash
-   uv run cartola aggregate --track
-   ```
-
 ---
 
 ## 🧪 3. Testes

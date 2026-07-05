@@ -19,7 +19,7 @@ CSV harmonizado de 38 colunas (contexto + clube + jogador + estado de jogo +
 ### Setup
 
 ```bash
-uv sync --extra ui --group dev
+uv sync --group dev
 ```
 
 ### Rodando
@@ -27,8 +27,6 @@ uv sync --extra ui --group dev
 ```bash
 uv run cartola aggregate                       # todos os anos
 uv run cartola aggregate --years 2024,2025,2026
-uv run cartola aggregate --track               # envia o run para a Hamilton UI
-uv run cartola viz                             # abre a UI em http://localhost:8241
 ```
 
 Saídas:

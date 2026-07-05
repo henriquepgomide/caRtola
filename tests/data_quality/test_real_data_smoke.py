@@ -29,7 +29,7 @@ def aggregated_df(tmp_path_factory) -> pd.DataFrame:
     # Redirect the driver's outputs to a tmp dir so we don't clobber real data.
     driver.PRIMARY_DIR = out_dir / "03_primary"
     driver.AGGREGATED_DIR = out_dir / "04_aggregated"
-    return driver.run(years=None, track=False)
+    return driver.run(years=None)
 
 
 def test_all_registered_years_present(aggregated_df):

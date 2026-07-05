@@ -24,7 +24,7 @@ def test_aggregate_invokes_driver_run_with_parsed_years(mocker):
     fake = mocker.patch.object(cli.driver, "run", return_value=pd.DataFrame({"x": [1, 2, 3]}))
     result = runner.invoke(cli.app, ["aggregate", "--years", "2018,2019"])
     assert result.exit_code == 0
-    fake.assert_called_once_with(years=[2018, 2019], track=False)
+    fake.assert_called_once_with(years=[2018, 2019])
     assert "3 rows total" in result.stdout
 
 
@@ -32,24 +32,9 @@ def test_aggregate_without_years_passes_none(mocker):
     fake = mocker.patch.object(cli.driver, "run", return_value=pd.DataFrame())
     result = runner.invoke(cli.app, ["aggregate"])
     assert result.exit_code == 0
-    fake.assert_called_once_with(years=None, track=False)
-
-
-def test_aggregate_track_flag_forwarded(mocker):
-    fake = mocker.patch.object(cli.driver, "run", return_value=pd.DataFrame())
-    result = runner.invoke(cli.app, ["aggregate", "--track"])
-    assert result.exit_code == 0
-    fake.assert_called_once_with(years=None, track=True)
-
-
-def test_viz_invokes_launch_ui(mocker):
-    fake = mocker.patch.object(cli.driver, "launch_ui")
-    result = runner.invoke(cli.app, ["viz"])
-    assert result.exit_code == 0
-    fake.assert_called_once_with()
+    fake.assert_called_once_with(years=None)
 
 
 def test_app_no_args_shows_help():
     result = runner.invoke(cli.app, [])
     assert "aggregate" in result.stdout.lower()
-    assert "viz" in result.stdout.lower()

@@ -2,7 +2,6 @@
 
 Commands:
     aggregate: Run the pipeline and write per-year + aggregated CSVs.
-    viz: Launch the Hamilton UI (requires the ``ui`` extra).
 """
 
 import logging
@@ -18,6 +17,11 @@ logging.basicConfig(
 )
 
 
+@app.callback()
+def _main() -> None:
+    """Cartola aggregation pipeline CLI."""
+
+
 def _parse_years(raw: str | None) -> list[int] | None:
     if raw is None:
         return None
@@ -31,22 +35,11 @@ def aggregate(
         "--years",
         help="Comma-separated list of years to process. Default: all configured years.",
     ),
-    track: bool = typer.Option(
-        False,
-        "--track",
-        help="Send the run to the Hamilton UI tracker (requires `uv sync --extra ui`).",
-    ),
 ) -> None:
     """Run the aggregation pipeline."""
     selected = _parse_years(years)
-    df = driver.run(years=selected, track=track)
+    df = driver.run(years=selected)
     typer.echo(f"Done. {len(df)} rows total.")
-
-
-@app.command()
-def viz() -> None:
-    """Launch the Hamilton UI (http://localhost:8241)."""
-    driver.launch_ui()
 
 
 if __name__ == "__main__":

@@ -16,9 +16,6 @@ dependencies = [
     "requests>=2.31",
 ]
 
-[project.optional-dependencies]
-ui = ["sf-hamilton-ui>=0.0.17", "sf-hamilton-sdk>=0.8", "django-ninja<1.5"]
-
 [project.scripts]
 cartola = "cartola.cli:app"
 

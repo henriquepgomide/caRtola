@@ -92,6 +92,9 @@ def read_season_files(raw_dir: str, year: int) -> pd.DataFrame:
     jogadores = _read_csv_robust(base / f"{year}_jogadores.csv")
     times = _read_csv_robust(base / f"{year}_times.csv")
 
+    if "Rodada" in scouts.columns:
+        scouts = scouts[scouts["Rodada"] != 0]
+
     if "Posicao" in scouts.columns:
         scouts = scouts.drop(columns=["Posicao"])
 
@@ -115,7 +118,10 @@ def read_monolithic(raw_dir: str, year: int) -> pd.DataFrame:
         Wide DataFrame containing player metadata + scouts in one table.
     """
     path = Path(raw_dir) / f"{year}_scouts_raw.csv"
-    return _read_csv_robust(path)
+    df = _read_csv_robust(path)
+    if "Rodada" in df.columns:
+        df = df[df["Rodada"] != 0]
+    return df
 
 
 def read_round_files(raw_dir: str, year: int) -> pd.DataFrame:

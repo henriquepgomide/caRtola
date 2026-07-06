@@ -208,9 +208,8 @@ class AggregatedSchema(pa.DataFrameModel):
     inlined on their field below, with no exceptions — unlike
     :data:`SCOUT_ROUND_CEILINGS`, there is no known real-data anomaly
     affecting any of these columns: the ``ano=2020, rodada=10`` upstream
-    glitch that forces ``G``/``CA`` to go unbounded does not affect them
-    (see ``tests/data_quality/test_context_column_plausibility.py``), so
-    all five are safe to enforce with no carve-out. Calibrated from the
+    glitch that forces ``G``/``CA`` to go unbounded does not affect them,
+    so all five are safe to enforce with no carve-out. Calibrated from the
     real 2014-2026 corpus (per-year extremes, not just the aggregate)
     with headroom above/below the observed range: ``pontuacao``
     -12.0..37.7, ``media`` -12.0..25.8, ``preco`` 0.63..35.18, ``variacao``

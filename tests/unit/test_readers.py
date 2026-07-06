@@ -19,11 +19,34 @@ def test_read_season_files_2014_brings_scout_columns(fixtures_dir):
     assert {"FS", "PE", "G", "RB", "DD", "SG"}.issubset(df.columns)
 
 
+def test_read_season_files_drops_preseason_round_zero(tmp_path):
+    """2014-2016 ship a `Rodada=0` preseason snapshot (all scouts zero) in
+    `<year>_scouts_raw.csv`, just like `rodada-0.csv` for 2018+ and
+    `Mercado_1.txt` for 2021. It must not leak into the output."""
+    scouts_cols = "AtletaID,Rodada,ClubeID,Pontos,G"
+    (tmp_path / "2099_scouts_raw.csv").write_text("\n".join([scouts_cols, "1,0,10,0.0,0", "1,1,10,5.0,1"]))
+    (tmp_path / "2099_jogadores.csv").write_text("ID,Apelido,PosicaoID\n1,Foo,4")
+    (tmp_path / "2099_times.csv").write_text("ID,Nome\n10,TimeX")
+
+    df = readers.read_season_files(str(tmp_path), year=2099)
+    assert len(df) == 1
+    assert df["Rodada"].tolist() == [1]
+
+
 def test_read_monolithic_2017(fixtures_dir):
     df = readers.read_monolithic(str(fixtures_dir / "2017"), year=2017)
     assert len(df) == 2
     assert "atletas.atleta_id" in df.columns
     assert "Rodada" in df.columns
+
+
+def test_read_monolithic_drops_preseason_round_zero(tmp_path):
+    """2017's single-file shape also ships a `Rodada=0` preseason row."""
+    cols = "atletas.atleta_id,Rodada,G"
+    (tmp_path / "2099_scouts_raw.csv").write_text("\n".join([cols, "1,0,0", "1,1,2"]))
+    df = readers.read_monolithic(str(tmp_path), year=2099)
+    assert len(df) == 1
+    assert df["Rodada"].tolist() == [1]
 
 
 def test_read_round_files_2018_concats_all_rounds(fixtures_dir):

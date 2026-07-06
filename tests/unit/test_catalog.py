@@ -30,6 +30,26 @@ def test_all_years_have_existing_raw_dir(repo_root):
 
 
 @pytest.mark.parametrize("year", EXPECTED_YEARS)
+def test_each_year_raw_dir_has_files_the_reader_can_use(repo_root, year):
+    """An empty (but existing) `raw_dir` passes `test_all_years_have_existing_raw_dir`
+    above, yet every reader (`read_round_files`, `read_mercado_json`, ...)
+    silently returns an empty DataFrame for it (see `readers.py`), which
+    only surfaces much later via the `slow` smoke test. Catch it here,
+    cheaply, per year."""
+    cfg = catalog.YEAR_REGISTRY[year]
+    raw_dir = repo_root / cfg.raw_dir
+    reader_name = cfg.reader.__name__
+    expected_glob = {
+        "read_season_files": f"{year}_scouts_raw.csv",
+        "read_monolithic": f"{year}_scouts_raw.csv",
+        "read_round_files": "rodada-*.csv",
+        "read_mercado_json": "Mercado_*.txt",
+    }[reader_name]
+    matches = list(raw_dir.glob(expected_glob))
+    assert matches, f"{year}: raw_dir {raw_dir} has no files matching {expected_glob!r} for {reader_name}"
+
+
+@pytest.mark.parametrize("year", EXPECTED_YEARS)
 def test_each_year_has_callable_reader(year):
     cfg = catalog.YEAR_REGISTRY[year]
     assert callable(cfg.reader)

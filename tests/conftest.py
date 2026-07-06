@@ -27,3 +27,21 @@ def empty_player_df() -> pd.DataFrame:
     from cartola.aggregation.schema import CANONICAL_COLUMNS
 
     return pd.DataFrame(columns=CANONICAL_COLUMNS)
+
+
+@pytest.fixture(scope="session")
+def aggregated_df(tmp_path_factory) -> pd.DataFrame:
+    """Runs the full pipeline against real raw data exactly once per test
+    session, so every ``slow`` data-quality test that needs the real
+    aggregated DataFrame shares a single ~10s pipeline run instead of
+    re-running it per test module.
+
+    Redirects the driver's outputs to a tmp dir so a full test run never
+    clobbers the real ``data/03_primary`` / ``data/04_aggregated`` on disk.
+    """
+    from cartola.aggregation import driver
+
+    out_dir = tmp_path_factory.mktemp("smoke")
+    driver.PRIMARY_DIR = out_dir / "03_primary"
+    driver.AGGREGATED_DIR = out_dir / "04_aggregated"
+    return driver.run(years=None)

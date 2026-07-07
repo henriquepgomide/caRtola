@@ -34,6 +34,46 @@ latin-1 and re-encoded as UTF-8. A naive marker like just ``\\xc3\\x83`` trigger
 false positives on legitimate accented words such as ``São`` or ``ração``.
 """
 
+_MOJIBAKE_RUN_RE = re.compile(r"[\x80-\xff]{2,}")
+"""Matches a run of 2+ consecutive Latin-1-supplement characters.
+
+A genuinely double-encoded run (e.g. ``Ã£`` for ``ã``, or ``Ã³`` for ``ó``)
+always decodes into 2+ adjacent high-byte characters once read as UTF-8. A
+single legitimately-encoded accented character (e.g. the lone ``ã`` in
+``Marcão``) never matches this pattern — it is bordered by plain ASCII —
+so it is left untouched. This lets :func:`_repair_mojibake_runs` fix a
+corrupted cell without also breaking a legitimately-accented cell that
+happens to share the same file (observed in ``2014_jogadores.csv``, where
+a genuinely double-encoded ``Jacó`` sits next to a correctly-encoded
+``Marcão``; a whole-file repair attempt fails on the latter and silently
+leaves the former uncorrected).
+"""
+
+
+def _repair_mojibake_runs(text: str) -> str:
+    """Repair double-encoded runs in ``text`` without touching the rest.
+
+    Each matched run is repaired independently via
+    ``encode("latin-1") -> decode("utf-8")``; a run that fails this
+    round-trip (i.e. it was not actually mojibake) is left as-is instead
+    of aborting the repair for the whole file.
+
+    Args:
+        text: Full file contents, already decoded as UTF-8.
+
+    Returns:
+        ``text`` with any genuinely double-encoded runs repaired in place.
+    """
+
+    def _try_repair(match: re.Match[str]) -> str:
+        run = match.group(0)
+        try:
+            return run.encode("latin-1").decode("utf-8")
+        except (UnicodeDecodeError, UnicodeEncodeError):
+            return run
+
+    return _MOJIBAKE_RUN_RE.sub(_try_repair, text)
+
 
 def _read_csv_robust(path: Path) -> pd.DataFrame:
     """Read a Cartola CSV, repairing common encoding pitfalls.
@@ -45,8 +85,10 @@ def _read_csv_robust(path: Path) -> pd.DataFrame:
     2. Double-encoded UTF-8 (notably 2023's ``rodada-N.csv``) → reads as
        valid UTF-8 but contains mojibake like ``SÃ£o Paulo`` instead of
        ``São Paulo``. Detected via the ``Ã Â`` 3-byte signature in the file
-       (sampling several KB to handle long single-line headers). Repaired
-       by ``decode utf-8 → encode latin-1 → decode utf-8``.
+       (sampling several KB to handle long single-line headers), then
+       repaired run-by-run via :func:`_repair_mojibake_runs` so a
+       legitimately-encoded accented cell elsewhere in the same file is
+       never corrupted by the repair.
 
     Args:
         path: Path to the CSV file.
@@ -61,10 +103,11 @@ def _read_csv_robust(path: Path) -> pd.DataFrame:
 
     if _MOJIBAKE_SIGNATURE in sample:
         try:
-            text = path.read_bytes().decode("utf-8").encode("latin-1").decode("utf-8")
-            return pd.read_csv(io.StringIO(text))
-        except (UnicodeDecodeError, UnicodeEncodeError):
+            text = path.read_bytes().decode("utf-8")
+        except UnicodeDecodeError:
             logger.warning("Mojibake repair failed for %s; reading as-is", path)
+        else:
+            return pd.read_csv(io.StringIO(_repair_mojibake_runs(text)))
 
     try:
         return pd.read_csv(path, encoding="utf-8")

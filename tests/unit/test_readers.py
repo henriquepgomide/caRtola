@@ -139,6 +139,35 @@ def test_read_csv_robust_repairs_double_encoded_utf8(tmp_path):
     assert df["nome"].iloc[0] == "São Paulo"
 
 
+def test_read_csv_robust_repairs_mojibake_without_corrupting_legitimate_accents(tmp_path):
+    """Regression for the real 2014 raw file where a genuinely double-encoded
+    cell (``Jacó`` → ``JacÃ³``) sits next to a correctly-encoded accented
+    cell (``Marcão``) in the same file. A whole-file repair attempt breaks
+    on the legitimate ``ã`` and silently leaves the mojibake cell
+    uncorrected (see ``_repair_mojibake_runs``); the per-run repair must
+    fix the former while leaving the latter untouched."""
+    csv = tmp_path / "mixed.csv"
+    mojibake_jaco = "Jacó".encode().decode("latin-1").encode("utf-8")
+    content = b"nome\n" + mojibake_jaco + b"\n" + "Marcão".encode() + b"\n"
+    csv.write_bytes(content)
+    df = readers._read_csv_robust(csv)
+    assert df["nome"].tolist() == ["Jacó", "Marcão"]
+
+
+def test_read_csv_robust_leaves_unrepairable_multi_char_run_untouched(tmp_path):
+    """A run of 2+ adjacent high-byte characters that does NOT round-trip as
+    mojibake (e.g. two legitimately-encoded accented letters back to back)
+    must be left exactly as read, not raise, and not corrupt the run."""
+    csv = tmp_path / "mixed_multi.csv"
+    # Trigger the mojibake-repair branch via a genuine mojibake elsewhere in
+    # the file, then include an adjacent-accents run that fails the repair.
+    mojibake_jaco = "Jacó".encode().decode("latin-1").encode("utf-8")
+    content = b"nome\n" + mojibake_jaco + b"\n" + "áé".encode() + b"\n"
+    csv.write_bytes(content)
+    df = readers._read_csv_robust(csv)
+    assert df["nome"].tolist() == ["Jacó", "áé"]
+
+
 def test_read_csv_robust_unrepairable_mojibake_falls_through(tmp_path, caplog, mocker):
     """If the repair step itself errors, log a warning and read the file as-is."""
     csv = tmp_path / "x.csv"

@@ -15,14 +15,9 @@ clean:
 	@rm -f MANIFEST
 	@rm -f .coverage.*
 
-black:
-	@black $(FOLDER_PROJECT) --config pyproject.toml $(args)
 
-isort:
-	@isort $(FOLDER_PROJECT) $(args)
-
-flake8:
-	@flake8 $(FOLDER_PROJECT)
+lint: ## lint files with ruff
+	@poetry run ruff check --fix
 
 mypy:
 	@mypy --ignore-missing-imports --exclude download_data.py$$ --exclude __main__.py$$ --strict src/cartola
@@ -30,11 +25,29 @@ mypy:
 pre-commit:
 	@pre-commit run --all-files
 
-docker-build:
-	@kedro docker build --image cartola
+profile:
+	@ydata_profiling -m -e $(args) report.html
 
-docker-run:	
-	@kedro docker run --image cartola
+IMAGE ?= cartola
+TAG ?= latest
+
+docker-build:
+	@docker build -t $(IMAGE):$(TAG) .
+
+docker-run:
+	@docker run --rm \
+		-v $(PWD)/conf:/app/conf \
+		-v $(PWD)/data:/app/data \
+		-v $(PWD)/logs:/app/logs \
+		$(IMAGE):$(TAG)
+
+docker-shell:
+	@docker run --rm -it \
+		-v $(PWD)/conf:/app/conf \
+		-v $(PWD)/data:/app/data \
+		-v $(PWD)/logs:/app/logs \
+		--entrypoint /bin/bash \
+		$(IMAGE):$(TAG)
 
 docker:
 	$(MAKE) docker-build

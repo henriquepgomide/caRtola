@@ -1,27 +1,50 @@
-ARG BASE_IMAGE=python:3.10-buster
-FROM $BASE_IMAGE
+ARG PYTHON_VERSION=3.12
+ARG DEBIAN_RELEASE=bookworm
 
-# add kedro user
+# ---------- builder ----------
+FROM ghcr.io/astral-sh/uv:python${PYTHON_VERSION}-${DEBIAN_RELEASE}-slim AS builder
+
+ENV UV_COMPILE_BYTECODE=1 \
+    UV_LINK_MODE=copy \
+    UV_PYTHON_DOWNLOADS=never \
+    UV_PROJECT_ENVIRONMENT=/app/.venv
+
+WORKDIR /app
+
+# Install dependencies first (cacheable layer keyed on lockfile + manifest).
+COPY pyproject.toml uv.lock ./
+RUN --mount=type=cache,target=/root/.cache/uv \
+    uv sync --frozen --no-install-project --no-dev
+
+# Install the project itself.
+COPY src ./src
+COPY conf ./conf
+RUN --mount=type=cache,target=/root/.cache/uv \
+    uv sync --frozen --no-dev
+
+# ---------- runtime ----------
+FROM python:${PYTHON_VERSION}-slim-${DEBIAN_RELEASE} AS runtime
+
 ARG KEDRO_UID=999
 ARG KEDRO_GID=0
+
+ENV PATH=/app/.venv/bin:$PATH \
+    PYTHONUNBUFFERED=1 \
+    PYTHONDONTWRITEBYTECODE=1
+
 RUN groupadd -f -g ${KEDRO_GID} kedro_group && \
-    useradd -d /home/kedro -s /bin/bash -g ${KEDRO_GID} -u ${KEDRO_UID} kedro
+    useradd -d /home/kedro -s /bin/bash -g ${KEDRO_GID} -u ${KEDRO_UID} kedro && \
+    mkdir -p /app && chown -R kedro:${KEDRO_GID} /app
 
-# copy the whole project except what is in .dockerignore
-WORKDIR /home/kedro
-COPY . .
-RUN chown -R kedro:${KEDRO_GID} /home/kedro
+WORKDIR /app
+
+COPY --from=builder --chown=kedro:${KEDRO_GID} /app/.venv /app/.venv
+COPY --from=builder --chown=kedro:${KEDRO_GID} /app/src /app/src
+COPY --from=builder --chown=kedro:${KEDRO_GID} /app/conf /app/conf
+
 USER kedro
-RUN chmod -R a+w /home/kedro
 
-EXPOSE 8888
+# kedro-viz default port (only used when running `kedro viz`).
+EXPOSE 4141
 
-# install poetry
-RUN curl -sSL https://install.python-poetry.org | python3 -
-ENV PATH=/home/kedro/.local/bin:$PATH
-
-RUN pip install -U pip
-RUN poetry export -f requirements.txt --without-hashes > requirements_from_poetry.txt
-RUN pip install -r requirements_from_poetry.txt
-
-CMD ["poetry", "run", "kedro", "run"]
+CMD ["kedro", "run"]

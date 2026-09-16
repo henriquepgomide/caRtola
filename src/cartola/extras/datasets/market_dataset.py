@@ -28,7 +28,8 @@ class MarketDataSet(AbstractDataSet[pd.DataFrame, pd.DataFrame]):
             Data from the json file as a pandas DataFrame.
         """
         load_path = get_filepath_str(self._filepath, self._protocol)
-        dict_json = json.load(open(load_path, "r", encoding="latin-1"))
+        with self._fs.open(load_path, "r", encoding="latin-1") as file:
+            dict_json = json.load(file)
         df = pd.DataFrame(dict_json["atletas"])
         return df.join(pd.DataFrame(df.pop("scout").values.tolist()))
 

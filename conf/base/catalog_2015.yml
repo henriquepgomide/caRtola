@@ -1,36 +1,36 @@
 2015.merge.scouts:
-  type: pandas.CSVDataSet
+  type: pandas.CSVDataset
   filepath: data/01_raw/2015/2015_scouts_raw.csv
   save_args:
     index: False
 
 
 2015.merge.players:
-  type: pandas.CSVDataSet
+  type: pandas.CSVDataset
   filepath: data/01_raw/2015/2015_jogadores.csv
   save_args:
     index: False
 
 
 2015.merge.teams:
-  type: pandas.CSVDataSet
+  type: pandas.CSVDataset
   filepath: data/01_raw/2015/2015_times.csv
   save_args:
     index: False
 
 
-2015.preprocessing.raw:
-  type: PartitionedDataSet
+2015.merge.concat:
+  type: partitions.PartitionedDataset
   path: data/02_intermediate
   dataset:
-    type: pandas.CSVDataSet
+    type: pandas.CSVDataset
     save_args:
       index: False
   filename_suffix: _2015.csv
 
 
 2015.preprocessing.preprocessed:
-  type: pandas.CSVDataSet
+  type: pandas.CSVDataset
   filepath: data/03_primary/preprocessed_2015.csv
   save_args:
     index: False

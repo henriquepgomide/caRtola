@@ -1,6 +1,5 @@
-"""caRtola file for ensuring the package is executable
-as `cartola` and `python -m cartola`
-"""
+"""Entry point for executing the package as `cartola` or `python -m cartola`."""
+
 import importlib
 from pathlib import Path
 
@@ -37,6 +36,7 @@ def _find_run_command_in_plugins(plugins):
 
 
 def main(*args, **kwargs):
+    """Configure the Kedro project and dispatch the resolved run command."""
     package_name = Path(__file__).parent.name
     configure_project(package_name)
     run = _find_run_command(package_name)

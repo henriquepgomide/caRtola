@@ -4,6 +4,16 @@
 # Documentation for this file format can be found in "Parameters"
 # Link: https://kedro.readthedocs.io/en/0.18.2/kedro_project_setup/configuration.html#parameters
 
+2014.preprocessing.year: 2014
+
+2014.preprocessing.drop_columns:
+  - Mando
+  - Nota
+  - Partida
+  - Substituido
+  - TempoJogado
+  - Titular
+
 2014.preprocessing.scouts:
   # ataque
   G: 8.0    # Gol marcado
@@ -14,7 +24,7 @@
   FS: 0.5   # Falta Sofrida
   PP: -3.5  # Pênalti Perdido
   I: -0.5   # Impedimento
-  PE: -0.3 # Passe Errado
+  PI: -0.3  # Passe Incompleto = Passe Errado (PE)
   # defesa
   SG: 5.0   # jogo sem Sofrer Gols (somente defensores)
   CV: -5.0  # Cartão Vermelho
@@ -23,8 +33,8 @@
   FC: -0.5  # Falta Cometida
   GC: -6.0  # Gol Contra
   DP: 7.0   # Defesa de Pênalti
-  RB: 1.7 # Roubada de Bola
-  DD: 3.0   # Defesa Difícil
+  DS: 1.7   # DeSarme = Roubada de Bola (RB)
+  DE: 3.0   # DEfesa = Defesa Difícil (DD) *
 
 # * exclusivo de goleiro
 # ** não válido para goleiros

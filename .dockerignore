@@ -1,9 +1,48 @@
 ##########################
-# Kedro PROJECT
+# Build / VCS / IDE
+.git
+.github
+.vscode
+.idea
+.venv
+.cache
+.ruff_cache
+.pytest_cache
+.mypy_cache
+.coverage
+.coverage.*
+*.log
+*.egg-info
+build/
+dist/
+__pycache__/
+**/__pycache__
+**/*.py[cod]
 
-# ignore Dockerfile and .dockerignore
+##########################
+# Reports / artifacts
+report.xml
+coverage.xml
+report.html
+stats.json
+htmlcov/
+info.log
+
+##########################
+# Docs / notebooks / non-Python sources
+docs
+notebooks
+src/R
+
+##########################
+# Tests are not needed inside the runtime image
+tests
+
+##########################
+# Kedro / project
 Dockerfile
 .dockerignore
+.dive-ci
 
 # ignore potentially sensitive credentials files
 conf/**/*credentials*
@@ -15,7 +54,6 @@ conf/local
 # ignore everything in the following folders
 data
 logs
-notebooks
 references
 results
 
